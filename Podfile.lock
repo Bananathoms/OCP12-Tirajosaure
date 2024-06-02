@@ -1,0 +1,22 @@
+PODS:
+  - Mixpanel-swift (4.2.7):
+    - Mixpanel-swift/Complete (= 4.2.7)
+  - Mixpanel-swift/Complete (4.2.7)
+  - ParseSwift (4.14.2)
+
+DEPENDENCIES:
+  - Mixpanel-swift
+  - ParseSwift
+
+SPEC REPOS:
+  trunk:
+    - Mixpanel-swift
+    - ParseSwift
+
+SPEC CHECKSUMS:
+  Mixpanel-swift: 7f5b749dbda2708033d67ff3d7a91710468d4a38
+  ParseSwift: 5df70e3d5aed3351fb3188ddf0a2812b7983a379
+
+PODFILE CHECKSUM: 07c48fe1327af7bd56a6b94722dc7215b4fceef9
+
+COCOAPODS: 1.15.2

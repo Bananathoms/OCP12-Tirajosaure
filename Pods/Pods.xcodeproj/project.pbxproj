@@ -1,0 +1,1725 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0082B448B13795DAF167267B9BCEA617 /* ParseAnonymous+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4E8585AB6D091BC7E8229D1105273 /* ParseAnonymous+async.swift */; };
+		02266A18367C4EE28F287AA4DF3141D7 /* Pointer+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248D608A5E48750AB4991625F7710ACA /* Pointer+combine.swift */; };
+		028F47A0042B430AF07EE2F8220D3211 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6710B59A07178A855BC619964288A /* Query.swift */; };
+		02DC6B58B0FD15F0128CBFF8D9C17FB1 /* ParseCloudable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4CF42DE27B7A7F7BFC3A9ED9DB534 /* ParseCloudable.swift */; };
+		02F4C9BB6102D001A46C9373F397EB59 /* ParseSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279C051F8B7C82A70078EE8C5467417 /* ParseSchema.swift */; };
+		03CDFDE91FBB5A6F0046E36B2792B400 /* ParseAuthentication+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4D9212E50E8B1177BDFB5272AFE07 /* ParseAuthentication+combine.swift */; };
+		04543C970EFC0E7A8E74155B62DAAC54 /* ParseFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECA700159C5F503F418E0634E3584D /* ParseFile.swift */; };
+		04A79888C01C97989200FB96426E31F0 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333713E6FAD93EB840EC5B027F8C9DF7 /* ParseError.swift */; };
+		04C3B3DAE5CD13B2DD39595ED842DCD6 /* Flush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CB214D2F3C92D86A78E69DA95936D9 /* Flush.swift */; };
+		064161D5568D82C0611F48854A873227 /* ParseKeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDE8C3C8776CE116DB34DBA2C68627 /* ParseKeyValueStore.swift */; };
+		073478B36664B844684D58CE95E7A1CE /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B580C2F594C007B7DFE61487CE91B /* Subscription.swift */; };
+		0773E7E40FB9C4F957788C09EDCF334B /* ParseConfig+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C2E44CEC61A7921837A60E452B573F /* ParseConfig+combine.swift */; };
+		07EC873DE83B456AAD6C72DF5FEC016C /* ParseFileTransferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765790238822234DC51BC4662B55B4A /* ParseFileTransferable.swift */; };
+		0813AFA313465C1AD38C617E478064D7 /* FlushRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF09DA33B278757221AC774D720C7B8 /* FlushRequest.swift */; };
+		09C439254A9DFD47CA81B8B2EDA31750 /* ParseHookable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22A483C2BF8920732BB91195932CF0F /* ParseHookable.swift */; };
+		0A670DD1C67ADA5D6B3E6ACBBB2367CE /* ParseConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C690F75F5BDD41C04ADF25510694B433 /* ParseConfiguration.swift */; };
+		0CD44BFBBBDED5EF574219D586771054 /* ParseObject+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9737B382C803194D99891F4BE89E4015 /* ParseObject+combine.swift */; };
+		0E3E30285CA42225F6157D952ECF3862 /* ParseFile+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BB7CA6C4F24B40CEEF903D4AAA4FE2 /* ParseFile+combine.swift */; };
+		0EB4A7E8A10F20FCFE6A9E40D8A79DD2 /* ParseRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C15E6DFD64F3A750B1671FEC97F924 /* ParseRelation.swift */; };
+		10917BD66E990784AC0CA281A21993AE /* Fileable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DF9847D52933916A34E92E2C93DB73 /* Fileable.swift */; };
+		10B2B5A1974F9799118C56AC74904A7B /* ParseEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148A75299E767652DA4A1C1D3D87E10 /* ParseEncoder.swift */; };
+		111704B0C130BBD04D38D99310748E56 /* ParsePushStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A387B4BB4165179CBBE39C64FC20A6E9 /* ParsePushStatus.swift */; };
+		11E892C08636AAB0228AE5AFBA6510FB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D59702523412BC81AF24C7E9A16F179 /* CoreTelephony.framework */; };
+		13616D9C7E06C27502DE3FB777E645E7 /* ParseInstallation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FED568A35D1908F0E2C37A62589E5 /* ParseInstallation.swift */; };
+		1403C78D563396A46CF777BC658B239A /* ParseLinkedIn+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA1089AEBEDF70F8D07E226F317AEF5 /* ParseLinkedIn+async.swift */; };
+		14D4C7B440C30A561B4E261E487D3F99 /* Pods-Tirajosaure-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 421F5B580A9FE010150308867A0DE0F2 /* Pods-Tirajosaure-dummy.m */; };
+		1796CDF1104837C3767514957D1ECB06 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861081DA40763405FAA2908346573CFA /* Fetchable.swift */; };
+		182F5A08D79ADABB876CB3479EF7685A /* ParseApple+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D2AE72B6F5456B4987EC5BEAC7DD52 /* ParseApple+async.swift */; };
+		18AB9FE70F89EEB0A2078BBA1D237F8B /* ParseGitHub+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C199D0D44F08C5007E3B644A686DF97 /* ParseGitHub+async.swift */; };
+		1B5EA96B6CA1C60749A6BD0EAC41792B /* ParseCloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D93B72B28B71696D11EB2DFF9224F /* ParseCloudUser.swift */; };
+		1BDFE66A2552DE220F6A1BCE3DCEC085 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80D9E2306BCB9561EDA1DFC3703A002 /* Data.swift */; };
+		1CBBDE8ABFA36EAB32037DF426186CD4 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A2DA299D8274D9E9553CBC3782711 /* AnyEncodable.swift */; };
+		1D0748E0394B9393C9FDD2EEDB5DAE7D /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6B1A55BB9B83E17F4F76044199195A /* Dictionary.swift */; };
+		211EDD2D560BBCE21B0AD8D1A748E55D /* Mixpanel-swift-Mixpanel in Resources */ = {isa = PBXBuildFile; fileRef = 6CEE96A6A3A3FC3CC51830131C0A4660 /* Mixpanel-swift-Mixpanel */; };
+		21820A2A9D246438C82FAFF2A2B9C91B /* ParseGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D66A905F18869EFEF3453D7961A3C5 /* ParseGoogle.swift */; };
+		21FD1D7D9C120978136A804A50D56D19 /* ParsePushFirebasePayloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4594FD71B93BD73D108A6A69253BBDE /* ParsePushFirebasePayloadable.swift */; };
+		221A28FCCE87D6D4E519412997676E30 /* ParseApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C006F03FC19815E5956A3FCA6EA6142 /* ParseApple.swift */; };
+		22ECB93DAC3CF2386E844AB910C5142C /* API+Command+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A49F3A311607AF6453F84B94AE4AF /* API+Command+async.swift */; };
+		2380FF886083D19A18E2C640B5FC6651 /* ParseHookFunctionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABDB0CE8BD1F53B5AB854481FC1472F /* ParseHookFunctionable.swift */; };
+		2726724A1C3E1D841EB49FB874FEC174 /* ParseCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE2DB30A676DC83C046636BECA45BB /* ParseCoding.swift */; };
+		2855E5D90090E02B53B43A0A318305F0 /* ParseAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552881F384A15AFA6CD9538D16E8FCC4 /* ParseAnalytics.swift */; };
+		29AC3A58E65CC2B68C7C41EE4AA058C0 /* ParseInstagram+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1E419EB261DB21CEF0711688D9E4D7 /* ParseInstagram+async.swift */; };
+		2A3FA6260C682B88F3959F01D2CAF0BB /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BAA9254C57DAB5E2C5EA605970AA8F /* ParseConstants.swift */; };
+		2F123FDFABED3AD5EF08F21ED058578A /* Increment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F111EAFD89B1DD9576D4B9F80AB45E /* Increment.swift */; };
+		32D9BA1F2948B7DFAD98F9F87B464B68 /* ParseLiveQueryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6115FCD652F5FC14EEC374490600B651 /* ParseLiveQueryDelegate.swift */; };
+		33829747476DA65E58B705E806FCA50A /* ParseURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC014E4741EC5CBE1A296B9A8E89D3 /* ParseURLSessionDelegate.swift */; };
+		35A9AFE7E634A5BE98FDAE639C166E66 /* QueryConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC399345EA5FD00BC7BCD367428A1B76 /* QueryConstraint.swift */; };
+		35F014796761DCFE9655121BB74768F0 /* SessionMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67E93B68B26882BD98E9A4D337CEF56 /* SessionMetadata.swift */; };
+		36EFA6DADEEBC032429AA2B66D5DB6D7 /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F51D8F1C7EEC32248234CA82A88290 /* ParseOperation.swift */; };
+		3702331C92C23666C303D894D4FF254D /* CloudObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C0517747318F95FBF8D50CCC4FC89 /* CloudObservable.swift */; };
+		38349B7CE18F1747B7256E6AB28031BD /* ParseSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7411C266905F10E26D1DCE66EFA56850 /* ParseSwift-dummy.m */; };
+		385195E53932DC242C532EA07B4FABB7 /* ParseGoogle+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F74D0066BD2323C7F3C1F4ADD2B9A /* ParseGoogle+combine.swift */; };
+		3AE8D9408569C6B839365E3939A6E108 /* ParseVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D642AA1FB3730DB5BF0217434C6F717C /* ParseVersion.swift */; };
+		3B9CDA96A893E96C95165698CDF93B8A /* ParseInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD983D64247ACE87F2285A53D4A6C55A /* ParseInstagram.swift */; };
+		3CB89B22FA2F4DF4CA260D1D1CE97ACC /* ParseInstallation+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658AD0EC04F83B604F5A7BAA8740E893 /* ParseInstallation+async.swift */; };
+		3DF4D94292A38BD3F852B28BA57DE0F3 /* ParseObject+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F69C811911C17E1AA69F554C40CF9 /* ParseObject+async.swift */; };
+		3F868F11DB04CFD7B37AA7353DB412FD /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A496E1073C370E05E64197F02E8E77 /* Date.swift */; };
+		3FF66706FD71CFC965B0A64BA2B5BCDD /* ParseInstagram+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A87610592264B01BD679843282D4F0C /* ParseInstagram+combine.swift */; };
+		42D32000DEBA975712B1709F06505B73 /* ParseTypeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F01AC150B739F147639D5EFA98E184 /* ParseTypeable.swift */; };
+		439A9835332D02C16C292A8BDB082614 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = BAA484EC40C62FE5FD2A005FDB9F1E51 /* PrivacyInfo.xcprivacy */; };
+		43D9C980EBFF6F281E51E24B271423F3 /* MixpanelPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C2CDBE378BEEB5140A970939F0B942 /* MixpanelPersistence.swift */; };
+		44441EC5904205B9363F78420A13FFFF /* ParseHookFunctionable+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F79497C4299BD668D1921351A6425 /* ParseHookFunctionable+combine.swift */; };
+		448014731E2AADE876AFBD53398B003D /* ParseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BD5917AADFA24516177FD9712F3F6 /* ParseStorage.swift */; };
+		463B74CD1C146E32C55D264555E5A6B7 /* ParseAnalytics+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3D493B4FDF6A9722C26E77C1A6D3C /* ParseAnalytics+async.swift */; };
+		4665C121414FCBE3F636DA11DAE54D2F /* ParseKeychainAccessGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D14C5C69AA8078F0177FA8DCF73E296 /* ParseKeychainAccessGroup.swift */; };
+		4720A0ED509BD6C3EFF57CA06DA64A54 /* ParseTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41EE1293801930E37FFC5953AB6B83 /* ParseTwitter.swift */; };
+		47272712952FEA77ED094F99624D2F66 /* ParseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B557C85B75863FDF9FFF015395320BD /* ParseSession.swift */; };
+		478490B7241EC1BE2299D643418B811A /* Pointer+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4164F4ED4C4590279C96F6F249A89FEF /* Pointer+async.swift */; };
+		47B40EE237DB3B97745CD328994221B4 /* FileLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343CA791CFE86CCFCA295AB57A116AC /* FileLogging.swift */; };
+		48A5B3CD37A2DCD165D974AF301EE1DC /* Objectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F4C56DCC9F3F2FEAAAAC691F2241F /* Objectable.swift */; };
+		495870CE18A8FF08CDD2C4E41FC48E9B /* Remove.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B619DEA42547A96AF6355221F8DB9 /* Remove.swift */; };
+		49772302865D4CD69E2811C5498A71D1 /* BaseParseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C5DC769CD53E88EEFD3154B878D997 /* BaseParseUser.swift */; };
+		49A6F926D3C4AE28B3E3950D2A4B0797 /* Queryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577531D48402B8C1005063B0CEB69E3 /* Queryable.swift */; };
+		4BC4280DEF20FB41BC85B0264F707D6A /* ParseFieldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F00015295C237FC34E1EFA9E4DC979 /* ParseFieldOptions.swift */; };
+		4C3B4683DFEA721DBADE45B324D4A349 /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C739F4D34F858E251EC91CE34422455 /* Parse.swift */; };
+		4DF3B8B74122D795B41149307C429102 /* QueryWhere.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F9746D77ACFC8260C6F10FFB55A1E8 /* QueryWhere.swift */; };
+		4E0FC2C18750605FEB67DBF57F66C0B4 /* ParseOperation+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596B177902E5C392BCA72BCCEC6CEC99 /* ParseOperation+async.swift */; };
+		4F17AA1B9165871C8E62CBB6AA942DC0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C926D83113EF44BFD485F016829A97 /* Network.swift */; };
+		4F7B500B825AF866908A1466C0DAF88E /* ParseGoogle+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A82151836AC5500478ED66DF6C4674 /* ParseGoogle+async.swift */; };
+		4FE5970056D93CF3CD84CE9A16A9C82D /* BaseParseInstallation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8228A3492E2B2A8F054A5BC593F357F5 /* BaseParseInstallation.swift */; };
+		51AEAEB480772E0D617F113B2579EF31 /* BaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B17844C3E69CFCA04BC5EE50400978 /* BaseConfig.swift */; };
+		532D8CBEECB8B9B1272A2EB51D21C644 /* ParseFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F46589799570ACED4C4163F08EB524 /* ParseFacebook.swift */; };
+		53EF23DEB421BF9836BB0A7689420092 /* MixpanelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F15F1BB5F4D871ECCD42421FF603F61 /* MixpanelType.swift */; };
+		5476058260E7144B5BFAAD7C82961B26 /* ParseHealth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E3EE03FAA3C390F67A4D56A5DBA89 /* ParseHealth.swift */; };
+		57AFECAD8F6503DC84678C4053118758 /* MPDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86496EF4CC5FED60710829CE110309C5 /* MPDB.swift */; };
+		58388303E01E7E497377106C2A3DC6D3 /* ParseLDAP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22889F261587530E92736B46B1B96A5 /* ParseLDAP.swift */; };
+		58D830921D6C7EFEB3AC05AA3E1DD488 /* QuerySubscribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCBA83FBFEE611497A0E00BDC8D693 /* QuerySubscribable.swift */; };
+		58F1E13F50BA512EB83AF1BF8177D0ED /* ParseLiveQueryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F0DD1BC9B40921550D3E74E03E2FF /* ParseLiveQueryConstants.swift */; };
+		592D1CD28F74700480DCC59EE173D704 /* ParseHookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739E5A8EC8C8AC5F2FE5BE1F3BEF4CE8 /* ParseHookResponse.swift */; };
+		59786B441D54521FC447981CE569C09E /* ParseFile+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE590253F9713FC2C9B9F433EEB5CEEB /* ParseFile+async.swift */; };
+		5994BD8AFA8E33E45254D818E7AF74FF /* AutomaticEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D2B6D0682BA57A3A1CDCE87EB50D4 /* AutomaticEvents.swift */; };
+		5A632D4AEBE3AC84B5741389AB65FB0D /* ParseGitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5693B0E2D6B7EFFCBE8728DEEC2203 /* ParseGitHub.swift */; };
+		5A9069D4F0BC953931238066665C6ECE /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748ED4E942101E58F304908CA4949D2 /* JSONHandler.swift */; };
+		5A9BB49E2BE2DB74C0121E368D1F62B2 /* ParseFacebook+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67742D334FA4108CD9D0D17BC651C74E /* ParseFacebook+async.swift */; };
+		5C1ADB9BDE95FBCBB5E2F79BE8C3FC50 /* ParsePushApplePayloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34E7A53888D1B9F21C40FDC8C67469 /* ParsePushApplePayloadable.swift */; };
+		5F196D6CBD6918DFFD0660F751E254A5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAB68215E0DBA7080302ED0EA64B1CB /* Operation.swift */; };
+		5F532F736EAE32908E6DC2639233FE3C /* ParseSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8822572569840ED797F7BF8CD589B78 /* ParseSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F66AEEB686C4DC811C6FBB84BE38461 /* ParseAnonymous+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BB5223832DD85A1D656C976DFD739 /* ParseAnonymous+combine.swift */; };
+		5FABC8207E366A10AFFA245E9DB37078 /* ParseApple+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420E1A3160278922670F5220D7011866 /* ParseApple+combine.swift */; };
+		6110546330C43EC3D95C6E97CDD95FF4 /* ParseLinkedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428D8EAE538D1666CE2268775277434 /* ParseLinkedIn.swift */; };
+		618C6DE35E7FB1A40EA96356F5A621D2 /* ParseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD66FDB87E0416660C0E097474D1126 /* ParseObject.swift */; };
+		684F92775A415D406D75A1E457B1B80D /* ParseAuthentication+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F075745830E55DAB9236D77BE82B29B /* ParseAuthentication+async.swift */; };
+		68F2D1597E74875436A926BF86F6F04D /* ParsePushStatusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07337FA17F07718618D92B32CE3117B1 /* ParsePushStatusable.swift */; };
+		6A7B2FBA1C9CB3E29E6EABF9CA361172 /* ParseHookParametable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2799CC80149174A8146AE4A30C26F /* ParseHookParametable.swift */; };
+		6B65D22E2FDB4E67CB0B06DDF5B0A921 /* PrintLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51C452EE3E67AFC774F143C5CF0142 /* PrintLogging.swift */; };
+		6BA18E1B53F3360D2761551F3FA9C9F9 /* ParsePushPayloadApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59F9EB52F4F1423E297832DE9BE315 /* ParsePushPayloadApple.swift */; };
+		6BDA03C3CF9251191DAEABC8FDEC401A /* ParseUser+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F579AC682A590914A3E6560EBF97D /* ParseUser+combine.swift */; };
+		6DB57E3C14081B920F4113BD884F0762 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD039FFB8A4C79DCC01C168F44789555 /* Error.swift */; };
+		6FC0FC138230A3C327D1CE8ADD37E08A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CB0AC40C383F2A2A3ADD3F4850CFFC /* Track.swift */; };
+		6FC5EEA38D099E13607ECBD39CE94F40 /* ParseInstallation+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C66D129735E883FA617654FF09A4807 /* ParseInstallation+combine.swift */; };
+		7347C354B276040B1838688AC4394448 /* ParseQueryScorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD991989E9FBF7A86BD73DC6B88D3ACD /* ParseQueryScorable.swift */; };
+		73C477CD1BC5FB839265978DBB4A9603 /* ParseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8FC659FD80D3A3E9B1B1654E3FCD57 /* ParseConfig.swift */; };
+		740C0CA38CA857BEACA4C23B43596639 /* LiveQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7483DB76BB06800E8F6230C2C539D74 /* LiveQueryable.swift */; };
+		74B6EF1ECA1677CF8E389B8B44F9C031 /* Savable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD327B8ED42BCF29EBD4E7F115B7A5 /* Savable.swift */; };
+		75589E9B1C19C723AC516F9A21721CC2 /* ParseHookRequestable+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8DB61866578954DC307E2316CFDE0C /* ParseHookRequestable+async.swift */; };
+		78973E7906F735B2B69487EF2B56533C /* CloudViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDFB9F3055F171612305DF869DB4DCE /* CloudViewModel.swift */; };
+		79C5EB01192E7DDF5A6C7A0957E68A88 /* ParsePush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78105F0F1577CE05378CDC84D9CD5E7B /* ParsePush.swift */; };
+		7A89A7794E17A9E1A9195801E049BCB5 /* AnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898D0CB8B3C81C795B0F297D90EF5CF2 /* AnyDecodable.swift */; };
+		7A9CA939710003E734DE33464D077B20 /* ParseEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AB97E97D93781085C98288662D8FEB /* ParseEncodable.swift */; };
+		7B74481F60E1217F649B984E20D1F88E /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8E3191694A42868CAD4657281624C3 /* Delete.swift */; };
+		7C5BE25D0DEE77FEE0D20A0F7EADE113 /* ParseOperation+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8698F7B83DE3FC404183CC5CF68000 /* ParseOperation+combine.swift */; };
+		7F02CF2735C30FD6CD69F44C036EB7C7 /* ParsePolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADDE00121B0BFD4C268F7A60FE82BE /* ParsePolygon.swift */; };
+		8170DAA0E1F9D2D17877B73BD1E7C2DA /* AutomaticProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578500525B6764C30CA560671CA19D0 /* AutomaticProperties.swift */; };
+		83FD52E270C4D1AA84E44A454945FECC /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1FFDD854DA582E014061A0CBACA92 /* Operations.swift */; };
+		854166FD3D974F6A36266B2A34B0EB92 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75482B1490C9B4C2CD3FEBD372DFAC /* People.swift */; };
+		85781B6F435A9EA33C06B2EDA5F258B6 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2965818D45FDFE61C14B9FB3CD4783 /* URLSession.swift */; };
+		8601F3C55C3DBD9B1818CC6C6AE4B196 /* Mixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69ACFE6D1D3C00895DA30783ACCC97 /* Mixpanel.swift */; };
+		87A62979FB8C4698ACBAC0B42A7CAA1E /* LiveQuerySocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D5782E8E2870895057787CD5E319F0 /* LiveQuerySocket.swift */; };
+		8819D68DE6A5DC6B128A1A3066FE9FA8 /* ParseSpotify+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A17E32A5B866912381CE9D5D8B6A333 /* ParseSpotify+combine.swift */; };
+		89E898B56EEB7494D269C37BAF33F066 /* ParseLinkedIn+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF5D990BE32D926FD6E12DBC7F6D42 /* ParseLinkedIn+combine.swift */; };
+		8A593002E49AF0B1418DE8A5847F669E /* ParseAnonymous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E5A60C8BE977FD597317C0D97D229 /* ParseAnonymous.swift */; };
+		8BEF417A4CE78536A7E71C2ED9B13155 /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB8A338A0536E68A0935623B841400A /* SecureStorage.swift */; };
+		8E689C79C237242816F31550AF4D884D /* Deletable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47FF51EC9E5FB585FC8C935EE00ADE2 /* Deletable.swift */; };
+		8F6890939F67BC9008371B83BF0135CF /* ParseHookTriggerable+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DAD99CEE98C82179CC5B7A339F450 /* ParseHookTriggerable+async.swift */; };
+		9414F54EC8B2FAA24F310D3D87EDB994 /* ParseTwitter+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D701001C33251C58BD114CE840E0311 /* ParseTwitter+async.swift */; };
+		946CB95E9ED6107B912875E6729EE5DB /* QueryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5948B007A8DA5B92551C56B3309D1B85 /* QueryViewModel.swift */; };
+		96AF0B84A962918D705AEA5E2C8C2869 /* ParsePushAppleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2837C706F10AC82B148EF5E5AB572CD /* ParsePushAppleAlert.swift */; };
+		98585BBF142AB8891904652B81BDB09B /* ParseHookRequestable+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73DFC361B02C2102974A271FE6B2CC /* ParseHookRequestable+combine.swift */; };
+		9AF81677FF5C5FFB94527231450203CB /* ParseLDAP+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A99961D6997E365F1C475A37AB21D /* ParseLDAP+async.swift */; };
+		9B587AE7ABCBBE1013DACE885E861358 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B26DF8B51594767DAAFC170E96691A2 /* KeychainStore.swift */; };
+		9B6C789278F5DBAF4B97240FA97B693F /* ParseFacebook+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1202E020A6754A602A2A70F80CE4C /* ParseFacebook+combine.swift */; };
+		9C213381DC694FDFE7FA6DB912DCF58E /* ParseHookRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF20376AD00B242248B7A8D53282645 /* ParseHookRequestable.swift */; };
+		9C4DD92EA3E9B2E482F03007C0F7D4A3 /* ParsePushFirebaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EDABEC05E9A395F749196274BFE87C /* ParsePushFirebaseNotification.swift */; };
+		9DB6376DCCC0BB6BFCC76C18637B9EE9 /* AddRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D0832D6E1D95E532107D342A9A14A /* AddRelation.swift */; };
+		9EDBBD8F6CC33E17EA3434D7111A803E /* ParsePushPayloadAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7379FA23439A9AC96DF2DFAD497468D /* ParsePushPayloadAny.swift */; };
+		A1E37457888A1B9AEEB5582E5BE37A50 /* ParseHealth+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB484E6C8B2D9204567FF16D4C04F29F /* ParseHealth+combine.swift */; };
+		A2E28181F570414D92F3BAFEDD92DC67 /* ParseLiveQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BA0E81F1B0879679F373CDB287392 /* ParseLiveQuery.swift */; };
+		A59C4AFD172E76399BACC99CED162D12 /* NoBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B318616E59824FF11847607553E07C /* NoBody.swift */; };
+		A74167FD40061855DC38BD59ACB84B71 /* ParseACL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6738ABBD54268B35D36FE0064885D8 /* ParseACL.swift */; };
+		A7F944AEF04E7CC6B36E7DBD70F1901E /* ParseSchema+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DFDB5780054D726D806115BA152E46 /* ParseSchema+combine.swift */; };
+		AAC84532045F5249DEA8AEA8C4782817 /* Query+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DCAECEA7526F4ADCFA04747F6DA3A9 /* Query+combine.swift */; };
+		AB3D32FAD5744C48275B452C3F74916C /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81290D0DD949C18CB9A8CFA14A7D36D /* Messages.swift */; };
+		ABB5589D86B8B9C46A7F123693D64C7B /* ParseConfig+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF17B749F79132D4DBA193FDBE936B5 /* ParseConfig+async.swift */; };
+		ADEB5DA6B7E9FB60CD834E16AE3ACE05 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D29B1C6F1C3B7F5CC46858A5178594 /* Add.swift */; };
+		AFBC1650FCD87B989B0B8BCF9A3A5111 /* ParseSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB604444FBD0E08B891D5D7AFEBA32 /* ParseSpotify.swift */; };
+		AFFF7360DDF22A833DE30F08D20D1788 /* ParseRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D39DC80D7F5F319B593DD897217CD /* ParseRole.swift */; };
+		B0B8CA203EDB8DC0326154637C0E60B5 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349F00F34CB02EBA24A8693FB2CC6AF /* Encodable.swift */; };
+		B83757D00C70A8DCFA437D2D8E266CD0 /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C281BC238ADD3AC29BC24B795A82E90 /* Pointer.swift */; };
+		B9E4ED41C873B33F0CD1D38DF572C1BC /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0A976ABB673018F283D300C169388 /* Responses.swift */; };
+		BB39B70C275834A341213276B09825E1 /* Query+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0153CBBDCD5763F6817478E092DE477 /* Query+async.swift */; };
+		BC1885C8619D01676E1403BEE6DD94DD /* LiveQueryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C63DF287264DC3222AB270E7B4E7A1 /* LiveQueryConstants.swift */; };
+		BC85FF2AAD097ECD002ECB3DF0D49B3A /* API+NonParseBodyCommand+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A59675F7B77AF865708AA086520960 /* API+NonParseBodyCommand+async.swift */; };
+		BD5E737C73B7688BB53535AF79209F5D /* ParseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134567CFAAC6D61B6E057BBE7ECCA50E /* ParseAuthentication.swift */; };
+		BE1E0AD6F15C08EF2E89CD342F10A711 /* ParseBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A763E43155D8FF98D4C077C6EB8A1DAC /* ParseBytes.swift */; };
+		C0385F29BA4D6762198FF8EA8C596034 /* Mixpanel-swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A24AEB180341AF349591811E7B5D70 /* Mixpanel-swift-dummy.m */; };
+		C1D8F98E8068A9343D909B1A830EDA9D /* URLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916DBE1DFBB9306F02D0AC74BA1667F4 /* URLCache.swift */; };
+		C4C69C1A38108AD03C6BC0839FE06CF4 /* ParsePush+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1037160A225990505F028A96881521 /* ParsePush+async.swift */; };
+		C5E9CE34EE89BABFC58309DA7CE3CB85 /* ReadWriteLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C95DA5FDFB98AE62D0054835CB03D /* ReadWriteLock.swift */; };
+		C7BEF21890507126B09C9E0F160DC698 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
+		C9644ED0609893F069C2C2536801B7C5 /* ParseSchema+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2E4BBEC2470DC9EAA8C2848DC8AA2 /* ParseSchema+async.swift */; };
+		C9F9C5FC5AF01C5897698C0D76D99BE9 /* ParseLiveQuery+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D86A9489E12E88589035D6090B450F /* ParseLiveQuery+async.swift */; };
+		CAEAD606BD2655AC1151A9190E4471EA /* AddUnique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEBFA153D87853EEC4C48D2E9080B16 /* AddUnique.swift */; };
+		CAF6772B1FAA27C5FAA22D6A8B33F16B /* ParseHealth+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48979CD5F14D18007D135A7BE470E483 /* ParseHealth+async.swift */; };
+		CBA1306D1E0E5630928C333DB4C4F1D6 /* ParseFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5850B5F297BB86F12BEB7E2B146299 /* ParseFileManager.swift */; };
+		CEAF9EC283D3AC1592E0D63CEF8E9C13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
+		CF065ABF81203BFA145956FC29594D83 /* API+NonParseBodyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825BA4D529D1DC4956E45BEBB019A349 /* API+NonParseBodyCommand.swift */; };
+		D0342912C16FC358E1616046E23BA8E8 /* ParseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151694F33D7CABE120150B5448B5201 /* ParseField.swift */; };
+		D0B26D2C6954BEEAF8611ACD68E98365 /* ParseCloudable+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CE908EEE1E168C4F2F3B042B14AA8 /* ParseCloudable+async.swift */; };
+		D20CCCE96BB876768F371B08F8B73616 /* ParseCLP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7EB3E05B86606819430D66A9BC5A5 /* ParseCLP.swift */; };
+		D290BC1C121ABDD6DCEDC28E08425CFD /* ParseTwitter+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39234B99804DAC64C4DA6F1799023441 /* ParseTwitter+combine.swift */; };
+		D2F369E1018B6DD2D3AE4359D3134103 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BB506CEF1716423677CB754362B90 /* Constants.swift */; };
+		D43A00D5CB982824AFF452704497C95E /* ParseLiveQuery+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B391491342D38670692B37EB0BB38D /* ParseLiveQuery+combine.swift */; };
+		D50E9B5C63801BF96C8C963288C8E809 /* LiveQuerySocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E65221087D181EE9A4BF96F3993ABB /* LiveQuerySocketDelegate.swift */; };
+		D5374161CE0EAD964C569A64BDE294D0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76142CEF2176B1A99F716D0BA267673E /* Logger.swift */; };
+		D6889CF0C97DF577125F137C498DCD7C /* MixpanelInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D66B9A0D1EF59DC58DF9E81517E08E7 /* MixpanelInstance.swift */; };
+		D69D61BAC1844A4AB1938921AE25222F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDEC0E751F2B11317621BEB371C702E /* API.swift */; };
+		D6D76A35734EA79F941F3D86C182E7F5 /* API+BatchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96216A5C25FC40150D1EB5DA986AA40D /* API+BatchCommand.swift */; };
+		D7B66BAD8DA385FA7B3E81C14A1B2545 /* ParseGeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3AE9ECEA26D719F963CF27FC306323 /* ParseGeoPoint.swift */; };
+		D8975332426BFDA7F43D0B036FC79AC3 /* QueryObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE5F086E4CA6EFED54752E5AAC5C30A /* QueryObservable.swift */; };
+		DAA9B9F83F1966F0B37F1B9300EDC7AB /* ParseCloudable+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B51B39039FE37131C82A98AA48A6A /* ParseCloudable+combine.swift */; };
+		DB0AF4E13FCA52C76C61138F7527D614 /* Pods-Tirajosaure-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1593618592321278494D4C36CE264909 /* Pods-Tirajosaure-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB677E9DBED79269AE203133ADCF412D /* API+Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1884251BCBEA4BF9A4F709B6E139A9 /* API+Command.swift */; };
+		DDAD85AE803B116025FA0989A62C411A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502C77ED6DB4D6BAC496339FE1103137 /* Group.swift */; };
+		DEA8C5512B7D94D60C3FB210B6F179A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
+		DEC56F602B230271D196E7553BE15F96 /* ParseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E976D6DE2453EBE94E10DBEE1348B8 /* ParseUser.swift */; };
+		E0189306DA1CF464B0436CB921B6D90C /* BatchUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118B18A3A1C7184CFDBF41FE438290C /* BatchUtils.swift */; };
+		E1A9E3B2022FE75D03CF7FA1AF1F8702 /* ParsePushAppleSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8275A664B36CB1BEFE87B5BA326780F3 /* ParsePushAppleSound.swift */; };
+		E1B11163A80BAB4B4D9A688B2A3D4005 /* ParseLDAP+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ABFDDCB97D8FD228A36E1CD4040C67 /* ParseLDAP+combine.swift */; };
+		E5090F2C0AED49B2FDEA71AF911302F0 /* ParseSpotify+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19465A0B304F584355F4A48B36242FA9 /* ParseSpotify+async.swift */; };
+		E95685C7F105B32CFC565B2F5A0F0E29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5B61B6C827FD7E07F3F13115EF720A /* UIKit.framework */; };
+		E98F5D7E55B3A9EEB1F6C895F5E5A856 /* ParseHookTriggerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E179D8890C5EFF79BA5A552C35657D /* ParseHookTriggerRequest.swift */; };
+		EB88960C3B9AD94092E9AE0C8BD45825 /* Mixpanel-swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 164EE4C7695A7F6D7C9C9FDF547E0159 /* Mixpanel-swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC7DCF20BD350795802AA5B9BCEA219A /* SubscriptionCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3213A692A6AD10B0C65D41C173D5EF4 /* SubscriptionCallback.swift */; };
+		EDAE8A2F62337E34C5E886BF0F281E3F /* ParseHookTriggerable+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1797107B836B616AFC4B78362125D82 /* ParseHookTriggerable+combine.swift */; };
+		EDE4860238B07D6CDE1E013209B2C3D6 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C8BB57A9DAD80E192C1CB6CFFE5983 /* AnyCodable.swift */; };
+		F187F7EB30A0B8BDACA35E4E110C17C4 /* ParseFileDefaultTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DBB709102FA47CFE0AD685DA879BDD /* ParseFileDefaultTransfer.swift */; };
+		F1E519D250E8601D96C57C657BAB0B31 /* ParseHookFunctionable+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDC308B5BBD0461BE95F145C53A300 /* ParseHookFunctionable+async.swift */; };
+		F25F489CAE563B501D2D6EDBFB7609B0 /* ParseHookFunctionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB300D7B0BE9C4B4B20FB87C0974FFC /* ParseHookFunctionRequest.swift */; };
+		F3C2A94014AF6F321F24E65A07675EA0 /* RemoveRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897E24C214A4D1491F2EE3EF0FD32559 /* RemoveRelation.swift */; };
+		F4C379DA82C8063949C811FB63DF476E /* ParseGitHub+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E6C65498CDCFAF727F1465701F4299 /* ParseGitHub+combine.swift */; };
+		F4CE97DEC10B1F05DF45302DFE861DF1 /* ParsePushPayloadFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C82EF6D5DFD5D7C29F4E8C57F3E0FA /* ParsePushPayloadFirebase.swift */; };
+		F5D10F605EFBBFC8A52CA20042624615 /* ParseUser+async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808AD6DB7EE02D8B1D1A1CF6ECEE6CF4 /* ParseUser+async.swift */; };
+		F63B5E670143DD2EC8BD5787D4FD2872 /* ParseHookTriggerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7764A9BE14C80E6FB58C6C8679CFC2 /* ParseHookTriggerable.swift */; };
+		F7EEA0BE96C7AAAD5A54CAC50E7067A3 /* ParsePushPayloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404A2F0463BB2FE554CCD14E40768A9 /* ParsePushPayloadable.swift */; };
+		F8A23EE21D54CEFB869B8044CA3C1A61 /* ParsePush+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AE670621B90EE884E12E87AC9B6151 /* ParsePush+combine.swift */; };
+		FCD5AD80E6069BA7190FBF285DA8C49D /* ParseAnalytics+combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F78D6F039915485EE9D8E54208ED75 /* ParseAnalytics+combine.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4101B569FBDE57455EA7E7B097C7D7D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C5C7432DA0927A0B2F35F14B776C239;
+			remoteInfo = "Mixpanel-swift-Mixpanel";
+		};
+		89D621C1B7D1F90B6C2BD8B19A5115DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1886A99D3887E7B636CFCD67E199412;
+			remoteInfo = "Mixpanel-swift";
+		};
+		A2C00EE1E0A2B1BFC14B2CA46FB83FD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9956B2CEA5C1F34EC745DDAD5BA76AA;
+			remoteInfo = ParseSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00D86A9489E12E88589035D6090B450F /* ParseLiveQuery+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseLiveQuery+async.swift"; path = "Sources/ParseSwift/LiveQuery/ParseLiveQuery+async.swift"; sourceTree = "<group>"; };
+		0151694F33D7CABE120150B5448B5201 /* ParseField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseField.swift; path = Sources/ParseSwift/Types/ParseField.swift; sourceTree = "<group>"; };
+		03B405033205F2D657EA54E7F091AC7A /* Pods-Tirajosaure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tirajosaure.debug.xcconfig"; sourceTree = "<group>"; };
+		07337FA17F07718618D92B32CE3117B1 /* ParsePushStatusable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushStatusable.swift; path = Sources/ParseSwift/Objects/ParsePushStatusable.swift; sourceTree = "<group>"; };
+		0E41EE1293801930E37FFC5953AB6B83 /* ParseTwitter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseTwitter.swift; path = "Sources/ParseSwift/Authentication/3rd Party/ParseTwitter/ParseTwitter.swift"; sourceTree = "<group>"; };
+		0EB7EB3E05B86606819430D66A9BC5A5 /* ParseCLP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseCLP.swift; path = Sources/ParseSwift/Types/ParseCLP.swift; sourceTree = "<group>"; };
+		0F15F1BB5F4D871ECCD42421FF603F61 /* MixpanelType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MixpanelType.swift; path = Sources/MixpanelType.swift; sourceTree = "<group>"; };
+		0F4D39DC80D7F5F319B593DD897217CD /* ParseRole.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseRole.swift; path = Sources/ParseSwift/Objects/ParseRole.swift; sourceTree = "<group>"; };
+		134567CFAAC6D61B6E057BBE7ECCA50E /* ParseAuthentication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseAuthentication.swift; path = Sources/ParseSwift/Authentication/Protocols/ParseAuthentication.swift; sourceTree = "<group>"; };
+		146F74D0066BD2323C7F3C1F4ADD2B9A /* ParseGoogle+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseGoogle+combine.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseGoogle/ParseGoogle+combine.swift"; sourceTree = "<group>"; };
+		14A4CF42DE27B7A7F7BFC3A9ED9DB534 /* ParseCloudable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseCloudable.swift; path = Sources/ParseSwift/Protocols/ParseCloudable.swift; sourceTree = "<group>"; };
+		1593618592321278494D4C36CE264909 /* Pods-Tirajosaure-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tirajosaure-umbrella.h"; sourceTree = "<group>"; };
+		162C95DA5FDFB98AE62D0054835CB03D /* ReadWriteLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReadWriteLock.swift; path = Sources/ReadWriteLock.swift; sourceTree = "<group>"; };
+		164EE4C7695A7F6D7C9C9FDF547E0159 /* Mixpanel-swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Mixpanel-swift-umbrella.h"; sourceTree = "<group>"; };
+		188F4C56DCC9F3F2FEAAAAC691F2241F /* Objectable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Objectable.swift; path = Sources/ParseSwift/Protocols/Objectable.swift; sourceTree = "<group>"; };
+		18C2E44CEC61A7921837A60E452B573F /* ParseConfig+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseConfig+combine.swift"; path = "Sources/ParseSwift/Types/ParseConfig+combine.swift"; sourceTree = "<group>"; };
+		19465A0B304F584355F4A48B36242FA9 /* ParseSpotify+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseSpotify+async.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseSpotify/ParseSpotify+async.swift"; sourceTree = "<group>"; };
+		1A8FED568A35D1908F0E2C37A62589E5 /* ParseInstallation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseInstallation.swift; path = Sources/ParseSwift/Objects/ParseInstallation.swift; sourceTree = "<group>"; };
+		1ABDB0CE8BD1F53B5AB854481FC1472F /* ParseHookFunctionable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseHookFunctionable.swift; path = Sources/ParseSwift/Protocols/ParseHookFunctionable.swift; sourceTree = "<group>"; };
+		1E1E419EB261DB21CEF0711688D9E4D7 /* ParseInstagram+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseInstagram+async.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseInstagram/ParseInstagram+async.swift"; sourceTree = "<group>"; };
+		227E5A60C8BE977FD597317C0D97D229 /* ParseAnonymous.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseAnonymous.swift; path = Sources/ParseSwift/Authentication/Internal/ParseAnonymous.swift; sourceTree = "<group>"; };
+		228F69C811911C17E1AA69F554C40CF9 /* ParseObject+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseObject+async.swift"; path = "Sources/ParseSwift/Objects/ParseObject+async.swift"; sourceTree = "<group>"; };
+		248D608A5E48750AB4991625F7710ACA /* Pointer+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Pointer+combine.swift"; path = "Sources/ParseSwift/Types/Pointer+combine.swift"; sourceTree = "<group>"; };
+		25A59675F7B77AF865708AA086520960 /* API+NonParseBodyCommand+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "API+NonParseBodyCommand+async.swift"; path = "Sources/ParseSwift/API/API+NonParseBodyCommand+async.swift"; sourceTree = "<group>"; };
+		2B26DF8B51594767DAAFC170E96691A2 /* KeychainStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeychainStore.swift; path = Sources/ParseSwift/Storage/KeychainStore.swift; sourceTree = "<group>"; };
+		2D66B9A0D1EF59DC58DF9E81517E08E7 /* MixpanelInstance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MixpanelInstance.swift; path = Sources/MixpanelInstance.swift; sourceTree = "<group>"; };
+		2F2F0DD1BC9B40921550D3E74E03E2FF /* ParseLiveQueryConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseLiveQueryConstants.swift; path = Sources/ParseSwift/LiveQuery/ParseLiveQueryConstants.swift; sourceTree = "<group>"; };
+		2F34E7A53888D1B9F21C40FDC8C67469 /* ParsePushApplePayloadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushApplePayloadable.swift; path = Sources/ParseSwift/Protocols/ParsePushApplePayloadable.swift; sourceTree = "<group>"; };
+		2F59F9EB52F4F1423E297832DE9BE315 /* ParsePushPayloadApple.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushPayloadApple.swift; path = Sources/ParseSwift/Types/ParsePushPayload/Apple/ParsePushPayloadApple.swift; sourceTree = "<group>"; };
+		2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2FD66FDB87E0416660C0E097474D1126 /* ParseObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseObject.swift; path = Sources/ParseSwift/Objects/ParseObject.swift; sourceTree = "<group>"; };
+		3106651F608FF9E872964798302D36DE /* Mixpanel-swift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Mixpanel-swift"; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32F51D8F1C7EEC32248234CA82A88290 /* ParseOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseOperation.swift; path = Sources/ParseSwift/Types/ParseOperation.swift; sourceTree = "<group>"; };
+		333713E6FAD93EB840EC5B027F8C9DF7 /* ParseError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseError.swift; path = Sources/ParseSwift/Types/ParseError.swift; sourceTree = "<group>"; };
+		33E4E8585AB6D091BC7E8229D1105273 /* ParseAnonymous+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseAnonymous+async.swift"; path = "Sources/ParseSwift/Authentication/Internal/ParseAnonymous+async.swift"; sourceTree = "<group>"; };
+		35B17844C3E69CFCA04BC5EE50400978 /* BaseConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseConfig.swift; path = Sources/ParseSwift/InternalObjects/BaseConfig.swift; sourceTree = "<group>"; };
+		38D5782E8E2870895057787CD5E319F0 /* LiveQuerySocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveQuerySocket.swift; path = Sources/ParseSwift/LiveQuery/LiveQuerySocket.swift; sourceTree = "<group>"; };
+		39234B99804DAC64C4DA6F1799023441 /* ParseTwitter+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseTwitter+combine.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseTwitter/ParseTwitter+combine.swift"; sourceTree = "<group>"; };
+		3AA3D493B4FDF6A9722C26E77C1A6D3C /* ParseAnalytics+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseAnalytics+async.swift"; path = "Sources/ParseSwift/Types/ParseAnalytics+async.swift"; sourceTree = "<group>"; };
+		3AC2E4BBEC2470DC9EAA8C2848DC8AA2 /* ParseSchema+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseSchema+async.swift"; path = "Sources/ParseSwift/Types/ParseSchema+async.swift"; sourceTree = "<group>"; };
+		3B4A2DA299D8274D9E9553CBC3782711 /* AnyEncodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyEncodable.swift; path = Sources/ParseSwift/Coding/AnyEncodable.swift; sourceTree = "<group>"; };
+		3B557C85B75863FDF9FFF015395320BD /* ParseSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseSession.swift; path = Sources/ParseSwift/Objects/ParseSession.swift; sourceTree = "<group>"; };
+		3D14C5C69AA8078F0177FA8DCF73E296 /* ParseKeychainAccessGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseKeychainAccessGroup.swift; path = Sources/ParseSwift/Types/ParseKeychainAccessGroup.swift; sourceTree = "<group>"; };
+		3D81F55781C90E8170168D32AB522372 /* Mixpanel-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Mixpanel-swift.debug.xcconfig"; sourceTree = "<group>"; };
+		3D8FC659FD80D3A3E9B1B1654E3FCD57 /* ParseConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseConfig.swift; path = Sources/ParseSwift/Types/ParseConfig.swift; sourceTree = "<group>"; };
+		400BD5917AADFA24516177FD9712F3F6 /* ParseStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseStorage.swift; path = Sources/ParseSwift/Storage/ParseStorage.swift; sourceTree = "<group>"; };
+		4164F4ED4C4590279C96F6F249A89FEF /* Pointer+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Pointer+async.swift"; path = "Sources/ParseSwift/Types/Pointer+async.swift"; sourceTree = "<group>"; };
+		420E1A3160278922670F5220D7011866 /* ParseApple+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseApple+combine.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseApple/ParseApple+combine.swift"; sourceTree = "<group>"; };
+		421F5B580A9FE010150308867A0DE0F2 /* Pods-Tirajosaure-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tirajosaure-dummy.m"; sourceTree = "<group>"; };
+		43CB214D2F3C92D86A78E69DA95936D9 /* Flush.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Flush.swift; path = Sources/Flush.swift; sourceTree = "<group>"; };
+		43F01AC150B739F147639D5EFA98E184 /* ParseTypeable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseTypeable.swift; path = Sources/ParseSwift/Protocols/ParseTypeable.swift; sourceTree = "<group>"; };
+		44A82151836AC5500478ED66DF6C4674 /* ParseGoogle+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseGoogle+async.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseGoogle/ParseGoogle+async.swift"; sourceTree = "<group>"; };
+		48979CD5F14D18007D135A7BE470E483 /* ParseHealth+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseHealth+async.swift"; path = "Sources/ParseSwift/Types/ParseHealth+async.swift"; sourceTree = "<group>"; };
+		48BDE8C3C8776CE116DB34DBA2C68627 /* ParseKeyValueStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseKeyValueStore.swift; path = Sources/ParseSwift/Storage/ParseKeyValueStore.swift; sourceTree = "<group>"; };
+		49CDC308B5BBD0461BE95F145C53A300 /* ParseHookFunctionable+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseHookFunctionable+async.swift"; path = "Sources/ParseSwift/Protocols/ParseHookFunctionable+async.swift"; sourceTree = "<group>"; };
+		4A4D93B72B28B71696D11EB2DFF9224F /* ParseCloudUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseCloudUser.swift; path = Sources/ParseSwift/Objects/ParseCloudUser.swift; sourceTree = "<group>"; };
+		4A8084923208433F38FA68B4972C6BAE /* ParseSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ParseSwift.release.xcconfig; sourceTree = "<group>"; };
+		4C739F4D34F858E251EC91CE34422455 /* Parse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parse.swift; path = Sources/ParseSwift/Parse.swift; sourceTree = "<group>"; };
+		4D701001C33251C58BD114CE840E0311 /* ParseTwitter+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseTwitter+async.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseTwitter/ParseTwitter+async.swift"; sourceTree = "<group>"; };
+		4DD6710B59A07178A855BC619964288A /* Query.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Query.swift; path = Sources/ParseSwift/Types/Query.swift; sourceTree = "<group>"; };
+		4F3F79497C4299BD668D1921351A6425 /* ParseHookFunctionable+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseHookFunctionable+combine.swift"; path = "Sources/ParseSwift/Protocols/ParseHookFunctionable+combine.swift"; sourceTree = "<group>"; };
+		4FB300D7B0BE9C4B4B20FB87C0974FFC /* ParseHookFunctionRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseHookFunctionRequest.swift; path = Sources/ParseSwift/Types/ParseHookFunctionRequest.swift; sourceTree = "<group>"; };
+		502C77ED6DB4D6BAC496339FE1103137 /* Group.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Group.swift; path = Sources/Group.swift; sourceTree = "<group>"; };
+		50C5DC769CD53E88EEFD3154B878D997 /* BaseParseUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseParseUser.swift; path = Sources/ParseSwift/InternalObjects/BaseParseUser.swift; sourceTree = "<group>"; };
+		5343CA791CFE86CCFCA295AB57A116AC /* FileLogging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileLogging.swift; path = Sources/FileLogging.swift; sourceTree = "<group>"; };
+		54ABFDDCB97D8FD228A36E1CD4040C67 /* ParseLDAP+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseLDAP+combine.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseLDAP/ParseLDAP+combine.swift"; sourceTree = "<group>"; };
+		552881F384A15AFA6CD9538D16E8FCC4 /* ParseAnalytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseAnalytics.swift; path = Sources/ParseSwift/Types/ParseAnalytics.swift; sourceTree = "<group>"; };
+		55CE1FAAD6227094A9DDE9A6C6D98824 /* Pods-Tirajosaure-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tirajosaure-Info.plist"; sourceTree = "<group>"; };
+		56EF5D990BE32D926FD6E12DBC7F6D42 /* ParseLinkedIn+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseLinkedIn+combine.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseLinkedIn/ParseLinkedIn+combine.swift"; sourceTree = "<group>"; };
+		57C2CDBE378BEEB5140A970939F0B942 /* MixpanelPersistence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MixpanelPersistence.swift; path = Sources/MixpanelPersistence.swift; sourceTree = "<group>"; };
+		57E65221087D181EE9A4BF96F3993ABB /* LiveQuerySocketDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveQuerySocketDelegate.swift; path = Sources/ParseSwift/LiveQuery/Protocols/LiveQuerySocketDelegate.swift; sourceTree = "<group>"; };
+		584B580C2F594C007B7DFE61487CE91B /* Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = Sources/ParseSwift/LiveQuery/Subscription.swift; sourceTree = "<group>"; };
+		5948B007A8DA5B92551C56B3309D1B85 /* QueryViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryViewModel.swift; path = Sources/ParseSwift/Types/QueryViewModel.swift; sourceTree = "<group>"; };
+		596B177902E5C392BCA72BCCEC6CEC99 /* ParseOperation+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseOperation+async.swift"; path = "Sources/ParseSwift/Types/ParseOperation+async.swift"; sourceTree = "<group>"; };
+		5A5B61B6C827FD7E07F3F13115EF720A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5BB8A338A0536E68A0935623B841400A /* SecureStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureStorage.swift; path = Sources/ParseSwift/Storage/SecureStorage.swift; sourceTree = "<group>"; };
+		5D59702523412BC81AF24C7E9A16F179 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		5D8E3191694A42868CAD4657281624C3 /* Delete.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Delete.swift; path = Sources/ParseSwift/Operations/Delete.swift; sourceTree = "<group>"; };
+		5E6738ABBD54268B35D36FE0064885D8 /* ParseACL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseACL.swift; path = Sources/ParseSwift/Types/ParseACL.swift; sourceTree = "<group>"; };
+		60A496E1073C370E05E64197F02E8E77 /* Date.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Sources/ParseSwift/Extensions/Date.swift; sourceTree = "<group>"; };
+		6115FCD652F5FC14EEC374490600B651 /* ParseLiveQueryDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseLiveQueryDelegate.swift; path = Sources/ParseSwift/LiveQuery/Protocols/ParseLiveQueryDelegate.swift; sourceTree = "<group>"; };
+		6279C051F8B7C82A70078EE8C5467417 /* ParseSchema.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseSchema.swift; path = Sources/ParseSwift/Types/ParseSchema.swift; sourceTree = "<group>"; };
+		62BAA9254C57DAB5E2C5EA605970AA8F /* ParseConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseConstants.swift; path = Sources/ParseSwift/ParseConstants.swift; sourceTree = "<group>"; };
+		6349F00F34CB02EBA24A8693FB2CC6AF /* Encodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Encodable.swift; path = Sources/ParseSwift/Extensions/Encodable.swift; sourceTree = "<group>"; };
+		658AD0EC04F83B604F5A7BAA8740E893 /* ParseInstallation+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseInstallation+async.swift"; path = "Sources/ParseSwift/Objects/ParseInstallation+async.swift"; sourceTree = "<group>"; };
+		6765790238822234DC51BC4662B55B4A /* ParseFileTransferable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseFileTransferable.swift; path = Sources/ParseSwift/Protocols/ParseFileTransferable.swift; sourceTree = "<group>"; };
+		67742D334FA4108CD9D0D17BC651C74E /* ParseFacebook+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseFacebook+async.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseFacebook/ParseFacebook+async.swift"; sourceTree = "<group>"; };
+		69A24AEB180341AF349591811E7B5D70 /* Mixpanel-swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Mixpanel-swift-dummy.m"; sourceTree = "<group>"; };
+		6A17E32A5B866912381CE9D5D8B6A333 /* ParseSpotify+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseSpotify+combine.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseSpotify/ParseSpotify+combine.swift"; sourceTree = "<group>"; };
+		6C281BC238ADD3AC29BC24B795A82E90 /* Pointer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pointer.swift; path = Sources/ParseSwift/Types/Pointer.swift; sourceTree = "<group>"; };
+		6C8698F7B83DE3FC404183CC5CF68000 /* ParseOperation+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseOperation+combine.swift"; path = "Sources/ParseSwift/Types/ParseOperation+combine.swift"; sourceTree = "<group>"; };
+		6CEE96A6A3A3FC3CC51830131C0A4660 /* Mixpanel-swift-Mixpanel */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Mixpanel-swift-Mixpanel"; path = Mixpanel.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F075745830E55DAB9236D77BE82B29B /* ParseAuthentication+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseAuthentication+async.swift"; path = "Sources/ParseSwift/Authentication/Protocols/ParseAuthentication+async.swift"; sourceTree = "<group>"; };
+		6FADDE00121B0BFD4C268F7A60FE82BE /* ParsePolygon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePolygon.swift; path = Sources/ParseSwift/Types/ParsePolygon.swift; sourceTree = "<group>"; };
+		70DFDB5780054D726D806115BA152E46 /* ParseSchema+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseSchema+combine.swift"; path = "Sources/ParseSwift/Types/ParseSchema+combine.swift"; sourceTree = "<group>"; };
+		739E5A8EC8C8AC5F2FE5BE1F3BEF4CE8 /* ParseHookResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseHookResponse.swift; path = Sources/ParseSwift/Types/ParseHookResponse.swift; sourceTree = "<group>"; };
+		73B318616E59824FF11847607553E07C /* NoBody.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NoBody.swift; path = Sources/ParseSwift/InternalObjects/NoBody.swift; sourceTree = "<group>"; };
+		7411C266905F10E26D1DCE66EFA56850 /* ParseSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ParseSwift-dummy.m"; sourceTree = "<group>"; };
+		7578500525B6764C30CA560671CA19D0 /* AutomaticProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutomaticProperties.swift; path = Sources/AutomaticProperties.swift; sourceTree = "<group>"; };
+		76142CEF2176B1A99F716D0BA267673E /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Sources/Logger.swift; sourceTree = "<group>"; };
+		7748ED4E942101E58F304908CA4949D2 /* JSONHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONHandler.swift; path = Sources/JSONHandler.swift; sourceTree = "<group>"; };
+		78105F0F1577CE05378CDC84D9CD5E7B /* ParsePush.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePush.swift; path = Sources/ParseSwift/Types/ParsePush.swift; sourceTree = "<group>"; };
+		7A87610592264B01BD679843282D4F0C /* ParseInstagram+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseInstagram+combine.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseInstagram/ParseInstagram+combine.swift"; sourceTree = "<group>"; };
+		7AC2799CC80149174A8146AE4A30C26F /* ParseHookParametable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseHookParametable.swift; path = Sources/ParseSwift/Protocols/ParseHookParametable.swift; sourceTree = "<group>"; };
+		7AEBFA153D87853EEC4C48D2E9080B16 /* AddUnique.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddUnique.swift; path = Sources/ParseSwift/Operations/AddUnique.swift; sourceTree = "<group>"; };
+		7BF09DA33B278757221AC774D720C7B8 /* FlushRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlushRequest.swift; path = Sources/FlushRequest.swift; sourceTree = "<group>"; };
+		7BF20376AD00B242248B7A8D53282645 /* ParseHookRequestable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseHookRequestable.swift; path = Sources/ParseSwift/Protocols/ParseHookRequestable.swift; sourceTree = "<group>"; };
+		7C199D0D44F08C5007E3B644A686DF97 /* ParseGitHub+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseGitHub+async.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseGithub/ParseGitHub+async.swift"; sourceTree = "<group>"; };
+		808AD6DB7EE02D8B1D1A1CF6ECEE6CF4 /* ParseUser+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseUser+async.swift"; path = "Sources/ParseSwift/Objects/ParseUser+async.swift"; sourceTree = "<group>"; };
+		8118B18A3A1C7184CFDBF41FE438290C /* BatchUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BatchUtils.swift; path = Sources/ParseSwift/API/BatchUtils.swift; sourceTree = "<group>"; };
+		81E179D8890C5EFF79BA5A552C35657D /* ParseHookTriggerRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseHookTriggerRequest.swift; path = Sources/ParseSwift/Types/ParseHookTriggerRequest.swift; sourceTree = "<group>"; };
+		8228A3492E2B2A8F054A5BC593F357F5 /* BaseParseInstallation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseParseInstallation.swift; path = Sources/ParseSwift/InternalObjects/BaseParseInstallation.swift; sourceTree = "<group>"; };
+		825BA4D529D1DC4956E45BEBB019A349 /* API+NonParseBodyCommand.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "API+NonParseBodyCommand.swift"; path = "Sources/ParseSwift/API/API+NonParseBodyCommand.swift"; sourceTree = "<group>"; };
+		8275A664B36CB1BEFE87B5BA326780F3 /* ParsePushAppleSound.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushAppleSound.swift; path = Sources/ParseSwift/Types/ParsePushPayload/Apple/ParsePushAppleSound.swift; sourceTree = "<group>"; };
+		83AB97E97D93781085C98288662D8FEB /* ParseEncodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseEncodable.swift; path = Sources/ParseSwift/Protocols/ParseEncodable.swift; sourceTree = "<group>"; };
+		83AC014E4741EC5CBE1A296B9A8E89D3 /* ParseURLSessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseURLSessionDelegate.swift; path = Sources/ParseSwift/API/ParseURLSessionDelegate.swift; sourceTree = "<group>"; };
+		83BB7CA6C4F24B40CEEF903D4AAA4FE2 /* ParseFile+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseFile+combine.swift"; path = "Sources/ParseSwift/Types/ParseFile+combine.swift"; sourceTree = "<group>"; };
+		83DE2DB30A676DC83C046636BECA45BB /* ParseCoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseCoding.swift; path = Sources/ParseSwift/Coding/ParseCoding.swift; sourceTree = "<group>"; };
+		8428D8EAE538D1666CE2268775277434 /* ParseLinkedIn.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseLinkedIn.swift; path = "Sources/ParseSwift/Authentication/3rd Party/ParseLinkedIn/ParseLinkedIn.swift"; sourceTree = "<group>"; };
+		846A49F3A311607AF6453F84B94AE4AF /* API+Command+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "API+Command+async.swift"; path = "Sources/ParseSwift/API/API+Command+async.swift"; sourceTree = "<group>"; };
+		85F46589799570ACED4C4163F08EB524 /* ParseFacebook.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseFacebook.swift; path = "Sources/ParseSwift/Authentication/3rd Party/ParseFacebook/ParseFacebook.swift"; sourceTree = "<group>"; };
+		861081DA40763405FAA2908346573CFA /* Fetchable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fetchable.swift; path = Sources/ParseSwift/Protocols/Fetchable.swift; sourceTree = "<group>"; };
+		86496EF4CC5FED60710829CE110309C5 /* MPDB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MPDB.swift; path = Sources/MPDB.swift; sourceTree = "<group>"; };
+		87D29B1C6F1C3B7F5CC46858A5178594 /* Add.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Add.swift; path = Sources/ParseSwift/Operations/Add.swift; sourceTree = "<group>"; };
+		897E24C214A4D1491F2EE3EF0FD32559 /* RemoveRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RemoveRelation.swift; path = Sources/ParseSwift/Operations/RemoveRelation.swift; sourceTree = "<group>"; };
+		898D0CB8B3C81C795B0F297D90EF5CF2 /* AnyDecodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyDecodable.swift; path = Sources/ParseSwift/Coding/AnyDecodable.swift; sourceTree = "<group>"; };
+		8A8DB61866578954DC307E2316CFDE0C /* ParseHookRequestable+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseHookRequestable+async.swift"; path = "Sources/ParseSwift/Protocols/ParseHookRequestable+async.swift"; sourceTree = "<group>"; };
+		8BDFB9F3055F171612305DF869DB4DCE /* CloudViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CloudViewModel.swift; path = Sources/ParseSwift/Types/CloudViewModel.swift; sourceTree = "<group>"; };
+		8BE7287EF4044950C6599D02C714110E /* Pods-Tirajosaure-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tirajosaure-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8C66D129735E883FA617654FF09A4807 /* ParseInstallation+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseInstallation+combine.swift"; path = "Sources/ParseSwift/Objects/ParseInstallation+combine.swift"; sourceTree = "<group>"; };
+		8D1037160A225990505F028A96881521 /* ParsePush+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParsePush+async.swift"; path = "Sources/ParseSwift/Types/ParsePush+async.swift"; sourceTree = "<group>"; };
+		8D7E3EE03FAA3C390F67A4D56A5DBA89 /* ParseHealth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseHealth.swift; path = Sources/ParseSwift/Types/ParseHealth.swift; sourceTree = "<group>"; };
+		9148A75299E767652DA4A1C1D3D87E10 /* ParseEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseEncoder.swift; path = Sources/ParseSwift/Coding/ParseEncoder.swift; sourceTree = "<group>"; };
+		916DBE1DFBB9306F02D0AC74BA1667F4 /* URLCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLCache.swift; path = Sources/ParseSwift/Extensions/URLCache.swift; sourceTree = "<group>"; };
+		917F579AC682A590914A3E6560EBF97D /* ParseUser+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseUser+combine.swift"; path = "Sources/ParseSwift/Objects/ParseUser+combine.swift"; sourceTree = "<group>"; };
+		932B51B39039FE37131C82A98AA48A6A /* ParseCloudable+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseCloudable+combine.swift"; path = "Sources/ParseSwift/Protocols/ParseCloudable+combine.swift"; sourceTree = "<group>"; };
+		93E1202E020A6754A602A2A70F80CE4C /* ParseFacebook+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseFacebook+combine.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseFacebook/ParseFacebook+combine.swift"; sourceTree = "<group>"; };
+		95D58EA64C30903058F85B7127F56315 /* Pods-Tirajosaure.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Tirajosaure.modulemap"; sourceTree = "<group>"; };
+		96216A5C25FC40150D1EB5DA986AA40D /* API+BatchCommand.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "API+BatchCommand.swift"; path = "Sources/ParseSwift/API/API+BatchCommand.swift"; sourceTree = "<group>"; };
+		9737B382C803194D99891F4BE89E4015 /* ParseObject+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseObject+combine.swift"; path = "Sources/ParseSwift/Objects/ParseObject+combine.swift"; sourceTree = "<group>"; };
+		97C926D83113EF44BFD485F016829A97 /* Network.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Sources/Network.swift; sourceTree = "<group>"; };
+		97EDABEC05E9A395F749196274BFE87C /* ParsePushFirebaseNotification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushFirebaseNotification.swift; path = Sources/ParseSwift/Types/ParsePushPayload/Firebase/ParsePushFirebaseNotification.swift; sourceTree = "<group>"; };
+		98651608AC2A3C5DB1582CAD05972528 /* ParseSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ParseSwift-Info.plist"; sourceTree = "<group>"; };
+		98B7B809A5BDDFE2098DCB85661D4FC5 /* Mixpanel-swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Mixpanel-swift-prefix.pch"; sourceTree = "<group>"; };
+		99A256D90DF80FDA010CB79CD6638554 /* Pods-Tirajosaure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tirajosaure.release.xcconfig"; sourceTree = "<group>"; };
+		99C8BB57A9DAD80E192C1CB6CFFE5983 /* AnyCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyCodable.swift; path = Sources/ParseSwift/Coding/AnyCodable.swift; sourceTree = "<group>"; };
+		99F182B8A11203F06140D7A7CC89F269 /* ParseSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ParseSwift.debug.xcconfig; sourceTree = "<group>"; };
+		9C006F03FC19815E5956A3FCA6EA6142 /* ParseApple.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseApple.swift; path = "Sources/ParseSwift/Authentication/3rd Party/ParseApple/ParseApple.swift"; sourceTree = "<group>"; };
+		9CCCBA83FBFEE611497A0E00BDC8D693 /* QuerySubscribable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuerySubscribable.swift; path = Sources/ParseSwift/LiveQuery/Protocols/QuerySubscribable.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EE1FFDD854DA582E014061A0CBACA92 /* Operations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operations.swift; path = Sources/ParseSwift/LiveQuery/Operations.swift; sourceTree = "<group>"; };
+		9F2CE908EEE1E168C4F2F3B042B14AA8 /* ParseCloudable+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseCloudable+async.swift"; path = "Sources/ParseSwift/Protocols/ParseCloudable+async.swift"; sourceTree = "<group>"; };
+		9FF17B749F79132D4DBA193FDBE936B5 /* ParseConfig+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseConfig+async.swift"; path = "Sources/ParseSwift/Types/ParseConfig+async.swift"; sourceTree = "<group>"; };
+		A178637C7701064F421EDEF661E591BD /* Pods-Tirajosaure-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tirajosaure-frameworks.sh"; sourceTree = "<group>"; };
+		A1F111EAFD89B1DD9576D4B9F80AB45E /* Increment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Increment.swift; path = Sources/ParseSwift/Operations/Increment.swift; sourceTree = "<group>"; };
+		A387B4BB4165179CBBE39C64FC20A6E9 /* ParsePushStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushStatus.swift; path = Sources/ParseSwift/Types/ParsePushStatus.swift; sourceTree = "<group>"; };
+		A3F9746D77ACFC8260C6F10FFB55A1E8 /* QueryWhere.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryWhere.swift; path = Sources/ParseSwift/Types/QueryWhere.swift; sourceTree = "<group>"; };
+		A5DBB709102FA47CFE0AD685DA879BDD /* ParseFileDefaultTransfer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseFileDefaultTransfer.swift; path = Sources/ParseSwift/Types/ParseFileDefaultTransfer.swift; sourceTree = "<group>"; };
+		A763E43155D8FF98D4C077C6EB8A1DAC /* ParseBytes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseBytes.swift; path = Sources/ParseSwift/Types/ParseBytes.swift; sourceTree = "<group>"; };
+		A7D2AE72B6F5456B4987EC5BEAC7DD52 /* ParseApple+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseApple+async.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseApple/ParseApple+async.swift"; sourceTree = "<group>"; };
+		A8E976D6DE2453EBE94E10DBEE1348B8 /* ParseUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseUser.swift; path = Sources/ParseSwift/Objects/ParseUser.swift; sourceTree = "<group>"; };
+		A9D66A905F18869EFEF3453D7961A3C5 /* ParseGoogle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseGoogle.swift; path = "Sources/ParseSwift/Authentication/3rd Party/ParseGoogle/ParseGoogle.swift"; sourceTree = "<group>"; };
+		AC5850B5F297BB86F12BEB7E2B146299 /* ParseFileManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseFileManager.swift; path = Sources/ParseSwift/Storage/ParseFileManager.swift; sourceTree = "<group>"; };
+		AD983D64247ACE87F2285A53D4A6C55A /* ParseInstagram.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseInstagram.swift; path = "Sources/ParseSwift/Authentication/3rd Party/ParseInstagram/ParseInstagram.swift"; sourceTree = "<group>"; };
+		AE1884251BCBEA4BF9A4F709B6E139A9 /* API+Command.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "API+Command.swift"; path = "Sources/ParseSwift/API/API+Command.swift"; sourceTree = "<group>"; };
+		AF73DFC361B02C2102974A271FE6B2CC /* ParseHookRequestable+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseHookRequestable+combine.swift"; path = "Sources/ParseSwift/Protocols/ParseHookRequestable+combine.swift"; sourceTree = "<group>"; };
+		AFECA700159C5F503F418E0634E3584D /* ParseFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseFile.swift; path = Sources/ParseSwift/Types/ParseFile.swift; sourceTree = "<group>"; };
+		B0C15E6DFD64F3A750B1671FEC97F924 /* ParseRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseRelation.swift; path = Sources/ParseSwift/Types/ParseRelation.swift; sourceTree = "<group>"; };
+		B47FF51EC9E5FB585FC8C935EE00ADE2 /* Deletable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deletable.swift; path = Sources/ParseSwift/Protocols/Deletable.swift; sourceTree = "<group>"; };
+		B504CF689DF6A1BB31F6B4E90FB1F177 /* Mixpanel-swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Mixpanel-swift.modulemap"; sourceTree = "<group>"; };
+		B7379FA23439A9AC96DF2DFAD497468D /* ParsePushPayloadAny.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushPayloadAny.swift; path = Sources/ParseSwift/Types/ParsePushPayload/ParsePushPayloadAny.swift; sourceTree = "<group>"; };
+		B7AB604444FBD0E08B891D5D7AFEBA32 /* ParseSpotify.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseSpotify.swift; path = "Sources/ParseSwift/Authentication/3rd Party/ParseSpotify/ParseSpotify.swift"; sourceTree = "<group>"; };
+		B865D553132E7CE5D126D0A75D4E1359 /* Pods-Tirajosaure-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tirajosaure-acknowledgements.plist"; sourceTree = "<group>"; };
+		B8822572569840ED797F7BF8CD589B78 /* ParseSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ParseSwift-umbrella.h"; sourceTree = "<group>"; };
+		B8C63DF287264DC3222AB270E7B4E7A1 /* LiveQueryConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveQueryConstants.swift; path = Sources/ParseSwift/LiveQuery/LiveQueryConstants.swift; sourceTree = "<group>"; };
+		B8C80651F5F5895F24A8BBF82A29B178 /* ParseSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ParseSwift; path = ParseSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA484EC40C62FE5FD2A005FDB9F1E51 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/Mixpanel/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		BB484E6C8B2D9204567FF16D4C04F29F /* ParseHealth+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseHealth+combine.swift"; path = "Sources/ParseSwift/Types/ParseHealth+combine.swift"; sourceTree = "<group>"; };
+		BBDEC0E751F2B11317621BEB371C702E /* API.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = API.swift; path = Sources/ParseSwift/API/API.swift; sourceTree = "<group>"; };
+		BC399345EA5FD00BC7BCD367428A1B76 /* QueryConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryConstraint.swift; path = Sources/ParseSwift/Types/QueryConstraint.swift; sourceTree = "<group>"; };
+		BCD8DCC67055B3BB8273582694BBB34F /* ResourceBundle-Mixpanel-Mixpanel-swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Mixpanel-Mixpanel-swift-Info.plist"; sourceTree = "<group>"; };
+		BD75482B1490C9B4C2CD3FEBD372DFAC /* People.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = People.swift; path = Sources/People.swift; sourceTree = "<group>"; };
+		BD991989E9FBF7A86BD73DC6B88D3ACD /* ParseQueryScorable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseQueryScorable.swift; path = Sources/ParseSwift/Protocols/ParseQueryScorable.swift; sourceTree = "<group>"; };
+		BDAB68215E0DBA7080302ED0EA64B1CB /* Operation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operation.swift; path = Sources/ParseSwift/Operations/Operation.swift; sourceTree = "<group>"; };
+		C0E0A976ABB673018F283D300C169388 /* Responses.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Responses.swift; path = Sources/ParseSwift/API/Responses.swift; sourceTree = "<group>"; };
+		C22889F261587530E92736B46B1B96A5 /* ParseLDAP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseLDAP.swift; path = "Sources/ParseSwift/Authentication/3rd Party/ParseLDAP/ParseLDAP.swift"; sourceTree = "<group>"; };
+		C4DCAECEA7526F4ADCFA04747F6DA3A9 /* Query+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Query+combine.swift"; path = "Sources/ParseSwift/Types/Query+combine.swift"; sourceTree = "<group>"; };
+		C51D0832D6E1D95E532107D342A9A14A /* AddRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddRelation.swift; path = Sources/ParseSwift/Operations/AddRelation.swift; sourceTree = "<group>"; };
+		C690F75F5BDD41C04ADF25510694B433 /* ParseConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseConfiguration.swift; path = Sources/ParseSwift/Types/ParseConfiguration.swift; sourceTree = "<group>"; };
+		C81290D0DD949C18CB9A8CFA14A7D36D /* Messages.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = Sources/ParseSwift/LiveQuery/Messages.swift; sourceTree = "<group>"; };
+		C9E6C65498CDCFAF727F1465701F4299 /* ParseGitHub+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseGitHub+combine.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseGithub/ParseGitHub+combine.swift"; sourceTree = "<group>"; };
+		CA363C28D17FFD37EEC81A05B9EA09F3 /* ParseSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ParseSwift-prefix.pch"; sourceTree = "<group>"; };
+		CBFD327B8ED42BCF29EBD4E7F115B7A5 /* Savable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Savable.swift; path = Sources/ParseSwift/Protocols/Savable.swift; sourceTree = "<group>"; };
+		CCA1089AEBEDF70F8D07E226F317AEF5 /* ParseLinkedIn+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseLinkedIn+async.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseLinkedIn/ParseLinkedIn+async.swift"; sourceTree = "<group>"; };
+		CD7764A9BE14C80E6FB58C6C8679CFC2 /* ParseHookTriggerable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseHookTriggerable.swift; path = Sources/ParseSwift/Protocols/ParseHookTriggerable.swift; sourceTree = "<group>"; };
+		CDCC6970631ED884CAF22D55E330F95C /* ParseSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ParseSwift.modulemap; sourceTree = "<group>"; };
+		CF51C452EE3E67AFC774F143C5CF0142 /* PrintLogging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrintLogging.swift; path = Sources/PrintLogging.swift; sourceTree = "<group>"; };
+		D1797107B836B616AFC4B78362125D82 /* ParseHookTriggerable+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseHookTriggerable+combine.swift"; path = "Sources/ParseSwift/Protocols/ParseHookTriggerable+combine.swift"; sourceTree = "<group>"; };
+		D642AA1FB3730DB5BF0217434C6F717C /* ParseVersion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseVersion.swift; path = Sources/ParseSwift/Types/ParseVersion.swift; sourceTree = "<group>"; };
+		D6CB0AC40C383F2A2A3ADD3F4850CFFC /* Track.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Track.swift; path = Sources/Track.swift; sourceTree = "<group>"; };
+		D9DF9847D52933916A34E92E2C93DB73 /* Fileable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fileable.swift; path = Sources/ParseSwift/Protocols/Fileable.swift; sourceTree = "<group>"; };
+		DB6B1A55BB9B83E17F4F76044199195A /* Dictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dictionary.swift; path = Sources/ParseSwift/Extensions/Dictionary.swift; sourceTree = "<group>"; };
+		DCB9926EBDBDDD0DB9A48C939DD9C728 /* Pods-Tirajosaure */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Tirajosaure"; path = Pods_Tirajosaure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCE5F086E4CA6EFED54752E5AAC5C30A /* QueryObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryObservable.swift; path = Sources/ParseSwift/Protocols/QueryObservable.swift; sourceTree = "<group>"; };
+		E0153CBBDCD5763F6817478E092DE477 /* Query+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Query+async.swift"; path = "Sources/ParseSwift/Types/Query+async.swift"; sourceTree = "<group>"; };
+		E22A483C2BF8920732BB91195932CF0F /* ParseHookable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseHookable.swift; path = Sources/ParseSwift/Protocols/ParseHookable.swift; sourceTree = "<group>"; };
+		E2837C706F10AC82B148EF5E5AB572CD /* ParsePushAppleAlert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushAppleAlert.swift; path = Sources/ParseSwift/Types/ParsePushPayload/Apple/ParsePushAppleAlert.swift; sourceTree = "<group>"; };
+		E404A2F0463BB2FE554CCD14E40768A9 /* ParsePushPayloadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushPayloadable.swift; path = Sources/ParseSwift/Protocols/ParsePushPayloadable.swift; sourceTree = "<group>"; };
+		E4594FD71B93BD73D108A6A69253BBDE /* ParsePushFirebasePayloadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushFirebasePayloadable.swift; path = Sources/ParseSwift/Protocols/ParsePushFirebasePayloadable.swift; sourceTree = "<group>"; };
+		E46D2B6D0682BA57A3A1CDCE87EB50D4 /* AutomaticEvents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutomaticEvents.swift; path = Sources/AutomaticEvents.swift; sourceTree = "<group>"; };
+		E59BA0E81F1B0879679F373CDB287392 /* ParseLiveQuery.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseLiveQuery.swift; path = Sources/ParseSwift/LiveQuery/ParseLiveQuery.swift; sourceTree = "<group>"; };
+		E67E93B68B26882BD98E9A4D337CEF56 /* SessionMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionMetadata.swift; path = Sources/SessionMetadata.swift; sourceTree = "<group>"; };
+		E6F78D6F039915485EE9D8E54208ED75 /* ParseAnalytics+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseAnalytics+combine.swift"; path = "Sources/ParseSwift/Types/ParseAnalytics+combine.swift"; sourceTree = "<group>"; };
+		E70A99961D6997E365F1C475A37AB21D /* ParseLDAP+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseLDAP+async.swift"; path = "Sources/ParseSwift/Authentication/3rd Party/ParseLDAP/ParseLDAP+async.swift"; sourceTree = "<group>"; };
+		E80D9E2306BCB9561EDA1DFC3703A002 /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Data.swift; path = Sources/ParseSwift/Extensions/Data.swift; sourceTree = "<group>"; };
+		ECF4D9212E50E8B1177BDFB5272AFE07 /* ParseAuthentication+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseAuthentication+combine.swift"; path = "Sources/ParseSwift/Authentication/Protocols/ParseAuthentication+combine.swift"; sourceTree = "<group>"; };
+		ED9BB5223832DD85A1D656C976DFD739 /* ParseAnonymous+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseAnonymous+combine.swift"; path = "Sources/ParseSwift/Authentication/Internal/ParseAnonymous+combine.swift"; sourceTree = "<group>"; };
+		EE5693B0E2D6B7EFFCBE8728DEEC2203 /* ParseGitHub.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseGitHub.swift; path = "Sources/ParseSwift/Authentication/3rd Party/ParseGithub/ParseGitHub.swift"; sourceTree = "<group>"; };
+		EF2965818D45FDFE61C14B9FB3CD4783 /* URLSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLSession.swift; path = Sources/ParseSwift/Extensions/URLSession.swift; sourceTree = "<group>"; };
+		EF3AE9ECEA26D719F963CF27FC306323 /* ParseGeoPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseGeoPoint.swift; path = Sources/ParseSwift/Types/ParseGeoPoint.swift; sourceTree = "<group>"; };
+		F3213A692A6AD10B0C65D41C173D5EF4 /* SubscriptionCallback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubscriptionCallback.swift; path = Sources/ParseSwift/LiveQuery/SubscriptionCallback.swift; sourceTree = "<group>"; };
+		F38C0517747318F95FBF8D50CCC4FC89 /* CloudObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CloudObservable.swift; path = Sources/ParseSwift/Protocols/CloudObservable.swift; sourceTree = "<group>"; };
+		F4AF2FA2595652BF5DCE15E6BD64130C /* Mixpanel-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Mixpanel-swift.release.xcconfig"; sourceTree = "<group>"; };
+		F4C82EF6D5DFD5D7C29F4E8C57F3E0FA /* ParsePushPayloadFirebase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsePushPayloadFirebase.swift; path = Sources/ParseSwift/Types/ParsePushPayload/Firebase/ParsePushPayloadFirebase.swift; sourceTree = "<group>"; };
+		F4F00015295C237FC34E1EFA9E4DC979 /* ParseFieldOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseFieldOptions.swift; path = Sources/ParseSwift/Types/ParseFieldOptions.swift; sourceTree = "<group>"; };
+		F577531D48402B8C1005063B0CEB69E3 /* Queryable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Queryable.swift; path = Sources/ParseSwift/Protocols/Queryable.swift; sourceTree = "<group>"; };
+		F6C8C8AB3F28CFA65D3528DD4289A015 /* Mixpanel-swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Mixpanel-swift-Info.plist"; sourceTree = "<group>"; };
+		F7483DB76BB06800E8F6230C2C539D74 /* LiveQueryable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveQueryable.swift; path = Sources/ParseSwift/LiveQuery/Protocols/LiveQueryable.swift; sourceTree = "<group>"; };
+		F7AE670621B90EE884E12E87AC9B6151 /* ParsePush+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParsePush+combine.swift"; path = "Sources/ParseSwift/Types/ParsePush+combine.swift"; sourceTree = "<group>"; };
+		F90DAD99CEE98C82179CC5B7A339F450 /* ParseHookTriggerable+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseHookTriggerable+async.swift"; path = "Sources/ParseSwift/Protocols/ParseHookTriggerable+async.swift"; sourceTree = "<group>"; };
+		F92BB506CEF1716423677CB754362B90 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Sources/Constants.swift; sourceTree = "<group>"; };
+		F9B391491342D38670692B37EB0BB38D /* ParseLiveQuery+combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseLiveQuery+combine.swift"; path = "Sources/ParseSwift/LiveQuery/ParseLiveQuery+combine.swift"; sourceTree = "<group>"; };
+		FA6B619DEA42547A96AF6355221F8DB9 /* Remove.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Remove.swift; path = Sources/ParseSwift/Operations/Remove.swift; sourceTree = "<group>"; };
+		FD039FFB8A4C79DCC01C168F44789555 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Sources/Error.swift; sourceTree = "<group>"; };
+		FE590253F9713FC2C9B9F433EEB5CEEB /* ParseFile+async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ParseFile+async.swift"; path = "Sources/ParseSwift/Types/ParseFile+async.swift"; sourceTree = "<group>"; };
+		FF69ACFE6D1D3C00895DA30783ACCC97 /* Mixpanel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mixpanel.swift; path = Sources/Mixpanel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27752F44D7469380728D5B9311158185 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEAF9EC283D3AC1592E0D63CEF8E9C13 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		685E16C21B8D145412BB6DA706ADA936 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FDC5257DBB30EA3E24A60204E4A999A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11E892C08636AAB0228AE5AFBA6510FB /* CoreTelephony.framework in Frameworks */,
+				DEA8C5512B7D94D60C3FB210B6F179A2 /* Foundation.framework in Frameworks */,
+				E95685C7F105B32CFC565B2F5A0F0E29 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		807AE694F041A5046CA1392DAC40FE9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7BEF21890507126B09C9E0F160DC698 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D18498EF38B71E7F4A085B2F19FE697E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0E99BE3F9DEB4F58BEABD19E4FBF1854 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5A667C25746D67066F846CAD5796CBDB /* Pods-Tirajosaure */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		34099954BA917F1C12443F79F91D71F4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDCC6970631ED884CAF22D55E330F95C /* ParseSwift.modulemap */,
+				7411C266905F10E26D1DCE66EFA56850 /* ParseSwift-dummy.m */,
+				98651608AC2A3C5DB1582CAD05972528 /* ParseSwift-Info.plist */,
+				CA363C28D17FFD37EEC81A05B9EA09F3 /* ParseSwift-prefix.pch */,
+				B8822572569840ED797F7BF8CD589B78 /* ParseSwift-umbrella.h */,
+				99F182B8A11203F06140D7A7CC89F269 /* ParseSwift.debug.xcconfig */,
+				4A8084923208433F38FA68B4972C6BAE /* ParseSwift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ParseSwift";
+			sourceTree = "<group>";
+		};
+		39273EA2494176A8E3D47458B199EFE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8316D2896D2C3FBE5C1E1A179F57BDA0 /* Mixpanel-swift */,
+				A6AF95224BD7AF0D2A6C8BBD5729197E /* ParseSwift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5A667C25746D67066F846CAD5796CBDB /* Pods-Tirajosaure */ = {
+			isa = PBXGroup;
+			children = (
+				95D58EA64C30903058F85B7127F56315 /* Pods-Tirajosaure.modulemap */,
+				8BE7287EF4044950C6599D02C714110E /* Pods-Tirajosaure-acknowledgements.markdown */,
+				B865D553132E7CE5D126D0A75D4E1359 /* Pods-Tirajosaure-acknowledgements.plist */,
+				421F5B580A9FE010150308867A0DE0F2 /* Pods-Tirajosaure-dummy.m */,
+				A178637C7701064F421EDEF661E591BD /* Pods-Tirajosaure-frameworks.sh */,
+				55CE1FAAD6227094A9DDE9A6C6D98824 /* Pods-Tirajosaure-Info.plist */,
+				1593618592321278494D4C36CE264909 /* Pods-Tirajosaure-umbrella.h */,
+				03B405033205F2D657EA54E7F091AC7A /* Pods-Tirajosaure.debug.xcconfig */,
+				99A256D90DF80FDA010CB79CD6638554 /* Pods-Tirajosaure.release.xcconfig */,
+			);
+			name = "Pods-Tirajosaure";
+			path = "Target Support Files/Pods-Tirajosaure";
+			sourceTree = "<group>";
+		};
+		8316D2896D2C3FBE5C1E1A179F57BDA0 /* Mixpanel-swift */ = {
+			isa = PBXGroup;
+			children = (
+				B003C0F42709EF8A50AE9F9D7061E5D6 /* Complete */,
+				B5B10EF480C734DC47A82735DADF1889 /* Resources */,
+				9DC6A2CFD176F80E93DF50911B067FF0 /* Support Files */,
+			);
+			name = "Mixpanel-swift";
+			path = "Mixpanel-swift";
+			sourceTree = "<group>";
+		};
+		9DC6A2CFD176F80E93DF50911B067FF0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B504CF689DF6A1BB31F6B4E90FB1F177 /* Mixpanel-swift.modulemap */,
+				69A24AEB180341AF349591811E7B5D70 /* Mixpanel-swift-dummy.m */,
+				F6C8C8AB3F28CFA65D3528DD4289A015 /* Mixpanel-swift-Info.plist */,
+				98B7B809A5BDDFE2098DCB85661D4FC5 /* Mixpanel-swift-prefix.pch */,
+				164EE4C7695A7F6D7C9C9FDF547E0159 /* Mixpanel-swift-umbrella.h */,
+				3D81F55781C90E8170168D32AB522372 /* Mixpanel-swift.debug.xcconfig */,
+				F4AF2FA2595652BF5DCE15E6BD64130C /* Mixpanel-swift.release.xcconfig */,
+				BCD8DCC67055B3BB8273582694BBB34F /* ResourceBundle-Mixpanel-Mixpanel-swift-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Mixpanel-swift";
+			sourceTree = "<group>";
+		};
+		A4744BA7CD21375F41D08D0E82A7C054 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3106651F608FF9E872964798302D36DE /* Mixpanel-swift */,
+				6CEE96A6A3A3FC3CC51830131C0A4660 /* Mixpanel-swift-Mixpanel */,
+				B8C80651F5F5895F24A8BBF82A29B178 /* ParseSwift */,
+				DCB9926EBDBDDD0DB9A48C939DD9C728 /* Pods-Tirajosaure */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6AF95224BD7AF0D2A6C8BBD5729197E /* ParseSwift */ = {
+			isa = PBXGroup;
+			children = (
+				87D29B1C6F1C3B7F5CC46858A5178594 /* Add.swift */,
+				C51D0832D6E1D95E532107D342A9A14A /* AddRelation.swift */,
+				7AEBFA153D87853EEC4C48D2E9080B16 /* AddUnique.swift */,
+				99C8BB57A9DAD80E192C1CB6CFFE5983 /* AnyCodable.swift */,
+				898D0CB8B3C81C795B0F297D90EF5CF2 /* AnyDecodable.swift */,
+				3B4A2DA299D8274D9E9553CBC3782711 /* AnyEncodable.swift */,
+				BBDEC0E751F2B11317621BEB371C702E /* API.swift */,
+				96216A5C25FC40150D1EB5DA986AA40D /* API+BatchCommand.swift */,
+				AE1884251BCBEA4BF9A4F709B6E139A9 /* API+Command.swift */,
+				846A49F3A311607AF6453F84B94AE4AF /* API+Command+async.swift */,
+				825BA4D529D1DC4956E45BEBB019A349 /* API+NonParseBodyCommand.swift */,
+				25A59675F7B77AF865708AA086520960 /* API+NonParseBodyCommand+async.swift */,
+				35B17844C3E69CFCA04BC5EE50400978 /* BaseConfig.swift */,
+				8228A3492E2B2A8F054A5BC593F357F5 /* BaseParseInstallation.swift */,
+				50C5DC769CD53E88EEFD3154B878D997 /* BaseParseUser.swift */,
+				8118B18A3A1C7184CFDBF41FE438290C /* BatchUtils.swift */,
+				F38C0517747318F95FBF8D50CCC4FC89 /* CloudObservable.swift */,
+				8BDFB9F3055F171612305DF869DB4DCE /* CloudViewModel.swift */,
+				E80D9E2306BCB9561EDA1DFC3703A002 /* Data.swift */,
+				60A496E1073C370E05E64197F02E8E77 /* Date.swift */,
+				B47FF51EC9E5FB585FC8C935EE00ADE2 /* Deletable.swift */,
+				5D8E3191694A42868CAD4657281624C3 /* Delete.swift */,
+				DB6B1A55BB9B83E17F4F76044199195A /* Dictionary.swift */,
+				6349F00F34CB02EBA24A8693FB2CC6AF /* Encodable.swift */,
+				861081DA40763405FAA2908346573CFA /* Fetchable.swift */,
+				D9DF9847D52933916A34E92E2C93DB73 /* Fileable.swift */,
+				A1F111EAFD89B1DD9576D4B9F80AB45E /* Increment.swift */,
+				2B26DF8B51594767DAAFC170E96691A2 /* KeychainStore.swift */,
+				F7483DB76BB06800E8F6230C2C539D74 /* LiveQueryable.swift */,
+				B8C63DF287264DC3222AB270E7B4E7A1 /* LiveQueryConstants.swift */,
+				38D5782E8E2870895057787CD5E319F0 /* LiveQuerySocket.swift */,
+				57E65221087D181EE9A4BF96F3993ABB /* LiveQuerySocketDelegate.swift */,
+				C81290D0DD949C18CB9A8CFA14A7D36D /* Messages.swift */,
+				73B318616E59824FF11847607553E07C /* NoBody.swift */,
+				188F4C56DCC9F3F2FEAAAAC691F2241F /* Objectable.swift */,
+				BDAB68215E0DBA7080302ED0EA64B1CB /* Operation.swift */,
+				9EE1FFDD854DA582E014061A0CBACA92 /* Operations.swift */,
+				4C739F4D34F858E251EC91CE34422455 /* Parse.swift */,
+				5E6738ABBD54268B35D36FE0064885D8 /* ParseACL.swift */,
+				552881F384A15AFA6CD9538D16E8FCC4 /* ParseAnalytics.swift */,
+				3AA3D493B4FDF6A9722C26E77C1A6D3C /* ParseAnalytics+async.swift */,
+				E6F78D6F039915485EE9D8E54208ED75 /* ParseAnalytics+combine.swift */,
+				227E5A60C8BE977FD597317C0D97D229 /* ParseAnonymous.swift */,
+				33E4E8585AB6D091BC7E8229D1105273 /* ParseAnonymous+async.swift */,
+				ED9BB5223832DD85A1D656C976DFD739 /* ParseAnonymous+combine.swift */,
+				9C006F03FC19815E5956A3FCA6EA6142 /* ParseApple.swift */,
+				A7D2AE72B6F5456B4987EC5BEAC7DD52 /* ParseApple+async.swift */,
+				420E1A3160278922670F5220D7011866 /* ParseApple+combine.swift */,
+				134567CFAAC6D61B6E057BBE7ECCA50E /* ParseAuthentication.swift */,
+				6F075745830E55DAB9236D77BE82B29B /* ParseAuthentication+async.swift */,
+				ECF4D9212E50E8B1177BDFB5272AFE07 /* ParseAuthentication+combine.swift */,
+				A763E43155D8FF98D4C077C6EB8A1DAC /* ParseBytes.swift */,
+				14A4CF42DE27B7A7F7BFC3A9ED9DB534 /* ParseCloudable.swift */,
+				9F2CE908EEE1E168C4F2F3B042B14AA8 /* ParseCloudable+async.swift */,
+				932B51B39039FE37131C82A98AA48A6A /* ParseCloudable+combine.swift */,
+				4A4D93B72B28B71696D11EB2DFF9224F /* ParseCloudUser.swift */,
+				0EB7EB3E05B86606819430D66A9BC5A5 /* ParseCLP.swift */,
+				83DE2DB30A676DC83C046636BECA45BB /* ParseCoding.swift */,
+				3D8FC659FD80D3A3E9B1B1654E3FCD57 /* ParseConfig.swift */,
+				9FF17B749F79132D4DBA193FDBE936B5 /* ParseConfig+async.swift */,
+				18C2E44CEC61A7921837A60E452B573F /* ParseConfig+combine.swift */,
+				C690F75F5BDD41C04ADF25510694B433 /* ParseConfiguration.swift */,
+				62BAA9254C57DAB5E2C5EA605970AA8F /* ParseConstants.swift */,
+				83AB97E97D93781085C98288662D8FEB /* ParseEncodable.swift */,
+				9148A75299E767652DA4A1C1D3D87E10 /* ParseEncoder.swift */,
+				333713E6FAD93EB840EC5B027F8C9DF7 /* ParseError.swift */,
+				85F46589799570ACED4C4163F08EB524 /* ParseFacebook.swift */,
+				67742D334FA4108CD9D0D17BC651C74E /* ParseFacebook+async.swift */,
+				93E1202E020A6754A602A2A70F80CE4C /* ParseFacebook+combine.swift */,
+				0151694F33D7CABE120150B5448B5201 /* ParseField.swift */,
+				F4F00015295C237FC34E1EFA9E4DC979 /* ParseFieldOptions.swift */,
+				AFECA700159C5F503F418E0634E3584D /* ParseFile.swift */,
+				FE590253F9713FC2C9B9F433EEB5CEEB /* ParseFile+async.swift */,
+				83BB7CA6C4F24B40CEEF903D4AAA4FE2 /* ParseFile+combine.swift */,
+				A5DBB709102FA47CFE0AD685DA879BDD /* ParseFileDefaultTransfer.swift */,
+				AC5850B5F297BB86F12BEB7E2B146299 /* ParseFileManager.swift */,
+				6765790238822234DC51BC4662B55B4A /* ParseFileTransferable.swift */,
+				EF3AE9ECEA26D719F963CF27FC306323 /* ParseGeoPoint.swift */,
+				EE5693B0E2D6B7EFFCBE8728DEEC2203 /* ParseGitHub.swift */,
+				7C199D0D44F08C5007E3B644A686DF97 /* ParseGitHub+async.swift */,
+				C9E6C65498CDCFAF727F1465701F4299 /* ParseGitHub+combine.swift */,
+				A9D66A905F18869EFEF3453D7961A3C5 /* ParseGoogle.swift */,
+				44A82151836AC5500478ED66DF6C4674 /* ParseGoogle+async.swift */,
+				146F74D0066BD2323C7F3C1F4ADD2B9A /* ParseGoogle+combine.swift */,
+				8D7E3EE03FAA3C390F67A4D56A5DBA89 /* ParseHealth.swift */,
+				48979CD5F14D18007D135A7BE470E483 /* ParseHealth+async.swift */,
+				BB484E6C8B2D9204567FF16D4C04F29F /* ParseHealth+combine.swift */,
+				E22A483C2BF8920732BB91195932CF0F /* ParseHookable.swift */,
+				1ABDB0CE8BD1F53B5AB854481FC1472F /* ParseHookFunctionable.swift */,
+				49CDC308B5BBD0461BE95F145C53A300 /* ParseHookFunctionable+async.swift */,
+				4F3F79497C4299BD668D1921351A6425 /* ParseHookFunctionable+combine.swift */,
+				4FB300D7B0BE9C4B4B20FB87C0974FFC /* ParseHookFunctionRequest.swift */,
+				7AC2799CC80149174A8146AE4A30C26F /* ParseHookParametable.swift */,
+				7BF20376AD00B242248B7A8D53282645 /* ParseHookRequestable.swift */,
+				8A8DB61866578954DC307E2316CFDE0C /* ParseHookRequestable+async.swift */,
+				AF73DFC361B02C2102974A271FE6B2CC /* ParseHookRequestable+combine.swift */,
+				739E5A8EC8C8AC5F2FE5BE1F3BEF4CE8 /* ParseHookResponse.swift */,
+				CD7764A9BE14C80E6FB58C6C8679CFC2 /* ParseHookTriggerable.swift */,
+				F90DAD99CEE98C82179CC5B7A339F450 /* ParseHookTriggerable+async.swift */,
+				D1797107B836B616AFC4B78362125D82 /* ParseHookTriggerable+combine.swift */,
+				81E179D8890C5EFF79BA5A552C35657D /* ParseHookTriggerRequest.swift */,
+				AD983D64247ACE87F2285A53D4A6C55A /* ParseInstagram.swift */,
+				1E1E419EB261DB21CEF0711688D9E4D7 /* ParseInstagram+async.swift */,
+				7A87610592264B01BD679843282D4F0C /* ParseInstagram+combine.swift */,
+				1A8FED568A35D1908F0E2C37A62589E5 /* ParseInstallation.swift */,
+				658AD0EC04F83B604F5A7BAA8740E893 /* ParseInstallation+async.swift */,
+				8C66D129735E883FA617654FF09A4807 /* ParseInstallation+combine.swift */,
+				3D14C5C69AA8078F0177FA8DCF73E296 /* ParseKeychainAccessGroup.swift */,
+				48BDE8C3C8776CE116DB34DBA2C68627 /* ParseKeyValueStore.swift */,
+				C22889F261587530E92736B46B1B96A5 /* ParseLDAP.swift */,
+				E70A99961D6997E365F1C475A37AB21D /* ParseLDAP+async.swift */,
+				54ABFDDCB97D8FD228A36E1CD4040C67 /* ParseLDAP+combine.swift */,
+				8428D8EAE538D1666CE2268775277434 /* ParseLinkedIn.swift */,
+				CCA1089AEBEDF70F8D07E226F317AEF5 /* ParseLinkedIn+async.swift */,
+				56EF5D990BE32D926FD6E12DBC7F6D42 /* ParseLinkedIn+combine.swift */,
+				E59BA0E81F1B0879679F373CDB287392 /* ParseLiveQuery.swift */,
+				00D86A9489E12E88589035D6090B450F /* ParseLiveQuery+async.swift */,
+				F9B391491342D38670692B37EB0BB38D /* ParseLiveQuery+combine.swift */,
+				2F2F0DD1BC9B40921550D3E74E03E2FF /* ParseLiveQueryConstants.swift */,
+				6115FCD652F5FC14EEC374490600B651 /* ParseLiveQueryDelegate.swift */,
+				2FD66FDB87E0416660C0E097474D1126 /* ParseObject.swift */,
+				228F69C811911C17E1AA69F554C40CF9 /* ParseObject+async.swift */,
+				9737B382C803194D99891F4BE89E4015 /* ParseObject+combine.swift */,
+				32F51D8F1C7EEC32248234CA82A88290 /* ParseOperation.swift */,
+				596B177902E5C392BCA72BCCEC6CEC99 /* ParseOperation+async.swift */,
+				6C8698F7B83DE3FC404183CC5CF68000 /* ParseOperation+combine.swift */,
+				6FADDE00121B0BFD4C268F7A60FE82BE /* ParsePolygon.swift */,
+				78105F0F1577CE05378CDC84D9CD5E7B /* ParsePush.swift */,
+				8D1037160A225990505F028A96881521 /* ParsePush+async.swift */,
+				F7AE670621B90EE884E12E87AC9B6151 /* ParsePush+combine.swift */,
+				E2837C706F10AC82B148EF5E5AB572CD /* ParsePushAppleAlert.swift */,
+				2F34E7A53888D1B9F21C40FDC8C67469 /* ParsePushApplePayloadable.swift */,
+				8275A664B36CB1BEFE87B5BA326780F3 /* ParsePushAppleSound.swift */,
+				97EDABEC05E9A395F749196274BFE87C /* ParsePushFirebaseNotification.swift */,
+				E4594FD71B93BD73D108A6A69253BBDE /* ParsePushFirebasePayloadable.swift */,
+				E404A2F0463BB2FE554CCD14E40768A9 /* ParsePushPayloadable.swift */,
+				B7379FA23439A9AC96DF2DFAD497468D /* ParsePushPayloadAny.swift */,
+				2F59F9EB52F4F1423E297832DE9BE315 /* ParsePushPayloadApple.swift */,
+				F4C82EF6D5DFD5D7C29F4E8C57F3E0FA /* ParsePushPayloadFirebase.swift */,
+				A387B4BB4165179CBBE39C64FC20A6E9 /* ParsePushStatus.swift */,
+				07337FA17F07718618D92B32CE3117B1 /* ParsePushStatusable.swift */,
+				BD991989E9FBF7A86BD73DC6B88D3ACD /* ParseQueryScorable.swift */,
+				B0C15E6DFD64F3A750B1671FEC97F924 /* ParseRelation.swift */,
+				0F4D39DC80D7F5F319B593DD897217CD /* ParseRole.swift */,
+				6279C051F8B7C82A70078EE8C5467417 /* ParseSchema.swift */,
+				3AC2E4BBEC2470DC9EAA8C2848DC8AA2 /* ParseSchema+async.swift */,
+				70DFDB5780054D726D806115BA152E46 /* ParseSchema+combine.swift */,
+				3B557C85B75863FDF9FFF015395320BD /* ParseSession.swift */,
+				B7AB604444FBD0E08B891D5D7AFEBA32 /* ParseSpotify.swift */,
+				19465A0B304F584355F4A48B36242FA9 /* ParseSpotify+async.swift */,
+				6A17E32A5B866912381CE9D5D8B6A333 /* ParseSpotify+combine.swift */,
+				400BD5917AADFA24516177FD9712F3F6 /* ParseStorage.swift */,
+				0E41EE1293801930E37FFC5953AB6B83 /* ParseTwitter.swift */,
+				4D701001C33251C58BD114CE840E0311 /* ParseTwitter+async.swift */,
+				39234B99804DAC64C4DA6F1799023441 /* ParseTwitter+combine.swift */,
+				43F01AC150B739F147639D5EFA98E184 /* ParseTypeable.swift */,
+				83AC014E4741EC5CBE1A296B9A8E89D3 /* ParseURLSessionDelegate.swift */,
+				A8E976D6DE2453EBE94E10DBEE1348B8 /* ParseUser.swift */,
+				808AD6DB7EE02D8B1D1A1CF6ECEE6CF4 /* ParseUser+async.swift */,
+				917F579AC682A590914A3E6560EBF97D /* ParseUser+combine.swift */,
+				D642AA1FB3730DB5BF0217434C6F717C /* ParseVersion.swift */,
+				6C281BC238ADD3AC29BC24B795A82E90 /* Pointer.swift */,
+				4164F4ED4C4590279C96F6F249A89FEF /* Pointer+async.swift */,
+				248D608A5E48750AB4991625F7710ACA /* Pointer+combine.swift */,
+				4DD6710B59A07178A855BC619964288A /* Query.swift */,
+				E0153CBBDCD5763F6817478E092DE477 /* Query+async.swift */,
+				C4DCAECEA7526F4ADCFA04747F6DA3A9 /* Query+combine.swift */,
+				F577531D48402B8C1005063B0CEB69E3 /* Queryable.swift */,
+				BC399345EA5FD00BC7BCD367428A1B76 /* QueryConstraint.swift */,
+				DCE5F086E4CA6EFED54752E5AAC5C30A /* QueryObservable.swift */,
+				9CCCBA83FBFEE611497A0E00BDC8D693 /* QuerySubscribable.swift */,
+				5948B007A8DA5B92551C56B3309D1B85 /* QueryViewModel.swift */,
+				A3F9746D77ACFC8260C6F10FFB55A1E8 /* QueryWhere.swift */,
+				FA6B619DEA42547A96AF6355221F8DB9 /* Remove.swift */,
+				897E24C214A4D1491F2EE3EF0FD32559 /* RemoveRelation.swift */,
+				C0E0A976ABB673018F283D300C169388 /* Responses.swift */,
+				CBFD327B8ED42BCF29EBD4E7F115B7A5 /* Savable.swift */,
+				5BB8A338A0536E68A0935623B841400A /* SecureStorage.swift */,
+				584B580C2F594C007B7DFE61487CE91B /* Subscription.swift */,
+				F3213A692A6AD10B0C65D41C173D5EF4 /* SubscriptionCallback.swift */,
+				916DBE1DFBB9306F02D0AC74BA1667F4 /* URLCache.swift */,
+				EF2965818D45FDFE61C14B9FB3CD4783 /* URLSession.swift */,
+				34099954BA917F1C12443F79F91D71F4 /* Support Files */,
+			);
+			name = ParseSwift;
+			path = ParseSwift;
+			sourceTree = "<group>";
+		};
+		B003C0F42709EF8A50AE9F9D7061E5D6 /* Complete */ = {
+			isa = PBXGroup;
+			children = (
+				E46D2B6D0682BA57A3A1CDCE87EB50D4 /* AutomaticEvents.swift */,
+				7578500525B6764C30CA560671CA19D0 /* AutomaticProperties.swift */,
+				F92BB506CEF1716423677CB754362B90 /* Constants.swift */,
+				FD039FFB8A4C79DCC01C168F44789555 /* Error.swift */,
+				5343CA791CFE86CCFCA295AB57A116AC /* FileLogging.swift */,
+				43CB214D2F3C92D86A78E69DA95936D9 /* Flush.swift */,
+				7BF09DA33B278757221AC774D720C7B8 /* FlushRequest.swift */,
+				502C77ED6DB4D6BAC496339FE1103137 /* Group.swift */,
+				7748ED4E942101E58F304908CA4949D2 /* JSONHandler.swift */,
+				76142CEF2176B1A99F716D0BA267673E /* Logger.swift */,
+				FF69ACFE6D1D3C00895DA30783ACCC97 /* Mixpanel.swift */,
+				2D66B9A0D1EF59DC58DF9E81517E08E7 /* MixpanelInstance.swift */,
+				57C2CDBE378BEEB5140A970939F0B942 /* MixpanelPersistence.swift */,
+				0F15F1BB5F4D871ECCD42421FF603F61 /* MixpanelType.swift */,
+				86496EF4CC5FED60710829CE110309C5 /* MPDB.swift */,
+				97C926D83113EF44BFD485F016829A97 /* Network.swift */,
+				BD75482B1490C9B4C2CD3FEBD372DFAC /* People.swift */,
+				CF51C452EE3E67AFC774F143C5CF0142 /* PrintLogging.swift */,
+				162C95DA5FDFB98AE62D0054835CB03D /* ReadWriteLock.swift */,
+				E67E93B68B26882BD98E9A4D337CEF56 /* SessionMetadata.swift */,
+				D6CB0AC40C383F2A2A3ADD3F4850CFFC /* Track.swift */,
+			);
+			name = Complete;
+			sourceTree = "<group>";
+		};
+		B5B10EF480C734DC47A82735DADF1889 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BAA484EC40C62FE5FD2A005FDB9F1E51 /* PrivacyInfo.xcprivacy */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				39273EA2494176A8E3D47458B199EFE3 /* Pods */,
+				A4744BA7CD21375F41D08D0E82A7C054 /* Products */,
+				0E99BE3F9DEB4F58BEABD19E4FBF1854 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D18498EF38B71E7F4A085B2F19FE697E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5D59702523412BC81AF24C7E9A16F179 /* CoreTelephony.framework */,
+				2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */,
+				5A5B61B6C827FD7E07F3F13115EF720A /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		249322333C3163D79486A170589C8ED9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB88960C3B9AD94092E9AE0C8BD45825 /* Mixpanel-swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80D7990422B52DA040E4E0AF7AF4230E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F532F736EAE32908E6DC2639233FE3C /* ParseSwift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFC86DB2297B28652B296E74CA0E8F8A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB0AF4E13FCA52C76C61138F7527D614 /* Pods-Tirajosaure-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1C5C7432DA0927A0B2F35F14B776C239 /* Mixpanel-swift-Mixpanel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D2A12EB2887CF1C7B96C7FE788E0A1B /* Build configuration list for PBXNativeTarget "Mixpanel-swift-Mixpanel" */;
+			buildPhases = (
+				666BA76859AAD5BA871B8715DE24EC9F /* Sources */,
+				685E16C21B8D145412BB6DA706ADA936 /* Frameworks */,
+				66490780F77CC87B22FA8512E429B5BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mixpanel-swift-Mixpanel";
+			productName = Mixpanel;
+			productReference = 6CEE96A6A3A3FC3CC51830131C0A4660 /* Mixpanel-swift-Mixpanel */;
+			productType = "com.apple.product-type.bundle";
+		};
+		69B2B4C83C9831ABB5B7C2EE2A072A07 /* Pods-Tirajosaure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81963445283A1FF0BA0E54FC9E5C369B /* Build configuration list for PBXNativeTarget "Pods-Tirajosaure" */;
+			buildPhases = (
+				CFC86DB2297B28652B296E74CA0E8F8A /* Headers */,
+				7321D379E5DCC09A734DF4D514D34EE7 /* Sources */,
+				807AE694F041A5046CA1392DAC40FE9F /* Frameworks */,
+				FBA3829593ECA8D7F96B2420FA7490E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE0E5D7FF07010049CE296502578A77B /* PBXTargetDependency */,
+				5C26568D04A6AD2E80F7803A121CCE38 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tirajosaure";
+			productName = Pods_Tirajosaure;
+			productReference = DCB9926EBDBDDD0DB9A48C939DD9C728 /* Pods-Tirajosaure */;
+			productType = "com.apple.product-type.framework";
+		};
+		B9956B2CEA5C1F34EC745DDAD5BA76AA /* ParseSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 472B2CE958B5A2BF9F36AF3615564476 /* Build configuration list for PBXNativeTarget "ParseSwift" */;
+			buildPhases = (
+				80D7990422B52DA040E4E0AF7AF4230E /* Headers */,
+				06586A43B2D576C062E9ED71EB2B66B1 /* Sources */,
+				27752F44D7469380728D5B9311158185 /* Frameworks */,
+				318641558313D6412C8E61C44E2F5004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParseSwift;
+			productName = ParseSwift;
+			productReference = B8C80651F5F5895F24A8BBF82A29B178 /* ParseSwift */;
+			productType = "com.apple.product-type.framework";
+		};
+		E1886A99D3887E7B636CFCD67E199412 /* Mixpanel-swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93884AC7362A9B0D4F3F8166AED13A22 /* Build configuration list for PBXNativeTarget "Mixpanel-swift" */;
+			buildPhases = (
+				249322333C3163D79486A170589C8ED9 /* Headers */,
+				7C7DF11AA91ACD08C78DFBB92E9C1869 /* Sources */,
+				6FDC5257DBB30EA3E24A60204E4A999A /* Frameworks */,
+				6D5DF0DA1DF8A8D33812D609C0079C0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38E316BB7FA3D489C42BB04AB42D5427 /* PBXTargetDependency */,
+			);
+			name = "Mixpanel-swift";
+			productName = Mixpanel;
+			productReference = 3106651F608FF9E872964798302D36DE /* Mixpanel-swift */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = A4744BA7CD21375F41D08D0E82A7C054 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1886A99D3887E7B636CFCD67E199412 /* Mixpanel-swift */,
+				1C5C7432DA0927A0B2F35F14B776C239 /* Mixpanel-swift-Mixpanel */,
+				B9956B2CEA5C1F34EC745DDAD5BA76AA /* ParseSwift */,
+				69B2B4C83C9831ABB5B7C2EE2A072A07 /* Pods-Tirajosaure */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		318641558313D6412C8E61C44E2F5004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66490780F77CC87B22FA8512E429B5BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				439A9835332D02C16C292A8BDB082614 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D5DF0DA1DF8A8D33812D609C0079C0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				211EDD2D560BBCE21B0AD8D1A748E55D /* Mixpanel-swift-Mixpanel in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBA3829593ECA8D7F96B2420FA7490E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06586A43B2D576C062E9ED71EB2B66B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADEB5DA6B7E9FB60CD834E16AE3ACE05 /* Add.swift in Sources */,
+				9DB6376DCCC0BB6BFCC76C18637B9EE9 /* AddRelation.swift in Sources */,
+				CAEAD606BD2655AC1151A9190E4471EA /* AddUnique.swift in Sources */,
+				EDE4860238B07D6CDE1E013209B2C3D6 /* AnyCodable.swift in Sources */,
+				7A89A7794E17A9E1A9195801E049BCB5 /* AnyDecodable.swift in Sources */,
+				1CBBDE8ABFA36EAB32037DF426186CD4 /* AnyEncodable.swift in Sources */,
+				D69D61BAC1844A4AB1938921AE25222F /* API.swift in Sources */,
+				D6D76A35734EA79F941F3D86C182E7F5 /* API+BatchCommand.swift in Sources */,
+				DB677E9DBED79269AE203133ADCF412D /* API+Command.swift in Sources */,
+				22ECB93DAC3CF2386E844AB910C5142C /* API+Command+async.swift in Sources */,
+				CF065ABF81203BFA145956FC29594D83 /* API+NonParseBodyCommand.swift in Sources */,
+				BC85FF2AAD097ECD002ECB3DF0D49B3A /* API+NonParseBodyCommand+async.swift in Sources */,
+				51AEAEB480772E0D617F113B2579EF31 /* BaseConfig.swift in Sources */,
+				4FE5970056D93CF3CD84CE9A16A9C82D /* BaseParseInstallation.swift in Sources */,
+				49772302865D4CD69E2811C5498A71D1 /* BaseParseUser.swift in Sources */,
+				E0189306DA1CF464B0436CB921B6D90C /* BatchUtils.swift in Sources */,
+				3702331C92C23666C303D894D4FF254D /* CloudObservable.swift in Sources */,
+				78973E7906F735B2B69487EF2B56533C /* CloudViewModel.swift in Sources */,
+				1BDFE66A2552DE220F6A1BCE3DCEC085 /* Data.swift in Sources */,
+				3F868F11DB04CFD7B37AA7353DB412FD /* Date.swift in Sources */,
+				8E689C79C237242816F31550AF4D884D /* Deletable.swift in Sources */,
+				7B74481F60E1217F649B984E20D1F88E /* Delete.swift in Sources */,
+				1D0748E0394B9393C9FDD2EEDB5DAE7D /* Dictionary.swift in Sources */,
+				B0B8CA203EDB8DC0326154637C0E60B5 /* Encodable.swift in Sources */,
+				1796CDF1104837C3767514957D1ECB06 /* Fetchable.swift in Sources */,
+				10917BD66E990784AC0CA281A21993AE /* Fileable.swift in Sources */,
+				2F123FDFABED3AD5EF08F21ED058578A /* Increment.swift in Sources */,
+				9B587AE7ABCBBE1013DACE885E861358 /* KeychainStore.swift in Sources */,
+				740C0CA38CA857BEACA4C23B43596639 /* LiveQueryable.swift in Sources */,
+				BC1885C8619D01676E1403BEE6DD94DD /* LiveQueryConstants.swift in Sources */,
+				87A62979FB8C4698ACBAC0B42A7CAA1E /* LiveQuerySocket.swift in Sources */,
+				D50E9B5C63801BF96C8C963288C8E809 /* LiveQuerySocketDelegate.swift in Sources */,
+				AB3D32FAD5744C48275B452C3F74916C /* Messages.swift in Sources */,
+				A59C4AFD172E76399BACC99CED162D12 /* NoBody.swift in Sources */,
+				48A5B3CD37A2DCD165D974AF301EE1DC /* Objectable.swift in Sources */,
+				5F196D6CBD6918DFFD0660F751E254A5 /* Operation.swift in Sources */,
+				83FD52E270C4D1AA84E44A454945FECC /* Operations.swift in Sources */,
+				4C3B4683DFEA721DBADE45B324D4A349 /* Parse.swift in Sources */,
+				A74167FD40061855DC38BD59ACB84B71 /* ParseACL.swift in Sources */,
+				2855E5D90090E02B53B43A0A318305F0 /* ParseAnalytics.swift in Sources */,
+				463B74CD1C146E32C55D264555E5A6B7 /* ParseAnalytics+async.swift in Sources */,
+				FCD5AD80E6069BA7190FBF285DA8C49D /* ParseAnalytics+combine.swift in Sources */,
+				8A593002E49AF0B1418DE8A5847F669E /* ParseAnonymous.swift in Sources */,
+				0082B448B13795DAF167267B9BCEA617 /* ParseAnonymous+async.swift in Sources */,
+				5F66AEEB686C4DC811C6FBB84BE38461 /* ParseAnonymous+combine.swift in Sources */,
+				221A28FCCE87D6D4E519412997676E30 /* ParseApple.swift in Sources */,
+				182F5A08D79ADABB876CB3479EF7685A /* ParseApple+async.swift in Sources */,
+				5FABC8207E366A10AFFA245E9DB37078 /* ParseApple+combine.swift in Sources */,
+				BD5E737C73B7688BB53535AF79209F5D /* ParseAuthentication.swift in Sources */,
+				684F92775A415D406D75A1E457B1B80D /* ParseAuthentication+async.swift in Sources */,
+				03CDFDE91FBB5A6F0046E36B2792B400 /* ParseAuthentication+combine.swift in Sources */,
+				BE1E0AD6F15C08EF2E89CD342F10A711 /* ParseBytes.swift in Sources */,
+				02DC6B58B0FD15F0128CBFF8D9C17FB1 /* ParseCloudable.swift in Sources */,
+				D0B26D2C6954BEEAF8611ACD68E98365 /* ParseCloudable+async.swift in Sources */,
+				DAA9B9F83F1966F0B37F1B9300EDC7AB /* ParseCloudable+combine.swift in Sources */,
+				1B5EA96B6CA1C60749A6BD0EAC41792B /* ParseCloudUser.swift in Sources */,
+				D20CCCE96BB876768F371B08F8B73616 /* ParseCLP.swift in Sources */,
+				2726724A1C3E1D841EB49FB874FEC174 /* ParseCoding.swift in Sources */,
+				73C477CD1BC5FB839265978DBB4A9603 /* ParseConfig.swift in Sources */,
+				ABB5589D86B8B9C46A7F123693D64C7B /* ParseConfig+async.swift in Sources */,
+				0773E7E40FB9C4F957788C09EDCF334B /* ParseConfig+combine.swift in Sources */,
+				0A670DD1C67ADA5D6B3E6ACBBB2367CE /* ParseConfiguration.swift in Sources */,
+				2A3FA6260C682B88F3959F01D2CAF0BB /* ParseConstants.swift in Sources */,
+				7A9CA939710003E734DE33464D077B20 /* ParseEncodable.swift in Sources */,
+				10B2B5A1974F9799118C56AC74904A7B /* ParseEncoder.swift in Sources */,
+				04A79888C01C97989200FB96426E31F0 /* ParseError.swift in Sources */,
+				532D8CBEECB8B9B1272A2EB51D21C644 /* ParseFacebook.swift in Sources */,
+				5A9BB49E2BE2DB74C0121E368D1F62B2 /* ParseFacebook+async.swift in Sources */,
+				9B6C789278F5DBAF4B97240FA97B693F /* ParseFacebook+combine.swift in Sources */,
+				D0342912C16FC358E1616046E23BA8E8 /* ParseField.swift in Sources */,
+				4BC4280DEF20FB41BC85B0264F707D6A /* ParseFieldOptions.swift in Sources */,
+				04543C970EFC0E7A8E74155B62DAAC54 /* ParseFile.swift in Sources */,
+				59786B441D54521FC447981CE569C09E /* ParseFile+async.swift in Sources */,
+				0E3E30285CA42225F6157D952ECF3862 /* ParseFile+combine.swift in Sources */,
+				F187F7EB30A0B8BDACA35E4E110C17C4 /* ParseFileDefaultTransfer.swift in Sources */,
+				CBA1306D1E0E5630928C333DB4C4F1D6 /* ParseFileManager.swift in Sources */,
+				07EC873DE83B456AAD6C72DF5FEC016C /* ParseFileTransferable.swift in Sources */,
+				D7B66BAD8DA385FA7B3E81C14A1B2545 /* ParseGeoPoint.swift in Sources */,
+				5A632D4AEBE3AC84B5741389AB65FB0D /* ParseGitHub.swift in Sources */,
+				18AB9FE70F89EEB0A2078BBA1D237F8B /* ParseGitHub+async.swift in Sources */,
+				F4C379DA82C8063949C811FB63DF476E /* ParseGitHub+combine.swift in Sources */,
+				21820A2A9D246438C82FAFF2A2B9C91B /* ParseGoogle.swift in Sources */,
+				4F7B500B825AF866908A1466C0DAF88E /* ParseGoogle+async.swift in Sources */,
+				385195E53932DC242C532EA07B4FABB7 /* ParseGoogle+combine.swift in Sources */,
+				5476058260E7144B5BFAAD7C82961B26 /* ParseHealth.swift in Sources */,
+				CAF6772B1FAA27C5FAA22D6A8B33F16B /* ParseHealth+async.swift in Sources */,
+				A1E37457888A1B9AEEB5582E5BE37A50 /* ParseHealth+combine.swift in Sources */,
+				09C439254A9DFD47CA81B8B2EDA31750 /* ParseHookable.swift in Sources */,
+				2380FF886083D19A18E2C640B5FC6651 /* ParseHookFunctionable.swift in Sources */,
+				F1E519D250E8601D96C57C657BAB0B31 /* ParseHookFunctionable+async.swift in Sources */,
+				44441EC5904205B9363F78420A13FFFF /* ParseHookFunctionable+combine.swift in Sources */,
+				F25F489CAE563B501D2D6EDBFB7609B0 /* ParseHookFunctionRequest.swift in Sources */,
+				6A7B2FBA1C9CB3E29E6EABF9CA361172 /* ParseHookParametable.swift in Sources */,
+				9C213381DC694FDFE7FA6DB912DCF58E /* ParseHookRequestable.swift in Sources */,
+				75589E9B1C19C723AC516F9A21721CC2 /* ParseHookRequestable+async.swift in Sources */,
+				98585BBF142AB8891904652B81BDB09B /* ParseHookRequestable+combine.swift in Sources */,
+				592D1CD28F74700480DCC59EE173D704 /* ParseHookResponse.swift in Sources */,
+				F63B5E670143DD2EC8BD5787D4FD2872 /* ParseHookTriggerable.swift in Sources */,
+				8F6890939F67BC9008371B83BF0135CF /* ParseHookTriggerable+async.swift in Sources */,
+				EDAE8A2F62337E34C5E886BF0F281E3F /* ParseHookTriggerable+combine.swift in Sources */,
+				E98F5D7E55B3A9EEB1F6C895F5E5A856 /* ParseHookTriggerRequest.swift in Sources */,
+				3B9CDA96A893E96C95165698CDF93B8A /* ParseInstagram.swift in Sources */,
+				29AC3A58E65CC2B68C7C41EE4AA058C0 /* ParseInstagram+async.swift in Sources */,
+				3FF66706FD71CFC965B0A64BA2B5BCDD /* ParseInstagram+combine.swift in Sources */,
+				13616D9C7E06C27502DE3FB777E645E7 /* ParseInstallation.swift in Sources */,
+				3CB89B22FA2F4DF4CA260D1D1CE97ACC /* ParseInstallation+async.swift in Sources */,
+				6FC5EEA38D099E13607ECBD39CE94F40 /* ParseInstallation+combine.swift in Sources */,
+				4665C121414FCBE3F636DA11DAE54D2F /* ParseKeychainAccessGroup.swift in Sources */,
+				064161D5568D82C0611F48854A873227 /* ParseKeyValueStore.swift in Sources */,
+				58388303E01E7E497377106C2A3DC6D3 /* ParseLDAP.swift in Sources */,
+				9AF81677FF5C5FFB94527231450203CB /* ParseLDAP+async.swift in Sources */,
+				E1B11163A80BAB4B4D9A688B2A3D4005 /* ParseLDAP+combine.swift in Sources */,
+				6110546330C43EC3D95C6E97CDD95FF4 /* ParseLinkedIn.swift in Sources */,
+				1403C78D563396A46CF777BC658B239A /* ParseLinkedIn+async.swift in Sources */,
+				89E898B56EEB7494D269C37BAF33F066 /* ParseLinkedIn+combine.swift in Sources */,
+				A2E28181F570414D92F3BAFEDD92DC67 /* ParseLiveQuery.swift in Sources */,
+				C9F9C5FC5AF01C5897698C0D76D99BE9 /* ParseLiveQuery+async.swift in Sources */,
+				D43A00D5CB982824AFF452704497C95E /* ParseLiveQuery+combine.swift in Sources */,
+				58F1E13F50BA512EB83AF1BF8177D0ED /* ParseLiveQueryConstants.swift in Sources */,
+				32D9BA1F2948B7DFAD98F9F87B464B68 /* ParseLiveQueryDelegate.swift in Sources */,
+				618C6DE35E7FB1A40EA96356F5A621D2 /* ParseObject.swift in Sources */,
+				3DF4D94292A38BD3F852B28BA57DE0F3 /* ParseObject+async.swift in Sources */,
+				0CD44BFBBBDED5EF574219D586771054 /* ParseObject+combine.swift in Sources */,
+				36EFA6DADEEBC032429AA2B66D5DB6D7 /* ParseOperation.swift in Sources */,
+				4E0FC2C18750605FEB67DBF57F66C0B4 /* ParseOperation+async.swift in Sources */,
+				7C5BE25D0DEE77FEE0D20A0F7EADE113 /* ParseOperation+combine.swift in Sources */,
+				7F02CF2735C30FD6CD69F44C036EB7C7 /* ParsePolygon.swift in Sources */,
+				79C5EB01192E7DDF5A6C7A0957E68A88 /* ParsePush.swift in Sources */,
+				C4C69C1A38108AD03C6BC0839FE06CF4 /* ParsePush+async.swift in Sources */,
+				F8A23EE21D54CEFB869B8044CA3C1A61 /* ParsePush+combine.swift in Sources */,
+				96AF0B84A962918D705AEA5E2C8C2869 /* ParsePushAppleAlert.swift in Sources */,
+				5C1ADB9BDE95FBCBB5E2F79BE8C3FC50 /* ParsePushApplePayloadable.swift in Sources */,
+				E1A9E3B2022FE75D03CF7FA1AF1F8702 /* ParsePushAppleSound.swift in Sources */,
+				9C4DD92EA3E9B2E482F03007C0F7D4A3 /* ParsePushFirebaseNotification.swift in Sources */,
+				21FD1D7D9C120978136A804A50D56D19 /* ParsePushFirebasePayloadable.swift in Sources */,
+				F7EEA0BE96C7AAAD5A54CAC50E7067A3 /* ParsePushPayloadable.swift in Sources */,
+				9EDBBD8F6CC33E17EA3434D7111A803E /* ParsePushPayloadAny.swift in Sources */,
+				6BA18E1B53F3360D2761551F3FA9C9F9 /* ParsePushPayloadApple.swift in Sources */,
+				F4CE97DEC10B1F05DF45302DFE861DF1 /* ParsePushPayloadFirebase.swift in Sources */,
+				111704B0C130BBD04D38D99310748E56 /* ParsePushStatus.swift in Sources */,
+				68F2D1597E74875436A926BF86F6F04D /* ParsePushStatusable.swift in Sources */,
+				7347C354B276040B1838688AC4394448 /* ParseQueryScorable.swift in Sources */,
+				0EB4A7E8A10F20FCFE6A9E40D8A79DD2 /* ParseRelation.swift in Sources */,
+				AFFF7360DDF22A833DE30F08D20D1788 /* ParseRole.swift in Sources */,
+				02F4C9BB6102D001A46C9373F397EB59 /* ParseSchema.swift in Sources */,
+				C9644ED0609893F069C2C2536801B7C5 /* ParseSchema+async.swift in Sources */,
+				A7F944AEF04E7CC6B36E7DBD70F1901E /* ParseSchema+combine.swift in Sources */,
+				47272712952FEA77ED094F99624D2F66 /* ParseSession.swift in Sources */,
+				AFBC1650FCD87B989B0B8BCF9A3A5111 /* ParseSpotify.swift in Sources */,
+				E5090F2C0AED49B2FDEA71AF911302F0 /* ParseSpotify+async.swift in Sources */,
+				8819D68DE6A5DC6B128A1A3066FE9FA8 /* ParseSpotify+combine.swift in Sources */,
+				448014731E2AADE876AFBD53398B003D /* ParseStorage.swift in Sources */,
+				38349B7CE18F1747B7256E6AB28031BD /* ParseSwift-dummy.m in Sources */,
+				4720A0ED509BD6C3EFF57CA06DA64A54 /* ParseTwitter.swift in Sources */,
+				9414F54EC8B2FAA24F310D3D87EDB994 /* ParseTwitter+async.swift in Sources */,
+				D290BC1C121ABDD6DCEDC28E08425CFD /* ParseTwitter+combine.swift in Sources */,
+				42D32000DEBA975712B1709F06505B73 /* ParseTypeable.swift in Sources */,
+				33829747476DA65E58B705E806FCA50A /* ParseURLSessionDelegate.swift in Sources */,
+				DEC56F602B230271D196E7553BE15F96 /* ParseUser.swift in Sources */,
+				F5D10F605EFBBFC8A52CA20042624615 /* ParseUser+async.swift in Sources */,
+				6BDA03C3CF9251191DAEABC8FDEC401A /* ParseUser+combine.swift in Sources */,
+				3AE8D9408569C6B839365E3939A6E108 /* ParseVersion.swift in Sources */,
+				B83757D00C70A8DCFA437D2D8E266CD0 /* Pointer.swift in Sources */,
+				478490B7241EC1BE2299D643418B811A /* Pointer+async.swift in Sources */,
+				02266A18367C4EE28F287AA4DF3141D7 /* Pointer+combine.swift in Sources */,
+				028F47A0042B430AF07EE2F8220D3211 /* Query.swift in Sources */,
+				BB39B70C275834A341213276B09825E1 /* Query+async.swift in Sources */,
+				AAC84532045F5249DEA8AEA8C4782817 /* Query+combine.swift in Sources */,
+				49A6F926D3C4AE28B3E3950D2A4B0797 /* Queryable.swift in Sources */,
+				35A9AFE7E634A5BE98FDAE639C166E66 /* QueryConstraint.swift in Sources */,
+				D8975332426BFDA7F43D0B036FC79AC3 /* QueryObservable.swift in Sources */,
+				58D830921D6C7EFEB3AC05AA3E1DD488 /* QuerySubscribable.swift in Sources */,
+				946CB95E9ED6107B912875E6729EE5DB /* QueryViewModel.swift in Sources */,
+				4DF3B8B74122D795B41149307C429102 /* QueryWhere.swift in Sources */,
+				495870CE18A8FF08CDD2C4E41FC48E9B /* Remove.swift in Sources */,
+				F3C2A94014AF6F321F24E65A07675EA0 /* RemoveRelation.swift in Sources */,
+				B9E4ED41C873B33F0CD1D38DF572C1BC /* Responses.swift in Sources */,
+				74B6EF1ECA1677CF8E389B8B44F9C031 /* Savable.swift in Sources */,
+				8BEF417A4CE78536A7E71C2ED9B13155 /* SecureStorage.swift in Sources */,
+				073478B36664B844684D58CE95E7A1CE /* Subscription.swift in Sources */,
+				EC7DCF20BD350795802AA5B9BCEA219A /* SubscriptionCallback.swift in Sources */,
+				C1D8F98E8068A9343D909B1A830EDA9D /* URLCache.swift in Sources */,
+				85781B6F435A9EA33C06B2EDA5F258B6 /* URLSession.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		666BA76859AAD5BA871B8715DE24EC9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7321D379E5DCC09A734DF4D514D34EE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14D4C7B440C30A561B4E261E487D3F99 /* Pods-Tirajosaure-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C7DF11AA91ACD08C78DFBB92E9C1869 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5994BD8AFA8E33E45254D818E7AF74FF /* AutomaticEvents.swift in Sources */,
+				8170DAA0E1F9D2D17877B73BD1E7C2DA /* AutomaticProperties.swift in Sources */,
+				D2F369E1018B6DD2D3AE4359D3134103 /* Constants.swift in Sources */,
+				6DB57E3C14081B920F4113BD884F0762 /* Error.swift in Sources */,
+				47B40EE237DB3B97745CD328994221B4 /* FileLogging.swift in Sources */,
+				04C3B3DAE5CD13B2DD39595ED842DCD6 /* Flush.swift in Sources */,
+				0813AFA313465C1AD38C617E478064D7 /* FlushRequest.swift in Sources */,
+				DDAD85AE803B116025FA0989A62C411A /* Group.swift in Sources */,
+				5A9069D4F0BC953931238066665C6ECE /* JSONHandler.swift in Sources */,
+				D5374161CE0EAD964C569A64BDE294D0 /* Logger.swift in Sources */,
+				8601F3C55C3DBD9B1818CC6C6AE4B196 /* Mixpanel.swift in Sources */,
+				C0385F29BA4D6762198FF8EA8C596034 /* Mixpanel-swift-dummy.m in Sources */,
+				D6889CF0C97DF577125F137C498DCD7C /* MixpanelInstance.swift in Sources */,
+				43D9C980EBFF6F281E51E24B271423F3 /* MixpanelPersistence.swift in Sources */,
+				53EF23DEB421BF9836BB0A7689420092 /* MixpanelType.swift in Sources */,
+				57AFECAD8F6503DC84678C4053118758 /* MPDB.swift in Sources */,
+				4F17AA1B9165871C8E62CBB6AA942DC0 /* Network.swift in Sources */,
+				854166FD3D974F6A36266B2A34B0EB92 /* People.swift in Sources */,
+				6B65D22E2FDB4E67CB0B06DDF5B0A921 /* PrintLogging.swift in Sources */,
+				C5E9CE34EE89BABFC58309DA7CE3CB85 /* ReadWriteLock.swift in Sources */,
+				35F014796761DCFE9655121BB74768F0 /* SessionMetadata.swift in Sources */,
+				6FC0FC138230A3C327D1CE8ADD37E08A /* Track.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38E316BB7FA3D489C42BB04AB42D5427 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mixpanel-swift-Mixpanel";
+			target = 1C5C7432DA0927A0B2F35F14B776C239 /* Mixpanel-swift-Mixpanel */;
+			targetProxy = 4101B569FBDE57455EA7E7B097C7D7D5 /* PBXContainerItemProxy */;
+		};
+		5C26568D04A6AD2E80F7803A121CCE38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ParseSwift;
+			target = B9956B2CEA5C1F34EC745DDAD5BA76AA /* ParseSwift */;
+			targetProxy = A2C00EE1E0A2B1BFC14B2CA46FB83FD5 /* PBXContainerItemProxy */;
+		};
+		FE0E5D7FF07010049CE296502578A77B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mixpanel-swift";
+			target = E1886A99D3887E7B636CFCD67E199412 /* Mixpanel-swift */;
+			targetProxy = 89D621C1B7D1F90B6C2BD8B19A5115DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		781F64DB7937E86E26FFDAB01758F6A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D81F55781C90E8170168D32AB522372 /* Mixpanel-swift.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Mixpanel-swift/Mixpanel-swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Mixpanel-swift/Mixpanel-swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Mixpanel-swift/Mixpanel-swift.modulemap";
+				PRODUCT_MODULE_NAME = Mixpanel;
+				PRODUCT_NAME = Mixpanel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8DE5143C03248BB6CD542DE3963D6F3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9E406C6AAF85E580207CD97B0044DEAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		AF22DB82A9205748DBA969D412141E05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99F182B8A11203F06140D7A7CC89F269 /* ParseSwift.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ParseSwift/ParseSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ParseSwift/ParseSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ParseSwift/ParseSwift.modulemap";
+				PRODUCT_MODULE_NAME = ParseSwift;
+				PRODUCT_NAME = ParseSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.6;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B71BCA430674DECFBB96776372CD95A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03B405033205F2D657EA54E7F091AC7A /* Pods-Tirajosaure.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C190C402F62D4A7FB5FD702F6F5DB8A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4AF2FA2595652BF5DCE15E6BD64130C /* Mixpanel-swift.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Mixpanel-swift/Mixpanel-swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Mixpanel-swift/Mixpanel-swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Mixpanel-swift/Mixpanel-swift.modulemap";
+				PRODUCT_MODULE_NAME = Mixpanel;
+				PRODUCT_NAME = Mixpanel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E292C76B21622E56015005676D2EB957 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99A256D90DF80FDA010CB79CD6638554 /* Pods-Tirajosaure.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E3946F276D1DC349ACF523F6421F8982 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A8084923208433F38FA68B4972C6BAE /* ParseSwift.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ParseSwift/ParseSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ParseSwift/ParseSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ParseSwift/ParseSwift.modulemap";
+				PRODUCT_MODULE_NAME = ParseSwift;
+				PRODUCT_NAME = ParseSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.6;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EFE83F9725F79DD414CE690865A51B05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4AF2FA2595652BF5DCE15E6BD64130C /* Mixpanel-swift.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Mixpanel-swift";
+				IBSC_MODULE = Mixpanel;
+				INFOPLIST_FILE = "Target Support Files/Mixpanel-swift/ResourceBundle-Mixpanel-Mixpanel-swift-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = Mixpanel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		FB780084C151C747940AAC5AD997B905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D81F55781C90E8170168D32AB522372 /* Mixpanel-swift.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Mixpanel-swift";
+				IBSC_MODULE = Mixpanel;
+				INFOPLIST_FILE = "Target Support Files/Mixpanel-swift/ResourceBundle-Mixpanel-Mixpanel-swift-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = Mixpanel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		472B2CE958B5A2BF9F36AF3615564476 /* Build configuration list for PBXNativeTarget "ParseSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF22DB82A9205748DBA969D412141E05 /* Debug */,
+				E3946F276D1DC349ACF523F6421F8982 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DE5143C03248BB6CD542DE3963D6F3A /* Debug */,
+				9E406C6AAF85E580207CD97B0044DEAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D2A12EB2887CF1C7B96C7FE788E0A1B /* Build configuration list for PBXNativeTarget "Mixpanel-swift-Mixpanel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB780084C151C747940AAC5AD997B905 /* Debug */,
+				EFE83F9725F79DD414CE690865A51B05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81963445283A1FF0BA0E54FC9E5C369B /* Build configuration list for PBXNativeTarget "Pods-Tirajosaure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B71BCA430674DECFBB96776372CD95A7 /* Debug */,
+				E292C76B21622E56015005676D2EB957 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93884AC7362A9B0D4F3F8166AED13A22 /* Build configuration list for PBXNativeTarget "Mixpanel-swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				781F64DB7937E86E26FFDAB01758F6A2 /* Debug */,
+				C190C402F62D4A7FB5FD702F6F5DB8A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

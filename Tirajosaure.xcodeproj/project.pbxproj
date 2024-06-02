@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF7A79056454B859B5B2AF5C /* Pods_Tirajosaure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78240367B7A015EDEA38C8DC /* Pods_Tirajosaure.framework */; };
 		DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */; };
 		DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA32C0CCAC200A9B894 /* ContentView.swift */; };
 		DECEFFA62C0CCAC400A9B894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECEFFA52C0CCAC400A9B894 /* Assets.xcassets */; };
@@ -34,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01B1F8565245AC4A430491F3 /* Pods-Tirajosaure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.debug.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.debug.xcconfig"; sourceTree = "<group>"; };
+		1CE6E283318EABE0F942FD1B /* Pods-Tirajosaure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.release.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.release.xcconfig"; sourceTree = "<group>"; };
+		78240367B7A015EDEA38C8DC /* Pods_Tirajosaure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tirajosaure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFF9E2C0CCAC200A9B894 /* Tirajosaure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tirajosaure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TirajosaureApp.swift; sourceTree = "<group>"; };
 		DECEFFA32C0CCAC200A9B894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF7A79056454B859B5B2AF5C /* Pods_Tirajosaure.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +76,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		974987061C1FBE1F4825AFC0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				01B1F8565245AC4A430491F3 /* Pods-Tirajosaure.debug.xcconfig */,
+				1CE6E283318EABE0F942FD1B /* Pods-Tirajosaure.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CDA4498559D195CCE34ADD5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78240367B7A015EDEA38C8DC /* Pods_Tirajosaure.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DECEFF952C0CCAC200A9B894 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +101,8 @@
 				DECEFFB12C0CCAC400A9B894 /* TirajosaureTests */,
 				DECEFFBB2C0CCAC400A9B894 /* TirajosaureUITests */,
 				DECEFF9F2C0CCAC200A9B894 /* Products */,
+				974987061C1FBE1F4825AFC0 /* Pods */,
+				CDA4498559D195CCE34ADD5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DECEFFC22C0CCAC400A9B894 /* Build configuration list for PBXNativeTarget "Tirajosaure" */;
 			buildPhases = (
+				9315889359486468C907E187 /* [CP] Check Pods Manifest.lock */,
 				DECEFF9A2C0CCAC200A9B894 /* Sources */,
 				DECEFF9B2C0CCAC200A9B894 /* Frameworks */,
 				DECEFF9C2C0CCAC200A9B894 /* Resources */,
+				E5D898864C8689EEBBBA5E3A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +278,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9315889359486468C907E187 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tirajosaure-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5D898864C8689EEBBBA5E3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DECEFF9A2C0CCAC200A9B894 /* Sources */ = {
@@ -416,6 +485,7 @@
 		};
 		DECEFFC32C0CCAC400A9B894 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01B1F8565245AC4A430491F3 /* Pods-Tirajosaure.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -445,6 +515,7 @@
 		};
 		DECEFFC42C0CCAC400A9B894 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CE6E283318EABE0F942FD1B /* Pods-Tirajosaure.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
