@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  build:
+    macos:
+      xcode: "15.3.0"
+    steps:
+      - checkout
+      - run:
+          name: Install CocoaPods
+          command: pod install
+      - run:
+          name: List available simulators
+          command: xcrun simctl list
+      - run:
+          name: Build and Test
+          command: xcodebuild -workspace Tirajosaure.xcworkspace -scheme Tirajosaure -sdk iphonesimulator -destination 'platform=iOS Simulator,id=2D935222-DF5D-4586-A392-CC13B82324BA' build test
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
