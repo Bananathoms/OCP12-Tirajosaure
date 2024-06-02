@@ -16,6 +16,9 @@ jobs:
           name: List available simulators
           command: xcrun simctl list
       - run:
+          name: Create DerivedData Directory
+          command: mkdir -p /Users/distiller/Library/Developer/Xcode/DerivedData
+      - run:
           name: Fix Permissions
           command: sudo chmod -R 777 /Users/distiller/Library/Developer/Xcode/DerivedData
       - run:
