@@ -15,6 +15,8 @@
 		DECEFFB32C0CCAC400A9B894 /* TirajosaureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFB22C0CCAC400A9B894 /* TirajosaureTests.swift */; };
 		DECEFFBD2C0CCAC400A9B894 /* TirajosaureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFBC2C0CCAC400A9B894 /* TirajosaureUITests.swift */; };
 		DECEFFBF2C0CCAC400A9B894 /* TirajosaureUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFBE2C0CCAC400A9B894 /* TirajosaureUITestsLaunchTests.swift */; };
+		DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFCB2C0CCC5000A9B894 /* ParseConfig.swift */; };
+		DECEFFCF2C0CCC7700A9B894 /* MixpanelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFCE2C0CCC7700A9B894 /* MixpanelConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		DECEFFB82C0CCAC400A9B894 /* TirajosaureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TirajosaureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFBC2C0CCAC400A9B894 /* TirajosaureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TirajosaureUITests.swift; sourceTree = "<group>"; };
 		DECEFFBE2C0CCAC400A9B894 /* TirajosaureUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TirajosaureUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DECEFFCB2C0CCC5000A9B894 /* ParseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConfig.swift; sourceTree = "<group>"; };
+		DECEFFCE2C0CCC7700A9B894 /* MixpanelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +86,6 @@
 				01B1F8565245AC4A430491F3 /* Pods-Tirajosaure.debug.xcconfig */,
 				1CE6E283318EABE0F942FD1B /* Pods-Tirajosaure.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -120,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */,
+				DECEFFCD2C0CCC5500A9B894 /* Configuration */,
 				DECEFFA32C0CCAC200A9B894 /* ContentView.swift */,
 				DECEFFA52C0CCAC400A9B894 /* Assets.xcassets */,
 				DECEFFA72C0CCAC400A9B894 /* Preview Content */,
@@ -150,6 +154,15 @@
 				DECEFFBE2C0CCAC400A9B894 /* TirajosaureUITestsLaunchTests.swift */,
 			);
 			path = TirajosaureUITests;
+			sourceTree = "<group>";
+		};
+		DECEFFCD2C0CCC5500A9B894 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DECEFFCB2C0CCC5000A9B894 /* ParseConfig.swift */,
+				DECEFFCE2C0CCC7700A9B894 /* MixpanelConfig.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,8 +339,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */,
 				DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */,
 				DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */,
+				DECEFFCF2C0CCC7700A9B894 /* MixpanelConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
