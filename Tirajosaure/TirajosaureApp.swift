@@ -8,6 +8,7 @@
 import SwiftUI
 import ParseSwift
 import Mixpanel
+import IQKeyboardManagerSwift
 
 @main
 struct TirajosaureApp: App {
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         ParseSwift.initialize(applicationId: ParseConfig.applicationID, clientKey: ParseConfig.clientKey, serverURL: URL(string: ParseConfig.serverURL)!)
         Mixpanel.initialize(token: MixpanelConfig.projectToken, trackAutomaticEvents: false)
+        IQKeyboardManager.shared.enable = true
       return true
     }
 }
