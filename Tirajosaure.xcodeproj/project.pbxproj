@@ -53,9 +53,9 @@
 		DE67366F2C0FD9B0001BEB56 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		DE6736702C0FD9B0001BEB56 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
 		DE6736752C0FDA34001BEB56 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		DE6736772C0FDD6F001BEB56 /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+Font.swift"; path = "Tirajosaure/Assets/Extension+Font.swift"; sourceTree = SOURCE_ROOT; };
-		DE67367B2C0FDE35001BEB56 /* Extension+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+Image.swift"; path = "Tirajosaure/Assets/Extension+Image.swift"; sourceTree = SOURCE_ROOT; };
-		DE67367D2C0FDE5D001BEB56 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+View.swift"; path = "Tirajosaure/Assets/Extension+View.swift"; sourceTree = SOURCE_ROOT; };
+		DE6736772C0FDD6F001BEB56 /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+Font.swift"; path = "Tirajosaure/Extensions/Extensions/Extension+Font.swift"; sourceTree = SOURCE_ROOT; };
+		DE67367B2C0FDE35001BEB56 /* Extension+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+Image.swift"; path = "Tirajosaure/Extensions/Extensions/Extension+Image.swift"; sourceTree = SOURCE_ROOT; };
+		DE67367D2C0FDE5D001BEB56 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+View.swift"; path = "Tirajosaure/Extensions/Extensions/Extension+View.swift"; sourceTree = SOURCE_ROOT; };
 		DECEFF9E2C0CCAC200A9B894 /* Tirajosaure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tirajosaure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TirajosaureApp.swift; sourceTree = "<group>"; };
 		DECEFFA32C0CCAC200A9B894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,6 +124,38 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		DE67367F2C0FDF0E001BEB56 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE6736772C0FDD6F001BEB56 /* Extension+Font.swift */,
+				DE67367B2C0FDE35001BEB56 /* Extension+Image.swift */,
+				DE67367D2C0FDE5D001BEB56 /* Extension+View.swift */,
+			);
+			name = Extensions;
+			path = Extensions/Extensions;
+			sourceTree = "<group>";
+		};
+		DE6736802C0FDF38001BEB56 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DE6736812C0FDF54001BEB56 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		DE6736822C0FDF67001BEB56 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		DECEFF952C0CCAC200A9B894 = {
 			isa = PBXGroup;
 			children = (
@@ -151,10 +183,10 @@
 			children = (
 				DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */,
 				DECEFFCD2C0CCC5500A9B894 /* Configuration */,
-				DECEFFD62C0E1BB800A9B894 /* Services */,
+				DE6736822C0FDF67001BEB56 /* Services */,
 				DECEFFD02C0E1AD400A9B894 /* Views */,
-				DECEFFD12C0E1ADB00A9B894 /* Models */,
-				DECEFFD52C0E1B7E00A9B894 /* Extensions */,
+				DE6736802C0FDF38001BEB56 /* Models */,
+				DE67367F2C0FDF0E001BEB56 /* Extensions */,
 				DECEFFD42C0E1B6300A9B894 /* Assets */,
 				DECEFFA72C0CCAC400A9B894 /* Preview Content */,
 			);
@@ -198,20 +230,13 @@
 		DECEFFD02C0E1AD400A9B894 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DECEFFD72C0E1C2200A9B894 /* Splash */,
+				DE6736812C0FDF54001BEB56 /* Splash */,
 				DECEFFD82C0E1C4400A9B894 /* LogIn */,
 				DECEFFDC2C0E1D1100A9B894 /* LoggedIn */,
 				DECEFFD32C0E1B3300A9B894 /* Reusable */,
 				DECEFFA32C0CCAC200A9B894 /* ContentView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		DECEFFD12C0E1ADB00A9B894 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		DECEFFD22C0E1AE200A9B894 /* ViewControllers */ = {
@@ -236,30 +261,6 @@
 				DE6736752C0FDA34001BEB56 /* Colors.xcassets */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		DECEFFD52C0E1B7E00A9B894 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				DE6736772C0FDD6F001BEB56 /* Extension+Font.swift */,
-				DE67367B2C0FDE35001BEB56 /* Extension+Image.swift */,
-				DE67367D2C0FDE5D001BEB56 /* Extension+View.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		DECEFFD62C0E1BB800A9B894 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		DECEFFD72C0E1C2200A9B894 /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Splash;
 			sourceTree = "<group>";
 		};
 		DECEFFD82C0E1C4400A9B894 /* LogIn */ = {
