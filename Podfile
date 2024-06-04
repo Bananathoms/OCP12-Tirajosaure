@@ -6,4 +6,5 @@ target 'Tirajosaure' do
   pod 'Mixpanel-swift'
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
+  pod 'SwiftEntryKit'
 end

@@ -5,12 +5,14 @@ PODS:
     - Mixpanel-swift/Complete (= 4.2.7)
   - Mixpanel-swift/Complete (4.2.7)
   - ParseSwift (4.14.2)
+  - SwiftEntryKit (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
   - Mixpanel-swift
   - ParseSwift
+  - SwiftEntryKit
 
 SPEC REPOS:
   trunk:
@@ -18,13 +20,15 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Mixpanel-swift
     - ParseSwift
+    - SwiftEntryKit
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   IQKeyboardManagerSwift: f9c5dc36cba16ddd2e51fa7d51c34a2e083029b5
   Mixpanel-swift: 7f5b749dbda2708033d67ff3d7a91710468d4a38
   ParseSwift: 5df70e3d5aed3351fb3188ddf0a2812b7983a379
+  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
 
-PODFILE CHECKSUM: e18d8a0dc6488c123726de9969d28e45854e24b5
+PODFILE CHECKSUM: d655ad8a9ad5589a3fa41c42bbc6e0bbf5e4d167
 
 COCOAPODS: 1.15.2

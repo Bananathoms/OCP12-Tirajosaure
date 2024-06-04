@@ -124,8 +124,11 @@
 			children = (
 				DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */,
 				DECEFFCD2C0CCC5500A9B894 /* Configuration */,
-				DECEFFA32C0CCAC200A9B894 /* ContentView.swift */,
-				DECEFFA52C0CCAC400A9B894 /* Assets.xcassets */,
+				DECEFFD62C0E1BB800A9B894 /* Services */,
+				DECEFFD02C0E1AD400A9B894 /* Views */,
+				DECEFFD12C0E1ADB00A9B894 /* Models */,
+				DECEFFD52C0E1B7E00A9B894 /* Extensions */,
+				DECEFFD42C0E1B6300A9B894 /* Assets */,
 				DECEFFA72C0CCAC400A9B894 /* Preview Content */,
 			);
 			path = Tirajosaure;
@@ -163,6 +166,107 @@
 				DECEFFCE2C0CCC7700A9B894 /* MixpanelConfig.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		DECEFFD02C0E1AD400A9B894 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DECEFFD72C0E1C2200A9B894 /* Splash */,
+				DECEFFD82C0E1C4400A9B894 /* LogIn */,
+				DECEFFDC2C0E1D1100A9B894 /* LoggedIn */,
+				DECEFFD32C0E1B3300A9B894 /* Reusable */,
+				DECEFFA32C0CCAC200A9B894 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DECEFFD12C0E1ADB00A9B894 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DECEFFD22C0E1AE200A9B894 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DECEFFD32C0E1B3300A9B894 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		DECEFFD42C0E1B6300A9B894 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DECEFFA52C0CCAC400A9B894 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		DECEFFD52C0E1B7E00A9B894 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DECEFFD62C0E1BB800A9B894 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DECEFFD72C0E1C2200A9B894 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		DECEFFD82C0E1C4400A9B894 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				DECEFFD92C0E1C5000A9B894 /* SignIn */,
+				DECEFFDA2C0E1C6100A9B894 /* SignUp */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		DECEFFD92C0E1C5000A9B894 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				DECEFFD22C0E1AE200A9B894 /* ViewControllers */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		DECEFFDA2C0E1C6100A9B894 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				DECEFFDB2C0E1CCD00A9B894 /* ViewControllers */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		DECEFFDB2C0E1CCD00A9B894 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DECEFFDC2C0E1D1100A9B894 /* LoggedIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoggedIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
