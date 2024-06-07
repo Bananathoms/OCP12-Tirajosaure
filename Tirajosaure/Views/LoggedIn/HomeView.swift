@@ -12,7 +12,7 @@ struct HomeView: View {
     @ObservedObject var userController: UserController
 
     var body: some View {
-        TextButton(text: "Déconnexion", isLoading: false, onClick: UserService.current.logOut, buttonColor: .customRed, textColor: .white)
+        TextButton(text: "logout_button".localized, isLoading: false, onClick: UserService.current.logOut, buttonColor: .customRed, textColor: .white)
             .padding(20)
     }
 }

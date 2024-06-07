@@ -20,7 +20,7 @@ class SignUpController: ObservableObject {
     /// Initiates the sign-up process with the provided details.
     func signUp() {
         guard password == confirmPwd else {
-            SnackBarService.current.error("Les mots de passe ne correspondent pas")
+            SnackBarService.current.error("passwords_do_not_match".localized)
             return
         }
         isLoading = true
@@ -32,7 +32,7 @@ class SignUpController: ObservableObject {
                 self.user = user
                 let firstName = user.firstName ?? ""
                 let lastName = user.lastName ?? ""
-                SnackBarService.current.success("Utilisateur \(firstName) \(lastName) enregistré!")
+                SnackBarService.current.success("successful_sign_up".localized(with: firstName, lastName))
                 UserService.current.setUser(newUser: user)
             case .failure(let error):
                 SnackBarService.current.error(error.localizedDescription)

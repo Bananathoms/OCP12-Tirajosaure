@@ -23,7 +23,9 @@ class SignInController: ObservableObject {
             switch result {
             case .success(let user):
                 self.user = user
-                SnackBarService.current.success("Utilisateur \(user.firstName ?? "") \(user.lastName ?? "") connecté")
+                let firstName = user.firstName ?? ""
+                let lastName = user.lastName ?? ""
+                SnackBarService.current.success("successful_sign_in".localized(with: firstName, lastName))
                 UserService.current.setUser(newUser: user)
             case .failure(let error):
                 SnackBarService.current.error(error.localizedDescription)

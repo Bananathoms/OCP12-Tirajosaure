@@ -18,15 +18,15 @@ enum AppError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .networkError(let message):
-            return message
+            return "network_error_message".localized(with: message)
         case .authenticationError(let message):
-            return message
+            return "authentication_error_message".localized(with: message)
         case .validationError(let message):
-            return message
+            return "validation_error_message".localized(with: message)
         case .parseError(let message):
-            return "Server Error : \(message)"
+            return "parse_error_message".localized(with: message)
         case .unknownError:
-            return "An unknown error occurred."
+            return "unknown_error_message".localized
         }
     }
 }

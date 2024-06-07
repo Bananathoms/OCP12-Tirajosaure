@@ -61,9 +61,6 @@ class ApiService {
         switch response.result {
         case .success(let data):
             do {
-                let responseString = String(data: data, encoding: .utf8)
-                print("Response JSON String: \(responseString ?? "No response string")")
-                
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
                 var user = try decoder.decode(User.self, from: data)
@@ -73,9 +70,7 @@ class ApiService {
                 
                 onResult(.success(user))
             } catch {
-                print("Error during JSON decoding: \(error)")
                 let responseString = String(data: data, encoding: .utf8)
-                print("Failed to decode JSON response: \(responseString ?? "No response string")")
                 onResult(.failure(.networkError("Failed to decode JSON response: \(responseString ?? "No response string")")))
             }
         case .failure(let error):
@@ -87,7 +82,6 @@ class ApiService {
                     onResult(.failure(.parseError(parseError.message)))
                 } catch {
                     let responseString = String(data: data, encoding: .utf8)
-                    print("Failed to decode JSON response: \(responseString ?? "No response string")")
                     onResult(.failure(.networkError("Failed to decode JSON response: \(responseString ?? "No response string")")))
                 }
             } else {

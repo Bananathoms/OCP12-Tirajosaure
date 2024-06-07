@@ -7,13 +7,10 @@
 
 import SwiftUI
 
-/// <#Description#>
 struct SignUpView: View {
     @ObservedObject var controller: SignUpController
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    /// <#Description#>
-    /// - Returns: <#description#>
     private func makeHeader() -> some View {
         Button(action: {
             self.presentationMode.wrappedValue.dismiss()
@@ -22,7 +19,7 @@ struct SignUpView: View {
                 Image(systemName: "chevron.backward")
                     .foregroundColor(.oxfordBlue)
                     .padding(.leading, 20)
-                Text("Inscription")
+                Text("signup_title".localized)
                     .font(.nunitoBold(20))
                     .foregroundColor(.oxfordBlue)
                     .padding([.top, .bottom, .trailing], 20)
@@ -36,12 +33,12 @@ struct SignUpView: View {
         VStack{
             self.makeHeader()
             ScrollView{
-                ReusableTextField(hint: $controller.firstName, icon: nil, title: "Prénom", fieldName: "Prénom").textContentType(.oneTimeCode)
-                ReusableTextField(hint: $controller.lastName  , icon: nil, title: "Nom", fieldName: "Nom").textContentType(.oneTimeCode)
-                ReusableTextField(hint: $controller.email, icon: nil, title: "E-mail", fieldName: "E-mail").textContentType(.oneTimeCode)
-                ReusableSecureField(hint: $controller.password, icon: nil, title: "Mot de passe", fieldName: "Entrez votre mot de passe").textContentType(.oneTimeCode)
-                ReusableSecureField(hint: $controller.confirmPwd, icon: nil, title: "Confirmation mot de passe", fieldName: "Confirmez votre mot de passe").textContentType(.oneTimeCode)
-                TextButton(text: "Continuer", isLoading: controller.isLoading, onClick: {
+                ReusableTextField(hint: $controller.firstName, icon: nil, title: "first_name".localized, fieldName: "first_name".localized).textContentType(.oneTimeCode)
+                ReusableTextField(hint: $controller.lastName, icon: nil, title: "last_name".localized, fieldName: "last_name".localized).textContentType(.oneTimeCode)
+                ReusableTextField(hint: $controller.email, icon: nil, title: "email".localized, fieldName: "email".localized).textContentType(.oneTimeCode)
+                ReusableSecureField(hint: $controller.password, icon: nil, title: "password".localized, fieldName: "enter_your_password".localized).textContentType(.oneTimeCode)
+                ReusableSecureField(hint: $controller.confirmPwd, icon: nil, title: "confirm_password".localized, fieldName: "confirm_your_password".localized).textContentType(.oneTimeCode)
+                TextButton(text: "continue_button".localized, isLoading: controller.isLoading, onClick: {
                     controller.signUp()
                 }, buttonColor: .oxfordBlue, textColor: .antiqueWhite)
                 Spacer()

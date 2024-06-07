@@ -114,10 +114,10 @@ class UserService: ObservableObject {
     /// - Returns: An optional error message string if validation fails, otherwise nil.
     private func validateLoginInputs(email: String, password: String) -> String? {
         if !email.isValidEmail {
-            return "Veuillez rentrer un e-mail valide"
+            return "invalid_email".localized
         }
         if password.isEmpty {
-            return "Veuillez entrer un mot de passe"
+            return "empty_password".localized
         }
         return nil
     }
@@ -131,19 +131,19 @@ class UserService: ObservableObject {
     /// - Returns: An optional error message string if validation fails, otherwise nil.
     func validateInputs(email: String, firstName: String, lastName: String, password: String) -> String? {
         if firstName.isEmpty {
-            return "Merci de rentrer un prénom"
+            return "first_name_missing".localized
         }
         if lastName.isEmpty {
-            return "Merci de rentrer un nom"
+            return "last_name_missing".localized
         }
         if !email.isValidEmail {
-            return "Veuillez rentrer un e-mail valide"
+            return "invalid_email".localized
         }
         if password.count < 8 {
-            return "Le mot de passe doit faire plus de 8 caractères"
+            return "password_length_error".localized
         }
         if !password.hasUppercase() {
-            return "Le mot de passe doit avoir au moins une majuscule"
+            return "password_uppercase_error".localized
         }
         return nil
     }

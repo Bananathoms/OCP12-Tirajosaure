@@ -14,6 +14,18 @@ extension String {
     private static let __serverpart = "([A-Z0-9a-z]([A-Z0-9a-z-]{0,30}[A-Z0-9a-z])?\\.){1,5}"
     private static let __emailRegex = __firstpart + "@" + __serverpart + "[A-Za-z]{2,6}"
     
+    /// Returns a localized string using the current locale.
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+
+    /// Returns a formatted localized string using the current locale.
+    /// - Parameter arguments: The arguments to be inserted into the localized string.
+    /// - Returns: A formatted localized string.
+    func localized(with arguments: CVarArg...) -> String {
+        return String(format: self.localized, arguments: arguments)
+    }
+    
     /// Validates if the string is a valid email address.
     public var isValidEmail: Bool {
         let predicate = NSPredicate(format: "SELF MATCHES %@", type(of:self).__emailRegex)

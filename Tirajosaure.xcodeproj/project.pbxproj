@@ -13,6 +13,7 @@
 		DE2EEF6F2C12814F002E4E60 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF6E2C12814F002E4E60 /* MockApiService.swift */; };
 		DE2EEF712C1281E4002E4E60 /* ParseSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2EEF702C1281E4002E4E60 /* ParseSwift.framework */; };
 		DE2EEF742C12A93F002E4E60 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF732C12A93F002E4E60 /* Extension+Date.swift */; };
+		DE2EEF782C12B0BB002E4E60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE2EEF762C12B0BB002E4E60 /* Localizable.strings */; };
 		DE6736712C0FD9B0001BEB56 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366D2C0FD9B0001BEB56 /* Nunito-Bold.ttf */; };
 		DE6736722C0FD9B0001BEB56 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366E2C0FD9B0001BEB56 /* Nunito-SemiBold.ttf */; };
 		DE6736732C0FD9B0001BEB56 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366F2C0FD9B0001BEB56 /* Nunito-Regular.ttf */; };
@@ -66,6 +67,8 @@
 		DE2EEF6E2C12814F002E4E60 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
 		DE2EEF702C1281E4002E4E60 /* ParseSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ParseSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2EEF732C12A93F002E4E60 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
+		DE2EEF772C12B0BB002E4E60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DE2EEF792C12B1B6002E4E60 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE67366D2C0FD9B0001BEB56 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		DE67366E2C0FD9B0001BEB56 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE67366F2C0FD9B0001BEB56 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -140,6 +143,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE2EEF752C12B079002E4E60 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				DE2EEF762C12B0BB002E4E60 /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
 		DE67366C2C0FD9A1001BEB56 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +200,7 @@
 		DE67368C2C0FF23F001BEB56 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DE2EEF752C12B079002E4E60 /* Localizable */,
 				DE67368D2C0FF27D001BEB56 /* Extensions */,
 				DECEFFD42C0E1B6300A9B894 /* Assets */,
 				DE6736892C0FF199001BEB56 /* Enum */,
@@ -436,6 +448,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = DECEFF952C0CCAC200A9B894;
 			productRefGroup = DECEFF9F2C0CCAC200A9B894 /* Products */;
@@ -458,6 +471,7 @@
 				DE6736742C0FD9B0001BEB56 /* Nunito-Light.ttf in Resources */,
 				DECEFFA92C0CCAC400A9B894 /* Preview Assets.xcassets in Resources */,
 				DE6736712C0FD9B0001BEB56 /* Nunito-Bold.ttf in Resources */,
+				DE2EEF782C12B0BB002E4E60 /* Localizable.strings in Resources */,
 				DECEFFA62C0CCAC400A9B894 /* Assets.xcassets in Resources */,
 				DE6736762C0FDA34001BEB56 /* Colors.xcassets in Resources */,
 			);
@@ -568,12 +582,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		DE2EEF762C12B0BB002E4E60 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE2EEF772C12B0BB002E4E60 /* en */,
+				DE2EEF792C12B1B6002E4E60 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		DECEFFC02C0CCAC400A9B894 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -637,6 +664,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

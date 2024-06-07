@@ -12,7 +12,7 @@ struct SignInView: View {
     
     private func makeHeader() -> some View {
         HStack{
-            Text("Connexion")
+            Text("signin_title".localized)
                 .font(.nunitoBold(20))
                 .foregroundColor(.oxfordBlue)
                 .padding(.all, 20)
@@ -24,11 +24,11 @@ struct SignInView: View {
     private func newAccount() -> some View {
         NavigationLink(destination: SignUpView(controller: SignUpController())) {
             VStack{
-                Text("Vous n'avez pas encore de compte?")
+                Text("no_account_prompt".localized)
                     .font(.nunitoRegular(14))
                     .foregroundColor(.oxfordBlue)
                     .padding(.leading, 20)
-                Text("Inscrivez-vous ici")
+                Text("signup_here".localized)
                     .frame(alignment: .bottom)
                     .font(.nunitoRegular(14))
                     .foregroundColor(.oxfordBlue)
@@ -41,7 +41,7 @@ struct SignInView: View {
         HStack{
             Spacer()
             Button(action: {print("")}) {
-                Text("Mot de passe oublié?")
+                Text("forgot_password".localized)
                     .font(.nunitoRegular(14))
                     .underline()
                     .foregroundColor(.oxfordBlue)
@@ -61,10 +61,10 @@ struct SignInView: View {
             NavigationView{
                 VStack{
                     makeHeader()
-                    ReusableTextField(hint: $controller.email, icon: "at", title: "E-mail", fieldName: "E-mail").textContentType(.oneTimeCode)
-                    ReusableSecureField(hint: $controller.password, icon: "lock", title: "Mot de passe", fieldName: "Entrez votre mot de passe").textContentType(.oneTimeCode)
+                    ReusableTextField(hint: $controller.email, icon: "at", title: "email".localized, fieldName: "email".localized).textContentType(.oneTimeCode)
+                    ReusableSecureField(hint: $controller.password, icon: "lock", title: "password".localized, fieldName: "enter_your_password".localized).textContentType(.oneTimeCode)
                     forgotPassword()
-                    TextButton(text: "Se connecter", isLoading: controller.isLoading, onClick: controller.signIn, buttonColor: .oxfordBlue, textColor: .white)
+                    TextButton(text: "signin_button".localized, isLoading: controller.isLoading, onClick: controller.signIn, buttonColor: .oxfordBlue, textColor: .white)
                     Spacer()
                     newAccount()
                 }.background(Color.skyBlue) .ignoresSafeArea()
