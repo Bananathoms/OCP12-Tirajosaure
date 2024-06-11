@@ -52,6 +52,30 @@ class ApiService {
             }
     }
     
+
+    /// Requests a password reset for the user with the provided email.
+    /// - Parameters:
+    ///   - email: The email address of the user.
+    ///   - onResult: A closure to handle the result of the request, returning a `Result` with either `Void` or an `AppError`.
+    func requestPasswordReset(email: String, onResult: @escaping (Result<Void, AppError>) -> Void) {
+        let parameters: [String: Any] = ["email": email]
+
+        AF.request("https://parseapi.back4app.com/requestPasswordReset", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: getHeaders())
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    onResult(.success(()))
+                case .failure(let error):
+                    if let data = response.data, let responseString = String(data: data, encoding: .utf8) {
+                        onResult(.failure(.networkError("Failed to request password reset: \(responseString)")))
+                    } else {
+                        onResult(.failure(.networkError(error.localizedDescription)))
+                    }
+                }
+            }
+    }
+    
     /// Handles the response from an Alamofire request.
     /// - Parameters:
     ///   - response: The `AFDataResponse<Data>` object containing the response data.

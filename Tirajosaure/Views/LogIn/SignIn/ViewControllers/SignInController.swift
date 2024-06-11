@@ -16,7 +16,7 @@ class SignInController: ObservableObject {
 
     /// Initiates the sign-in process with the provided email and password.
     func signIn() {
-        isLoading = true
+        self.isLoading = true
         UserService.current.logIn(email: email, password: password) { [weak self] result in
             guard let self = self else { return }
             self.isLoading = false

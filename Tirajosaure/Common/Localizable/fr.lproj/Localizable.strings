@@ -14,6 +14,9 @@
 "confirm_your_password" = "Confirmez votre mot de passe";
 "continue_button" = "Continuer";
 "logout_button" = "Déconnexion";
+"reset_password_title" = "Réinitialiser le mot de passe";
+"reset_password_button" = "Réinitialiser";
+"password_reset_email_sent" = "Un email de reinitialisation à été envoyé";
 
 // Erreurs générales
 "network_error_message" = "Une erreur réseau s'est produite. Veuillez réessayer.";

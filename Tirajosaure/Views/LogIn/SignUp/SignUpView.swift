@@ -36,17 +36,20 @@ struct SignUpView: View {
                 ReusableTextField(hint: $controller.firstName, icon: nil, title: "first_name".localized, fieldName: "first_name".localized).textContentType(.oneTimeCode)
                 ReusableTextField(hint: $controller.lastName, icon: nil, title: "last_name".localized, fieldName: "last_name".localized).textContentType(.oneTimeCode)
                 ReusableTextField(hint: $controller.email, icon: nil, title: "email".localized, fieldName: "email".localized).textContentType(.oneTimeCode)
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
                 ReusableSecureField(hint: $controller.password, icon: nil, title: "password".localized, fieldName: "enter_your_password".localized).textContentType(.oneTimeCode)
-                ReusableSecureField(hint: $controller.confirmPwd, icon: nil, title: "confirm_password".localized, fieldName: "confirm_your_password".localized).textContentType(.oneTimeCode)
+                ReusableSecureField(hint: $controller.confirmPwd, icon: nil, title: "password".localized, fieldName: "confirm_your_password".localized).textContentType(.oneTimeCode)
                 TextButton(text: "continue_button".localized, isLoading: controller.isLoading, onClick: {
                     controller.signUp()
                 }, buttonColor: .oxfordBlue, textColor: .antiqueWhite)
                 Spacer()
             }
-        }.background(Color.skyBlue)
-            .cornerRadius(20, corners: [.topLeft, .topRight])
-            .ignoresSafeArea()
-            .navigationBarHidden(true)
+            .background(Color.skyBlue)
+        }
+        .background(Color.skyBlue)
+        .ignoresSafeArea()
+        .navigationBarHidden(true)
     }
 }
 

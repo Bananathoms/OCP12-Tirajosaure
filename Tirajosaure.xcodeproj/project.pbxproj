@@ -14,6 +14,9 @@
 		DE2EEF712C1281E4002E4E60 /* ParseSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2EEF702C1281E4002E4E60 /* ParseSwift.framework */; };
 		DE2EEF742C12A93F002E4E60 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF732C12A93F002E4E60 /* Extension+Date.swift */; };
 		DE2EEF782C12B0BB002E4E60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE2EEF762C12B0BB002E4E60 /* Localizable.strings */; };
+		DE2EEF7D2C13D6D0002E4E60 /* ReusablePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF7C2C13D6D0002E4E60 /* ReusablePicker.swift */; };
+		DE6077D42C17C39400AA2A0A /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6077D32C17C39400AA2A0A /* PasswordResetView.swift */; };
+		DE6077D62C17C3BC00AA2A0A /* PasswordResetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6077D52C17C3BC00AA2A0A /* PasswordResetController.swift */; };
 		DE6736712C0FD9B0001BEB56 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366D2C0FD9B0001BEB56 /* Nunito-Bold.ttf */; };
 		DE6736722C0FD9B0001BEB56 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366E2C0FD9B0001BEB56 /* Nunito-SemiBold.ttf */; };
 		DE6736732C0FD9B0001BEB56 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366F2C0FD9B0001BEB56 /* Nunito-Regular.ttf */; };
@@ -69,6 +72,9 @@
 		DE2EEF732C12A93F002E4E60 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		DE2EEF772C12B0BB002E4E60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE2EEF792C12B1B6002E4E60 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DE2EEF7C2C13D6D0002E4E60 /* ReusablePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePicker.swift; sourceTree = "<group>"; };
+		DE6077D32C17C39400AA2A0A /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		DE6077D52C17C3BC00AA2A0A /* PasswordResetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetController.swift; sourceTree = "<group>"; };
 		DE67366D2C0FD9B0001BEB56 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		DE67366E2C0FD9B0001BEB56 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE67366F2C0FD9B0001BEB56 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -149,6 +155,23 @@
 				DE2EEF762C12B0BB002E4E60 /* Localizable.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		DE6077D72C17C67500AA2A0A /* PasswordReset */ = {
+			isa = PBXGroup;
+			children = (
+				DE6077D82C17C68500AA2A0A /* ViewController */,
+				DE6077D32C17C39400AA2A0A /* PasswordResetView.swift */,
+			);
+			path = PasswordReset;
+			sourceTree = "<group>";
+		};
+		DE6077D82C17C68500AA2A0A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE6077D52C17C3BC00AA2A0A /* PasswordResetController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		DE67366C2C0FD9A1001BEB56 /* Font */ = {
@@ -323,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				DE6736A12C0FF78D001BEB56 /* ReusableTextField.swift */,
+				DE2EEF7C2C13D6D0002E4E60 /* ReusablePicker.swift */,
 				DE6736A72C0FF947001BEB56 /* ReusableSecureField.swift */,
 				DE6736A92C0FF9D9001BEB56 /* TextButton.swift */,
 			);
@@ -342,6 +366,7 @@
 		DECEFFD82C0E1C4400A9B894 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
+				DE6077D72C17C67500AA2A0A /* PasswordReset */,
 				DECEFFD92C0E1C5000A9B894 /* SignIn */,
 				DECEFFDA2C0E1C6100A9B894 /* SignUp */,
 			);
@@ -534,8 +559,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE6736B42C1084AF001BEB56 /* SignUpController.swift in Sources */,
+				DE6077D62C17C3BC00AA2A0A /* PasswordResetController.swift in Sources */,
 				DE6736AA2C0FF9D9001BEB56 /* TextButton.swift in Sources */,
 				DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */,
+				DE6077D42C17C39400AA2A0A /* PasswordResetView.swift in Sources */,
+				DE2EEF7D2C13D6D0002E4E60 /* ReusablePicker.swift in Sources */,
 				DE67369B2C0FF5BF001BEB56 /* SignUpView.swift in Sources */,
 				DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */,
 				DE6736862C0FF06A001BEB56 /* User.swift in Sources */,

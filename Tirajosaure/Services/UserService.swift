@@ -23,7 +23,7 @@ class UserService: ObservableObject {
     
     /// Called when Parse is initialized.
     @objc private func parseInitialized() {
-        splashData()
+        self.splashData()
     }
     
     /// Loads the splash data and updates the connection state based on whether a user is logged in.
@@ -41,8 +41,8 @@ class UserService: ObservableObject {
     /// Sets the current user and updates the connection state to logged.
     /// - Parameter newUser: The user to set as the current user.
     func setUser(newUser: User) {
-        user = newUser
-        connexionState = .logged
+        self.user = newUser
+        self.connexionState = .logged
     }
     
     /// Logs out the current user and resets the service.
@@ -54,8 +54,8 @@ class UserService: ObservableObject {
     
     /// Resets the service by clearing the current user and setting the connection state to unlogged.
     func resetService() {
-        user = nil
-        connexionState = .unLogged
+        self.user = nil
+        self.connexionState = .unLogged
     }
     
     /// Logs in a user with the provided email and password.
@@ -104,6 +104,16 @@ class UserService: ObservableObject {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    /// Requests a password reset for the user with the provided email.
+    /// - Parameters:
+    ///   - email: The email address of the user.
+    ///   - completion: A closure to handle the result of the request, returning a `Result` with either `Void` or an `AppError`.
+    func requestPasswordReset(email: String, completion: @escaping (Result<Void, AppError>) -> Void) {
+        ApiService.current.requestPasswordReset(email: email) { result in
+            completion(result)
         }
     }
     

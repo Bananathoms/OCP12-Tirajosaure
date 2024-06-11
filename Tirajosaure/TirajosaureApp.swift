@@ -44,6 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.post(name: .parseInitialized, object: nil)
         Mixpanel.initialize(token: MixpanelConfig.projectToken, trackAutomaticEvents: false)
         IQKeyboardManager.shared.enable = true
-        
+        IQKeyboardManager.shared.resignOnTouchOutside = true
     }
 }

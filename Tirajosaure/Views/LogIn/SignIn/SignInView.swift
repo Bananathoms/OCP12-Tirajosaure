@@ -38,9 +38,9 @@ struct SignInView: View {
     }
     
     private func forgotPassword() -> some View {
-        HStack{
-            Spacer()
-            Button(action: {print("")}) {
+        NavigationLink(destination: PasswordResetView(controller: PasswordResetController())) {
+            HStack {
+                Spacer()
                 Text("forgot_password".localized)
                     .font(.nunitoRegular(14))
                     .underline()
@@ -62,6 +62,8 @@ struct SignInView: View {
                 VStack{
                     makeHeader()
                     ReusableTextField(hint: $controller.email, icon: "at", title: "email".localized, fieldName: "email".localized).textContentType(.oneTimeCode)
+                        .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
                     ReusableSecureField(hint: $controller.password, icon: "lock", title: "password".localized, fieldName: "enter_your_password".localized).textContentType(.oneTimeCode)
                     forgotPassword()
                     TextButton(text: "signin_button".localized, isLoading: controller.isLoading, onClick: controller.signIn, buttonColor: .oxfordBlue, textColor: .white)

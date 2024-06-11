@@ -21,7 +21,6 @@ struct User: ParseUser {
     var authData: [String : [String : String]?]?
     var originalData: Data?
     var ACL: ParseSwift.ParseACL?
-    var profilePicture: ParseFile?
     var firstName: String?
     var lastName: String?
 }
