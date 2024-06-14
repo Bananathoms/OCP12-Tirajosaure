@@ -13,21 +13,20 @@ import Alamofire
 /// A service class responsible for handling API requests related to user authentication and management.
 class ApiService {
     static var current = ApiService()
-
+    
     /// Registers a new user with the provided details.
-        /// - Parameters:
-        ///   - user: The `User` object containing the registration details.
-        ///   - onResult: A closure to handle the result of the registration, returning a `Result` with either a `User` or an `AppError`.
+    /// - Parameters:
+    ///   - user: The `User` object containing the registration details.
+    ///   - onResult: A closure to handle the result of the registration, returning a `Result` with either a `User` or an `AppError`.
     func signUp(user: User, onResult: @escaping (Result<User, AppError>) -> Void) {
         let parameters: [String: Any] = [
-            "username": user.username ?? "",
-            "email": user.email ?? "",
-            "password": user.password ?? "",
-            "firstName": user.firstName ?? "",
-            "lastName": user.lastName ?? ""
+            APIConstants.Parameters.username: user.username ?? DefaultValues.emptyString,
+            APIConstants.Parameters.email: user.email ?? DefaultValues.emptyString,
+            APIConstants.Parameters.password: user.password ?? DefaultValues.emptyString,
+            APIConstants.Parameters.firstName: user.firstName ?? DefaultValues.emptyString,
+            APIConstants.Parameters.lastName: user.lastName ?? DefaultValues.emptyString
         ]
-
-        AF.request("https://parseapi.back4app.com/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: getHeaders())
+        AF.request(ParseConfig.serverURL + APIConstants.Endpoints.signUp, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: getHeaders())
             .validate()
             .responseData { response in
                 self.handleAlamofireResponse(response, originalUser: user, onResult: onResult)
@@ -41,26 +40,25 @@ class ApiService {
     ///   - onResult: A closure to handle the result of the login, returning a `Result` with either a `User` or an `AppError`.
     func logIn(email: String, password: String, onResult: @escaping (Result<User, AppError>) -> Void) {
         let parameters: [String: Any] = [
-            "username": email,
-            "password": password
+            APIConstants.Parameters.username: email,
+            APIConstants.Parameters.password: password
         ]
-
-        AF.request("https://parseapi.back4app.com/login", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: getHeaders())
+        AF.request(ParseConfig.serverURL + APIConstants.Endpoints.logIn, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: getHeaders())
             .validate()
             .responseData { response in
                 self.handleAlamofireResponse(response, originalUser: User(username: email, email: email, password: password), onResult: onResult)
             }
     }
     
-
+    
     /// Requests a password reset for the user with the provided email.
     /// - Parameters:
     ///   - email: The email address of the user.
     ///   - onResult: A closure to handle the result of the request, returning a `Result` with either `Void` or an `AppError`.
     func requestPasswordReset(email: String, onResult: @escaping (Result<Void, AppError>) -> Void) {
-        let parameters: [String: Any] = ["email": email]
-
-        AF.request("https://parseapi.back4app.com/requestPasswordReset", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: getHeaders())
+        let parameters: [String: Any] = [APIConstants.Parameters.email: email]
+        
+        AF.request(ParseConfig.serverURL + APIConstants.Endpoints.requestPasswordReset, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: getHeaders())
             .validate()
             .responseData { response in
                 switch response.result {
@@ -68,9 +66,9 @@ class ApiService {
                     onResult(.success(()))
                 case .failure(let error):
                     if let data = response.data, let responseString = String(data: data, encoding: .utf8) {
-                        onResult(.failure(.networkError("Failed to request password reset: \(responseString)")))
+                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.rawValue): \(responseString)")))
                     } else {
-                        onResult(.failure(.networkError(error.localizedDescription)))
+                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.rawValue): \(error.localizedDescription)")))
                     }
                 }
             }
@@ -95,7 +93,7 @@ class ApiService {
                 onResult(.success(user))
             } catch {
                 let responseString = String(data: data, encoding: .utf8)
-                onResult(.failure(.networkError("Failed to decode JSON response: \(responseString ?? "No response string")")))
+                onResult(.failure(.networkError("\(ErrorMessage.failedToDecodeJSONResponse.rawValue): \(responseString ?? ErrorMessage.defaultMessage.rawValue)")))
             }
         case .failure(let error):
             if let data = response.data {
@@ -106,21 +104,21 @@ class ApiService {
                     onResult(.failure(.parseError(parseError.message)))
                 } catch {
                     let responseString = String(data: data, encoding: .utf8)
-                    onResult(.failure(.networkError("Failed to decode JSON response: \(responseString ?? "No response string")")))
+                    onResult(.failure(.networkError("\(ErrorMessage.failedToDecodeJSONResponse.rawValue): \(responseString ?? ErrorMessage.defaultMessage.rawValue)")))
                 }
             } else {
                 onResult(.failure(.networkError(error.localizedDescription)))
             }
         }
     }
-
+    
     /// Returns the headers required for the API requests.
     /// - Returns: A `HTTPHeaders` object containing the necessary headers.
     private func getHeaders() -> HTTPHeaders {
         return [
-            "X-Parse-Application-Id": ParseConfig.applicationID,
-            "X-Parse-Client-Key": ParseConfig.clientKey,
-            "Content-Type": "application/json"
+            APIConstants.Headers.applicationID: ParseConfig.applicationID,
+            APIConstants.Headers.clientKey: ParseConfig.clientKey,
+            APIConstants.Headers.contentType: ParseConfig.contentType
         ]
     }
 }

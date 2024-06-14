@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// - Returns: A boolean indicating whether the app successfully finished launching.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.initializeServices()
+        self.trackAppInstallation()
         return true
     }
     
@@ -45,5 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Mixpanel.initialize(token: MixpanelConfig.projectToken, trackAutomaticEvents: false)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.resignOnTouchOutside = true
+    }
+    
+    func trackAppInstallation() {
+        let hasLaunchedBefore = UserDefaults.standard.bool(forKey: UserDefaultsKeys.hasLaunchedBefore.key)
+        if !hasLaunchedBefore {
+            MixpanelEvent.appInstalled.trackEvent()
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.hasLaunchedBefore.key)
+        }
     }
 }

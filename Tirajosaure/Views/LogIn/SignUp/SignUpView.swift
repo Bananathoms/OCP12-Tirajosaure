@@ -16,11 +16,11 @@ struct SignUpView: View {
             self.presentationMode.wrappedValue.dismiss()
         }) {
             HStack{
-                Image(systemName: "chevron.backward")
+                IconNames.back.systemImage
                     .foregroundColor(.oxfordBlue)
                     .padding(.leading, 20)
-                Text("signup_title".localized)
-                    .font(.nunitoBold(20))
+                Text(LocalizedString.signupTitle.localized)
+                    .font(.customFont(.nunitoBold, size: 20))
                     .foregroundColor(.oxfordBlue)
                     .padding([.top, .bottom, .trailing], 20)
                     .frame(alignment: .topLeading)
@@ -33,14 +33,15 @@ struct SignUpView: View {
         VStack{
             self.makeHeader()
             ScrollView{
-                ReusableTextField(hint: $controller.firstName, icon: nil, title: "first_name".localized, fieldName: "first_name".localized).textContentType(.oneTimeCode)
-                ReusableTextField(hint: $controller.lastName, icon: nil, title: "last_name".localized, fieldName: "last_name".localized).textContentType(.oneTimeCode)
-                ReusableTextField(hint: $controller.email, icon: nil, title: "email".localized, fieldName: "email".localized).textContentType(.oneTimeCode)
+                ReusableTextField(hint: $controller.firstName, icon: nil, title: LocalizedString.firstName.localized, fieldName: LocalizedString.firstName.localized).textContentType(.oneTimeCode)
+                ReusableTextField(hint: $controller.lastName, icon: nil, title: LocalizedString.lastName.localized, fieldName: LocalizedString.lastName.localized).textContentType(.oneTimeCode)
+                ReusableTextField(hint: $controller.email, icon: nil, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized).textContentType(.oneTimeCode)
                     .autocapitalization(.none)
                     .keyboardType(.emailAddress)
-                ReusableSecureField(hint: $controller.password, icon: nil, title: "password".localized, fieldName: "enter_your_password".localized).textContentType(.oneTimeCode)
-                ReusableSecureField(hint: $controller.confirmPwd, icon: nil, title: "password".localized, fieldName: "confirm_your_password".localized).textContentType(.oneTimeCode)
-                TextButton(text: "continue_button".localized, isLoading: controller.isLoading, onClick: {
+                ReusableSecureField(hint: $controller.password, icon: nil, title: LocalizedString.password.localized, fieldName: LocalizedString.enterYourPassword.localized).textContentType(.oneTimeCode)
+                ReusableSecureField(hint: $controller.confirmPwd, icon: nil, title: LocalizedString.password.localized, fieldName: LocalizedString.confirmYourPassword.localized).textContentType(.oneTimeCode)
+                TextButton(text: LocalizedString.continueButton.localized, isLoading: controller.isLoading, onClick: {
+                    MixpanelEvent.signUpButtonClicked.trackEvent()
                     controller.signUp()
                 }, buttonColor: .oxfordBlue, textColor: .antiqueWhite)
                 Spacer()
@@ -55,19 +56,20 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
+        let data = PreviewData.UserData.signUpSample
         let controller = SignUpController()
-        controller.email = "test@example.com"
-        controller.firstName = "John"
-        controller.lastName = "Doe"
-        controller.password = "Password123"
-        controller.confirmPwd = "Password123"
+        controller.email = data.email
+        controller.firstName = data.firstName
+        controller.lastName = data.lastName
+        controller.password = data.password
+        controller.confirmPwd = data.confirmPwd
         return Group {
             SignUpView(controller: controller)
-                .previewDevice("iPhone SE (3rd generation)")
-                .previewDisplayName("iPhone SE")
+                .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
+                .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
             SignUpView(controller: controller)
-                .previewDevice("iPhone 14 Pro")
-                .previewDisplayName("iPhone 14 Pro")
+                .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
+                .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
         }
     }
 }

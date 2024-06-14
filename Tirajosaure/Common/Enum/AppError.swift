@@ -26,7 +26,7 @@ enum AppError: Error, LocalizedError {
         case .parseError(let message):
             return "parse_error_message".localized(with: message)
         case .unknownError:
-            return "unknown_error_message".localized
+            return ErrorMessage.unknownError.rawValue
         }
     }
 }

@@ -6,92 +6,269 @@
 //
 
 import Foundation
-
 import XCTest
 @testable import Tirajosaure
 
 class UserServiceTests: XCTestCase {
-    var userService: UserService!
+    var userService: MockUserService!
     var mockApiService: MockApiService!
     
     override func setUp() {
         super.setUp()
-        userService = UserService()
         mockApiService = MockApiService()
         ApiService.current = mockApiService
+        userService = MockUserService()
     }
     
     override func tearDown() {
         userService = nil
         mockApiService = nil
         super.tearDown()
-        
-    }
-
-    func testValidateInputs() {
-        let invalidEmailResult = userService.validateInputs(email: "invalidemail", firstName: "John", lastName: "Doe", password: "Password123")
-        XCTAssertEqual(invalidEmailResult, "Veuillez rentrer un e-mail valide")
-        
-        let emptyFirstNameResult = userService.validateInputs(email: "test@example.com", firstName: "", lastName: "Doe", password: "Password123")
-        XCTAssertEqual(emptyFirstNameResult, "Merci de rentrer un prénom")
-        
-        let emptyLastNameResult = userService.validateInputs(email: "test@example.com", firstName: "John", lastName: "", password: "Password123")
-        XCTAssertEqual(emptyLastNameResult, "Merci de rentrer un nom")
-        
-        let shortPasswordResult = userService.validateInputs(email: "test@example.com", firstName: "John", lastName: "Doe", password: "short")
-        XCTAssertEqual(shortPasswordResult, "Le mot de passe doit faire plus de 8 caractères")
-        
-        let noUppercasePasswordResult = userService.validateInputs(email: "test@example.com", firstName: "John", lastName: "Doe", password: "password")
-        XCTAssertEqual(noUppercasePasswordResult, "Le mot de passe doit avoir au moins une majuscule")
     }
     
-//    func testSignUpSuccess() {
-//        let expectation = self.expectation(description: "User sign up success")
-//        
-//        let mockUser = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "John", lastName: "Doe")
-//        mockApiService.signUpResult = .success(mockUser)
-//        
-//        userService.signUp(email: "test@example.com", firstName: "John", lastName: "Doe", password: "Password123") { result in
-//            switch result {
-//            case .success(let user):
-//                XCTAssertEqual(user.email, mockUser.email)
-//                XCTAssertEqual(user.firstName, mockUser.firstName)
-//                XCTAssertEqual(user.lastName, mockUser.lastName)
-//            case .failure:
-//                XCTFail("Expected success but got failure")
-//            }
-//            expectation.fulfill()
-//        }
-//        
-//        waitForExpectations(timeout: 1, handler: nil)
-//    }
+    func testSetUser() {
+        let user = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "Test", lastName: "User")
+        
+        userService.setUser(newUser: user)
+        
+        XCTAssertEqual(userService.user?.username, user.username)
+        XCTAssertEqual(userService.connexionState, .logged)
+    }
     
-//    func testSignUpFailure() {
-//        let expectation = self.expectation(description: "User sign up failure")
-//        
-//        let mockError = AppError.parseError("Test error")
-//        mockApiService.signUpResult = .failure(mockError)
-//        
-//        userService.signUp(email: "test@example.com", firstName: "John", lastName: "Doe", password: "Password123") { result in
-//            switch result {
-//            case .success:
-//                XCTFail("Expected failure but got success")
-//            case .failure(let error):
-//                XCTAssertEqual(error.localizedDescription, mockError.localizedDescription)
-//            }
-//            expectation.fulfill()
-//        }
-//        waitForExpectations(timeout: 1, handler: nil)
-//    }
+    func testLogOut() {
+        let expectation = self.expectation(description: "LogOut")
+        
+        let user = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "Test", lastName: "User")
+        userService.setUser(newUser: user)
+        
+        XCTAssertEqual(userService.user?.username, user.username)
+        XCTAssertEqual(userService.connexionState, .logged)
+        
+        userService.logOut()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertNil(self.userService.user)
+            XCTAssertEqual(self.userService.connexionState, .unLogged)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 2, handler: nil)
+    }
     
     func testResetService() {
-        let mockUser = User(username: "test@example.com", email: "test@example.com", firstName: "John", lastName: "Doe")
-        userService.user = mockUser
-        userService.connexionState = .logged
+        let user = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "Test", lastName: "User")
+        userService.setUser(newUser: user)
+        
+        XCTAssertEqual(userService.user?.username, user.username)
+        XCTAssertEqual(userService.connexionState, .logged)
         
         userService.resetService()
         
         XCTAssertNil(userService.user)
         XCTAssertEqual(userService.connexionState, .unLogged)
+    }
+    
+    func testSplashDataUserLoggedIn() {
+        let user = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "Test", lastName: "User")
+        userService.mockCurrentUser = user
+        
+        userService.splashData()
+        
+        XCTAssertEqual(userService.user?.username, user.username)
+        XCTAssertEqual(userService.connexionState, .logged)
+    }
+    
+    func testParseInitialized() {
+        let expectation = self.expectation(description: "ParseInitialized")
+        
+        XCTAssertEqual(userService.connexionState, .splash)
+        
+        userService.parseInitialized()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            XCTAssertNotEqual(self.userService.connexionState, .splash)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 2, handler: nil)
+    }
+    
+    func testSignUpSuccess() {
+        let user = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "Test", lastName: "User")
+        mockApiService.signUpResult = .success(user)
+        
+        let expectation = self.expectation(description: "SignUpSuccess")
+        userService.signUp(email: "test@example.com", firstName: "Test", lastName: "User", password: "Password123") { result in
+            switch result {
+            case .success(let returnedUser):
+                XCTAssertEqual(returnedUser.username, user.username)
+                XCTAssertEqual(self.userService.user?.username, user.username)
+                XCTAssertEqual(self.userService.connexionState, .logged)
+            case .failure:
+                XCTFail("Expected success, but got failure")
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testSignUpFailure() {
+        let errorMessage = LocalizedString.invalidEmail.localized
+        mockApiService.signUpResult = .failure(.validationError(errorMessage))
+        
+        let expectation = self.expectation(description: "SignUpFailure")
+        userService.signUp(email: "invalidemail", firstName: "Test", lastName: "User", password: "Password123") { result in
+            switch result {
+            case .success:
+                XCTFail("Expected failure, but got success")
+            case .failure(let error):
+                XCTAssertNil(self.userService.user)
+                XCTAssertEqual(self.userService.connexionState, .splash)
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testSignUpValidationFailure() {
+        let expectation = self.expectation(description: "SignUpValidationFailure")
+
+        userService.signUp(email: "test@example.com", firstName: "", lastName: "User", password: "Password123") { result in
+            switch result {
+            case .failure(let error):
+                if case .validationError(let message) = error {
+                    XCTAssertEqual(message, "first_name_missing".localized)
+                    expectation.fulfill()
+                } else {
+                    XCTFail("Expected validationError, got \(error)")
+                }
+            case .success:
+                XCTFail("Expected failure, got success")
+            }
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testLogInSuccess() {
+        let user = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "Test", lastName: "User")
+        mockApiService.logInResult = .success(user)
+        
+        let expectation = self.expectation(description: "LogInSuccess")
+        userService.logIn(email: "test@example.com", password: "Password123") { result in
+            switch result {
+            case .success(let returnedUser):
+                XCTAssertEqual(returnedUser.username, user.username)
+                XCTAssertEqual(self.userService.user?.username, user.username)
+                XCTAssertEqual(self.userService.connexionState, .logged)
+            case .failure:
+                XCTFail("Expected success, but got failure")
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testLogInFailure() {
+        let errorMessage = LocalizedString.authenticationErrorMessage.localized
+        mockApiService.logInResult = .failure(.authenticationError(errorMessage))
+        
+        let expectation = self.expectation(description: "LogInFailure")
+        userService.logIn(email: "test@example.com", password: "WrongPassword") { result in
+            switch result {
+            case .success:
+                XCTFail("Expected failure, but got success")
+            case .failure(let error):
+                XCTAssertEqual(error.localizedDescription, errorMessage)
+                XCTAssertNil(self.userService.user)
+                XCTAssertEqual(self.userService.connexionState, .splash)
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testRequestPasswordResetSuccess() {
+        mockApiService.requestPasswordResetResult = .success(())
+        
+        let expectation = self.expectation(description: "RequestPasswordResetSuccess")
+        userService.requestPasswordReset(email: "test@example.com") { result in
+            switch result {
+            case .success:
+                XCTAssertTrue(true)
+            case .failure:
+                XCTFail("Expected success, but got failure")
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testRequestPasswordResetFailure() {
+        let errorMessage = LocalizedString.networkErrorMessage.localized
+        mockApiService.requestPasswordResetResult = .failure(.networkError(errorMessage))
+        
+        let expectation = self.expectation(description: "RequestPasswordResetFailure")
+        userService.requestPasswordReset(email: "test@example.com") { result in
+            switch result {
+            case .success:
+                XCTFail("Expected failure, but got success")
+            case .failure(let error):
+                XCTAssertEqual(error.localizedDescription, errorMessage)
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testValidateLoginInputsInvalidEmail() {
+        let result = userService.validateLoginInputs(email: "invalid-email", password: "Password123")
+        XCTAssertEqual(result, LocalizedString.invalidEmail.localized)
+    }
+    
+    func testValidateLoginInputsEmptyPassword() {
+        let result = userService.validateLoginInputs(email: "test@example.com", password: "")
+        XCTAssertEqual(result, LocalizedString.emptyPassword.localized)
+    }
+    
+    func testValidateLoginInputsValid() {
+        let result = userService.validateLoginInputs(email: "test@example.com", password: "Password123")
+        XCTAssertNil(result)
+    }
+    
+    func testValidateInputsFirstNameMissing() {
+        let result = userService.validateInputs(email: "test@example.com", firstName: "", lastName: "User", password: "Password123")
+        XCTAssertEqual(result, LocalizedString.firstNameMissing.localized)
+    }
+    
+    func testValidateInputsLastNameMissing() {
+        let result = userService.validateInputs(email: "test@example.com", firstName: "Test", lastName: "", password: "Password123")
+        XCTAssertEqual(result, LocalizedString.lastNameMissing.localized)
+    }
+    
+    func testValidateInputsInvalidEmail() {
+        let result = userService.validateInputs(email: "invalid-email", firstName: "Test", lastName: "User", password: "Password123")
+        XCTAssertEqual(result, LocalizedString.invalidEmail.localized)
+    }
+    
+    func testValidateInputsPasswordTooShort() {
+        let result = userService.validateInputs(email: "test@example.com", firstName: "Test", lastName: "User", password: "Pass12")
+        XCTAssertEqual(result, LocalizedString.passwordLengthError.localized)
+    }
+    
+    func testValidateInputsPasswordNoUppercase() {
+        let result = userService.validateInputs(email: "test@example.com", firstName: "Test", lastName: "User", password: "password123")
+        XCTAssertEqual(result, LocalizedString.passwordUppercaseError.localized)
+    }
+    
+    func testValidateInputsValid() {
+        let result = userService.validateInputs(email: "test@example.com", firstName: "Test", lastName: "User", password: "Password123")
+        XCTAssertNil(result)
     }
 }

@@ -17,7 +17,7 @@ extension SwiftEntryKit {
     static func showSuccesMessage(message: String) {
         var attributes = EKAttributes.topNote
 
-        attributes.entryBackground = .color(color: .init(UIColor(.aquamarineGreen)))
+        attributes.entryBackground = .color(color: .init(UIColor(.green)))
         attributes.roundCorners = .bottom(radius: 20)
         attributes.displayDuration = 4
         attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 10, offset: .zero))
@@ -36,8 +36,10 @@ extension SwiftEntryKit {
 
         attributes.entryBackground = .color(color: .init(UIColor(.customRed)))
         attributes.roundCorners = .bottom(radius: 20)
-        attributes.displayDuration = 4
+        attributes.displayDuration = .infinity
         attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 10, offset: .zero))
+        attributes.screenInteraction = .dismiss
+        attributes.entryInteraction = .dismiss
      
         let font = UIFont(name: "Nunito-Bold", size: 15) ?? UIFont.systemFont(ofSize: 15)
         let style = EKProperty.LabelStyle(font: font, color: .white, alignment: .center)

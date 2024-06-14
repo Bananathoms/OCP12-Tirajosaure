@@ -22,7 +22,7 @@ class UserService: ObservableObject {
     }
     
     /// Called when Parse is initialized.
-    @objc private func parseInitialized() {
+    @objc func parseInitialized() {
         self.splashData()
     }
     
@@ -87,7 +87,7 @@ class UserService: ObservableObject {
     ///   - firstName: The first name of the user.
     ///   - lastName: The last name of the user.
     ///   - password: The password of the user.
-    ///   - completion: A closure to handle the result of the registration, returning a `Result` with either a `User` or an `AppError`.
+    ///   - completion: A closure to handle the result of the registration, returning a `Result` with either a `User` ou un `AppError`.
     func signUp(email: String, firstName: String, lastName: String, password: String, completion: @escaping (Result<User, AppError>) -> Void) {
         if let errorMessage = validateInputs(email: email, firstName: firstName, lastName: lastName, password: password) {
             completion(.failure(.validationError(errorMessage)))
@@ -110,7 +110,7 @@ class UserService: ObservableObject {
     /// Requests a password reset for the user with the provided email.
     /// - Parameters:
     ///   - email: The email address of the user.
-    ///   - completion: A closure to handle the result of the request, returning a `Result` with either `Void` or an `AppError`.
+    ///   - completion: A closure to handle the result of the request, returning un `Result` avec either `Void` ou un `AppError`.
     func requestPasswordReset(email: String, completion: @escaping (Result<Void, AppError>) -> Void) {
         ApiService.current.requestPasswordReset(email: email) { result in
             completion(result)
@@ -122,12 +122,12 @@ class UserService: ObservableObject {
     ///   - email: The email address of the user.
     ///   - password: The password of the user.
     /// - Returns: An optional error message string if validation fails, otherwise nil.
-    private func validateLoginInputs(email: String, password: String) -> String? {
+    func validateLoginInputs(email: String, password: String) -> String? {
         if !email.isValidEmail {
-            return "invalid_email".localized
+            return LocalizedString.invalidEmail.localized
         }
         if password.isEmpty {
-            return "empty_password".localized
+            return LocalizedString.emptyPassword.localized
         }
         return nil
     }
@@ -141,19 +141,19 @@ class UserService: ObservableObject {
     /// - Returns: An optional error message string if validation fails, otherwise nil.
     func validateInputs(email: String, firstName: String, lastName: String, password: String) -> String? {
         if firstName.isEmpty {
-            return "first_name_missing".localized
+            return LocalizedString.firstNameMissing.localized
         }
         if lastName.isEmpty {
-            return "last_name_missing".localized
+            return LocalizedString.lastNameMissing.localized
         }
         if !email.isValidEmail {
-            return "invalid_email".localized
+            return LocalizedString.invalidEmail.localized
         }
         if password.count < 8 {
-            return "password_length_error".localized
+            return LocalizedString.passwordLengthError.localized
         }
         if !password.hasUppercase() {
-            return "password_uppercase_error".localized
+            return LocalizedString.passwordUppercaseError.localized
         }
         return nil
     }

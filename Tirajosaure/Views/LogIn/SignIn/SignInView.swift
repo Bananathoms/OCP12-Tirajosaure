@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import Mixpanel
 
 struct SignInView: View {
     @ObservedObject var controller: SignInController
     
     private func makeHeader() -> some View {
         HStack{
-            Text("signin_title".localized)
-                .font(.nunitoBold(20))
+            Text(LocalizedString.signinTitle.localized)
+                .font(.customFont(.nunitoBold, size: 20))
                 .foregroundColor(.oxfordBlue)
                 .padding(.all, 20)
                 .frame(alignment: .topLeading)
@@ -24,13 +25,13 @@ struct SignInView: View {
     private func newAccount() -> some View {
         NavigationLink(destination: SignUpView(controller: SignUpController())) {
             VStack{
-                Text("no_account_prompt".localized)
-                    .font(.nunitoRegular(14))
+                Text(LocalizedString.noAccountPrompt.localized)
+                    .font(.customFont(.nunitoRegular, size: 16))
                     .foregroundColor(.oxfordBlue)
                     .padding(.leading, 20)
-                Text("signup_here".localized)
+                Text(LocalizedString.signupHere.localized)
                     .frame(alignment: .bottom)
-                    .font(.nunitoRegular(14))
+                    .font(.customFont(.nunitoRegular, size: 14))
                     .foregroundColor(.oxfordBlue)
                     .padding([.leading, .bottom], 20)
             }
@@ -41,8 +42,8 @@ struct SignInView: View {
         NavigationLink(destination: PasswordResetView(controller: PasswordResetController())) {
             HStack {
                 Spacer()
-                Text("forgot_password".localized)
-                    .font(.nunitoRegular(14))
+                Text(LocalizedString.forgotPassword.localized)
+                    .font(.customFont(.nunitoRegular, size: 14))
                     .underline()
                     .foregroundColor(.oxfordBlue)
                     .padding(.trailing, 30)
@@ -53,7 +54,7 @@ struct SignInView: View {
     
     var body: some View {
         VStack{
-            Image.logo
+            IconNames.logo.image
                 .resizable()
                 .frame(width: 60, height: 60)
                 .padding(.top, 60)
@@ -61,12 +62,15 @@ struct SignInView: View {
             NavigationView{
                 VStack{
                     makeHeader()
-                    ReusableTextField(hint: $controller.email, icon: "at", title: "email".localized, fieldName: "email".localized).textContentType(.oneTimeCode)
+                    ReusableTextField(hint: $controller.email, icon: IconNames.at.rawValue, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized).textContentType(.oneTimeCode)
                         .autocapitalization(.none)
                         .keyboardType(.emailAddress)
-                    ReusableSecureField(hint: $controller.password, icon: "lock", title: "password".localized, fieldName: "enter_your_password".localized).textContentType(.oneTimeCode)
+                    ReusableSecureField(hint: $controller.password, icon: IconNames.lock.rawValue, title: LocalizedString.password.localized, fieldName: LocalizedString.enterYourPassword.localized).textContentType(.oneTimeCode)
                     forgotPassword()
-                    TextButton(text: "signin_button".localized, isLoading: controller.isLoading, onClick: controller.signIn, buttonColor: .oxfordBlue, textColor: .white)
+                    TextButton(text: LocalizedString.signinButton.localized, isLoading: controller.isLoading, onClick: {
+                        MixpanelEvent.loginButtonClicked.trackEvent()
+                        controller.signIn()
+                    }, buttonColor: .oxfordBlue, textColor: .white)
                     Spacer()
                     newAccount()
                 }.background(Color.skyBlue) .ignoresSafeArea()
@@ -78,16 +82,17 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
+        let data = PreviewData.UserData.signInSample
         let controller = SignInController()
-        controller.email = "test@example.com"
-        controller.password = "password"
+        controller.email = data.email
+        controller.password = data.password
         return Group {
             SignInView(controller: controller)
-                .previewDevice("iPhone SE (3rd generation)")
-                .previewDisplayName("iPhone SE")
+                .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
+                .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
             SignInView(controller: controller)
-                .previewDevice("iPhone 14 Pro")
-                .previewDisplayName("iPhone 14 Pro")
+                .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
+                .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
         }
     }
 }

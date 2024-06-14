@@ -14,7 +14,7 @@ struct SplashView: View {
     var body: some View {
         ZStack{
             Color.celestialBlue.edgesIgnoringSafeArea(.all)
-            Image.logo
+            IconNames.logo.image
                 .resizable()
                 .scaledToFit()
                 .scaleEffect(scale)

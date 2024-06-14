@@ -39,26 +39,18 @@ struct TextButton: View {
 struct TextButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TextButton(
-                text: "Déconnexion",
-                isLoading: false,
-                onClick: {},
-                buttonColor: .customRed,
-                textColor: .white
-            )
-            .previewLayout(.sizeThatFits)
-            .padding()
-            .previewDisplayName("TextButton - Normal")
-            TextButton(
-                text: "Chargement...",
-                isLoading: true,
-                onClick: {},
-                buttonColor: .gray,
-                textColor: .white
-            )
-            .previewLayout(.sizeThatFits)
-            .padding()
-            .previewDisplayName("TextButton - Loading")
+            ForEach([PreviewData.TextButtonData.normal, PreviewData.TextButtonData.loading], id: \.self) { data in
+                TextButton(
+                    text: data.text,
+                    isLoading: data.isLoading,
+                    onClick: {},
+                    buttonColor: data.buttonColor,
+                    textColor: data.textColor
+                )
+                .previewLayout(.sizeThatFits)
+                .padding()
+                .previewDisplayName("TextButton - \(data == .normal ? "Normal" : "Loading")")
+            }
         }
     }
 }

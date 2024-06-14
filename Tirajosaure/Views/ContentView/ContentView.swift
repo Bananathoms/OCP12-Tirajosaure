@@ -25,10 +25,10 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewDevice("iPhone SE (3rd generation)")
-            .previewDisplayName("iPhone SE")
+            .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
+            .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
         ContentView()
-            .previewDevice("iPhone 14 Pro")
-            .previewDisplayName("iPhone 14 Pro")
+            .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
+            .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }
 }

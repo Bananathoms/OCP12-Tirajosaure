@@ -8,12 +8,12 @@
 import Foundation
 
 class PasswordResetController: ObservableObject {
-    @Published var email: String = ""
+    @Published var email: String = DefaultValues.emptyString
     @Published var isLoading: Bool = false
     
     func requestPasswordReset() {
         guard email.isValidEmail else {
-            SnackBarService.current.error("invalid_email".localized)
+            SnackBarService.current.error(LocalizedString.invalidEmail.localized)
             return
         }
         
@@ -23,7 +23,7 @@ class PasswordResetController: ObservableObject {
             self.isLoading = false
             switch result {
             case .success:
-                SnackBarService.current.success("password_reset_email_sent".localized)
+                SnackBarService.current.success(LocalizedString.passwordResetEmailSent.localized)
             case .failure(let error):
                 SnackBarService.current.error(error.localizedDescription)
             }

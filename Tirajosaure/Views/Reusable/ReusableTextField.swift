@@ -17,9 +17,10 @@ struct ReusableTextField: View {
         VStack(spacing: 0){
             HStack{
                 Text("\(title)")
-                    .font(.nunitoRegular(16))
+                    .font(.customFont(.nunitoRegular, size: 16))
                     .foregroundColor(.oxfordBlue)
                     .padding(.leading, 30)
+                    .padding(.bottom, 5)
                     .frame(alignment: .topLeading)
                 Spacer()
             }
@@ -27,7 +28,7 @@ struct ReusableTextField: View {
             HStack{
                 if let iconUnwraped = icon {
                     Image(systemName: "\(iconUnwraped)")
-                        .font(.nunitoRegular(16))
+                        .font(.customFont(.nunitoRegular, size: 16))
                         .foregroundColor(.oxfordBlue)
                         .padding(.leading, 20)
                         .frame(alignment: .topLeading)
@@ -45,11 +46,21 @@ struct ReusableTextField: View {
 
 struct ReusableTextField_Previews: PreviewProvider {
     static var previews: some View {
-        ReusableTextField(hint: .constant("test"), icon: "at", title: "E-mail", fieldName: "E-mail")
-            .previewDevice("iPhone SE (3rd generation)")
-            .previewDisplayName("iPhone SE")
-        ReusableTextField(hint: .constant("test"), icon: "at", title: "E-mail", fieldName: "E-mail")
-            .previewDevice("iPhone 14 Pro")
-            .previewDisplayName("iPhone 14 Pro")
+        ReusableTextField(
+            hint: PreviewData.TextFieldData.email.hint,
+            icon: PreviewData.TextFieldData.email.icon,
+            title: PreviewData.TextFieldData.email.title,
+            fieldName: PreviewData.TextFieldData.email.fieldName
+        )
+            .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
+            .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
+        ReusableTextField(
+            hint: PreviewData.TextFieldData.email.hint,
+            icon: PreviewData.TextFieldData.email.icon,
+            title: PreviewData.TextFieldData.email.title,
+            fieldName: PreviewData.TextFieldData.email.fieldName
+        )
+            .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
+            .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }
 }

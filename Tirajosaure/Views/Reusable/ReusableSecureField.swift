@@ -18,9 +18,10 @@ struct ReusableSecureField: View {
         VStack(spacing:0){
             HStack{
                 Text("\(title)")
-                    .font(.nunitoRegular(16))
+                    .font(.customFont(.nunitoRegular, size: 16))
                     .foregroundColor(.oxfordBlue)
                     .padding(.leading, 30)
+                    .padding(.bottom, 5)
                     .frame(alignment: .topLeading)
                 
                 Spacer()
@@ -29,7 +30,7 @@ struct ReusableSecureField: View {
             HStack{
                 if let iconUnwraped = icon {
                     Image(systemName: "\(iconUnwraped)")
-                        .font(.nunitoRegular(16))
+                        .font(.customFont(.nunitoRegular, size: 16))
                         .foregroundColor(.oxfordBlue)
                         .padding(.leading, 20)
                         .frame(alignment: .topLeading)
@@ -52,11 +53,21 @@ struct ReusableSecureField: View {
 struct ReusableSecureField_Previews: PreviewProvider {
     static var previews: some View {
        
-        ReusableSecureField(hint: .constant("test"), icon: "lock", title: "Mot de passe", fieldName: "mdp")
-            .previewDevice("iPhone SE (3rd generation)")
-            .previewDisplayName("iPhone SE")
-        ReusableSecureField(hint: .constant("test"), icon: "lock", title: "Mot de passe", fieldName: "mdp")
-            .previewDevice("iPhone 14 Pro")
-            .previewDisplayName("iPhone 14 Pro")
+        ReusableSecureField(
+            hint: PreviewData.SecureFieldData.withHint.hint,
+            icon: PreviewData.SecureFieldData.withHint.icon,
+            title: PreviewData.SecureFieldData.withHint.title,
+            fieldName: PreviewData.SecureFieldData.withHint.fieldName
+        )
+            .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
+            .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
+        ReusableSecureField(
+            hint: PreviewData.SecureFieldData.withHint.hint,
+            icon: PreviewData.SecureFieldData.withHint.icon,
+            title: PreviewData.SecureFieldData.withHint.title,
+            fieldName: PreviewData.SecureFieldData.withHint.fieldName
+        )
+            .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
+            .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }
 }

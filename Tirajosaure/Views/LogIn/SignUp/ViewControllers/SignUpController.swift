@@ -20,7 +20,7 @@ class SignUpController: ObservableObject {
     /// Initiates the sign-up process with the provided details.
     func signUp() {
         guard password == confirmPwd else {
-            SnackBarService.current.error("passwords_do_not_match".localized)
+            SnackBarService.current.error(LocalizedString.passwordsDoNotMatch.localized)
             return
         }
         isLoading = true
@@ -30,9 +30,9 @@ class SignUpController: ObservableObject {
             switch result {
             case .success(let user):
                 self.user = user
-                let firstName = user.firstName ?? ""
-                let lastName = user.lastName ?? ""
-                SnackBarService.current.success("successful_sign_up".localized(with: firstName, lastName))
+                let firstName = user.firstName ?? DefaultValues.emptyString
+                let lastName = user.lastName ?? DefaultValues.emptyString
+                SnackBarService.current.success(LocalizedString.successfulSignUp.localized(with: firstName, lastName))
                 UserService.current.setUser(newUser: user)
             case .failure(let error):
                 SnackBarService.current.error(error.localizedDescription)

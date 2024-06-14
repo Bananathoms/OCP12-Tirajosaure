@@ -16,11 +16,11 @@ struct PasswordResetView: View {
             self.presentationMode.wrappedValue.dismiss()
         }) {
             HStack {
-                Image(systemName: "chevron.backward")
+                IconNames.back.systemImage
                     .foregroundColor(.oxfordBlue)
                     .padding(.leading, 20)
-                Text("reset_password_title".localized)
-                    .font(.nunitoBold(20))
+                Text(LocalizedString.resetPasswordTitle.localized)
+                    .font(.customFont(.nunitoBold, size: 20))
                     .foregroundColor(.oxfordBlue)
                     .padding([.top, .bottom, .trailing], 20)
                     .frame(alignment: .topLeading)
@@ -33,11 +33,11 @@ struct PasswordResetView: View {
         VStack {
             self.makeHeader()
             ScrollView {
-                ReusableTextField(hint: $controller.email, icon: nil, title: "email".localized, fieldName: "email".localized)
+                ReusableTextField(hint: $controller.email, icon: nil, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized)
                     .textContentType(.oneTimeCode)
                     .autocapitalization(.none) 
                     .keyboardType(.emailAddress)
-                TextButton(text: "reset_password_button".localized, isLoading: controller.isLoading, onClick: {
+                TextButton(text: LocalizedString.resetPasswordButton.localized, isLoading: controller.isLoading, onClick: {
                     controller.requestPasswordReset()
                 }, buttonColor: .oxfordBlue, textColor: .antiqueWhite)
                 Spacer()
@@ -55,11 +55,11 @@ struct PasswordResetView_Previews: PreviewProvider {
         let controller = PasswordResetController()
         return Group {
             PasswordResetView(controller: controller)
-                .previewDevice("iPhone SE (3rd generation)")
-                .previewDisplayName("iPhone SE")
+                .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
+                .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
             PasswordResetView(controller: controller)
-                .previewDevice("iPhone 14 Pro")
-                .previewDisplayName("iPhone 14 Pro")
+                .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
+                .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
         }
     }
 }
