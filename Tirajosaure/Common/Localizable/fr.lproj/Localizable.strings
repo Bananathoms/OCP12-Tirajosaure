@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+// Général
+"email" = "E-mail";
+"password" = "Mot de passe";
+"first_name" = "Prénom";
+"last_name" = "Nom";
+"enter_your_password" = "Entrez votre mot de passe";
+"confirm_your_password" = "Confirmez votre mot de passe";
+"continue_button" = "Continuer";
+"logout_button" = "Déconnexion";
+"reset_password_title" = "Réinitialiser le mot de passe";
+"reset_password_button" = "Réinitialiser";
+"password_reset_email_sent" = "Un email de reinitialisation à été envoyé";
+
+// Erreurs générales
+"network_error_message" = "Une erreur réseau s'est produite. Veuillez réessayer.";
+"unknown_error_message" = "Une erreur inconnue s'est produite.";
+
+// Erreurs de validation
+"validation_error_message" = "Veuillez vérifier les champs de saisie pour les erreurs.";
+"parse_error_message" = "Erreur serveur : %@";
+"passwords_do_not_match" = "Les mots de passe ne correspondent pas.";
+"invalid_email" = "Veuillez entrer un e-mail valide.";
+"empty_password" = "Veuillez entrer un mot de passe.";
+"first_name_missing" = "Veuillez entrer un prénom.";
+"last_name_missing" = "Veuillez entrer un nom.";
+"password_length_error" = "Le mot de passe doit comporter au moins 8 caractères.";
+"password_uppercase_error" = "Le mot de passe doit contenir au moins une lettre majuscule.";
+
+// Erreurs d'authentification
+"authentication_error_message" = "Nom d'utilisateur ou mot de passe invalide.";
+
+// Messages de succès
+"successful_sign_in" = "Utilisateur %@ %@ connecté avec succès.";
+"successful_sign_up" = "Utilisateur %@ %@ enregistré avec succès.";
+
+// Écran de connexion
+"signin_title" = "Connexion";
+"no_account_prompt" = "Vous n'avez pas de compte ?";
+"signup_here" = "Inscrivez-vous ici";
+"forgot_password" = "Mot de passe oublié ?";
+"signin_button" = "Se connecter";
+
+// Écran d'inscription
+"signup_title" = "Inscription";
