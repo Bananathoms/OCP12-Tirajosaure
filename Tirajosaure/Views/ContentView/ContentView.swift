@@ -15,7 +15,7 @@ struct ContentView: View {
         case .splash:
             SplashView(userController: userController)
         case .logged:
-            HomeView(userController: userController)
+            HomeView()
         case .unLogged:
             SignInView(controller: SignInController())
         }

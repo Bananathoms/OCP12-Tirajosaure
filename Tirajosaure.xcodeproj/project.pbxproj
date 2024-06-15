@@ -29,6 +29,14 @@
 		DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6077F52C1CA3A100AA2A0A /* PreviewDevices.swift */; };
 		DE6077F82C1CA5DC00AA2A0A /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6077F72C1CA5DC00AA2A0A /* PreviewData.swift */; };
 		DE60780E2C1CB92B00AA2A0A /* ApiServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60780D2C1CB92B00AA2A0A /* ApiServicesTests.swift */; };
+		DE60781C2C1DF4D600AA2A0A /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60781B2C1DF4D600AA2A0A /* DrawView.swift */; };
+		DE60781F2C1DF51E00AA2A0A /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60781E2C1DF51D00AA2A0A /* TeamView.swift */; };
+		DE6078212C1E09EC00AA2A0A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078202C1E09EC00AA2A0A /* SettingsView.swift */; };
+		DE60782B2C1E2AB900AA2A0A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60782A2C1E2AB900AA2A0A /* QuestionItem.swift */; };
+		DE60782D2C1E2B0200AA2A0A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60782C2C1E2B0200AA2A0A /* AddButton.swift */; };
+		DE60782F2C1E2C0200AA2A0A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60782E2C1E2C0200AA2A0A /* Question.swift */; };
+		DE6078312C1E2C5100AA2A0A /* AddQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */; };
+		DE6078332C1E2C7B00AA2A0A /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */; };
 		DE6736712C0FD9B0001BEB56 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366D2C0FD9B0001BEB56 /* Nunito-Bold.ttf */; };
 		DE6736722C0FD9B0001BEB56 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366E2C0FD9B0001BEB56 /* Nunito-SemiBold.ttf */; };
 		DE6736732C0FD9B0001BEB56 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366F2C0FD9B0001BEB56 /* Nunito-Regular.ttf */; };
@@ -98,6 +106,14 @@
 		DE6077F52C1CA3A100AA2A0A /* PreviewDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDevices.swift; sourceTree = "<group>"; };
 		DE6077F72C1CA5DC00AA2A0A /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		DE60780D2C1CB92B00AA2A0A /* ApiServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServicesTests.swift; sourceTree = "<group>"; };
+		DE60781B2C1DF4D600AA2A0A /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		DE60781E2C1DF51D00AA2A0A /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		DE6078202C1E09EC00AA2A0A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DE60782A2C1E2AB900AA2A0A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
+		DE60782C2C1E2B0200AA2A0A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		DE60782E2C1E2C0200AA2A0A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionView.swift; sourceTree = "<group>"; };
+		DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
 		DE67366D2C0FD9B0001BEB56 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		DE67366E2C0FD9B0001BEB56 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE67366F2C0FD9B0001BEB56 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -205,6 +221,32 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		DE60781D2C1DF4FA00AA2A0A /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				DE60781B2C1DF4D600AA2A0A /* DrawView.swift */,
+				DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */,
+				DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */,
+			);
+			path = Draw;
+			sourceTree = "<group>";
+		};
+		DE6078342C1E2C8700AA2A0A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DE6078202C1E09EC00AA2A0A /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DE6078352C1E2C9500AA2A0A /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				DE60781E2C1DF51D00AA2A0A /* TeamView.swift */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
 		DE67366C2C0FD9A1001BEB56 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				DE6736852C0FF06A001BEB56 /* User.swift */,
+				DE60782E2C1E2C0200AA2A0A /* Question.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -389,7 +432,9 @@
 			children = (
 				DE6736A12C0FF78D001BEB56 /* ReusableTextField.swift */,
 				DE6736A72C0FF947001BEB56 /* ReusableSecureField.swift */,
+				DE60782A2C1E2AB900AA2A0A /* QuestionItem.swift */,
 				DE6736A92C0FF9D9001BEB56 /* TextButton.swift */,
+				DE60782C2C1E2B0200AA2A0A /* AddButton.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -444,6 +489,9 @@
 			isa = PBXGroup;
 			children = (
 				DE6736AB2C0FFF10001BEB56 /* HomeView.swift */,
+				DE60781D2C1DF4FA00AA2A0A /* Draw */,
+				DE6078352C1E2C9500AA2A0A /* Team */,
+				DE6078342C1E2C8700AA2A0A /* Settings */,
 			);
 			path = LoggedIn;
 			sourceTree = "<group>";
@@ -602,11 +650,13 @@
 				DE6736B42C1084AF001BEB56 /* SignUpController.swift in Sources */,
 				DE6077D62C17C3BC00AA2A0A /* PasswordResetController.swift in Sources */,
 				DE6077E22C1BB29300AA2A0A /* LocalizedString.swift in Sources */,
+				DE60782D2C1E2B0200AA2A0A /* AddButton.swift in Sources */,
 				DE6736AA2C0FF9D9001BEB56 /* TextButton.swift in Sources */,
 				DE6077ED2C1C9A5800AA2A0A /* DefaultValues.swift in Sources */,
 				DE6077F12C1C9EF700AA2A0A /* IconNames.swift in Sources */,
 				DE6077EB2C1C990300AA2A0A /* UserDefaultsKeys.swift in Sources */,
 				DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */,
+				DE6078332C1E2C7B00AA2A0A /* QuestionDetailView.swift in Sources */,
 				DE6077D42C17C39400AA2A0A /* PasswordResetView.swift in Sources */,
 				DE67369B2C0FF5BF001BEB56 /* SignUpView.swift in Sources */,
 				DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */,
@@ -617,14 +667,18 @@
 				DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */,
 				DE6736842C0FF035001BEB56 /* ApiService.swift in Sources */,
 				DE6077F82C1CA5DC00AA2A0A /* PreviewData.swift in Sources */,
+				DE60781F2C1DF51E00AA2A0A /* TeamView.swift in Sources */,
 				DE6077E42C1BB2B500AA2A0A /* Extension+LocalizedString.swift in Sources */,
 				DE67368F2C0FF291001BEB56 /* Extension+Font.swift in Sources */,
+				DE6078212C1E09EC00AA2A0A /* SettingsView.swift in Sources */,
 				DE2EEF742C12A93F002E4E60 /* Extension+Date.swift in Sources */,
 				DE2EEF6B2C120F3C002E4E60 /* Extension+Notification.swift in Sources */,
 				DE6736A42C0FF862001BEB56 /* SnackBarService.swift in Sources */,
 				DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */,
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
 				DE6736992C0FF5AD001BEB56 /* SignInView.swift in Sources */,
+				DE60782B2C1E2AB900AA2A0A /* QuestionItem.swift in Sources */,
+				DE60781C2C1DF4D600AA2A0A /* DrawView.swift in Sources */,
 				DE6077DC2C1BABC000AA2A0A /* CustomFont.swift in Sources */,
 				DE6736B22C107B9D001BEB56 /* SignInController.swift in Sources */,
 				DE6736972C0FF3D0001BEB56 /* SplashView.swift in Sources */,
@@ -635,6 +689,8 @@
 				DE67368B2C0FF1DD001BEB56 /* ConnexionState.swift in Sources */,
 				DE6736A22C0FF78D001BEB56 /* ReusableTextField.swift in Sources */,
 				DE6736B02C107A28001BEB56 /* AppError.swift in Sources */,
+				DE60782F2C1E2C0200AA2A0A /* Question.swift in Sources */,
+				DE6078312C1E2C5100AA2A0A /* AddQuestionView.swift in Sources */,
 				DE6077E02C1BAFB900AA2A0A /* ErrorMessage.swift in Sources */,
 				DE6736AC2C0FFF10001BEB56 /* HomeView.swift in Sources */,
 				DE6736A82C0FF947001BEB56 /* ReusableSecureField.swift in Sources */,
