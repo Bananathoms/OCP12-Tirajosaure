@@ -31,7 +31,9 @@ struct SignUpView: View {
     
     var body: some View {
         VStack{
-            self.makeHeader()
+            CustomHeader(title: LocalizedString.signupTitle.localized, showBackButton: true) {
+                self.presentationMode.wrappedValue.dismiss()
+            }
             ScrollView{
                 ReusableTextField(hint: $controller.firstName, icon: nil, title: LocalizedString.firstName.localized, fieldName: LocalizedString.firstName.localized).textContentType(.oneTimeCode)
                 ReusableTextField(hint: $controller.lastName, icon: nil, title: LocalizedString.lastName.localized, fieldName: LocalizedString.lastName.localized).textContentType(.oneTimeCode)

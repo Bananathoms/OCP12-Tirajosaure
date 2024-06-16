@@ -32,8 +32,6 @@
 		DE60781C2C1DF4D600AA2A0A /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60781B2C1DF4D600AA2A0A /* DrawView.swift */; };
 		DE60781F2C1DF51E00AA2A0A /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60781E2C1DF51D00AA2A0A /* TeamView.swift */; };
 		DE6078212C1E09EC00AA2A0A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078202C1E09EC00AA2A0A /* SettingsView.swift */; };
-		DE60782B2C1E2AB900AA2A0A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60782A2C1E2AB900AA2A0A /* QuestionItem.swift */; };
-		DE60782D2C1E2B0200AA2A0A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60782C2C1E2B0200AA2A0A /* AddButton.swift */; };
 		DE60782F2C1E2C0200AA2A0A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60782E2C1E2C0200AA2A0A /* Question.swift */; };
 		DE6078312C1E2C5100AA2A0A /* AddQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */; };
 		DE6078332C1E2C7B00AA2A0A /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */; };
@@ -62,6 +60,11 @@
 		DE6736B22C107B9D001BEB56 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6736B12C107B9D001BEB56 /* SignInController.swift */; };
 		DE6736B42C1084AF001BEB56 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6736B32C1084AF001BEB56 /* SignUpController.swift */; };
 		DE6736B72C10BBD5001BEB56 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6736B62C10BBD5001BEB56 /* UserController.swift */; };
+		DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */; };
+		DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F52C1F02E90009B86A /* TabItem.swift */; };
+		DE96D4FA2C1F069B0009B86A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F92C1F069B0009B86A /* QuestionItem.swift */; };
+		DE96D4FC2C1F07110009B86A /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4FB2C1F07110009B86A /* CustomHeader.swift */; };
+		DE96D4FE2C1F0D3B0009B86A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4FD2C1F0D3B0009B86A /* AddButton.swift */; };
 		DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */; };
 		DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA32C0CCAC200A9B894 /* ContentView.swift */; };
 		DECEFFA62C0CCAC400A9B894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECEFFA52C0CCAC400A9B894 /* Assets.xcassets */; };
@@ -109,8 +112,6 @@
 		DE60781B2C1DF4D600AA2A0A /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		DE60781E2C1DF51D00AA2A0A /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		DE6078202C1E09EC00AA2A0A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		DE60782A2C1E2AB900AA2A0A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
-		DE60782C2C1E2B0200AA2A0A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		DE60782E2C1E2C0200AA2A0A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionView.swift; sourceTree = "<group>"; };
 		DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
@@ -139,6 +140,11 @@
 		DE6736B12C107B9D001BEB56 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		DE6736B32C1084AF001BEB56 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		DE6736B62C10BBD5001BEB56 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		DE96D4F52C1F02E90009B86A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		DE96D4F92C1F069B0009B86A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
+		DE96D4FB2C1F07110009B86A /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
+		DE96D4FD2C1F0D3B0009B86A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		DECEFF9E2C0CCAC200A9B894 /* Tirajosaure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tirajosaure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TirajosaureApp.swift; sourceTree = "<group>"; };
 		DECEFFA32C0CCAC200A9B894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -263,6 +269,7 @@
 			children = (
 				DE6736852C0FF06A001BEB56 /* User.swift */,
 				DE60782E2C1E2C0200AA2A0A /* Question.swift */,
+				DE96D4F52C1F02E90009B86A /* TabItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -431,10 +438,12 @@
 			isa = PBXGroup;
 			children = (
 				DE6736A12C0FF78D001BEB56 /* ReusableTextField.swift */,
+				DE96D4FD2C1F0D3B0009B86A /* AddButton.swift */,
 				DE6736A72C0FF947001BEB56 /* ReusableSecureField.swift */,
-				DE60782A2C1E2AB900AA2A0A /* QuestionItem.swift */,
 				DE6736A92C0FF9D9001BEB56 /* TextButton.swift */,
-				DE60782C2C1E2B0200AA2A0A /* AddButton.swift */,
+				DE96D4F92C1F069B0009B86A /* QuestionItem.swift */,
+				DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */,
+				DE96D4FB2C1F07110009B86A /* CustomHeader.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -648,9 +657,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE6736B42C1084AF001BEB56 /* SignUpController.swift in Sources */,
+				DE96D4FC2C1F07110009B86A /* CustomHeader.swift in Sources */,
 				DE6077D62C17C3BC00AA2A0A /* PasswordResetController.swift in Sources */,
+				DE96D4FE2C1F0D3B0009B86A /* AddButton.swift in Sources */,
 				DE6077E22C1BB29300AA2A0A /* LocalizedString.swift in Sources */,
-				DE60782D2C1E2B0200AA2A0A /* AddButton.swift in Sources */,
 				DE6736AA2C0FF9D9001BEB56 /* TextButton.swift in Sources */,
 				DE6077ED2C1C9A5800AA2A0A /* DefaultValues.swift in Sources */,
 				DE6077F12C1C9EF700AA2A0A /* IconNames.swift in Sources */,
@@ -668,6 +678,7 @@
 				DE6736842C0FF035001BEB56 /* ApiService.swift in Sources */,
 				DE6077F82C1CA5DC00AA2A0A /* PreviewData.swift in Sources */,
 				DE60781F2C1DF51E00AA2A0A /* TeamView.swift in Sources */,
+				DE96D4FA2C1F069B0009B86A /* QuestionItem.swift in Sources */,
 				DE6077E42C1BB2B500AA2A0A /* Extension+LocalizedString.swift in Sources */,
 				DE67368F2C0FF291001BEB56 /* Extension+Font.swift in Sources */,
 				DE6078212C1E09EC00AA2A0A /* SettingsView.swift in Sources */,
@@ -676,8 +687,8 @@
 				DE6736A42C0FF862001BEB56 /* SnackBarService.swift in Sources */,
 				DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */,
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
+				DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */,
 				DE6736992C0FF5AD001BEB56 /* SignInView.swift in Sources */,
-				DE60782B2C1E2AB900AA2A0A /* QuestionItem.swift in Sources */,
 				DE60781C2C1DF4D600AA2A0A /* DrawView.swift in Sources */,
 				DE6077DC2C1BABC000AA2A0A /* CustomFont.swift in Sources */,
 				DE6736B22C107B9D001BEB56 /* SignInController.swift in Sources */,
@@ -694,6 +705,7 @@
 				DE6077E02C1BAFB900AA2A0A /* ErrorMessage.swift in Sources */,
 				DE6736AC2C0FFF10001BEB56 /* HomeView.swift in Sources */,
 				DE6736A82C0FF947001BEB56 /* ReusableSecureField.swift in Sources */,
+				DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

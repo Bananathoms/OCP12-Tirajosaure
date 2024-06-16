@@ -11,27 +11,15 @@ struct PasswordResetView: View {
     @ObservedObject var controller: PasswordResetController
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    private func makeHeader() -> some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            HStack {
-                IconNames.back.systemImage
-                    .foregroundColor(.oxfordBlue)
-                    .padding(.leading, 20)
-                Text(LocalizedString.resetPasswordTitle.localized)
-                    .font(.customFont(.nunitoBold, size: 20))
-                    .foregroundColor(.oxfordBlue)
-                    .padding([.top, .bottom, .trailing], 20)
-                    .frame(alignment: .topLeading)
-                Spacer()
-            }
-        }
-    }
-    
     var body: some View {
         VStack {
-            self.makeHeader()
+            CustomHeader(
+                title: LocalizedString.resetPasswordTitle.localized,
+                showBackButton: true,
+                onBack: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+            )
             ScrollView {
                 ReusableTextField(hint: $controller.email, icon: nil, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized)
                     .textContentType(.oneTimeCode)

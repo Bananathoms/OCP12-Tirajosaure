@@ -1,4 +1,3 @@
-//
 //  DrawView.swift
 //  Tirajosaure
 //
@@ -14,49 +13,65 @@ struct DrawView: View {
     @State private var newQuestionTitle: String = ""
     @State private var showAddQuestion = false
     @State private var selectedQuestion: Question?
+    @State private var isEditing = false
     
     var body: some View {
         NavigationView {
             VStack {
-                List {
-                    ForEach(questions) { question in
-                        NavigationLink(destination: QuestionDetailView(question: question)) {
-                            HStack {
-                                Image(systemName: "questionmark.circle")
-                                    .foregroundColor(.blue)
-                                VStack(alignment: .leading) {
-                                    Text(question.title)
-                                        .font(.headline)
-                                    Text(question.options.joined(separator: ", "))
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
-                                }
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(.blue)
-                            }
-                            .padding(.vertical, 5)
-                        }
+                CustomHeader(title: "Questions", fontSize: 36)
+                
+                Button(action: {
+                    withAnimation {
+                        isEditing.toggle()
                     }
-                    .onDelete(perform: removeQuestion)
+                }) {
+                    Text(isEditing ? "Terminer l'édition" : "Modifier les questions")
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                        .padding()
                 }
                 
-                NavigationLink(destination: AddQuestionView(questions: $questions)) {
-                    HStack {
-                        Image(systemName: "plus.circle.fill")
-                        Text("Ajouter une nouvelle question")
+                List {
+                    ForEach(questions) { question in
+                        QuestionItem(
+                            question: question,
+                            destination: {
+                                QuestionDetailView(question: question)
+                            }
+                        )
+                        .padding(.trailing)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.antiqueWhite)
                     }
-                    .font(.headline)
-                    .foregroundColor(.blue)
+                    .onDelete(perform: removeQuestion)
+                    .onMove(perform: moveQuestion)
+                    
+                }
+                .environment(\.editMode, .constant(isEditing ? .active : .inactive))
+                .scrollContentBackground(.hidden)
+                
+                NavigationLink(destination: AddQuestionView(questions: $questions)) {
+                    AddButton(
+                        text: "Ajouter une nouvelle question",
+                        image: Image(systemName: "plus.circle.fill"),
+                        buttonColor: .antiqueWhite,
+                        textColor: .oxfordBlue,
+                        width: 300,
+                        height: 50
+                    )
                     .padding()
                 }
             }
-            .navigationTitle("Questions")
+            .background(Color.skyBlue)
         }
     }
     
     private func removeQuestion(at offsets: IndexSet) {
         questions.remove(atOffsets: offsets)
+    }
+    
+    private func moveQuestion(from source: IndexSet, to destination: Int) {
+        questions.move(fromOffsets: source, toOffset: destination)
     }
 }
 
@@ -65,5 +80,3 @@ struct DrawView_Previews: PreviewProvider {
         DrawView()
     }
 }
-
-

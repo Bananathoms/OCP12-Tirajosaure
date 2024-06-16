@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Question: Identifiable {
+struct Question: Identifiable, Equatable {
     let id = UUID()
     var title: String
     var options: [String]

@@ -16,27 +16,28 @@ struct AddQuestionView: View {
     
     var body: some View {
         VStack {
-            TextField("Titre de la question", text: $newQuestionTitle)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+            CustomHeader(title: "Ajouter une question", showBackButton: true) {
+                self.presentationMode.wrappedValue.dismiss()
+            }.padding(.bottom)
             
-            TextField("Options (séparées par des virgules)", text: $newOptions)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+            ReusableTextField(hint: $newQuestionTitle, icon: "pencil", title: "Titre de la question", fieldName: "Entrez le titre de la question")
+
             
-            Button(action: addQuestion) {
-                Text("Ajouter la question")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
-            .padding()
+            ReusableTextField(hint: $newOptions, icon: "list.bullet", title: "Options (séparées par des virgules)", fieldName: "Entrez les options")
+
+            
+            TextButton(
+                text: "Ajouter la question",
+                isLoading: false,
+                onClick: addQuestion,
+                buttonColor: .antiqueWhite,
+                textColor: .oxfordBlue
+            )
             
             Spacer()
         }
-        .navigationTitle("Ajouter une question")
+        .background(Color.skyBlue)
+        .navigationBarHidden(true)
     }
     
     private func addQuestion() {
@@ -52,4 +53,5 @@ struct AddQuestionView_Previews: PreviewProvider {
         AddQuestionView(questions: .constant([]))
     }
 }
+
 

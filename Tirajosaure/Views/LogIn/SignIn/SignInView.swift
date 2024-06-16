@@ -10,18 +10,7 @@ import Mixpanel
 
 struct SignInView: View {
     @ObservedObject var controller: SignInController
-    
-    private func makeHeader() -> some View {
-        HStack{
-            Text(LocalizedString.signinTitle.localized)
-                .font(.customFont(.nunitoBold, size: 20))
-                .foregroundColor(.oxfordBlue)
-                .padding(.all, 20)
-                .frame(alignment: .topLeading)
-            Spacer()
-        }
-    }
-    
+
     private func newAccount() -> some View {
         NavigationLink(destination: SignUpView(controller: SignUpController())) {
             VStack{
@@ -61,7 +50,7 @@ struct SignInView: View {
                 .padding(.bottom, 10)
             NavigationView{
                 VStack{
-                    makeHeader()
+                    CustomHeader(title: LocalizedString.signinTitle.localized)
                     ReusableTextField(hint: $controller.email, icon: IconNames.at.rawValue, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized).textContentType(.oneTimeCode)
                         .autocapitalization(.none)
                         .keyboardType(.emailAddress)

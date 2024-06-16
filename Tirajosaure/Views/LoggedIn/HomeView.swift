@@ -9,29 +9,43 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var userController = UserController()
+    @State private var selectedIndex = 0
+
+    let tabItems = [
+        TabItem(title: "Draw", iconName: "pencil.circle"),
+        TabItem(title: "Teams", iconName: "person.3"),
+        TabItem(title: "Settings", iconName: "gearshape")
+    ]
 
     var body: some View {
         VStack {
-            TabView {
-                DrawView()
-                    .tabItem {
-                        Image(systemName: "pencil.circle")
-                        Text("Draw")
-                    }
-
-                TeamView()
-                    .tabItem {
-                        Image(systemName: "person.3")
-                        Text("Teams")
-                    }
-
-                SettingsView()
-                    .tabItem {
-                        Image(systemName: "gearshape")
-                        Text("Settings")
-                    }
+            ZStack {
+                switch selectedIndex {
+                case 0:
+                    DrawView()
+                case 1:
+                    TeamView()
+                case 2:
+                    SettingsView()
+                default:
+                    DrawView()
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            CustomTabBar(
+                selectedIndex: $selectedIndex,
+                tabItems: tabItems,
+                backgroundColor: .antiqueWhite,
+                selectedColor: .oxfordBlue,
+                unselectedColor: .oxfordBlue.opacity(0.4),
+                cornerRadius: 20
+            )
+            .frame(maxWidth: .infinity)
+            .frame(height: 80)
         }
+        .background(Color.skyBlue)
+        .edgesIgnoringSafeArea([.bottom])
     }
 }
 
