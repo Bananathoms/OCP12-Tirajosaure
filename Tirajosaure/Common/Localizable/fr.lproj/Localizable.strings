@@ -49,3 +49,17 @@
 
 // Écran d'inscription
 "signup_title" = "Inscription";
+
+// HomeView
+"draw_tab" = "Tirage";
+"teams_tab" = "Équipes";
+"settings_tab" = "Paramètres";
+
+// Question
+"questions_title" = "Questions";
+"add_new_question" = "Ajouter une nouvelle question";
+"question_title_placeholder" = "Titre de la question";
+"enter_question_title" = "Entrez le titre de la question";
+"add_element" = "Ajouter un élément";
+"elements" = "Éléments";
+"draw" = "Tirage";

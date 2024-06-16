@@ -13,16 +13,16 @@ struct AddQuestionView: View {
     
     var body: some View {
         VStack {
-            CustomHeader(title: "Ajouter une question", showBackButton: true) {
+            CustomHeader(title: LocalizedString.addNewQuestion.rawValue.localized, showBackButton: true) {
                 self.presentationMode.wrappedValue.dismiss()
             }.padding(.bottom)
             
-            ReusableTextField(hint: $questionController.newQuestionTitle, icon: "pencil", title: "Titre de la question", fieldName: "Entrez le titre de la question")
+            ReusableTextField(hint: $questionController.newQuestionTitle, icon: IconNames.pencil.rawValue, title: LocalizedString.questionTitlePlaceholder.rawValue.localized, fieldName: LocalizedString.enterQuestionTitle.rawValue.localized)
             
             OptionsListView(controller: questionController.optionsController)
             
             TextButton(
-                text: "Ajouter la question",
+                text: LocalizedString.addNewQuestion.rawValue.localized,
                 isLoading: false,
                 onClick: {
                     questionController.addQuestion()
@@ -40,7 +40,6 @@ struct AddQuestionView: View {
     }
 }
 
-
 struct AddQuestionView_Previews: PreviewProvider {
     static var previews: some View {
         AddQuestionView(questionController: QuestionController())
@@ -51,4 +50,3 @@ struct AddQuestionView_Previews: PreviewProvider {
             .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }
 }
-

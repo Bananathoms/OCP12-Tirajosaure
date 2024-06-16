@@ -52,4 +52,18 @@ enum LocalizedString: String {
 
     // Sign-Up Screen
     case signupTitle = "signup_title"
+    
+    // HomeView
+    case drawTab = "draw_tab"
+    case teamsTab = "teams_tab"
+    case settingsTab = "settings_tab"
+    
+    // Question
+    case questionsTitle = "questions_title"
+    case addNewQuestion = "add_new_question"
+    case questionTitlePlaceholder = "question_title_placeholder"
+    case enterQuestionTitle = "enter_question_title"
+    case addElement = "add_element"
+    case elements = "elements"
+    case draw = "draw"
 }

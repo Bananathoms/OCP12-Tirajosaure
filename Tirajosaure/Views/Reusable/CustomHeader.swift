@@ -44,7 +44,7 @@ struct CustomHeader: View {
                 Button(action: {
                     onEdit()
                 }) {
-                    Image(systemName: isEditing ? "checkmark.circle.fill" : "pencil.circle.fill")
+                    Image(systemName: isEditing ? IconNames.checkmarkCircleFill.rawValue : IconNames.pencilCircleFill.rawValue)
                         .resizable()
                         .frame(width: 40, height: 40)
                         .foregroundColor(.oxfordBlue)

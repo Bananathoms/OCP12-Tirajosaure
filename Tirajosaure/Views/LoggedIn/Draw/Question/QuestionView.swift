@@ -14,7 +14,7 @@ struct QuestionView: View {
         NavigationView {
             VStack(spacing: 0) {
                 CustomHeader(
-                    title: "Questions",
+                    title: LocalizedString.questionsTitle.rawValue.localized,
                     fontSize: 36,
                     showEditButton: true,
                     onEdit: {
@@ -46,8 +46,8 @@ struct QuestionView: View {
                 
                 NavigationLink(destination: AddQuestionView(questionController: questionController)) {
                     AddButton(
-                        text: "Ajouter une nouvelle question",
-                        image: Image(systemName: "plus.circle.fill"),
+                        text: LocalizedString.addNewQuestion.rawValue.localized,
+                        image: IconNames.plusCircleFill.systemImage,
                         buttonColor: .antiqueWhite,
                         textColor: .oxfordBlue,
                         width: 300,

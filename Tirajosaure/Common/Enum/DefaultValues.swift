@@ -9,4 +9,5 @@ import Foundation
 
 enum DefaultValues {
     static let emptyString = ""
+    static let separator = ", "
 }

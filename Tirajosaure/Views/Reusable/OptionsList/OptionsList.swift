@@ -12,7 +12,7 @@ struct OptionsListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Éléments")
+            Text(LocalizedString.elements.rawValue.localized)
                 .font(.customFont(.nunitoRegular, size: 16))
                 .foregroundColor(.oxfordBlue)
                 .padding(.leading, 30)
@@ -23,12 +23,12 @@ struct OptionsListView: View {
                     Button(action: {
                         controller.addOption()
                     }) {
-                        Image(systemName: "plus.circle.fill")
+                        IconNames.plusCircleFill.systemImage
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundColor(.green)
                     }
-                    Text("Ajouter un élément")
+                    Text(LocalizedString.addElement.rawValue.localized)
                         .padding(.leading, 20)
                     Spacer()
                 }
@@ -36,7 +36,7 @@ struct OptionsListView: View {
                 
                 ForEach(Array(controller.options.enumerated()), id: \.offset) { index, option in
                     HStack {
-                        TextField("Élément", text: Binding(
+                        TextField(LocalizedString.elements.rawValue.localized, text: Binding(
                             get: { controller.options[index] },
                             set: { newValue in controller.options[index] = newValue }
                         ))
@@ -64,5 +64,6 @@ struct OptionsListView_Previews: PreviewProvider {
         OptionsListView(controller: controller)
     }
 }
+
 
 

@@ -21,14 +21,14 @@ struct QuestionDetailView: View {
             ReusableTextField(
                 hint: $question.title,
                 icon: nil,
-                title: "Titre de la question",
-                fieldName: "Titre de la question"
+                title: LocalizedString.questionTitlePlaceholder.rawValue.localized,
+                fieldName: LocalizedString.enterQuestionTitle.rawValue.localized
             )
             
             OptionsListView(controller: optionsController)
             
             TextButton(
-                text: "Tirage",
+                text: LocalizedString.draw.rawValue.localized,
                 isLoading: false,
                 onClick: {
                     // Action for the button

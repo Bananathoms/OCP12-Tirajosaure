@@ -12,9 +12,9 @@ struct HomeView: View {
     @State private var selectedIndex = 0
 
     let tabItems = [
-        TabItem(title: "Draw", iconName: "pencil.circle"),
-        TabItem(title: "Teams", iconName: "person.3"),
-        TabItem(title: "Settings", iconName: "gearshape")
+        TabItem(title: LocalizedString.drawTab.rawValue.localized, iconName: IconNames.pencilCircle.rawValue),
+        TabItem(title: LocalizedString.teamsTab.rawValue.localized, iconName: IconNames.person3.rawValue),
+        TabItem(title: LocalizedString.settingsTab.rawValue.localized, iconName: IconNames.gearshape.rawValue)
     ]
 
     var body: some View {
@@ -59,4 +59,3 @@ struct HomeView_Previews: PreviewProvider {
             .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }
 }
-

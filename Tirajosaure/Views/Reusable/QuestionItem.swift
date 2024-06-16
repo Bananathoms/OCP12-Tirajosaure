@@ -18,7 +18,7 @@ struct QuestionItem<Destination: View>: View {
                     Text(question.title)
                         .font(.headline)
                         .foregroundColor(.oxfordBlue)
-                    Text(question.options.joined(separator: ", "))
+                    Text(question.options.joined(separator: DefaultValues.separator))
                         .font(.subheadline)
                         .foregroundColor(.black)
                 }.padding( 20)

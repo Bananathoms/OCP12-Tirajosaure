@@ -50,3 +50,17 @@
 
 // Sign-Up Screen
 "signup_title" = "Sign Up";
+
+// HomeView
+"draw_tab" = "Draw";
+"teams_tab" = "Teams";
+"settings_tab" = "Settings";
+
+// Question
+"questions_title" = "Questions";
+"add_new_question" = "Add a new question";
+"question_title_placeholder" = "Question Title";
+"enter_question_title" = "Enter the question title";
+"add_element" = "Add an element";
+"elements" = "Elements";
+"draw" = "Draw";
