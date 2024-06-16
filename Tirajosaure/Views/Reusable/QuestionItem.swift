@@ -14,13 +14,6 @@ struct QuestionItem<Destination: View>: View {
     var body: some View {
         NavigationLink(destination: destination()) {
             HStack {
-                Image(systemName: "questionmark.circle.fill")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .foregroundColor(.blue)
-                    .padding(.leading, 10)
-                    .padding(.vertical)
-                
                 VStack(alignment: .leading) {
                     Text(question.title)
                         .font(.headline)
@@ -28,7 +21,7 @@ struct QuestionItem<Destination: View>: View {
                     Text(question.options.joined(separator: ", "))
                         .font(.subheadline)
                         .foregroundColor(.black)
-                }
+                }.padding( 20)
                 Spacer()
             }
             .background(Color.antiqueWhite)

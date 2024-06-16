@@ -22,13 +22,13 @@ struct HomeView: View {
             ZStack {
                 switch selectedIndex {
                 case 0:
-                    DrawView()
+                    QuestionView()
                 case 1:
                     TeamView()
                 case 2:
                     SettingsView()
                 default:
-                    DrawView()
+                    QuestionView()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -29,7 +29,7 @@
 		DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6077F52C1CA3A100AA2A0A /* PreviewDevices.swift */; };
 		DE6077F82C1CA5DC00AA2A0A /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6077F72C1CA5DC00AA2A0A /* PreviewData.swift */; };
 		DE60780E2C1CB92B00AA2A0A /* ApiServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60780D2C1CB92B00AA2A0A /* ApiServicesTests.swift */; };
-		DE60781C2C1DF4D600AA2A0A /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60781B2C1DF4D600AA2A0A /* DrawView.swift */; };
+		DE60781C2C1DF4D600AA2A0A /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60781B2C1DF4D600AA2A0A /* QuestionView.swift */; };
 		DE60781F2C1DF51E00AA2A0A /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60781E2C1DF51D00AA2A0A /* TeamView.swift */; };
 		DE6078212C1E09EC00AA2A0A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078202C1E09EC00AA2A0A /* SettingsView.swift */; };
 		DE60782F2C1E2C0200AA2A0A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60782E2C1E2C0200AA2A0A /* Question.swift */; };
@@ -65,6 +65,9 @@
 		DE96D4FA2C1F069B0009B86A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F92C1F069B0009B86A /* QuestionItem.swift */; };
 		DE96D4FC2C1F07110009B86A /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4FB2C1F07110009B86A /* CustomHeader.swift */; };
 		DE96D4FE2C1F0D3B0009B86A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4FD2C1F0D3B0009B86A /* AddButton.swift */; };
+		DE96D5022C1F96E00009B86A /* OptionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5012C1F96E00009B86A /* OptionsList.swift */; };
+		DE96D5052C1F9D8E0009B86A /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5042C1F9D8E0009B86A /* OptionsController.swift */; };
+		DE96D5092C1FA0CE0009B86A /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5082C1FA0CE0009B86A /* QuestionController.swift */; };
 		DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */; };
 		DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA32C0CCAC200A9B894 /* ContentView.swift */; };
 		DECEFFA62C0CCAC400A9B894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECEFFA52C0CCAC400A9B894 /* Assets.xcassets */; };
@@ -109,7 +112,7 @@
 		DE6077F52C1CA3A100AA2A0A /* PreviewDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDevices.swift; sourceTree = "<group>"; };
 		DE6077F72C1CA5DC00AA2A0A /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		DE60780D2C1CB92B00AA2A0A /* ApiServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServicesTests.swift; sourceTree = "<group>"; };
-		DE60781B2C1DF4D600AA2A0A /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		DE60781B2C1DF4D600AA2A0A /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		DE60781E2C1DF51D00AA2A0A /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		DE6078202C1E09EC00AA2A0A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DE60782E2C1E2C0200AA2A0A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -145,6 +148,9 @@
 		DE96D4F92C1F069B0009B86A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
 		DE96D4FB2C1F07110009B86A /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		DE96D4FD2C1F0D3B0009B86A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		DE96D5012C1F96E00009B86A /* OptionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsList.swift; sourceTree = "<group>"; };
+		DE96D5042C1F9D8E0009B86A /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
+		DE96D5082C1FA0CE0009B86A /* QuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
 		DECEFF9E2C0CCAC200A9B894 /* Tirajosaure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tirajosaure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TirajosaureApp.swift; sourceTree = "<group>"; };
 		DECEFFA32C0CCAC200A9B894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -230,9 +236,7 @@
 		DE60781D2C1DF4FA00AA2A0A /* Draw */ = {
 			isa = PBXGroup;
 			children = (
-				DE60781B2C1DF4D600AA2A0A /* DrawView.swift */,
-				DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */,
-				DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */,
+				DE96D5072C1FA0AE0009B86A /* Question */,
 			);
 			path = Draw;
 			sourceTree = "<group>";
@@ -351,6 +355,42 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		DE96D5032C1F9D6C0009B86A /* OptionsList */ = {
+			isa = PBXGroup;
+			children = (
+				DE96D5062C1F9D9A0009B86A /* Controller */,
+				DE96D5012C1F96E00009B86A /* OptionsList.swift */,
+			);
+			path = OptionsList;
+			sourceTree = "<group>";
+		};
+		DE96D5062C1F9D9A0009B86A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DE96D5042C1F9D8E0009B86A /* OptionsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DE96D5072C1FA0AE0009B86A /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				DE96D50A2C1FA0D50009B86A /* ViewController */,
+				DE60781B2C1DF4D600AA2A0A /* QuestionView.swift */,
+				DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */,
+				DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		DE96D50A2C1FA0D50009B86A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE96D5082C1FA0CE0009B86A /* QuestionController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		DECEFF952C0CCAC200A9B894 = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +477,7 @@
 		DECEFFD32C0E1B3300A9B894 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				DE96D5032C1F9D6C0009B86A /* OptionsList */,
 				DE6736A12C0FF78D001BEB56 /* ReusableTextField.swift */,
 				DE96D4FD2C1F0D3B0009B86A /* AddButton.swift */,
 				DE6736A72C0FF947001BEB56 /* ReusableSecureField.swift */,
@@ -668,6 +709,7 @@
 				DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */,
 				DE6078332C1E2C7B00AA2A0A /* QuestionDetailView.swift in Sources */,
 				DE6077D42C17C39400AA2A0A /* PasswordResetView.swift in Sources */,
+				DE96D5092C1FA0CE0009B86A /* QuestionController.swift in Sources */,
 				DE67369B2C0FF5BF001BEB56 /* SignUpView.swift in Sources */,
 				DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */,
 				DE6736862C0FF06A001BEB56 /* User.swift in Sources */,
@@ -689,7 +731,8 @@
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
 				DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */,
 				DE6736992C0FF5AD001BEB56 /* SignInView.swift in Sources */,
-				DE60781C2C1DF4D600AA2A0A /* DrawView.swift in Sources */,
+				DE60781C2C1DF4D600AA2A0A /* QuestionView.swift in Sources */,
+				DE96D5052C1F9D8E0009B86A /* OptionsController.swift in Sources */,
 				DE6077DC2C1BABC000AA2A0A /* CustomFont.swift in Sources */,
 				DE6736B22C107B9D001BEB56 /* SignInController.swift in Sources */,
 				DE6736972C0FF3D0001BEB56 /* SplashView.swift in Sources */,
@@ -698,6 +741,7 @@
 				DE6077DE2C1BADF700AA2A0A /* ApiConstants.swift in Sources */,
 				DECEFFCF2C0CCC7700A9B894 /* MixpanelConfig.swift in Sources */,
 				DE67368B2C0FF1DD001BEB56 /* ConnexionState.swift in Sources */,
+				DE96D5022C1F96E00009B86A /* OptionsList.swift in Sources */,
 				DE6736A22C0FF78D001BEB56 /* ReusableTextField.swift in Sources */,
 				DE6736B02C107A28001BEB56 /* AppError.swift in Sources */,
 				DE60782F2C1E2C0200AA2A0A /* Question.swift in Sources */,
