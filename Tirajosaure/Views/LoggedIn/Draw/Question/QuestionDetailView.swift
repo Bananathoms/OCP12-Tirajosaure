@@ -11,6 +11,7 @@ struct QuestionDetailView: View {
     @State var question: Question
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var optionsController = OptionsController()
+    @ObservedObject var questionController: QuestionController
     
     var body: some View {
         VStack {
@@ -43,22 +44,30 @@ struct QuestionDetailView: View {
         .background(Color.skyBlue)
         .navigationBarHidden(true)
         .onAppear {
-            optionsController.options = question.options
+            loadOptions()
         }
         .onDisappear {
-            question.options = optionsController.options
+            saveChanges()
         }
+    }
+    
+    private func saveChanges() {
+        question.options = optionsController.options
+        questionController.updateQuestion(question)
+    }
+    
+    private func loadOptions() {
+        optionsController.options = question.options
     }
 }
 
 struct QuestionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionDetailView(question: Question(title: "Que mange-t-on ce soir ?", options: ["Burger", "Pizza", "Fish and chips"]))
-            .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
-            .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
-        QuestionDetailView(question: Question(title: "Que mange-t-on ce soir ?", options: ["Burger", "Pizza", "Fish and chips"]))
-            .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
-            .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
+        let questionController = QuestionController()
+        return QuestionDetailView(
+            question: Question(title: "Que mange-t-on ce soir ?", options: ["Burger", "Pizza", "Fish and chips"]),
+            questionController: questionController
+        )
     }
 }
 

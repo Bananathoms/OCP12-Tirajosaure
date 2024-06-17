@@ -30,7 +30,7 @@ struct QuestionView: View {
                         QuestionItem(
                             question: question,
                             destination: {
-                                QuestionDetailView(question: question)
+                                QuestionDetailView(question: question, questionController: questionController)
                             }
                         )
                         .padding(.trailing)

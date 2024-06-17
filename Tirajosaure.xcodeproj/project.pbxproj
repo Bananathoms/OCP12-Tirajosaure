@@ -68,6 +68,7 @@
 		DE96D5022C1F96E00009B86A /* OptionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5012C1F96E00009B86A /* OptionsList.swift */; };
 		DE96D5052C1F9D8E0009B86A /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5042C1F9D8E0009B86A /* OptionsController.swift */; };
 		DE96D5092C1FA0CE0009B86A /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5082C1FA0CE0009B86A /* QuestionController.swift */; };
+		DE96D50E2C20814B0009B86A /* Extension+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D50D2C20814B0009B86A /* Extension+Collection.swift */; };
 		DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */; };
 		DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA32C0CCAC200A9B894 /* ContentView.swift */; };
 		DECEFFA62C0CCAC400A9B894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECEFFA52C0CCAC400A9B894 /* Assets.xcassets */; };
@@ -151,6 +152,7 @@
 		DE96D5012C1F96E00009B86A /* OptionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsList.swift; sourceTree = "<group>"; };
 		DE96D5042C1F9D8E0009B86A /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		DE96D5082C1FA0CE0009B86A /* QuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
+		DE96D50D2C20814B0009B86A /* Extension+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Collection.swift"; sourceTree = "<group>"; };
 		DECEFF9E2C0CCAC200A9B894 /* Tirajosaure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tirajosaure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TirajosaureApp.swift; sourceTree = "<group>"; };
 		DECEFFA32C0CCAC200A9B894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 			children = (
 				DE67368E2C0FF291001BEB56 /* Extension+Font.swift */,
 				DE2EEF732C12A93F002E4E60 /* Extension+Date.swift */,
+				DE96D50D2C20814B0009B86A /* Extension+Collection.swift */,
 				DE2EEF6A2C120F3C002E4E60 /* Extension+Notification.swift */,
 				DE6736A52C0FF8A2001BEB56 /* Extension+SwiftEntryKit.swift */,
 				DE6736922C0FF2EA001BEB56 /* Extension+View.swift */,
@@ -734,6 +737,7 @@
 				DE60781C2C1DF4D600AA2A0A /* QuestionView.swift in Sources */,
 				DE96D5052C1F9D8E0009B86A /* OptionsController.swift in Sources */,
 				DE6077DC2C1BABC000AA2A0A /* CustomFont.swift in Sources */,
+				DE96D50E2C20814B0009B86A /* Extension+Collection.swift in Sources */,
 				DE6736B22C107B9D001BEB56 /* SignInController.swift in Sources */,
 				DE6736972C0FF3D0001BEB56 /* SplashView.swift in Sources */,
 				DE6736952C0FF316001BEB56 /* Extension+String.swift in Sources */,

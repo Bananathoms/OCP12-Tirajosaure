@@ -19,7 +19,7 @@ struct OptionsListView: View {
             
             List {
                 HStack(spacing: 0) {
-                    Text("") /// Able to have separator under button
+                    Text(DefaultValues.emptyString) /// Able to have separator under button
                     Button(action: {
                         controller.addOption()
                     }) {
@@ -37,8 +37,12 @@ struct OptionsListView: View {
                 ForEach(Array(controller.options.enumerated()), id: \.offset) { index, option in
                     HStack {
                         TextField(LocalizedString.elements.rawValue.localized, text: Binding(
-                            get: { controller.options[index] },
-                            set: { newValue in controller.options[index] = newValue }
+                            get: { controller.options[safe: index] ?? DefaultValues.emptyString },
+                            set: { newValue in
+                                if index < controller.options.count {
+                                    controller.options[index] = newValue
+                                }
+                            }
                         ))
                         .background(Color.antiqueWhite)
                         .cornerRadius(10)
