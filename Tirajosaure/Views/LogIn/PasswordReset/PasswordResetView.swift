@@ -9,32 +9,42 @@ import SwiftUI
 
 struct PasswordResetView: View {
     @ObservedObject var controller: PasswordResetController
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack {
-            CustomHeader(
-                title: LocalizedString.resetPasswordTitle.localized,
-                showBackButton: true,
-                onBack: {
-                    self.presentationMode.wrappedValue.dismiss()
+        NavigationStack {
+            VStack {
+                ScrollView {
+                    ReusableTextField(hint: $controller.email, icon: nil, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized)
+                        .textContentType(.oneTimeCode)
+                        .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
+                    TextButton(
+                        text: LocalizedString.resetPasswordButton.localized,
+                        isLoading: controller.isLoading,
+                        onClick: {
+                            controller.requestPasswordReset()
+                        },
+                        buttonColor: .oxfordBlue,
+                        textColor: .antiqueWhite
+                    )
+                    Spacer()
                 }
-            )
-            ScrollView {
-                ReusableTextField(hint: $controller.email, icon: nil, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized)
-                    .textContentType(.oneTimeCode)
-                    .autocapitalization(.none) 
-                    .keyboardType(.emailAddress)
-                TextButton(text: LocalizedString.resetPasswordButton.localized, isLoading: controller.isLoading, onClick: {
-                    controller.requestPasswordReset()
-                }, buttonColor: .oxfordBlue, textColor: .antiqueWhite)
-                Spacer()
             }
+            .padding(.top, 10)
             .background(Color.skyBlue)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        CustomHeader(title: LocalizedString.resetPasswordTitle.localized)
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden()
         }
-        .background(Color.skyBlue)
-        .ignoresSafeArea()
-        .navigationBarHidden(true)
     }
 }
 

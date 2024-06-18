@@ -61,6 +61,7 @@ enum LocalizedString: String {
     // Question
     case questionsTitle = "questions_title"
     case addNewQuestion = "add_new_question"
+    case editQuestion = "edit_question"
     case questionTitlePlaceholder = "question_title_placeholder"
     case enterQuestionTitle = "enter_question_title"
     case addElement = "add_element"

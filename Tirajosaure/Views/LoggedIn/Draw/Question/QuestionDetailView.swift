@@ -12,42 +12,55 @@ struct QuestionDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var optionsController = OptionsController()
     @ObservedObject var questionController: QuestionController
+    @State private var isEditing = false
+    @State private var navigateToEdit = false
     
     var body: some View {
-        VStack {
-            CustomHeader(title: question.title, showBackButton: true) {
-                presentationMode.wrappedValue.dismiss()
+        NavigationStack {
+            VStack {
+                TextButton(
+                    text: LocalizedString.draw.rawValue.localized,
+                    isLoading: false,
+                    onClick: {
+                        // Action for the button
+                    },
+                    buttonColor: .antiqueWhite,
+                    textColor: .oxfordBlue
+                )
+                .padding()
+                
+                Spacer()
+                
             }
-            
-            ReusableTextField(
-                hint: $question.title,
-                icon: nil,
-                title: LocalizedString.questionTitlePlaceholder.rawValue.localized,
-                fieldName: LocalizedString.enterQuestionTitle.rawValue.localized
-            )
-            
-            OptionsListView(controller: optionsController)
-            
-            TextButton(
-                text: LocalizedString.draw.rawValue.localized,
-                isLoading: false,
-                onClick: {
-                    // Action for the button
-                },
-                buttonColor: .antiqueWhite,
-                textColor: .oxfordBlue
-            )
-            .padding()
-            
-            Spacer()
-        }
-        .background(Color.skyBlue)
-        .navigationBarHidden(true)
-        .onAppear {
-            loadOptions()
-        }
-        .onDisappear {
-            saveChanges()
+            .frame(maxWidth: .infinity)
+            .background(Color.skyBlue)
+            .onAppear {
+                loadOptions()
+            }
+            .onDisappear {
+                saveChanges()
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        CustomHeader(title: question.title)
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: QuestionEditView(question: $question)) {
+                        Image(systemName: IconNames.pencilCircleFill.rawValue)
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.oxfordBlue)
+                            .padding(.leading, 5)
+                            .padding(.top)
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden(true)
         }
     }
     

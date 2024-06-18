@@ -12,32 +12,41 @@ struct AddQuestionView: View {
     @ObservedObject var questionController: QuestionController
     
     var body: some View {
-        VStack {
-            CustomHeader(title: LocalizedString.addNewQuestion.rawValue.localized, showBackButton: true) {
-                self.presentationMode.wrappedValue.dismiss()
-            }.padding(.bottom)
-            
-            ReusableTextField(hint: $questionController.newQuestionTitle, icon: IconNames.pencil.rawValue, title: LocalizedString.questionTitlePlaceholder.rawValue.localized, fieldName: LocalizedString.enterQuestionTitle.rawValue.localized)
-            
-            OptionsListView(controller: questionController.optionsController)
-            
-            TextButton(
-                text: LocalizedString.addNewQuestion.rawValue.localized,
-                isLoading: false,
-                onClick: {
-                    if questionController.addQuestion() {
+        NavigationStack {
+            VStack {
+                ReusableTextField(hint: $questionController.newQuestionTitle, icon: IconNames.pencil.rawValue, title: LocalizedString.questionTitlePlaceholder.rawValue.localized, fieldName: LocalizedString.enterQuestionTitle.rawValue.localized)
+                
+                OptionsListView(controller: questionController.optionsController)
+                
+                TextButton(
+                    text: LocalizedString.addNewQuestion.rawValue.localized,
+                    isLoading: false,
+                    onClick: {
+                        if questionController.addQuestion() {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    },
+                    buttonColor: .antiqueWhite,
+                    textColor: .oxfordBlue
+                )
+                .padding()
+                
+                Spacer()
+            }
+            .padding(.top)
+            .background(Color.skyBlue)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
+                    }) {
+                        CustomHeader(title: LocalizedString.addNewQuestion.localized)
                     }
-                },
-                buttonColor: .antiqueWhite,
-                textColor: .oxfordBlue
-            )
-            .padding()
-            
-            Spacer()
+                }
+            }
         }
-        .background(Color.skyBlue)
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

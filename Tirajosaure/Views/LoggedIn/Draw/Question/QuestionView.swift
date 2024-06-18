@@ -9,42 +9,63 @@ import SwiftUI
 struct QuestionView: View {
     @StateObject private var questionController = QuestionController()
     @State private var isEditing = false
+    @State private var navigateToAdd = false
+    @State private var selectedQuestion: Question?
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                CustomHeader(
-                    title: LocalizedString.questionsTitle.rawValue.localized,
-                    fontSize: 36,
-                    showEditButton: true,
-                    onEdit: {
-                        withAnimation {
-                            isEditing.toggle()
-                        }
-                    },
-                    isEditing: isEditing
-                )
-                
-                if questionController.questions.isEmpty {
-                    emptyStateView
-                } else {
-                    questionListView
+        VStack {
+            Text("")
+                .padding(.top, 24)
+            NavigationStack {
+                VStack {
+                    if questionController.questions.isEmpty {
+                        emptyStateView
+                    } else {
+                        questionListView
+                    }
+                    
+                    Button(action: {
+                        navigateToAdd.toggle()
+                    }) {
+                        AddButton(
+                            text: LocalizedString.addNewQuestion.rawValue.localized,
+                            image: IconNames.plusCircleFill.systemImage,
+                            buttonColor: .antiqueWhite,
+                            textColor: .oxfordBlue,
+                            width: 300,
+                            height: 50
+                        )
+                        .padding()
+                    }
+                    .navigationDestination(isPresented: $navigateToAdd) {
+                        AddQuestionView(questionController: questionController)
+                    }
                 }
-                
-                NavigationLink(destination: AddQuestionView(questionController: questionController)) {
-                    AddButton(
-                        text: LocalizedString.addNewQuestion.rawValue.localized,
-                        image: IconNames.plusCircleFill.systemImage,
-                        buttonColor: .antiqueWhite,
-                        textColor: .oxfordBlue,
-                        width: 300,
-                        height: 50
-                    )
-                    .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.skyBlue)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        CustomHeader(title: LocalizedString.questionsTitle.localized, showBackButton: false, fontSize: 36)
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            withAnimation {
+                                isEditing.toggle()
+                            }
+                        }) {
+                            Image(systemName: isEditing ? IconNames.checkmarkCircleFill.rawValue : IconNames.pencilCircleFill.rawValue)
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .padding(.top)
+                                .foregroundColor(.oxfordBlue)
+                        }
+                    }
                 }
             }
-            .background(Color.skyBlue)
+            .cornerRadius(20, corners: [.topLeft, .topRight])
         }
+        .background(Color.thulianPink)
     }
     
     private var emptyStateView: some View {
@@ -79,7 +100,7 @@ struct QuestionView: View {
             .onDelete(perform: questionController.removeQuestion)
             .onMove(perform: questionController.moveQuestion)
         }
-        .contentMargins(.top, 20)
+        .contentMargins(.top, 24)
         .environment(\.editMode, .constant(isEditing ? .active : .inactive))
         .scrollContentBackground(.hidden)
     }

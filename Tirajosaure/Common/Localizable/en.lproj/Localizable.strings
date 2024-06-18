@@ -73,6 +73,7 @@
 // Question
 "questions_title" = "Questions";
 "add_new_question" = "Add a new question";
+"edit_question" = "Edit question";
 "question_title_placeholder" = "Question Title";
 "enter_question_title" = "Enter the question title";
 "add_element" = "Add an element";

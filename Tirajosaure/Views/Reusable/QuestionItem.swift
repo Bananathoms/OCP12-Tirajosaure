@@ -21,12 +21,14 @@ struct QuestionItem<Destination: View>: View {
                     Text(question.options.joined(separator: DefaultValues.separator))
                         .font(.subheadline)
                         .foregroundColor(.black)
-                }.padding( 20)
+                }
+                .padding( 20)
                 Spacer()
             }
             .background(Color.antiqueWhite)
             .cornerRadius(10)
-        }.frame(height: 60)
+        }
+        .frame(height: 60)
     }
 }
 
