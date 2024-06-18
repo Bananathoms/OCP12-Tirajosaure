@@ -65,7 +65,7 @@ class ApiService {
                 case .success:
                     onResult(.success(()))
                 case .failure(let error):
-                    if let data = response.data, let responseDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let errorMessage = responseDict["error"] as? String {
+                    if let data = response.data, let responseDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let errorMessage = responseDict[DefaultValues.error] as? String {
                         onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.rawValue): \(errorMessage)")))
                     } else {
                         onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.rawValue): \(error.localizedDescription)")))
@@ -82,7 +82,6 @@ class ApiService {
     private func handleAlamofireResponse(_ response: AFDataResponse<Data>, originalUser: User, onResult: (Result<User, AppError>) -> Void) {
         switch response.result {
         case .success(let data):
-            print("Success response data: \(String(data: data, encoding: .utf8) ?? "nil")")
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
@@ -92,13 +91,10 @@ class ApiService {
                 onResult(.success(user))
             } catch {
                 let responseString = String(data: data, encoding: .utf8)
-                print("Decoding error: \(error), response string: \(responseString ?? "nil")")
                 onResult(.failure(.networkError("\(ErrorMessage.failedToDecodeJSONResponse.rawValue): \(responseString ?? ErrorMessage.defaultMessage.rawValue)")))
             }
         case .failure(let error):
-            print("Failure error: \(error)")
             if let data = response.data {
-                print("Failure response data: \(String(data: data, encoding: .utf8) ?? "nil")")
                 do {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)

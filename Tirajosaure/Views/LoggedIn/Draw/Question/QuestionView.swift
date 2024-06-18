@@ -25,24 +25,11 @@ struct QuestionView: View {
                     isEditing: isEditing
                 )
                 
-                List {
-                    ForEach(questionController.questions) { question in
-                        QuestionItem(
-                            question: question,
-                            destination: {
-                                QuestionDetailView(question: question, questionController: questionController)
-                            }
-                        )
-                        .padding(.trailing)
-                        .listRowInsets(EdgeInsets())
-                        .listRowBackground(Color.antiqueWhite)
-                    }
-                    .onDelete(perform: questionController.removeQuestion)
-                    .onMove(perform: questionController.moveQuestion)
+                if questionController.questions.isEmpty {
+                    emptyStateView
+                } else {
+                    questionListView
                 }
-                .contentMargins(.top, 20)
-                .environment(\.editMode, .constant(isEditing ? .active : .inactive))
-                .scrollContentBackground(.hidden)
                 
                 NavigationLink(destination: AddQuestionView(questionController: questionController)) {
                     AddButton(
@@ -59,6 +46,43 @@ struct QuestionView: View {
             .background(Color.skyBlue)
         }
     }
+    
+    private var emptyStateView: some View {
+        VStack {
+            Text(LocalizedString.emptyQuestionsTitle.rawValue.localized)
+                .font(.customFont(.nunitoBold, size: 20))
+                .foregroundColor(.gray)
+                .padding(.top, 40)
+            Text(LocalizedString.emptyQuestionsMessage.rawValue.localized)
+                .font(.customFont(.nunitoRegular, size: 16))
+                .foregroundColor(.gray)
+                .multilineTextAlignment(.center)
+                .padding([.leading, .trailing], 20)
+                .padding(.top, 10)
+            Spacer()
+        }
+    }
+    
+    private var questionListView: some View {
+        List {
+            ForEach(questionController.questions) { question in
+                QuestionItem(
+                    question: question,
+                    destination: {
+                        QuestionDetailView(question: question, questionController: questionController)
+                    }
+                )
+                .padding(.trailing)
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.antiqueWhite)
+            }
+            .onDelete(perform: questionController.removeQuestion)
+            .onMove(perform: questionController.moveQuestion)
+        }
+        .contentMargins(.top, 20)
+        .environment(\.editMode, .constant(isEditing ? .active : .inactive))
+        .scrollContentBackground(.hidden)
+    }
 }
 
 struct QuestionView_Previews: PreviewProvider {
@@ -71,4 +95,3 @@ struct QuestionView_Previews: PreviewProvider {
             .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }
 }
-

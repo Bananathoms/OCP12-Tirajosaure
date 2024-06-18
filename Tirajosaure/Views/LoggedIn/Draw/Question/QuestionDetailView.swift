@@ -64,8 +64,13 @@ struct QuestionDetailView: View {
 struct QuestionDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let questionController = QuestionController()
+        let sampleUserPointer = PreviewData.UserData.sampleUserPointer
         return QuestionDetailView(
-            question: Question(title: "Que mange-t-on ce soir ?", options: ["Burger", "Pizza", "Fish and chips"]),
+            question: Question(
+                title: "Que mange-t-on ce soir ?",
+                options: ["Burger", "Pizza", "Fish and chips"],
+                user: sampleUserPointer
+            ),
             questionController: questionController
         )
     }

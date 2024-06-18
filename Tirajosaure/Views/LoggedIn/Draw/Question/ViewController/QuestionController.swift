@@ -8,23 +8,57 @@
 import Foundation
 import SwiftUI
 import Combine
+import ParseSwift
 
 /// A controller class responsible for managing the list of questions and their states.
 /// This class provides functionality to add, update, remove, and move questions within the list.
 class QuestionController: ObservableObject {
-    @Published var questions: [Question] = [
-        Question(title: "Que mange-t-on ce soir ?", options: ["Burger", "Pizza", "Fish and chips", "Sushi"]),
-    ]
+    @Published var questions: [Question] = []
     
     @Published var newQuestionTitle: String = DefaultValues.emptyString
     @Published var optionsController = OptionsController()
     
-    /// Adds a new question to the list of questions.
-    func addQuestion() {
-        let newQuestion = Question(title: newQuestionTitle, options: optionsController.options.filter { !$0.isEmpty })
-        self.questions.append(newQuestion)
-        self.newQuestionTitle = DefaultValues.emptyString
-        self.optionsController.options = []
+    init() {
+        UserService.current.$questions
+            .receive(on: RunLoop.main)
+            .assign(to: &$questions)
+    }
+    
+    /// Add a question in the list
+    @discardableResult
+    func addQuestion() -> Bool {
+        guard let userId = UserService.current.user?.objectId else { return false }
+        
+        guard !newQuestionTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            SnackBarService.current.error(ErrorMessage.emptyQuestionTitle.localized)
+            return false
+        }
+        
+        let validOptions = optionsController.options.filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+        guard validOptions.count >= 2 else {
+            SnackBarService.current.error(ErrorMessage.insufficientOptions.localized)
+            return false
+        }
+        
+        let userPointer = Pointer<User>(objectId: userId)
+        let newQuestion = Question(
+            title: newQuestionTitle,
+            options: optionsController.options.filter { !$0.isEmpty },
+            user: userPointer
+        )
+        QuestionService.shared.saveQuestion(newQuestion) { result in
+            switch result {
+            case .success(let savedQuestion):
+                DispatchQueue.main.async {
+                    self.questions.append(savedQuestion)
+                    self.newQuestionTitle = DefaultValues.emptyString
+                    self.optionsController.options = []
+                }
+            case .failure(let error):
+                SnackBarService.current.error("\(ErrorMessage.failedToSaveQuestion.localized): \(error.localizedDescription)")
+            }
+        }
+        return true
     }
     
     /// Updates an existing question in the list.
@@ -32,13 +66,34 @@ class QuestionController: ObservableObject {
     func updateQuestion(_ updatedQuestion: Question) {
         if let index = questions.firstIndex(where: { $0.id == updatedQuestion.id }) {
             self.questions[index] = updatedQuestion
+            
+            QuestionService.shared.saveQuestion(updatedQuestion) { result in
+                switch result {
+                case .success:
+                    break
+                case .failure(let error):
+                    SnackBarService.current.error("\(ErrorMessage.failedToUpdateQuestion.localized): \(error.localizedDescription)")
+                }
+            }
         }
     }
     
     /// Removes a question from the list.
     /// - Parameter offsets: The set of indices specifying the questions to be removed.
     func removeQuestion(at offsets: IndexSet) {
-        self.questions.remove(atOffsets: offsets)
+        offsets.forEach { index in
+            let question = questions[index]
+            QuestionService.shared.deleteQuestion(question) { result in
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        self.questions.remove(at: index)
+                    }
+                case .failure(let error):
+                    SnackBarService.current.error("\(ErrorMessage.failedToDeleteQuestion.localized): \(error.localizedDescription)")
+                }
+            }
+        }
     }
     
     /// Moves a question from one position to another within the list.

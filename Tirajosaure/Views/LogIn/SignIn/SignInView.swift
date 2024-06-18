@@ -59,7 +59,7 @@ struct SignInView: View {
                     TextButton(text: LocalizedString.signinButton.localized, isLoading: controller.isLoading, onClick: {
                         MixpanelEvent.loginButtonClicked.trackEvent()
                         controller.signIn()
-                    }, buttonColor: .oxfordBlue, textColor: .white)
+                    }, buttonColor: .oxfordBlue, textColor: .antiqueWhite)
                     Spacer()
                     newAccount()
                 }.background(Color.skyBlue) .ignoresSafeArea()

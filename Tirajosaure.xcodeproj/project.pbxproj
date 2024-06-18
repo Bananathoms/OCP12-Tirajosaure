@@ -69,6 +69,7 @@
 		DE96D5052C1F9D8E0009B86A /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5042C1F9D8E0009B86A /* OptionsController.swift */; };
 		DE96D5092C1FA0CE0009B86A /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5082C1FA0CE0009B86A /* QuestionController.swift */; };
 		DE96D50E2C20814B0009B86A /* Extension+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D50D2C20814B0009B86A /* Extension+Collection.swift */; };
+		DE96D5162C20F2BE0009B86A /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5152C20F2BE0009B86A /* QuestionService.swift */; };
 		DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */; };
 		DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA32C0CCAC200A9B894 /* ContentView.swift */; };
 		DECEFFA62C0CCAC400A9B894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECEFFA52C0CCAC400A9B894 /* Assets.xcassets */; };
@@ -153,6 +154,7 @@
 		DE96D5042C1F9D8E0009B86A /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		DE96D5082C1FA0CE0009B86A /* QuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
 		DE96D50D2C20814B0009B86A /* Extension+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Collection.swift"; sourceTree = "<group>"; };
+		DE96D5152C20F2BE0009B86A /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
 		DECEFF9E2C0CCAC200A9B894 /* Tirajosaure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tirajosaure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TirajosaureApp.swift; sourceTree = "<group>"; };
 		DECEFFA32C0CCAC200A9B894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				DE6077DD2C1BADF700AA2A0A /* ApiConstants.swift */,
 				DE6736A32C0FF862001BEB56 /* SnackBarService.swift */,
 				DE6736872C0FF17C001BEB56 /* UserService.swift */,
+				DE96D5152C20F2BE0009B86A /* QuestionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				DE6077E22C1BB29300AA2A0A /* LocalizedString.swift in Sources */,
 				DE6736AA2C0FF9D9001BEB56 /* TextButton.swift in Sources */,
 				DE6077ED2C1C9A5800AA2A0A /* DefaultValues.swift in Sources */,
+				DE96D5162C20F2BE0009B86A /* QuestionService.swift in Sources */,
 				DE6077F12C1C9EF700AA2A0A /* IconNames.swift in Sources */,
 				DE6077EB2C1C990300AA2A0A /* UserDefaultsKeys.swift in Sources */,
 				DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */,

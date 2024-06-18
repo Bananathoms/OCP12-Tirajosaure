@@ -25,8 +25,9 @@ struct AddQuestionView: View {
                 text: LocalizedString.addNewQuestion.rawValue.localized,
                 isLoading: false,
                 onClick: {
-                    questionController.addQuestion()
-                    presentationMode.wrappedValue.dismiss()
+                    if questionController.addQuestion() {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 },
                 buttonColor: .antiqueWhite,
                 textColor: .oxfordBlue

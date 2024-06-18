@@ -33,7 +33,11 @@ struct QuestionItem<Destination: View>: View {
 struct QuestionItem_Previews: PreviewProvider {
     static var previews: some View {
         QuestionItem(
-            question: Question(title: "Que mange-t-on ce soir ?", options: ["🍔 Burger", "🍕 Pizza", "🐟 Fish and chips"]),
+            question: Question(
+                title: "Que mange-t-on ce soir ?",
+                options: ["🍔 Burger", "🍕 Pizza", "🐟 Fish and chips"],
+                user: PreviewData.UserData.sampleUserPointer
+            ),
             destination: { Text("Detail View") }
         )
     }

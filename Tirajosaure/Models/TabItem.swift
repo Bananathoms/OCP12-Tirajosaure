@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// /// A struct representing an item in a tab bar.
 struct TabItem {
     let title: String
     let iconName: String
