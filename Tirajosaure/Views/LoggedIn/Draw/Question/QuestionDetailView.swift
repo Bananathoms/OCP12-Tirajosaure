@@ -13,7 +13,6 @@ struct QuestionDetailView: View {
     @StateObject private var optionsController = OptionsController()
     @ObservedObject var questionController: QuestionController
     @State private var isEditing = false
-    @State private var navigateToEdit = false
     
     var body: some View {
         NavigationStack {

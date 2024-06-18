@@ -65,14 +65,18 @@ class QuestionController: ObservableObject {
     /// - Parameter updatedQuestion: The question containing the updated data.
     func updateQuestion(_ updatedQuestion: Question) {
         if let index = questions.firstIndex(where: { $0.id == updatedQuestion.id }) {
-            self.questions[index] = updatedQuestion
+            let originalQuestion = questions[index]
             
-            QuestionService.shared.saveQuestion(updatedQuestion) { result in
-                switch result {
-                case .success:
-                    break
-                case .failure(let error):
-                    SnackBarService.current.error("\(ErrorMessage.failedToUpdateQuestion.localized): \(error.localizedDescription)")
+            if originalQuestion != updatedQuestion {
+                self.questions[index] = updatedQuestion
+                
+                QuestionService.shared.saveQuestion(updatedQuestion) { result in
+                    switch result {
+                    case .success:
+                        break
+                    case .failure(let error):
+                        SnackBarService.current.error("\(ErrorMessage.failedToUpdateQuestion.localized): \(error.localizedDescription)")
+                    }
                 }
             }
         }
