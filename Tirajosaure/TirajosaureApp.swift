@@ -8,7 +8,6 @@
 import SwiftUI
 import ParseSwift
 import Mixpanel
-import IQKeyboardManagerSwift
 
 @main
 /// The main structure of the Tirajosaure application.
@@ -44,8 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                               serverURL: URL(string: ParseConfig.serverURL)!)
         NotificationCenter.default.post(name: .parseInitialized, object: nil)
         Mixpanel.initialize(token: MixpanelConfig.projectToken, trackAutomaticEvents: false)
-        IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.resignOnTouchOutside = true
     }
     
     func trackAppInstallation() {

@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.9.1)
-  - IQKeyboardManagerSwift (7.0.3)
   - Mixpanel-swift (4.2.7):
     - Mixpanel-swift/Complete (= 4.2.7)
   - Mixpanel-swift/Complete (4.2.7)
@@ -22,7 +21,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - IQKeyboardManagerSwift
   - Mixpanel-swift
   - OHHTTPStubs/Swift
   - ParseSwift
@@ -31,7 +29,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - IQKeyboardManagerSwift
     - Mixpanel-swift
     - OHHTTPStubs
     - ParseSwift
@@ -39,12 +36,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
-  IQKeyboardManagerSwift: f9c5dc36cba16ddd2e51fa7d51c34a2e083029b5
   Mixpanel-swift: 7f5b749dbda2708033d67ff3d7a91710468d4a38
   OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
   ParseSwift: 5df70e3d5aed3351fb3188ddf0a2812b7983a379
   SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
 
-PODFILE CHECKSUM: a7ca1b9d3a462a8652cdbd44d293d836845f3a0b
+PODFILE CHECKSUM: ab1fb1e55078703c97f2955f7f7cb5074191db89
 
 COCOAPODS: 1.15.2
