@@ -47,6 +47,8 @@
 "failed_to_load_questions" = "Failed to load questions";
 "failed_to_save_user_data" = "Failed to save user data";
 "failed_to_load_user_data" = "Failed to load user data";
+"failed_to_save_draw_result" = "Failed to save draw result";
+"failed_to_load_draw_results" = "Failed to load draw results";
 
 // Authentication Errors
 "authentication_error_message" = "Invalid username or password.";
@@ -79,6 +81,16 @@
 "add_element" = "Add an element";
 "elements" = "Elements";
 "draw" = "Draw";
+
+// History and Statistics
+"history_title" = "History";
+"statistics_title" = "Statistics";
+"total_draw" = "Total draw";
+"option_label" = "Option";
+"count_label" = "Count";
+"draws_label" = "draws";
+"no_results_yet" = "No results yet";
+
 
 //Empty QuestionList
 "empty_questions_title" = "No questions available.";

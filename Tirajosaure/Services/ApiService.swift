@@ -50,7 +50,6 @@ class ApiService {
             }
     }
     
-    
     /// Requests a password reset for the user with the provided email.
     /// - Parameters:
     ///   - email: The email address of the user.
@@ -110,7 +109,6 @@ class ApiService {
         }
     }
 
-    
     /// Returns the headers required for the API requests.
     /// - Returns: A `HTTPHeaders` object containing the necessary headers.
     private func getHeaders() -> HTTPHeaders {
@@ -119,5 +117,37 @@ class ApiService {
             APIConstants.Headers.clientKey: ParseConfig.clientKey,
             APIConstants.Headers.contentType: ParseConfig.contentType
         ]
+    }
+    
+    /// Saves a draw result to Back4App.
+    /// - Parameters:
+    ///   - drawResult: The `DrawResult` to save.
+    ///   - completion: A closure to handle the result of the save operation.
+    func saveDrawResult(_ drawResult: DrawResult, completion: @escaping (Result<DrawResult, AppError>) -> Void) {
+        drawResult.save { result in
+            switch result {
+            case .success(let savedResult):
+                completion(.success(savedResult))
+            case .failure(let error):
+                completion(.failure(.networkError(error.localizedDescription)))
+            }
+        }
+    }
+
+    /// Loads draw results from Back4App filtered by question.
+    /// - Parameters:
+    ///   - question: The `Pointer<Question>` representing the current question.
+    ///   - completion: A closure to handle the result of the load operation.
+    func loadDrawResults(for question: Pointer<Question>, completion: @escaping (Result<[DrawResult], AppError>) -> Void) {
+        var query = DrawResult.query(QueryKey.question == question)
+        query = query.order([.descending(QueryKey.createdAt)])
+        query.find { result in
+            switch result {
+            case .success(let results):
+                completion(.success(results))
+            case .failure(let error):
+                completion(.failure(.networkError(error.localizedDescription)))
+            }
+        }
     }
 }

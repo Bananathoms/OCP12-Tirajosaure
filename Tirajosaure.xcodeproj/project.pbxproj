@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90E8DEE209C7C276C815C1CB /* Pods_Tirajosaure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD43FCF815823899A96E186 /* Pods_Tirajosaure.framework */; };
+		306580229D58504903D424B6 /* Pods_Tirajosaure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21449DB63FCDCCDF2839BAE0 /* Pods_Tirajosaure.framework */; };
 		DE2EEF6B2C120F3C002E4E60 /* Extension+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF6A2C120F3C002E4E60 /* Extension+Notification.swift */; };
 		DE2EEF6D2C128076002E4E60 /* UserServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF6C2C128076002E4E60 /* UserServiceTests.swift */; };
 		DE2EEF6F2C12814F002E4E60 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF6E2C12814F002E4E60 /* MockApiService.swift */; };
@@ -60,6 +60,11 @@
 		DE6736B22C107B9D001BEB56 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6736B12C107B9D001BEB56 /* SignInController.swift */; };
 		DE6736B42C1084AF001BEB56 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6736B32C1084AF001BEB56 /* SignUpController.swift */; };
 		DE6736B72C10BBD5001BEB56 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6736B62C10BBD5001BEB56 /* UserController.swift */; };
+		DE8950CB2C234529002A6BBD /* DrawResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950CA2C234529002A6BBD /* DrawResult.swift */; };
+		DE8950EC2C2464B4002A6BBD /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950EB2C2464B4002A6BBD /* StatisticsModel.swift */; };
+		DE8950F12C248926002A6BBD /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950F02C248926002A6BBD /* Format.swift */; };
+		DE8950F32C2492AD002A6BBD /* DrawResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950F22C2492AD002A6BBD /* DrawResultService.swift */; };
+		DE8950F52C249D22002A6BBD /* QueryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950F42C249D22002A6BBD /* QueryKey.swift */; };
 		DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */; };
 		DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F52C1F02E90009B86A /* TabItem.swift */; };
 		DE96D4FA2C1F069B0009B86A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F92C1F069B0009B86A /* QuestionItem.swift */; };
@@ -90,9 +95,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13BDBCBD85085E48CCE7C00E /* Pods-Tirajosaure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.debug.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.debug.xcconfig"; sourceTree = "<group>"; };
-		674576147244C95AB0AD4F05 /* Pods-Tirajosaure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.release.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.release.xcconfig"; sourceTree = "<group>"; };
-		7DD43FCF815823899A96E186 /* Pods_Tirajosaure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tirajosaure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21449DB63FCDCCDF2839BAE0 /* Pods_Tirajosaure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tirajosaure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4042CE6B9B9EDB77FC825064 /* Pods-Tirajosaure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.debug.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.debug.xcconfig"; sourceTree = "<group>"; };
+		9CE009D077A071F2EBE11127 /* Pods-Tirajosaure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.release.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.release.xcconfig"; sourceTree = "<group>"; };
 		DE2EEF6A2C120F3C002E4E60 /* Extension+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Notification.swift"; sourceTree = "<group>"; };
 		DE2EEF6C2C128076002E4E60 /* UserServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceTests.swift; sourceTree = "<group>"; };
 		DE2EEF6E2C12814F002E4E60 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
@@ -146,6 +151,11 @@
 		DE6736B12C107B9D001BEB56 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		DE6736B32C1084AF001BEB56 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		DE6736B62C10BBD5001BEB56 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		DE8950CA2C234529002A6BBD /* DrawResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResult.swift; sourceTree = "<group>"; };
+		DE8950EB2C2464B4002A6BBD /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
+		DE8950F02C248926002A6BBD /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		DE8950F22C2492AD002A6BBD /* DrawResultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResultService.swift; sourceTree = "<group>"; };
+		DE8950F42C249D22002A6BBD /* QueryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryKey.swift; sourceTree = "<group>"; };
 		DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		DE96D4F52C1F02E90009B86A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		DE96D4F92C1F069B0009B86A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
@@ -167,12 +177,34 @@
 		DECEFFCE2C0CCC7700A9B894 /* MixpanelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DE8950DE2C23B86D002A6BBD /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Card/OptionCard.swift,
+				DrawView.swift,
+				Historic/HistoryContent.swift,
+				Historic/ResultCard.swift,
+				Statistics/StatisticsChartView.swift,
+				Statistics/StatisticsListView.swift,
+				Statistics/StatisticsResultCard.swift,
+				Statistics/ViewController/StatisticsController.swift,
+				ViewController/DrawViewController.swift,
+			);
+			target = DECEFF9D2C0CCAC200A9B894 /* Tirajosaure */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DE8950DD2C23B86C002A6BBD /* DrawView */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (DE8950DE2C23B86D002A6BBD /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = DrawView; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		DECEFF9B2C0CCAC200A9B894 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90E8DEE209C7C276C815C1CB /* Pods_Tirajosaure.framework in Frameworks */,
+				306580229D58504903D424B6 /* Pods_Tirajosaure.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,8 +222,8 @@
 		974987061C1FBE1F4825AFC0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				13BDBCBD85085E48CCE7C00E /* Pods-Tirajosaure.debug.xcconfig */,
-				674576147244C95AB0AD4F05 /* Pods-Tirajosaure.release.xcconfig */,
+				4042CE6B9B9EDB77FC825064 /* Pods-Tirajosaure.debug.xcconfig */,
+				9CE009D077A071F2EBE11127 /* Pods-Tirajosaure.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -200,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2EEF702C1281E4002E4E60 /* ParseSwift.framework */,
-				7DD43FCF815823899A96E186 /* Pods_Tirajosaure.framework */,
+				21449DB63FCDCCDF2839BAE0 /* Pods_Tirajosaure.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -280,6 +312,8 @@
 				DE6736852C0FF06A001BEB56 /* User.swift */,
 				DE60782E2C1E2C0200AA2A0A /* Question.swift */,
 				DE96D4F52C1F02E90009B86A /* TabItem.swift */,
+				DE8950CA2C234529002A6BBD /* DrawResult.swift */,
+				DE8950EB2C2464B4002A6BBD /* StatisticsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -300,6 +334,7 @@
 				DE6736A32C0FF862001BEB56 /* SnackBarService.swift */,
 				DE6736872C0FF17C001BEB56 /* UserService.swift */,
 				DE96D5152C20F2BE0009B86A /* QuestionService.swift */,
+				DE8950F22C2492AD002A6BBD /* DrawResultService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -309,6 +344,8 @@
 			children = (
 				DE67368A2C0FF1DD001BEB56 /* ConnexionState.swift */,
 				DE6077EC2C1C9A5800AA2A0A /* DefaultValues.swift */,
+				DE8950F42C249D22002A6BBD /* QueryKey.swift */,
+				DE8950F02C248926002A6BBD /* Format.swift */,
 				DE6077EA2C1C990300AA2A0A /* UserDefaultsKeys.swift */,
 				DE6077F02C1C9EF700AA2A0A /* IconNames.swift */,
 				DE6077E82C1C97B500AA2A0A /* MixpanelEvent.swift */,
@@ -388,6 +425,7 @@
 				DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */,
 				DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */,
 				DE96D5172C2118E00009B86A /* QuestionEditView.swift */,
+				DE8950DD2C23B86C002A6BBD /* DrawView */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -562,11 +600,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DECEFFC22C0CCAC400A9B894 /* Build configuration list for PBXNativeTarget "Tirajosaure" */;
 			buildPhases = (
-				9272CA39526A9AB13F48D555 /* [CP] Check Pods Manifest.lock */,
+				34C5CF2342B53C41BD60FEBB /* [CP] Check Pods Manifest.lock */,
 				DECEFF9A2C0CCAC200A9B894 /* Sources */,
 				DECEFF9B2C0CCAC200A9B894 /* Frameworks */,
 				DECEFF9C2C0CCAC200A9B894 /* Resources */,
-				BFD3ACFB345E8CF947DED5FA /* [CP] Embed Pods Frameworks */,
+				0D9EBF84FB9DD516BBFC7069 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -660,7 +698,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9272CA39526A9AB13F48D555 /* [CP] Check Pods Manifest.lock */ = {
+		0D9EBF84FB9DD516BBFC7069 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		34C5CF2342B53C41BD60FEBB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -682,23 +737,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BFD3ACFB345E8CF947DED5FA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -710,6 +748,7 @@
 				DE96D51A2C22004B0009B86A /* CustomHeader.swift in Sources */,
 				DE6077D62C17C3BC00AA2A0A /* PasswordResetController.swift in Sources */,
 				DE96D4FE2C1F0D3B0009B86A /* AddButton.swift in Sources */,
+				DE8950F52C249D22002A6BBD /* QueryKey.swift in Sources */,
 				DE6077E22C1BB29300AA2A0A /* LocalizedString.swift in Sources */,
 				DE6736AA2C0FF9D9001BEB56 /* TextButton.swift in Sources */,
 				DE6077ED2C1C9A5800AA2A0A /* DefaultValues.swift in Sources */,
@@ -724,6 +763,7 @@
 				DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */,
 				DE6736862C0FF06A001BEB56 /* User.swift in Sources */,
 				DE6736882C0FF17C001BEB56 /* UserService.swift in Sources */,
+				DE8950F32C2492AD002A6BBD /* DrawResultService.swift in Sources */,
 				DE6736B72C10BBD5001BEB56 /* UserController.swift in Sources */,
 				DE6736932C0FF2EA001BEB56 /* Extension+View.swift in Sources */,
 				DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */,
@@ -740,6 +780,7 @@
 				DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */,
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
 				DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */,
+				DE8950CB2C234529002A6BBD /* DrawResult.swift in Sources */,
 				DE6736992C0FF5AD001BEB56 /* SignInView.swift in Sources */,
 				DE60781C2C1DF4D600AA2A0A /* QuestionView.swift in Sources */,
 				DE96D5052C1F9D8E0009B86A /* OptionsController.swift in Sources */,
@@ -755,10 +796,12 @@
 				DE96D5022C1F96E00009B86A /* OptionsList.swift in Sources */,
 				DE6736A22C0FF78D001BEB56 /* ReusableTextField.swift in Sources */,
 				DE6736B02C107A28001BEB56 /* AppError.swift in Sources */,
+				DE8950EC2C2464B4002A6BBD /* StatisticsModel.swift in Sources */,
 				DE60782F2C1E2C0200AA2A0A /* Question.swift in Sources */,
 				DE96D5182C2118E00009B86A /* QuestionEditView.swift in Sources */,
 				DE6078312C1E2C5100AA2A0A /* AddQuestionView.swift in Sources */,
 				DE6077E02C1BAFB900AA2A0A /* ErrorMessage.swift in Sources */,
+				DE8950F12C248926002A6BBD /* Format.swift in Sources */,
 				DE6736AC2C0FFF10001BEB56 /* HomeView.swift in Sources */,
 				DE6736A82C0FF947001BEB56 /* ReusableSecureField.swift in Sources */,
 				DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */,
@@ -922,7 +965,7 @@
 		};
 		DECEFFC32C0CCAC400A9B894 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13BDBCBD85085E48CCE7C00E /* Pods-Tirajosaure.debug.xcconfig */;
+			baseConfigurationReference = 4042CE6B9B9EDB77FC825064 /* Pods-Tirajosaure.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -953,7 +996,7 @@
 		};
 		DECEFFC42C0CCAC400A9B894 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 674576147244C95AB0AD4F05 /* Pods-Tirajosaure.release.xcconfig */;
+			baseConfigurationReference = 9CE009D077A071F2EBE11127 /* Pods-Tirajosaure.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

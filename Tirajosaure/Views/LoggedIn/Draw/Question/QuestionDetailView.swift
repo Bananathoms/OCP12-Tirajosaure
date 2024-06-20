@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ParseSwift
 
 struct QuestionDetailView: View {
     @State var question: Question
@@ -17,16 +18,8 @@ struct QuestionDetailView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                TextButton(
-                    text: LocalizedString.draw.rawValue.localized,
-                    isLoading: false,
-                    onClick: {
-                        // Action for the button
-                    },
-                    buttonColor: .antiqueWhite,
-                    textColor: .oxfordBlue
-                )
-                .padding()
+                DrawView(options: question.options, question: Pointer<Question>(objectId: question.objectId ?? DefaultValues.emptyString))
+                    .padding()
                 
                 Spacer()
                 

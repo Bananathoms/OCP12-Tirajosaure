@@ -46,6 +46,8 @@
 "failed_to_load_questions" = "Échec du chargement des questions";
 "failed_to_save_user_data" = "Échec de l'enregistrement des données utilisateur";
 "failed_to_load_user_data" = "Échec du chargement des données utilisateur";
+"failed_to_save_draw_result" = "Échec de l'enregistrement du résultat du tirage";
+"failed_to_load_draw_results" = "Échec du chargement des résultats du tirage";
 
 // Erreurs d'authentification
 "authentication_error_message" = "Nom d'utilisateur ou mot de passe invalide.";
@@ -78,6 +80,15 @@
 "add_element" = "Ajouter un élément";
 "elements" = "Éléments";
 "draw" = "Tirage";
+
+// Historique et Statistiques
+"history_title" = "Historique";
+"statistics_title" = "Statistiques";
+"total_draw" = "Total";
+"option_label" = "Option";
+"count_label" = "Compte";
+"draws_label" = "tirages";
+"no_results_yet" = "Aucun résultat pour le moment";
 
 //Liste de question vide
 "empty_questions_title" = "Aucune question disponible.";

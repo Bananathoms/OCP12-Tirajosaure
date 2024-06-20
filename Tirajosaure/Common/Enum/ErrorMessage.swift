@@ -20,6 +20,8 @@ enum ErrorMessage: String {
     case failedToLoadQuestions = "failed_to_load_questions"
     case failedToSaveUserData = "failed_to_save_user_data"
     case failedToLoadUserData = "failed_to_load_user_data"
+    case failedToSaveDrawResult = "failed_to_save_draw_result"
+    case failedToLoadDrawResults = "failed_to_load_draw_results"
 
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

@@ -68,6 +68,15 @@ enum LocalizedString: String {
     case elements = "elements"
     case draw = "draw"
     
+    // History and Statistics
+    case historyTitle = "history_title"
+    case statisticsTitle = "statistics_title"
+    case totalDraw = "total_draw"
+    case optionLabel = "option_label"
+    case countLabel = "count_label"
+    case drawsLabel = "draws_label"
+    case noResultsYet = "no_results_yet"
+
     //Empty QuestionList
     case emptyQuestionsTitle = "empty_questions_title"
     case emptyQuestionsMessage = "empty_questions_message"

@@ -20,6 +20,8 @@ enum IconNames: String {
     case plusCircleFill = "plus.circle.fill"
     case checkmarkCircleFill = "checkmark.circle.fill"
     case pencilCircleFill = "pencil.circle.fill"
+    case chartBar = "chart.bar"
+    case listBullet = "list.bullet"
 
     var image: Image {
         return Image(self.rawValue)
