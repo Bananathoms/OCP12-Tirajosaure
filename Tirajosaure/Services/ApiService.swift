@@ -65,9 +65,9 @@ class ApiService {
                     onResult(.success(()))
                 case .failure(let error):
                     if let data = response.data, let responseDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let errorMessage = responseDict[DefaultValues.error] as? String {
-                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.rawValue): \(errorMessage)")))
+                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.localized): \(errorMessage)")))
                     } else {
-                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.rawValue): \(error.localizedDescription)")))
+                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.localized): \(error.localizedDescription)")))
                     }
                 }
             }
@@ -78,7 +78,7 @@ class ApiService {
     ///   - response: The `AFDataResponse<Data>` object containing the response data.
     ///   - originalUser: The original `User` object passed to the request.
     ///   - onResult: A closure to handle the result of the response, returning a `Result` with either a `User` or an `AppError`.
-    private func handleAlamofireResponse(_ response: AFDataResponse<Data>, originalUser: User, onResult: (Result<User, AppError>) -> Void) {
+    func handleAlamofireResponse(_ response: AFDataResponse<Data>, originalUser: User, onResult: (Result<User, AppError>) -> Void) {
         switch response.result {
         case .success(let data):
             do {
@@ -111,7 +111,7 @@ class ApiService {
 
     /// Returns the headers required for the API requests.
     /// - Returns: A `HTTPHeaders` object containing the necessary headers.
-    private func getHeaders() -> HTTPHeaders {
+    func getHeaders() -> HTTPHeaders {
         return [
             APIConstants.Headers.applicationID: ParseConfig.applicationID,
             APIConstants.Headers.clientKey: ParseConfig.clientKey,
