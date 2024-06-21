@@ -80,10 +80,8 @@ class ApiService {
     ///   - userId: The ID of the user whose questions are to be fetched.
     ///   - completion: A closure to handle the result of the fetch operation.
     func fetchQuestions(for userId: String, completion: @escaping (Result<[Question], AppError>) -> Void) {
-        let url = "\(ParseConfig.serverURL)/classes/Question"
-        let parameters: Parameters = [
-            "where": "{\"user\":{\"__type\":\"Pointer\",\"className\":\"_User\",\"objectId\":\"\(userId)\"}}"
-        ]
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.questionsBase
+        let parameters = wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userId)
         let headers = getHeaders()
         
         AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
@@ -103,15 +101,15 @@ class ApiService {
     ///   - question: The `Question` object to be saved.
     ///   - completion: A closure to handle the result of the save operation.
     func saveQuestion(_ question: Question, completion: @escaping (Result<Question, AppError>) -> Void) {
-        let url = "\(ParseConfig.serverURL)/classes/Question"
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.questionsBase
         let headers = getHeaders()
         var parameters: [String: Any] = [
-            "title": question.title,
-            "options": question.options,
-            "user": ["__type": "Pointer", "className": "_User", "objectId": question.user.objectId]
+            APIConstants.Parameters.title: question.title,
+            APIConstants.Parameters.options: question.options,
+            APIConstants.Parameters.user: pointerParams(className: APIConstants.Parameters.UserPointer().className, objectId: question.user.objectId)
         ]
         if let objectId = question.objectId {
-            parameters["objectId"] = objectId
+            parameters[DefaultValues.objectId] = objectId
         }
         
         let request: DataRequest
@@ -132,10 +130,10 @@ class ApiService {
     ///   - completion: A closure to handle the result of the delete operation.
     func deleteQuestion(_ question: Question, completion: @escaping (Result<Void, AppError>) -> Void) {
         guard let objectId = question.objectId else {
-            completion(.failure(.validationError("Invalid Question ID")))
+            completion(.failure(.validationError(ErrorMessage.invalidQuestionID.localized)))
             return
         }
-        let url = "\(ParseConfig.serverURL)/classes/Question/\(objectId)"
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.questionById.replacingOccurrences(of: FormatConstants.objectIdPlaceholder, with: objectId)
         let headers = getHeaders()
         
         AF.request(url, method: .delete, headers: headers).validate().responseData { response in
@@ -143,6 +141,52 @@ class ApiService {
                 switch result {
                 case .success:
                     completion(.success(()))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    /// Saves a draw result to the Parse server.
+    /// - Parameters:
+    ///   - drawResult: The `DrawResult` object to be saved.
+    ///   - completion: A closure to handle the result of the save operation.
+    func saveDrawResult(_ drawResult: DrawResult, completion: @escaping (Result<DrawResult, AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.drawResultBase
+        let headers = getHeaders()
+        let parameters: [String: Any] = [
+            APIConstants.Parameters.option: drawResult.option,
+            APIConstants.Parameters.date: dateParameter(from: drawResult.date),
+            APIConstants.Parameters.question: pointerParams(className: APIConstants.Parameters.QuestionPointer().className, objectId: drawResult.question.objectId)
+         ]
+        
+        let request: DataRequest
+        if let objectId = drawResult.objectId {
+            request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        } else {
+            request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        }
+        
+        request.validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: DrawResult.self, onResult: completion)
+        }
+    }
+    
+    /// Loads draw results from the Parse server filtered by question.
+    /// - Parameters:
+    ///   - question: The `Pointer<Question>` representing the current question.
+    ///   - completion: A closure to handle the result of the load operation.
+    func loadDrawResults(for question: Pointer<Question>, completion: @escaping (Result<[DrawResult], AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.drawResultBase
+        let parameters = wherePointer(type: APIConstants.Parameters.QuestionPointer(), objectId: question.objectId)
+        let headers = getHeaders()
+        
+        AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: ParseResponse<DrawResult>.self) { result in
+                switch result {
+                case .success(let parseResponse):
+                    completion(.success(parseResponse.results))
                 case .failure(let error):
                     completion(.failure(error))
                 }
@@ -173,14 +217,14 @@ class ApiService {
                 }
             } catch {
                 let responseString = String(data: data, encoding: .utf8)
-                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
+                onResult(.failure(.networkError("\(ErrorMessage.networkErrorMessage.localized): \(error.localizedDescription) : \(responseString ?? ErrorMessage.noResponseData.localized)")))
             }
         case .failure(let error):
             if let data = response.data {
                 let responseString = String(data: data, encoding: .utf8)
-                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
+                onResult(.failure(.networkError("\(ErrorMessage.networkErrorMessage.localized): \(error.localizedDescription) : \(responseString ?? ErrorMessage.noResponseData.localized)")))
             } else {
-                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription)")))
+                onResult(.failure(.networkError("\(ErrorMessage.networkErrorMessage.localized): \(error.localizedDescription)")))
             }
         }
     }
@@ -191,40 +235,8 @@ class ApiService {
         return [
             APIConstants.Headers.applicationID: ParseConfig.applicationID,
             APIConstants.Headers.clientKey: ParseConfig.clientKey,
-            APIConstants.Headers.contentType: "application/json"
+            APIConstants.Headers.contentType: ParseConfig.contentType
         ]
-    }
-    
-    /// Saves a draw result to Back4App.
-    /// - Parameters:
-    ///   - drawResult: The `DrawResult` to save.
-    ///   - completion: A closure to handle the result of the save operation.
-    func saveDrawResult(_ drawResult: DrawResult, completion: @escaping (Result<DrawResult, AppError>) -> Void) {
-        drawResult.save { result in
-            switch result {
-            case .success(let savedResult):
-                completion(.success(savedResult))
-            case .failure(let error):
-                completion(.failure(.networkError(error.localizedDescription)))
-            }
-        }
-    }
-
-    /// Loads draw results from Back4App filtered by question.
-    /// - Parameters:
-    ///   - question: The `Pointer<Question>` representing the current question.
-    ///   - completion: A closure to handle the result of the load operation.
-    func loadDrawResults(for question: Pointer<Question>, completion: @escaping (Result<[DrawResult], AppError>) -> Void) {
-        var query = DrawResult.query(QueryKey.question == question)
-        query = query.order([.descending(QueryKey.createdAt)])
-        query.find { result in
-            switch result {
-            case .success(let results):
-                completion(.success(results))
-            case .failure(let error):
-                completion(.failure(.networkError(error.localizedDescription)))
-            }
-        }
     }
 }
 

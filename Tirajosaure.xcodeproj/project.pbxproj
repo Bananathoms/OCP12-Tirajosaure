@@ -71,6 +71,8 @@
 		DE8951B42C25E321002A6BBD /* CodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B32C25E321002A6BBD /* CodingKeys.swift */; };
 		DE8951B62C25E770002A6BBD /* VoidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B52C25E770002A6BBD /* VoidResponse.swift */; };
 		DE8951BA2C25F8A3002A6BBD /* SaveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B92C25F8A3002A6BBD /* SaveResponse.swift */; };
+		DE8951BC2C26245D002A6BBD /* Extension+ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951BB2C26245D002A6BBD /* Extension+ApiService.swift */; };
+		DE8951C02C262B20002A6BBD /* FormatConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951BF2C262B20002A6BBD /* FormatConstants.swift */; };
 		DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */; };
 		DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F52C1F02E90009B86A /* TabItem.swift */; };
 		DE96D4FA2C1F069B0009B86A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F92C1F069B0009B86A /* QuestionItem.swift */; };
@@ -168,6 +170,8 @@
 		DE8951B32C25E321002A6BBD /* CodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingKeys.swift; sourceTree = "<group>"; };
 		DE8951B52C25E770002A6BBD /* VoidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResponse.swift; sourceTree = "<group>"; };
 		DE8951B92C25F8A3002A6BBD /* SaveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveResponse.swift; sourceTree = "<group>"; };
+		DE8951BB2C26245D002A6BBD /* Extension+ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ApiService.swift"; sourceTree = "<group>"; };
+		DE8951BF2C262B20002A6BBD /* FormatConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatConstants.swift; sourceTree = "<group>"; };
 		DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		DE96D4F52C1F02E90009B86A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		DE96D4F92C1F069B0009B86A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
@@ -365,6 +369,7 @@
 				DE6077EA2C1C990300AA2A0A /* UserDefaultsKeys.swift */,
 				DE6077F02C1C9EF700AA2A0A /* IconNames.swift */,
 				DE6077E82C1C97B500AA2A0A /* MixpanelEvent.swift */,
+				DE8951BF2C262B20002A6BBD /* FormatConstants.swift */,
 				DE6077E12C1BB29300AA2A0A /* LocalizedString.swift */,
 				DE6077DF2C1BAFB900AA2A0A /* ErrorMessage.swift */,
 				DE6736AF2C107A28001BEB56 /* AppError.swift */,
@@ -391,6 +396,7 @@
 				DE67368E2C0FF291001BEB56 /* Extension+Font.swift */,
 				DE2EEF732C12A93F002E4E60 /* Extension+Date.swift */,
 				DE96D50D2C20814B0009B86A /* Extension+Collection.swift */,
+				DE8951BB2C26245D002A6BBD /* Extension+ApiService.swift */,
 				DE2EEF6A2C120F3C002E4E60 /* Extension+Notification.swift */,
 				DE6736A52C0FF8A2001BEB56 /* Extension+SwiftEntryKit.swift */,
 				DE6736922C0FF2EA001BEB56 /* Extension+View.swift */,
@@ -766,6 +772,7 @@
 				DE96D51A2C22004B0009B86A /* CustomHeader.swift in Sources */,
 				DE6077D62C17C3BC00AA2A0A /* PasswordResetController.swift in Sources */,
 				DE96D4FE2C1F0D3B0009B86A /* AddButton.swift in Sources */,
+				DE8951BC2C26245D002A6BBD /* Extension+ApiService.swift in Sources */,
 				DE8950F52C249D22002A6BBD /* QueryKey.swift in Sources */,
 				DE6077E22C1BB29300AA2A0A /* LocalizedString.swift in Sources */,
 				DE6736AA2C0FF9D9001BEB56 /* TextButton.swift in Sources */,
@@ -799,6 +806,7 @@
 				DE6736A42C0FF862001BEB56 /* SnackBarService.swift in Sources */,
 				DE8951B62C25E770002A6BBD /* VoidResponse.swift in Sources */,
 				DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */,
+				DE8951C02C262B20002A6BBD /* FormatConstants.swift in Sources */,
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
 				DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */,
 				DE8950CB2C234529002A6BBD /* DrawResult.swift in Sources */,

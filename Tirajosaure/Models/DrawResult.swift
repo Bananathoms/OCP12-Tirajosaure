@@ -30,8 +30,29 @@ struct DrawResult: ParseObject, Identifiable, Codable {
 
     // Required initializer for conforming to ParseObject
     init() {
-        self.option = ""
+        self.option = DefaultValues.emptyString
         self.date = Date()
-        self.question = Pointer<Question>(objectId: "")
+        self.question = Pointer<Question>(objectId: DefaultValues.emptyString)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case objectId, createdAt, updatedAt, ACL, option, date, question
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        objectId = try container.decodeIfPresent(String.self, forKey: .objectId)
+        createdAt = try container.decodeIfPresent(Date.self, forKey: .createdAt)
+        updatedAt = try container.decodeIfPresent(Date.self, forKey: .updatedAt)
+        ACL = try container.decodeIfPresent(ParseACL.self, forKey: .ACL)
+        option = try container.decode(String.self, forKey: .option)
+        question = try container.decode(Pointer<Question>.self, forKey: .question)
+        
+        if let dateString = try container.decodeIfPresent([String: String].self, forKey: .date)?["iso"],
+           let dateValue = DateFormatter.iso8601Full.date(from: dateString) {
+            date = dateValue
+        } else {
+            date = try container.decode(Date.self, forKey: .date)
+        }
     }
 }

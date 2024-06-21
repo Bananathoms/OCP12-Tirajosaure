@@ -105,7 +105,9 @@ class DrawViewController: ObservableObject {
                     self.drawResults = drawResults
                 }
             case .failure(let error):
-                self.errorMessage = "\(ErrorMessage.failedToLoadQuestions.localized): \(error.localizedDescription)"
+                DispatchQueue.main.async {
+                    self.errorMessage = "\(ErrorMessage.failedToLoadQuestions.localized): \(error.localizedDescription)"
+                }
             }
         }
     }

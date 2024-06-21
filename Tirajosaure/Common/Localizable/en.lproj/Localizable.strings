@@ -49,6 +49,7 @@
 "failed_to_load_user_data" = "Failed to load user data";
 "failed_to_save_draw_result" = "Failed to save draw result";
 "failed_to_load_draw_results" = "Failed to load draw results";
+"invalid_question_id" = "Invalid Question ID";
 
 // Authentication Errors
 "authentication_error_message" = "Invalid username or password.";

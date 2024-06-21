@@ -48,6 +48,7 @@
 "failed_to_load_user_data" = "Échec du chargement des données utilisateur";
 "failed_to_save_draw_result" = "Échec de l'enregistrement du résultat du tirage";
 "failed_to_load_draw_results" = "Échec du chargement des résultats du tirage";
+"invalid_question_id" = "Question ID invalide";
 
 // Erreurs d'authentification
 "authentication_error_message" = "Nom d'utilisateur ou mot de passe invalide.";

@@ -13,4 +13,5 @@ enum DefaultValues {
     static let error = "error"
     static let user = "user"
     static let currentUser = "currentUser"
+    static let objectId = "objectId"
 }

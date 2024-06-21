@@ -22,8 +22,12 @@ enum ErrorMessage: String {
     case failedToLoadUserData = "failed_to_load_user_data"
     case failedToSaveDrawResult = "failed_to_save_draw_result"
     case failedToLoadDrawResults = "failed_to_load_draw_results"
-
+    case networkErrorMessage = "network_error_message"
+    case noResponseData = "no_response_data"
+    case invalidQuestionID = "invalid_question_id"
+    
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")
     }
 }
+
