@@ -67,6 +67,10 @@
 		DE8950F52C249D22002A6BBD /* QueryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950F42C249D22002A6BBD /* QueryKey.swift */; };
 		DE8951122C24D0BA002A6BBD /* MockDrawResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951112C24D0BA002A6BBD /* MockDrawResult.swift */; };
 		DE89515D2C24EA3B002A6BBD /* StatisticsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE89515C2C24EA3B002A6BBD /* StatisticsModelTests.swift */; };
+		DE8951B02C25E2BC002A6BBD /* ParseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951AF2C25E2BC002A6BBD /* ParseResponse.swift */; };
+		DE8951B42C25E321002A6BBD /* CodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B32C25E321002A6BBD /* CodingKeys.swift */; };
+		DE8951B62C25E770002A6BBD /* VoidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B52C25E770002A6BBD /* VoidResponse.swift */; };
+		DE8951BA2C25F8A3002A6BBD /* SaveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B92C25F8A3002A6BBD /* SaveResponse.swift */; };
 		DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */; };
 		DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F52C1F02E90009B86A /* TabItem.swift */; };
 		DE96D4FA2C1F069B0009B86A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F92C1F069B0009B86A /* QuestionItem.swift */; };
@@ -160,6 +164,10 @@
 		DE8950F42C249D22002A6BBD /* QueryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryKey.swift; sourceTree = "<group>"; };
 		DE8951112C24D0BA002A6BBD /* MockDrawResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDrawResult.swift; sourceTree = "<group>"; };
 		DE89515C2C24EA3B002A6BBD /* StatisticsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModelTests.swift; sourceTree = "<group>"; };
+		DE8951AF2C25E2BC002A6BBD /* ParseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseResponse.swift; sourceTree = "<group>"; };
+		DE8951B32C25E321002A6BBD /* CodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingKeys.swift; sourceTree = "<group>"; };
+		DE8951B52C25E770002A6BBD /* VoidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResponse.swift; sourceTree = "<group>"; };
+		DE8951B92C25F8A3002A6BBD /* SaveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveResponse.swift; sourceTree = "<group>"; };
 		DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		DE96D4F52C1F02E90009B86A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		DE96D4F92C1F069B0009B86A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
@@ -318,7 +326,10 @@
 				DE60782E2C1E2C0200AA2A0A /* Question.swift */,
 				DE96D4F52C1F02E90009B86A /* TabItem.swift */,
 				DE8950CA2C234529002A6BBD /* DrawResult.swift */,
+				DE8951AF2C25E2BC002A6BBD /* ParseResponse.swift */,
+				DE8951B92C25F8A3002A6BBD /* SaveResponse.swift */,
 				DE8950EB2C2464B4002A6BBD /* StatisticsModel.swift */,
+				DE8951B52C25E770002A6BBD /* VoidResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,6 +368,7 @@
 				DE6077E12C1BB29300AA2A0A /* LocalizedString.swift */,
 				DE6077DF2C1BAFB900AA2A0A /* ErrorMessage.swift */,
 				DE6736AF2C107A28001BEB56 /* AppError.swift */,
+				DE8951B32C25E321002A6BBD /* CodingKeys.swift */,
 				DE6077DB2C1BABC000AA2A0A /* CustomFont.swift */,
 			);
 			path = Enum;
@@ -761,12 +773,14 @@
 				DE96D5162C20F2BE0009B86A /* QuestionService.swift in Sources */,
 				DE6077F12C1C9EF700AA2A0A /* IconNames.swift in Sources */,
 				DE6077EB2C1C990300AA2A0A /* UserDefaultsKeys.swift in Sources */,
+				DE8951B42C25E321002A6BBD /* CodingKeys.swift in Sources */,
 				DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */,
 				DE6078332C1E2C7B00AA2A0A /* QuestionDetailView.swift in Sources */,
 				DE6077D42C17C39400AA2A0A /* PasswordResetView.swift in Sources */,
 				DE96D5092C1FA0CE0009B86A /* QuestionController.swift in Sources */,
 				DE67369B2C0FF5BF001BEB56 /* SignUpView.swift in Sources */,
 				DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */,
+				DE8951BA2C25F8A3002A6BBD /* SaveResponse.swift in Sources */,
 				DE6736862C0FF06A001BEB56 /* User.swift in Sources */,
 				DE6736882C0FF17C001BEB56 /* UserService.swift in Sources */,
 				DE8950F32C2492AD002A6BBD /* DrawResultService.swift in Sources */,
@@ -783,6 +797,7 @@
 				DE2EEF742C12A93F002E4E60 /* Extension+Date.swift in Sources */,
 				DE2EEF6B2C120F3C002E4E60 /* Extension+Notification.swift in Sources */,
 				DE6736A42C0FF862001BEB56 /* SnackBarService.swift in Sources */,
+				DE8951B62C25E770002A6BBD /* VoidResponse.swift in Sources */,
 				DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */,
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
 				DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */,
@@ -799,6 +814,7 @@
 				DE6077DE2C1BADF700AA2A0A /* ApiConstants.swift in Sources */,
 				DECEFFCF2C0CCC7700A9B894 /* MixpanelConfig.swift in Sources */,
 				DE67368B2C0FF1DD001BEB56 /* ConnexionState.swift in Sources */,
+				DE8951B02C25E2BC002A6BBD /* ParseResponse.swift in Sources */,
 				DE96D5022C1F96E00009B86A /* OptionsList.swift in Sources */,
 				DE6736A22C0FF78D001BEB56 /* ReusableTextField.swift in Sources */,
 				DE6736B02C107A28001BEB56 /* AppError.swift in Sources */,

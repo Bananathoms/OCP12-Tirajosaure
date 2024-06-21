@@ -10,9 +10,11 @@ import ParseSwift
 import SwiftUI
 import Alamofire
 
-/// A service class responsible for handling API requests related to user authentication and management.
+/// A service class responsible for handling API requests.
 class ApiService {
     static var current = ApiService()
+    
+    private init() {}
     
     /// Registers a new user with the provided details.
     /// - Parameters:
@@ -29,7 +31,7 @@ class ApiService {
         AF.request(ParseConfig.serverURL + APIConstants.Endpoints.signUp, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: getHeaders())
             .validate()
             .responseData { response in
-                self.handleAlamofireResponse(response, originalUser: user, onResult: onResult)
+                self.handleAlamofireResponse(response, ofType: User.self, originalUser: user, onResult: onResult)
             }
     }
     
@@ -46,7 +48,7 @@ class ApiService {
         AF.request(ParseConfig.serverURL + APIConstants.Endpoints.logIn, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: getHeaders())
             .validate()
             .responseData { response in
-                self.handleAlamofireResponse(response, originalUser: User(username: email, email: email, password: password), onResult: onResult)
+                self.handleAlamofireResponse(response, ofType: User.self, originalUser: User(username: email, email: email, password: password), onResult: onResult)
             }
     }
     
@@ -73,49 +75,123 @@ class ApiService {
             }
     }
     
+    /// Fetches questions associated with a specific user from the Parse server.
+    /// - Parameters:
+    ///   - userId: The ID of the user whose questions are to be fetched.
+    ///   - completion: A closure to handle the result of the fetch operation.
+    func fetchQuestions(for userId: String, completion: @escaping (Result<[Question], AppError>) -> Void) {
+        let url = "\(ParseConfig.serverURL)/classes/Question"
+        let parameters: Parameters = [
+            "where": "{\"user\":{\"__type\":\"Pointer\",\"className\":\"_User\",\"objectId\":\"\(userId)\"}}"
+        ]
+        let headers = getHeaders()
+        
+        AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: ParseResponse<Question>.self) { result in
+                switch result {
+                case .success(let parseResponse):
+                    completion(.success(parseResponse.results))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    /// Saves a `Question` object to the Parse server.
+    /// - Parameters:
+    ///   - question: The `Question` object to be saved.
+    ///   - completion: A closure to handle the result of the save operation.
+    func saveQuestion(_ question: Question, completion: @escaping (Result<Question, AppError>) -> Void) {
+        let url = "\(ParseConfig.serverURL)/classes/Question"
+        let headers = getHeaders()
+        var parameters: [String: Any] = [
+            "title": question.title,
+            "options": question.options,
+            "user": ["__type": "Pointer", "className": "_User", "objectId": question.user.objectId]
+        ]
+        if let objectId = question.objectId {
+            parameters["objectId"] = objectId
+        }
+        
+        let request: DataRequest
+        if question.objectId != nil {
+            request = AF.request("\(url)/\(question.objectId!)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        } else {
+            request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        }
+        
+        request.validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: Question.self, onResult: completion)
+        }
+    }
+    
+    /// Deletes a `Question` object from the Parse server.
+    /// - Parameters:
+    ///   - question: The `Question` object to be deleted.
+    ///   - completion: A closure to handle the result of the delete operation.
+    func deleteQuestion(_ question: Question, completion: @escaping (Result<Void, AppError>) -> Void) {
+        guard let objectId = question.objectId else {
+            completion(.failure(.validationError("Invalid Question ID")))
+            return
+        }
+        let url = "\(ParseConfig.serverURL)/classes/Question/\(objectId)"
+        let headers = getHeaders()
+        
+        AF.request(url, method: .delete, headers: headers).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: VoidResponse.self) { result in
+                switch result {
+                case .success:
+                    completion(.success(()))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
     /// Handles the response from an Alamofire request.
     /// - Parameters:
     ///   - response: The `AFDataResponse<Data>` object containing the response data.
-    ///   - originalUser: The original `User` object passed to the request.
-    ///   - onResult: A closure to handle the result of the response, returning a `Result` with either a `User` or an `AppError`.
-    func handleAlamofireResponse(_ response: AFDataResponse<Data>, originalUser: User, onResult: (Result<User, AppError>) -> Void) {
+    ///   - ofType: The type of the expected response.
+    ///   - originalUser: The original `User` object passed to the request (optional).
+    ///   - onResult: A closure to handle the result of the response.
+    func handleAlamofireResponse<T: Decodable>(_ response: AFDataResponse<Data>, ofType: T.Type, originalUser: User? = nil, onResult: @escaping (Result<T, AppError>) -> Void) {
         switch response.result {
         case .success(let data):
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-                var user = try decoder.decode(User.self, from: data)
-                user.firstName = user.firstName ?? originalUser.firstName
-                user.lastName = user.lastName ?? originalUser.lastName
-                onResult(.success(user))
+                let result = try decoder.decode(T.self, from: data)
+                if let user = result as? User, let originalUser = originalUser {
+                    var updatedUser = user
+                    updatedUser.firstName = user.firstName ?? originalUser.firstName
+                    updatedUser.lastName = user.lastName ?? originalUser.lastName
+                    onResult(.success(updatedUser as! T))
+                } else {
+                    onResult(.success(result))
+                }
             } catch {
                 let responseString = String(data: data, encoding: .utf8)
-                onResult(.failure(.networkError("\(ErrorMessage.failedToDecodeJSONResponse.rawValue): \(responseString ?? ErrorMessage.defaultMessage.rawValue)")))
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
             }
         case .failure(let error):
             if let data = response.data {
-                do {
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-                    let parseError = try decoder.decode(ParseError.self, from: data)
-                    onResult(.failure(.parseError(parseError.message)))
-                } catch {
-                    let responseString = String(data: data, encoding: .utf8)
-                    onResult(.failure(.networkError("\(ErrorMessage.failedToDecodeJSONResponse.rawValue): \(responseString ?? ErrorMessage.defaultMessage.rawValue)")))
-                }
+                let responseString = String(data: data, encoding: .utf8)
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
             } else {
-                onResult(.failure(.networkError(error.localizedDescription)))
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription)")))
             }
         }
     }
-
+    
     /// Returns the headers required for the API requests.
     /// - Returns: A `HTTPHeaders` object containing the necessary headers.
-    func getHeaders() -> HTTPHeaders {
+    private func getHeaders() -> HTTPHeaders {
         return [
             APIConstants.Headers.applicationID: ParseConfig.applicationID,
             APIConstants.Headers.clientKey: ParseConfig.clientKey,
-            APIConstants.Headers.contentType: ParseConfig.contentType
+            APIConstants.Headers.contentType: "application/json"
         ]
     }
     
@@ -151,3 +227,4 @@ class ApiService {
         }
     }
 }
+
