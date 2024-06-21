@@ -66,6 +66,7 @@
 		DE8950F32C2492AD002A6BBD /* DrawResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950F22C2492AD002A6BBD /* DrawResultService.swift */; };
 		DE8950F52C249D22002A6BBD /* QueryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950F42C249D22002A6BBD /* QueryKey.swift */; };
 		DE8951122C24D0BA002A6BBD /* MockDrawResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951112C24D0BA002A6BBD /* MockDrawResult.swift */; };
+		DE89515D2C24EA3B002A6BBD /* StatisticsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE89515C2C24EA3B002A6BBD /* StatisticsModelTests.swift */; };
 		DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */; };
 		DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F52C1F02E90009B86A /* TabItem.swift */; };
 		DE96D4FA2C1F069B0009B86A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F92C1F069B0009B86A /* QuestionItem.swift */; };
@@ -158,6 +159,7 @@
 		DE8950F22C2492AD002A6BBD /* DrawResultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResultService.swift; sourceTree = "<group>"; };
 		DE8950F42C249D22002A6BBD /* QueryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryKey.swift; sourceTree = "<group>"; };
 		DE8951112C24D0BA002A6BBD /* MockDrawResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDrawResult.swift; sourceTree = "<group>"; };
+		DE89515C2C24EA3B002A6BBD /* StatisticsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModelTests.swift; sourceTree = "<group>"; };
 		DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		DE96D4F52C1F02E90009B86A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		DE96D4F92C1F069B0009B86A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 			children = (
 				DE2EEF6C2C128076002E4E60 /* UserServiceTests.swift */,
 				DE60780D2C1CB92B00AA2A0A /* ApiServicesTests.swift */,
+				DE89515C2C24EA3B002A6BBD /* StatisticsModelTests.swift */,
 				DE6077E52C1C961F00AA2A0A /* Mock */,
 			);
 			path = TirajosaureTests;
@@ -819,6 +822,7 @@
 				DE2EEF6F2C12814F002E4E60 /* MockApiService.swift in Sources */,
 				DE60780E2C1CB92B00AA2A0A /* ApiServicesTests.swift in Sources */,
 				DE2EEF6D2C128076002E4E60 /* UserServiceTests.swift in Sources */,
+				DE89515D2C24EA3B002A6BBD /* StatisticsModelTests.swift in Sources */,
 				DE8951122C24D0BA002A6BBD /* MockDrawResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

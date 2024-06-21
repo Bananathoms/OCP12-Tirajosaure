@@ -165,7 +165,7 @@ class UserService: ObservableObject {
     
     /// Saves the user data to UserDefaults.
     /// - Parameter user: The user object to be saved.
-    private func saveUserData(user: User) {
+    func saveUserData(user: User) {
         do {
             let data = try JSONEncoder().encode(user)
             userDefaults.set(data, forKey: userKey)
@@ -175,7 +175,7 @@ class UserService: ObservableObject {
     }
     
     /// Loads the user data from UserDefaults.
-    private func loadUserData() {
+    func loadUserData() {
         if let data = userDefaults.data(forKey: userKey) {
             do {
                 let user = try JSONDecoder().decode(User.self, from: data)
@@ -188,13 +188,13 @@ class UserService: ObservableObject {
     }
     
     /// Clears the user data from UserDefaults.
-    private func clearUserDefaults() {
+    func clearUserDefaults() {
         userDefaults.removeObject(forKey: userKey)
     }
 
     /// Loads questions for the given user from the Parse server.
     /// - Parameter user: The user whose questions are to be loaded.
-    private func loadQuestions(for user: User) {
+    func loadQuestions(for user: User) {
         guard let userId = user.objectId else { return }
         QuestionService.shared.fetchQuestions(for: userId) { result in
             switch result {

@@ -12,15 +12,18 @@ import XCTest
 class UserServiceTests: XCTestCase {
     var userService: MockUserService!
     var mockApiService: MockApiService!
+    let testDefaults = UserDefaults(suiteName: "TestDefaults")
     
     override func setUp() {
         super.setUp()
+        testDefaults?.removePersistentDomain(forName: "TestDefaults")
         mockApiService = MockApiService()
         ApiService.current = mockApiService
         userService = MockUserService()
     }
     
     override func tearDown() {
+        testDefaults?.removePersistentDomain(forName: "TestDefaults")
         userService = nil
         mockApiService = nil
         super.tearDown()
@@ -118,19 +121,44 @@ class UserServiceTests: XCTestCase {
         mockApiService.signUpResult = .failure(.validationError(errorMessage))
         
         let expectation = self.expectation(description: "SignUpFailure")
+        
+        var observedState: ConnexionState?
+        let observation = userService.$connexionState.sink { state in
+            observedState = state
+            print("Observed State: \(state)")
+        }
+        
+        userService.user = nil
+        userService.connexionState = .splash
+        
         userService.signUp(email: "invalidemail", firstName: "Test", lastName: "User", password: "Password123") { result in
             switch result {
             case .success:
                 XCTFail("Expected failure, but got success")
             case .failure(let error):
-                XCTAssertNil(self.userService.user)
-                XCTAssertEqual(self.userService.connexionState, .splash)
+                print("User after failure: \(String(describing: self.userService.user))")
+                print("Connexion state after failure: \(self.userService.connexionState)")
+                
+                // Vérifier que l'utilisateur est nil
+                XCTAssertNil(self.userService.user, "Expected user to be nil, but got \(String(describing: self.userService.user))")
+                
+                // Vérifier que l'état de connexion est splash
+                XCTAssertEqual(observedState, .splash, "Expected connexionState to be 'splash', but got \(String(describing: observedState))")
+                
+                // Vérifier que le message d'erreur est correct
+                if case .validationError(let message) = error {
+                    XCTAssertEqual(message, errorMessage)
+                } else {
+                    XCTFail("Expected validationError, got \(error)")
+                }
             }
             expectation.fulfill()
         }
         
         waitForExpectations(timeout: 1, handler: nil)
+        observation.cancel()
     }
+
     
     func testSignUpValidationFailure() {
         let expectation = self.expectation(description: "SignUpValidationFailure")
@@ -177,6 +205,10 @@ class UserServiceTests: XCTestCase {
         mockApiService.logInResult = .failure(.authenticationError(errorMessage))
         
         let expectation = self.expectation(description: "LogInFailure")
+        
+        userService.user = nil
+        userService.connexionState = .splash
+        
         userService.logIn(email: "test@example.com", password: "WrongPassword") { result in
             switch result {
             case .success:
