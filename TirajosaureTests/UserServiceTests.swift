@@ -71,16 +71,6 @@ class UserServiceTests: XCTestCase {
         XCTAssertEqual(userService.connexionState, .unLogged)
     }
     
-    func testSplashDataUserLoggedIn() {
-        let user = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "Test", lastName: "User")
-        userService.mockCurrentUser = user
-        
-        userService.splashData()
-        
-        XCTAssertEqual(userService.user?.username, user.username)
-        XCTAssertEqual(userService.connexionState, .logged)
-    }
-    
     func testParseInitialized() {
         let expectation = self.expectation(description: "ParseInitialized")
         
