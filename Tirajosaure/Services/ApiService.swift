@@ -103,11 +103,13 @@ class ApiService {
     func saveQuestion(_ question: Question, completion: @escaping (Result<Question, AppError>) -> Void) {
         let url = ParseConfig.serverURL + APIConstants.Endpoints.questionsBase
         let headers = getHeaders()
+        
         var parameters: [String: Any] = [
             APIConstants.Parameters.title: question.title,
             APIConstants.Parameters.options: question.options,
             APIConstants.Parameters.user: pointerParams(className: APIConstants.Parameters.UserPointer().className, objectId: question.user.objectId)
         ]
+        
         if let objectId = question.objectId {
             parameters[DefaultValues.objectId] = objectId
         }
@@ -120,7 +122,28 @@ class ApiService {
         }
         
         request.validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: Question.self, onResult: completion)
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let saveResponse = try decoder.decode(SaveResponse.self, from: data)
+                    var savedQuestion = question
+                    savedQuestion.objectId = saveResponse.objectId
+                    savedQuestion.createdAt = DateFormatter.iso8601Full.date(from: saveResponse.createdAt)
+                    savedQuestion.updatedAt = saveResponse.updatedAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.updatedAt!) : nil
+                    completion(.success(savedQuestion))
+                } catch {
+                    let responseString = String(data: data, encoding: .utf8)
+                    completion(.failure(.networkError("\(ErrorMessage.unknownError.localized): \(responseString ?? "No response data")")))
+                }
+            case .failure(let error):
+                if let data = response.data {
+                    let responseString = String(data: data, encoding: .utf8)
+                    completion(.failure(.networkError("\(ErrorMessage.unknownError.localized): \(responseString ?? "No response data")")))
+                } else {
+                    completion(.failure(.networkError("\(ErrorMessage.unknownError.localized): \(error.localizedDescription)")))
+                }
+            }
         }
     }
     
