@@ -47,6 +47,7 @@ struct QuestionView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         CustomHeader(title: LocalizedString.questionsTitle.localized, showBackButton: false, fontSize: 36)
+                            .padding(.vertical)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
@@ -62,6 +63,8 @@ struct QuestionView: View {
                         }
                     }
                 }
+                .padding(.top)
+                .background(Color.skyBlue)
             }
             .cornerRadius(20, corners: [.topLeft, .topRight])
         }
