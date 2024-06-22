@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Tirajosaure
 
@@ -34,6 +34,23 @@
 "password_length_error" = "Password must be at least 8 characters long.";
 "password_uppercase_error" = "Password must contain at least one uppercase letter.";
 
+// Error Messages
+"failed_to_request_password_reset" = "Failed to request password reset";
+"failed_to_decode_json_response" = "Failed to decode JSON response";
+"unknown_error" = "An unknown error occurred";
+"default_message" = "No response string";
+"empty_question_title" = "The question title cannot be empty";
+"insufficient_options" = "A question must have at least two options";
+"failed_to_save_question" = "Failed to save question";
+"failed_to_update_question" = "Failed to update question";
+"failed_to_delete_question" = "Failed to delete question";
+"failed_to_load_questions" = "Failed to load questions";
+"failed_to_save_user_data" = "Failed to save user data";
+"failed_to_load_user_data" = "Failed to load user data";
+"failed_to_save_draw_result" = "Failed to save draw result";
+"failed_to_load_draw_results" = "Failed to load draw results";
+"invalid_question_id" = "Invalid Question ID";
+
 // Authentication Errors
 "authentication_error_message" = "Invalid username or password.";
 
@@ -50,3 +67,32 @@
 
 // Sign-Up Screen
 "signup_title" = "Sign Up";
+
+// HomeView
+"draw_tab" = "Draw";
+"teams_tab" = "Teams";
+"settings_tab" = "Settings";
+
+// Question
+"questions_title" = "Questions";
+"add_new_question" = "Add a new question";
+"edit_question" = "Edit question";
+"question_title_placeholder" = "Question Title";
+"enter_question_title" = "Enter the question title";
+"add_element" = "Add an element";
+"elements" = "Elements";
+"draw" = "Draw";
+
+// History and Statistics
+"history_title" = "History";
+"statistics_title" = "Statistics";
+"total_draw" = "Total draw";
+"option_label" = "Option";
+"count_label" = "Count";
+"draws_label" = "draws";
+"no_results_yet" = "No results yet";
+
+
+//Empty QuestionList
+"empty_questions_title" = "No questions available.";
+"empty_questions_message" = "Tap the button below to add your first question.";

@@ -5,6 +5,9 @@ DerivedData/
 
 # User-specific files
 xcuserdata/
+xcuserdata
+xcuserdata/*
+*.xcuserstate
 
 # Logs
 *.log

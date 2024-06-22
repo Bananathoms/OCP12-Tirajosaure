@@ -9,4 +9,9 @@ import Foundation
 
 enum DefaultValues {
     static let emptyString = ""
+    static let separator = ", "
+    static let error = "error"
+    static let user = "user"
+    static let currentUser = "currentUser"
+    static let objectId = "objectId"
 }

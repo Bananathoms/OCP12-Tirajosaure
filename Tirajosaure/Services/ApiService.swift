@@ -10,9 +10,11 @@ import ParseSwift
 import SwiftUI
 import Alamofire
 
-/// A service class responsible for handling API requests related to user authentication and management.
+/// A service class responsible for handling API requests.
 class ApiService {
     static var current = ApiService()
+    
+    init() {}
     
     /// Registers a new user with the provided details.
     /// - Parameters:
@@ -29,7 +31,7 @@ class ApiService {
         AF.request(ParseConfig.serverURL + APIConstants.Endpoints.signUp, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: getHeaders())
             .validate()
             .responseData { response in
-                self.handleAlamofireResponse(response, originalUser: user, onResult: onResult)
+                self.handleAlamofireResponse(response, ofType: User.self, originalUser: user, onResult: onResult)
             }
     }
     
@@ -46,10 +48,9 @@ class ApiService {
         AF.request(ParseConfig.serverURL + APIConstants.Endpoints.logIn, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: getHeaders())
             .validate()
             .responseData { response in
-                self.handleAlamofireResponse(response, originalUser: User(username: email, email: email, password: password), onResult: onResult)
+                self.handleAlamofireResponse(response, ofType: User.self, originalUser: User(username: email, email: email, password: password), onResult: onResult)
             }
     }
-    
     
     /// Requests a password reset for the user with the provided email.
     /// - Parameters:
@@ -65,51 +66,187 @@ class ApiService {
                 case .success:
                     onResult(.success(()))
                 case .failure(let error):
-                    if let data = response.data, let responseDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let errorMessage = responseDict["error"] as? String {
-                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.rawValue): \(errorMessage)")))
+                    if let data = response.data, let responseDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let errorMessage = responseDict[DefaultValues.error] as? String {
+                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.localized): \(errorMessage)")))
                     } else {
-                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.rawValue): \(error.localizedDescription)")))
+                        onResult(.failure(.networkError("\(ErrorMessage.failedToRequestPasswordReset.localized): \(error.localizedDescription)")))
                     }
                 }
             }
     }
     
+    /// Fetches questions associated with a specific user from the Parse server.
+    /// - Parameters:
+    ///   - userId: The ID of the user whose questions are to be fetched.
+    ///   - completion: A closure to handle the result of the fetch operation.
+    func fetchQuestions(for userId: String, completion: @escaping (Result<[Question], AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.questionsBase
+        let parameters = wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userId)
+        let headers = getHeaders()
+        
+        AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: ParseResponse<Question>.self) { result in
+                switch result {
+                case .success(let parseResponse):
+                    completion(.success(parseResponse.results))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    /// Saves a `Question` object to the Parse server.
+    /// - Parameters:
+    ///   - question: The `Question` object to be saved.
+    ///   - completion: A closure to handle the result of the save operation.
+    func saveQuestion(_ question: Question, completion: @escaping (Result<Question, AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.questionsBase
+        let headers = getHeaders()
+        
+        var parameters: [String: Any] = [
+            APIConstants.Parameters.title: question.title,
+            APIConstants.Parameters.options: question.options,
+            APIConstants.Parameters.user: pointerParams(className: APIConstants.Parameters.UserPointer().className, objectId: question.user.objectId)
+        ]
+        
+        if let objectId = question.objectId {
+            parameters[DefaultValues.objectId] = objectId
+        }
+        
+        let request: DataRequest
+        if let objectId = question.objectId {
+            request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        } else {
+            request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        }
+        
+        request.validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: SaveResponse.self) { result in
+                switch result {
+                case .success(let saveResponse):
+                    var savedQuestion = question
+                    savedQuestion.objectId = saveResponse.objectId
+                    savedQuestion.createdAt = DateFormatter.iso8601Full.date(from: saveResponse.createdAt)
+                    savedQuestion.updatedAt = saveResponse.updatedAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.updatedAt!) : nil
+                    completion(.success(savedQuestion))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+
+    
+    /// Deletes a `Question` object from the Parse server.
+    /// - Parameters:
+    ///   - question: The `Question` object to be deleted.
+    ///   - completion: A closure to handle the result of the delete operation.
+    func deleteQuestion(_ question: Question, completion: @escaping (Result<Void, AppError>) -> Void) {
+        guard let objectId = question.objectId else {
+            completion(.failure(.validationError(ErrorMessage.invalidQuestionID.localized)))
+            return
+        }
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.questionById.replacingOccurrences(of: FormatConstants.objectIdPlaceholder, with: objectId)
+        let headers = getHeaders()
+        
+        AF.request(url, method: .delete, headers: headers).validate().responseData { response in
+            if response.data?.isEmpty ?? true {
+                completion(.success(()))
+                return
+            }
+            self.handleAlamofireResponse(response, ofType: VoidResponse.self) { result in
+                switch result {
+                case .success:
+                    completion(.success(()))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    /// Saves a draw result to the Parse server.
+    /// - Parameters:
+    ///   - drawResult: The `DrawResult` object to be saved.
+    ///   - completion: A closure to handle the result of the save operation.
+    func saveDrawResult(_ drawResult: DrawResult, completion: @escaping (Result<DrawResult, AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.drawResultBase
+        let headers = getHeaders()
+        let parameters: [String: Any] = [
+            APIConstants.Parameters.option: drawResult.option,
+            APIConstants.Parameters.date: dateParameter(from: drawResult.date),
+            APIConstants.Parameters.question: pointerParams(className: APIConstants.Parameters.QuestionPointer().className, objectId: drawResult.question.objectId)
+         ]
+        
+        let request: DataRequest
+        if let objectId = drawResult.objectId {
+            request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        } else {
+            request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        }
+        
+        request.validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: DrawResult.self, onResult: completion)
+        }
+    }
+    
+    /// Loads draw results from the Parse server filtered by question.
+    /// - Parameters:
+    ///   - question: The `Pointer<Question>` representing the current question.
+    ///   - completion: A closure to handle the result of the load operation.
+    func loadDrawResults(for question: Pointer<Question>, completion: @escaping (Result<[DrawResult], AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.drawResultBase
+        let parameters = wherePointer(type: APIConstants.Parameters.QuestionPointer(), objectId: question.objectId)
+        let headers = getHeaders()
+        
+        AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: ParseResponse<DrawResult>.self) { result in
+                switch result {
+                case .success(let parseResponse):
+                    completion(.success(parseResponse.results))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
     /// Handles the response from an Alamofire request.
     /// - Parameters:
     ///   - response: The `AFDataResponse<Data>` object containing the response data.
-    ///   - originalUser: The original `User` object passed to the request.
-    ///   - onResult: A closure to handle the result of the response, returning a `Result` with either a `User` or an `AppError`.
-    private func handleAlamofireResponse(_ response: AFDataResponse<Data>, originalUser: User, onResult: (Result<User, AppError>) -> Void) {
+    ///   - ofType: The type of the expected response.
+    ///   - originalUser: The original `User` object passed to the request (optional).
+    ///   - onResult: A closure to handle the result of the response.
+    func handleAlamofireResponse<T: Decodable>(_ response: AFDataResponse<Data>, ofType: T.Type, originalUser: User? = nil, onResult: @escaping (Result<T, AppError>) -> Void) {
         switch response.result {
         case .success(let data):
-            print("Success response data: \(String(data: data, encoding: .utf8) ?? "nil")")
+            if data.isEmpty, T.self == VoidResponse.self {
+                onResult(.success(VoidResponse() as! T))
+                return
+            }
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-                var user = try decoder.decode(User.self, from: data)
-                user.firstName = user.firstName ?? originalUser.firstName
-                user.lastName = user.lastName ?? originalUser.lastName
-                onResult(.success(user))
+                let result = try decoder.decode(T.self, from: data)
+                if let user = result as? User, let originalUser = originalUser {
+                    var updatedUser = user
+                    updatedUser.firstName = user.firstName ?? originalUser.firstName
+                    updatedUser.lastName = user.lastName ?? originalUser.lastName
+                    onResult(.success(updatedUser as! T))
+                } else {
+                    onResult(.success(result))
+                }
             } catch {
                 let responseString = String(data: data, encoding: .utf8)
-                print("Decoding error: \(error), response string: \(responseString ?? "nil")")
-                onResult(.failure(.networkError("\(ErrorMessage.failedToDecodeJSONResponse.rawValue): \(responseString ?? ErrorMessage.defaultMessage.rawValue)")))
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
             }
         case .failure(let error):
-            print("Failure error: \(error)")
             if let data = response.data {
-                print("Failure response data: \(String(data: data, encoding: .utf8) ?? "nil")")
-                do {
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-                    let parseError = try decoder.decode(ParseError.self, from: data)
-                    onResult(.failure(.parseError(parseError.message)))
-                } catch {
-                    let responseString = String(data: data, encoding: .utf8)
-                    onResult(.failure(.networkError("\(ErrorMessage.failedToDecodeJSONResponse.rawValue): \(responseString ?? ErrorMessage.defaultMessage.rawValue)")))
-                }
+                let responseString = String(data: data, encoding: .utf8)
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
             } else {
-                onResult(.failure(.networkError(error.localizedDescription)))
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription)")))
             }
         }
     }
@@ -125,3 +262,4 @@ class ApiService {
         ]
     }
 }
+

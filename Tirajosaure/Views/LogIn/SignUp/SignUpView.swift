@@ -9,48 +9,52 @@ import SwiftUI
 
 struct SignUpView: View {
     @ObservedObject var controller: SignUpController
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    private func makeHeader() -> some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            HStack{
-                IconNames.back.systemImage
-                    .foregroundColor(.oxfordBlue)
-                    .padding(.leading, 20)
-                Text(LocalizedString.signupTitle.localized)
-                    .font(.customFont(.nunitoBold, size: 20))
-                    .foregroundColor(.oxfordBlue)
-                    .padding([.top, .bottom, .trailing], 20)
-                    .frame(alignment: .topLeading)
-                Spacer()
-            }
-        }
-    }
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack{
-            self.makeHeader()
-            ScrollView{
-                ReusableTextField(hint: $controller.firstName, icon: nil, title: LocalizedString.firstName.localized, fieldName: LocalizedString.firstName.localized).textContentType(.oneTimeCode)
-                ReusableTextField(hint: $controller.lastName, icon: nil, title: LocalizedString.lastName.localized, fieldName: LocalizedString.lastName.localized).textContentType(.oneTimeCode)
-                ReusableTextField(hint: $controller.email, icon: nil, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized).textContentType(.oneTimeCode)
-                    .autocapitalization(.none)
-                    .keyboardType(.emailAddress)
-                ReusableSecureField(hint: $controller.password, icon: nil, title: LocalizedString.password.localized, fieldName: LocalizedString.enterYourPassword.localized).textContentType(.oneTimeCode)
-                ReusableSecureField(hint: $controller.confirmPwd, icon: nil, title: LocalizedString.password.localized, fieldName: LocalizedString.confirmYourPassword.localized).textContentType(.oneTimeCode)
-                TextButton(text: LocalizedString.continueButton.localized, isLoading: controller.isLoading, onClick: {
-                    MixpanelEvent.signUpButtonClicked.trackEvent()
-                    controller.signUp()
-                }, buttonColor: .oxfordBlue, textColor: .antiqueWhite)
-                Spacer()
+        NavigationStack {
+            VStack {
+                ScrollView {
+                    ReusableTextField(hint: $controller.firstName, icon: nil, title: LocalizedString.firstName.localized, fieldName: LocalizedString.firstName.localized)
+                        .textContentType(.oneTimeCode)
+                    ReusableTextField(hint: $controller.lastName, icon: nil, title: LocalizedString.lastName.localized, fieldName: LocalizedString.lastName.localized)
+                        .textContentType(.oneTimeCode)
+                    ReusableTextField(hint: $controller.email, icon: nil, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized)
+                        .textContentType(.oneTimeCode)
+                        .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
+                    ReusableSecureField(hint: $controller.password, icon: nil, title: LocalizedString.password.localized, fieldName: LocalizedString.enterYourPassword.localized)
+                        .textContentType(.oneTimeCode)
+                    ReusableSecureField(hint: $controller.confirmPwd, icon: nil, title: LocalizedString.password.localized, fieldName: LocalizedString.confirmYourPassword.localized)
+                        .textContentType(.oneTimeCode)
+                    TextButton(
+                        text: LocalizedString.continueButton.localized,
+                        isLoading: controller.isLoading,
+                        onClick: {
+                            MixpanelEvent.signUpButtonClicked.trackEvent()
+                            controller.signUp()
+                        },
+                        buttonColor: .oxfordBlue,
+                        textColor: .antiqueWhite
+                    )
+                    Spacer()
+                }
+                .padding(.top, 10)
+                .background(Color.skyBlue)
             }
             .background(Color.skyBlue)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        CustomHeader(title: LocalizedString.signupTitle.localized)
+                    }
+                }
+            }
         }
-        .background(Color.skyBlue)
-        .ignoresSafeArea()
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden()
     }
 }
 
@@ -73,4 +77,3 @@ struct SignUpView_Previews: PreviewProvider {
         }
     }
 }
-

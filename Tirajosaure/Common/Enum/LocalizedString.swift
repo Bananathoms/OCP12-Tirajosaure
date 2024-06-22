@@ -52,4 +52,32 @@ enum LocalizedString: String {
 
     // Sign-Up Screen
     case signupTitle = "signup_title"
+    
+    // HomeView
+    case drawTab = "draw_tab"
+    case teamsTab = "teams_tab"
+    case settingsTab = "settings_tab"
+    
+    // Question
+    case questionsTitle = "questions_title"
+    case addNewQuestion = "add_new_question"
+    case editQuestion = "edit_question"
+    case questionTitlePlaceholder = "question_title_placeholder"
+    case enterQuestionTitle = "enter_question_title"
+    case addElement = "add_element"
+    case elements = "elements"
+    case draw = "draw"
+    
+    // History and Statistics
+    case historyTitle = "history_title"
+    case statisticsTitle = "statistics_title"
+    case totalDraw = "total_draw"
+    case optionLabel = "option_label"
+    case countLabel = "count_label"
+    case drawsLabel = "draws_label"
+    case noResultsYet = "no_results_yet"
+
+    //Empty QuestionList
+    case emptyQuestionsTitle = "empty_questions_title"
+    case emptyQuestionsMessage = "empty_questions_message"
 }

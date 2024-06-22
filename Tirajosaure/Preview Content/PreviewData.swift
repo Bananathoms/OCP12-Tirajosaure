@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import ParseSwift
 
 enum PreviewData {
     enum UserData {
@@ -53,6 +54,10 @@ enum PreviewData {
                   return ""
               }
           }
+        
+        static var sampleUserPointer: Pointer<User> {
+            return Pointer<User>(objectId: "sampleUserId")
+        }
       }
     
     enum SecureFieldData {

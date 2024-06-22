@@ -14,7 +14,7 @@ struct ReusableTextField: View {
     let fieldName: String
     
     var body: some View {
-        VStack(spacing: 0){
+        VStack{
             HStack{
                 Text("\(title)")
                     .font(.customFont(.nunitoRegular, size: 16))
@@ -24,7 +24,6 @@ struct ReusableTextField: View {
                     .frame(alignment: .topLeading)
                 Spacer()
             }
-            
             HStack{
                 if let iconUnwraped = icon {
                     Image(systemName: "\(iconUnwraped)")
@@ -40,7 +39,8 @@ struct ReusableTextField: View {
             .background(Color.antiqueWhite)
             .cornerRadius(15.0)
             .padding(.horizontal, 20)
-        }.padding(.vertical, 5)
+        }
+        .padding(.vertical, 5)
     }
 }
 

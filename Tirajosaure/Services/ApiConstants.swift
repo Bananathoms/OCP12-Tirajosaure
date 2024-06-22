@@ -13,14 +13,64 @@ struct APIConstants {
         static let signUp = "/users"
         static let logIn = "/login"
         static let requestPasswordReset = "/requestPasswordReset"
+        static let questionsBase = "/classes/Question"
+        static let questionById = "/classes/Question/{id}"
+        static let drawResultBase = "/classes/DrawResult"
     }
     
     struct Parameters {
+        //user
         static let username = "username"
         static let email = "email"
         static let password = "password"
         static let firstName = "firstName"
         static let lastName = "lastName"
+        //question
+        static let title = "title"
+        static let options = "options"
+        static let user = "user"
+        //drawResult
+        static let option = "option"
+        static let date = "date"
+        static let question = "question"
+        
+        protocol PointerType {
+            var className: String { get }
+            var parameterName: String { get }
+        }
+
+        struct UserPointer: PointerType {
+            let className = "_User"
+            let parameterName = "user"
+        }
+
+        struct QuestionPointer: PointerType {
+            let className = "Question"
+            let parameterName = "question"
+        }
+        
+        static func pointerParams(className: String, objectId: String) -> [String: Any] {
+            return [
+                "__type": "Pointer",
+                "className": className,
+                "objectId": objectId
+            ]
+        }
+        
+        static func wherePointer(type: PointerType, objectId: String) -> [String: Any] {
+            return [
+                "where": [
+                    type.parameterName: pointerParams(className: type.className, objectId: objectId)
+                ]
+            ]
+        }
+        
+        static func dateParameter(from date: Date) -> [String: Any] {
+            return [
+                "__type": "Date",
+                "iso": DateFormatter.iso8601Full.string(from: date)
+            ]
+        }
     }
     
     struct Headers {

@@ -26,7 +26,6 @@ struct ReusableSecureField: View {
                 
                 Spacer()
             }
-        
             HStack{
                 if let iconUnwraped = icon {
                     Image(systemName: "\(iconUnwraped)")
@@ -35,10 +34,7 @@ struct ReusableSecureField: View {
                         .padding(.leading, 20)
                         .frame(alignment: .topLeading)
                 }
-               
-
                 SecureField("\(fieldName)", text: $hint)
-                    
                     .padding()
                     .foregroundColor(.oxfordBlue)
 
@@ -46,7 +42,8 @@ struct ReusableSecureField: View {
             .background(Color.antiqueWhite)
             .cornerRadius(15.0)
             .padding(.horizontal, 20)
-        }.padding(.vertical, 5)
+        }
+        .padding(.vertical, 5)
     }
 }
 
