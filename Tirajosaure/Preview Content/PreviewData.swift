@@ -10,8 +10,6 @@ import SwiftUI
 import ParseSwift
 
 enum PreviewData {
-
-    
     enum UserData {
           case signUpSample
           case signInSample
