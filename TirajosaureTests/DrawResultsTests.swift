@@ -109,7 +109,7 @@ class DrawResultServiceTests: XCTestCase {
     }
     
     func testLoadDrawResultsSuccess() {
-        let dateString = DateFormatter.iso8601Full.string(from: Date(timeIntervalSince1970: 1592677854.503)) 
+        let dateString = DateFormatter.iso8601Full.string(from: Date(timeIntervalSince1970: 1592677854.503))
         stub(condition: isPath("/classes/DrawResult")) { _ in
             let stubData = """
             {

@@ -9,7 +9,7 @@ import Foundation
 
 /// An enumeration representing the different states of user connection.
 enum ConnexionState {
-    case splash 
+    case splash
     case unLogged
     case logged
 }
