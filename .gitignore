@@ -1,0 +1,23 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+
+# User-specific files
+xcuserdata/
+xcuserdata
+xcuserdata/*
+*.xcuserstate
+
+# Logs
+*.log
+
+# Temporary files
+*.swp
+*.lock
+*~
+
+# macOS files
+.DS_Store
+.AppleDouble
+.LSOverride

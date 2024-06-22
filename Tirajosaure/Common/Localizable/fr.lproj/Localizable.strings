@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Tirajosaure
 
@@ -33,7 +33,7 @@
 "password_length_error" = "Le mot de passe doit comporter au moins 8 caractères.";
 "password_uppercase_error" = "Le mot de passe doit contenir au moins une lettre majuscule.";
 
-// Message d'erreur 
+// Message d'erreur
 "failed_to_request_password_reset" = "Échec de la demande de réinitialisation du mot de passe";
 "failed_to_decode_json_response" = "Échec du décodage de la réponse JSON";
 "unknown_error" = "Une erreur inconnue est survenue";

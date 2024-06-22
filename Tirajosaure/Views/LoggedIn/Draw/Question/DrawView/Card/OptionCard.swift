@@ -14,7 +14,7 @@ struct OptionCard: View {
     var body: some View {
         Text(option)
             .foregroundColor(isSelected ? .oxfordBlue : .antiqueWhite)
-            .font(isSelected ? .title2 : .title3) 
+            .font(isSelected ? .title2 : .title3)
             .minimumScaleFactor(0.5)
             .lineLimit(1)
             .padding(5)
