@@ -18,19 +18,20 @@ struct TextButton: View {
     var body: some View {
         
         Button(action: {onClick()}) {
-
+            
             if isLoading {
                 ProgressView().tint(Color.oxfordBlue)
             }else {
                 Text("\(text)")
                     .font(.headline)
                     .foregroundColor(textColor)
-                    
+                
             }
-
-        }.frame(width: 170, height: 50)
-            .background(buttonColor)
-            .cornerRadius(40.0)
+            
+        }
+        .frame(width: 170, height: 50)
+        .background(buttonColor)
+        .cornerRadius(40.0)
         .padding(20)
         .disabled(isLoading)
     }

@@ -15,10 +15,15 @@ class UserService: ObservableObject {
     
     @Published var connexionState = ConnexionState.splash
     @Published var user: User?
-    
+    @Published var questions: [Question] = []
+
+    var userDefaults = UserDefaults.standard
+    let userKey = DefaultValues.currentUser
+
     /// Initializes the `UserService` and adds an observer for Parse initialization.
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(parseInitialized), name: .parseInitialized, object: nil)
+        self.loadUserData()
     }
     
     /// Called when Parse is initialized.
@@ -29,9 +34,8 @@ class UserService: ObservableObject {
     /// Loads the splash data and updates the connection state based on whether a user is logged in.
     func splashData() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            if let user = User.current {
-                self.user = user
-                self.connexionState = .logged
+            if let _ = self.userDefaults.object(forKey: self.userKey) {
+                self.loadUserData()
             } else {
                 self.connexionState = .unLogged
             }
@@ -43,6 +47,8 @@ class UserService: ObservableObject {
     func setUser(newUser: User) {
         self.user = newUser
         self.connexionState = .logged
+        self.saveUserData(user: newUser)
+        self.loadQuestions(for: newUser)
     }
     
     /// Logs out the current user and resets the service.
@@ -56,6 +62,7 @@ class UserService: ObservableObject {
     func resetService() {
         self.user = nil
         self.connexionState = .unLogged
+        self.clearUserDefaults()
     }
     
     /// Logs in a user with the provided email and password.
@@ -72,8 +79,7 @@ class UserService: ObservableObject {
         ApiService.current.logIn(email: email, password: password) { result in
             switch result {
             case .success(let user):
-                self.user = user
-                self.connexionState = .logged
+                self.setUser(newUser: user)
                 completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))
@@ -87,7 +93,7 @@ class UserService: ObservableObject {
     ///   - firstName: The first name of the user.
     ///   - lastName: The last name of the user.
     ///   - password: The password of the user.
-    ///   - completion: A closure to handle the result of the registration, returning a `Result` with either a `User` ou un `AppError`.
+    ///   - completion: A closure to handle the result of the registration, returning a `Result` with either a `User` or an `AppError`.
     func signUp(email: String, firstName: String, lastName: String, password: String, completion: @escaping (Result<User, AppError>) -> Void) {
         if let errorMessage = validateInputs(email: email, firstName: firstName, lastName: lastName, password: password) {
             completion(.failure(.validationError(errorMessage)))
@@ -98,8 +104,7 @@ class UserService: ObservableObject {
         ApiService.current.signUp(user: newUser) { result in
             switch result {
             case .success(let user):
-                self.user = user
-                self.connexionState = .logged
+                self.setUser(newUser: user)
                 completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))
@@ -110,7 +115,7 @@ class UserService: ObservableObject {
     /// Requests a password reset for the user with the provided email.
     /// - Parameters:
     ///   - email: The email address of the user.
-    ///   - completion: A closure to handle the result of the request, returning un `Result` avec either `Void` ou un `AppError`.
+    ///   - completion: A closure to handle the result of the request, returning a `Result` with either `Void` or an `AppError`.
     func requestPasswordReset(email: String, completion: @escaping (Result<Void, AppError>) -> Void) {
         ApiService.current.requestPasswordReset(email: email) { result in
             completion(result)
@@ -131,7 +136,7 @@ class UserService: ObservableObject {
         }
         return nil
     }
-
+    
     /// Validates the registration inputs.
     /// - Parameters:
     ///   - email: The email address of the user.
@@ -156,5 +161,50 @@ class UserService: ObservableObject {
             return LocalizedString.passwordUppercaseError.localized
         }
         return nil
+    }
+    
+    /// Saves the user data to UserDefaults.
+    /// - Parameter user: The user object to be saved.
+    func saveUserData(user: User) {
+        do {
+            let data = try JSONEncoder().encode(user)
+            userDefaults.set(data, forKey: userKey)
+        } catch {
+            SnackBarService.current.error("\(ErrorMessage.failedToSaveUserData.rawValue): \(error.localizedDescription)")
+        }
+    }
+    
+    /// Loads the user data from UserDefaults.
+    func loadUserData() {
+        if let data = userDefaults.data(forKey: userKey) {
+            do {
+                let user = try JSONDecoder().decode(User.self, from: data)
+                self.setUser(newUser: user)
+            } catch {
+                SnackBarService.current.error("\(ErrorMessage.failedToLoadUserData.rawValue): \(error.localizedDescription)")
+                self.resetService()
+            }
+        }
+    }
+    
+    /// Clears the user data from UserDefaults.
+    func clearUserDefaults() {
+        userDefaults.removeObject(forKey: userKey)
+    }
+
+    /// Loads questions for the given user from the Parse server.
+    /// - Parameter user: The user whose questions are to be loaded.
+    func loadQuestions(for user: User) {
+        guard let userId = user.objectId else { return }
+        QuestionService.shared.fetchQuestions(for: userId) { result in
+            switch result {
+            case .success(let questions):
+                DispatchQueue.main.async {
+                    self.questions = questions
+                }
+            case .failure(let error):
+                SnackBarService.current.error("\(ErrorMessage.failedToLoadQuestions.rawValue): \(error.localizedDescription)")
+            }
+        }
     }
 }

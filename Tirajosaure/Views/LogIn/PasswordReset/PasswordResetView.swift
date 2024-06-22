@@ -9,44 +9,42 @@ import SwiftUI
 
 struct PasswordResetView: View {
     @ObservedObject var controller: PasswordResetController
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    private func makeHeader() -> some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            HStack {
-                IconNames.back.systemImage
-                    .foregroundColor(.oxfordBlue)
-                    .padding(.leading, 20)
-                Text(LocalizedString.resetPasswordTitle.localized)
-                    .font(.customFont(.nunitoBold, size: 20))
-                    .foregroundColor(.oxfordBlue)
-                    .padding([.top, .bottom, .trailing], 20)
-                    .frame(alignment: .topLeading)
-                Spacer()
-            }
-        }
-    }
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack {
-            self.makeHeader()
-            ScrollView {
-                ReusableTextField(hint: $controller.email, icon: nil, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized)
-                    .textContentType(.oneTimeCode)
-                    .autocapitalization(.none) 
-                    .keyboardType(.emailAddress)
-                TextButton(text: LocalizedString.resetPasswordButton.localized, isLoading: controller.isLoading, onClick: {
-                    controller.requestPasswordReset()
-                }, buttonColor: .oxfordBlue, textColor: .antiqueWhite)
-                Spacer()
+        NavigationStack {
+            VStack {
+                ScrollView {
+                    ReusableTextField(hint: $controller.email, icon: nil, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized)
+                        .textContentType(.oneTimeCode)
+                        .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
+                    TextButton(
+                        text: LocalizedString.resetPasswordButton.localized,
+                        isLoading: controller.isLoading,
+                        onClick: {
+                            controller.requestPasswordReset()
+                        },
+                        buttonColor: .oxfordBlue,
+                        textColor: .antiqueWhite
+                    )
+                    Spacer()
+                }
             }
+            .padding(.top, 10)
             .background(Color.skyBlue)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        CustomHeader(title: LocalizedString.resetPasswordTitle.localized)
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden()
         }
-        .background(Color.skyBlue)
-        .ignoresSafeArea()
-        .navigationBarHidden(true)
     }
 }
 

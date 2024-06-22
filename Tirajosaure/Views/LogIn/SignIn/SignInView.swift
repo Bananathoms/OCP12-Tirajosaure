@@ -11,15 +11,49 @@ import Mixpanel
 struct SignInView: View {
     @ObservedObject var controller: SignInController
     
-    private func makeHeader() -> some View {
-        HStack{
-            Text(LocalizedString.signinTitle.localized)
-                .font(.customFont(.nunitoBold, size: 20))
-                .foregroundColor(.oxfordBlue)
-                .padding(.all, 20)
-                .frame(alignment: .topLeading)
-            Spacer()
+    var body: some View {
+        VStack {
+            IconNames.logo.image
+                .resizable()
+                .frame(width: 60, height: 60)
+                .padding(.top, 60)
+                .padding(.bottom, 10)
+            
+            NavigationStack {
+                VStack {
+                    ReusableTextField(hint: $controller.email, icon: IconNames.at.rawValue, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized)
+                        .textContentType(.oneTimeCode)
+                        .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
+                    ReusableSecureField(hint: $controller.password, icon: IconNames.lock.rawValue, title: LocalizedString.password.localized, fieldName: LocalizedString.enterYourPassword.localized)
+                        .textContentType(.oneTimeCode)
+                    forgotPassword()
+                    TextButton(
+                        text: LocalizedString.signinButton.localized,
+                        isLoading: controller.isLoading,
+                        onClick: {
+                            MixpanelEvent.loginButtonClicked.trackEvent()
+                            controller.signIn()
+                        },
+                        buttonColor: .oxfordBlue,
+                        textColor: .antiqueWhite
+                    )
+                    Spacer()
+                    newAccount()
+                }
+                .padding(.top, 10)
+                .background(Color.skyBlue)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        CustomHeader(title: LocalizedString.signinTitle.localized, showBackButton: false)
+                    }
+                }
+            }
+            .cornerRadius(20, corners: [.topLeft, .topRight])
         }
+        .background(Color.thulianPink)
+        .ignoresSafeArea()
     }
     
     private func newAccount() -> some View {
@@ -50,33 +84,6 @@ struct SignInView: View {
                     .padding(.bottom, 25)
             }
         }
-    }
-    
-    var body: some View {
-        VStack{
-            IconNames.logo.image
-                .resizable()
-                .frame(width: 60, height: 60)
-                .padding(.top, 60)
-                .padding(.bottom, 10)
-            NavigationView{
-                VStack{
-                    makeHeader()
-                    ReusableTextField(hint: $controller.email, icon: IconNames.at.rawValue, title: LocalizedString.email.localized, fieldName: LocalizedString.email.localized).textContentType(.oneTimeCode)
-                        .autocapitalization(.none)
-                        .keyboardType(.emailAddress)
-                    ReusableSecureField(hint: $controller.password, icon: IconNames.lock.rawValue, title: LocalizedString.password.localized, fieldName: LocalizedString.enterYourPassword.localized).textContentType(.oneTimeCode)
-                    forgotPassword()
-                    TextButton(text: LocalizedString.signinButton.localized, isLoading: controller.isLoading, onClick: {
-                        MixpanelEvent.loginButtonClicked.trackEvent()
-                        controller.signIn()
-                    }, buttonColor: .oxfordBlue, textColor: .white)
-                    Spacer()
-                    newAccount()
-                }.background(Color.skyBlue) .ignoresSafeArea()
-            }.navigationBarHidden(true).cornerRadius(20, corners: [.topLeft, .topRight])
-        }.background(Color.thulianPink)
-            .ignoresSafeArea()
     }
 }
 
