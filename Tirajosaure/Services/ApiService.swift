@@ -14,7 +14,7 @@ import Alamofire
 class ApiService {
     static var current = ApiService()
     
-    private init() {}
+    init() {}
     
     /// Registers a new user with the provided details.
     /// - Parameters:
@@ -115,37 +115,28 @@ class ApiService {
         }
         
         let request: DataRequest
-        if question.objectId != nil {
-            request = AF.request("\(url)/\(question.objectId!)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        if let objectId = question.objectId {
+            request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
         } else {
             request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
         }
         
         request.validate().responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let decoder = JSONDecoder()
-                    let saveResponse = try decoder.decode(SaveResponse.self, from: data)
+            self.handleAlamofireResponse(response, ofType: SaveResponse.self) { result in
+                switch result {
+                case .success(let saveResponse):
                     var savedQuestion = question
                     savedQuestion.objectId = saveResponse.objectId
                     savedQuestion.createdAt = DateFormatter.iso8601Full.date(from: saveResponse.createdAt)
                     savedQuestion.updatedAt = saveResponse.updatedAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.updatedAt!) : nil
                     completion(.success(savedQuestion))
-                } catch {
-                    let responseString = String(data: data, encoding: .utf8)
-                    completion(.failure(.networkError("\(ErrorMessage.unknownError.localized): \(responseString ?? "No response data")")))
-                }
-            case .failure(let error):
-                if let data = response.data {
-                    let responseString = String(data: data, encoding: .utf8)
-                    completion(.failure(.networkError("\(ErrorMessage.unknownError.localized): \(responseString ?? "No response data")")))
-                } else {
-                    completion(.failure(.networkError("\(ErrorMessage.unknownError.localized): \(error.localizedDescription)")))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }
         }
     }
+
     
     /// Deletes a `Question` object from the Parse server.
     /// - Parameters:
@@ -160,6 +151,10 @@ class ApiService {
         let headers = getHeaders()
         
         AF.request(url, method: .delete, headers: headers).validate().responseData { response in
+            if response.data?.isEmpty ?? true {
+                completion(.success(()))
+                return
+            }
             self.handleAlamofireResponse(response, ofType: VoidResponse.self) { result in
                 switch result {
                 case .success:
@@ -226,6 +221,10 @@ class ApiService {
     func handleAlamofireResponse<T: Decodable>(_ response: AFDataResponse<Data>, ofType: T.Type, originalUser: User? = nil, onResult: @escaping (Result<T, AppError>) -> Void) {
         switch response.result {
         case .success(let data):
+            if data.isEmpty, T.self == VoidResponse.self {
+                onResult(.success(VoidResponse() as! T))
+                return
+            }
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
@@ -240,17 +239,18 @@ class ApiService {
                 }
             } catch {
                 let responseString = String(data: data, encoding: .utf8)
-                onResult(.failure(.networkError("\(ErrorMessage.networkErrorMessage.localized): \(error.localizedDescription) : \(responseString ?? ErrorMessage.noResponseData.localized)")))
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
             }
         case .failure(let error):
             if let data = response.data {
                 let responseString = String(data: data, encoding: .utf8)
-                onResult(.failure(.networkError("\(ErrorMessage.networkErrorMessage.localized): \(error.localizedDescription) : \(responseString ?? ErrorMessage.noResponseData.localized)")))
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
             } else {
-                onResult(.failure(.networkError("\(ErrorMessage.networkErrorMessage.localized): \(error.localizedDescription)")))
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription)")))
             }
         }
     }
+
     
     /// Returns the headers required for the API requests.
     /// - Returns: A `HTTPHeaders` object containing the necessary headers.

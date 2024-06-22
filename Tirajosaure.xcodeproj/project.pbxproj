@@ -73,6 +73,8 @@
 		DE8951BA2C25F8A3002A6BBD /* SaveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B92C25F8A3002A6BBD /* SaveResponse.swift */; };
 		DE8951BC2C26245D002A6BBD /* Extension+ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951BB2C26245D002A6BBD /* Extension+ApiService.swift */; };
 		DE8951C02C262B20002A6BBD /* FormatConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951BF2C262B20002A6BBD /* FormatConstants.swift */; };
+		DE8951C22C26430F002A6BBD /* QuestionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951C12C26430F002A6BBD /* QuestionServiceTests.swift */; };
+		DE8951C62C2665F6002A6BBD /* DrawResultServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951C52C2665F6002A6BBD /* DrawResultServiceTests.swift */; };
 		DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */; };
 		DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F52C1F02E90009B86A /* TabItem.swift */; };
 		DE96D4FA2C1F069B0009B86A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F92C1F069B0009B86A /* QuestionItem.swift */; };
@@ -172,6 +174,8 @@
 		DE8951B92C25F8A3002A6BBD /* SaveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveResponse.swift; sourceTree = "<group>"; };
 		DE8951BB2C26245D002A6BBD /* Extension+ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ApiService.swift"; sourceTree = "<group>"; };
 		DE8951BF2C262B20002A6BBD /* FormatConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatConstants.swift; sourceTree = "<group>"; };
+		DE8951C12C26430F002A6BBD /* QuestionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionServiceTests.swift; sourceTree = "<group>"; };
+		DE8951C52C2665F6002A6BBD /* DrawResultServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResultServiceTests.swift; sourceTree = "<group>"; };
 		DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		DE96D4F52C1F02E90009B86A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		DE96D4F92C1F069B0009B86A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
@@ -511,6 +515,8 @@
 				DE2EEF6C2C128076002E4E60 /* UserServiceTests.swift */,
 				DE60780D2C1CB92B00AA2A0A /* ApiServicesTests.swift */,
 				DE89515C2C24EA3B002A6BBD /* StatisticsModelTests.swift */,
+				DE8951C12C26430F002A6BBD /* QuestionServiceTests.swift */,
+				DE8951C52C2665F6002A6BBD /* DrawResultServiceTests.swift */,
 				DE6077E52C1C961F00AA2A0A /* Mock */,
 			);
 			path = TirajosaureTests;
@@ -842,6 +848,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE8951C62C2665F6002A6BBD /* DrawResultServiceTests.swift in Sources */,
+				DE8951C22C26430F002A6BBD /* QuestionServiceTests.swift in Sources */,
 				DE6077E72C1C964C00AA2A0A /* MockUserService.swift in Sources */,
 				DE2EEF6F2C12814F002E4E60 /* MockApiService.swift in Sources */,
 				DE60780E2C1CB92B00AA2A0A /* ApiServicesTests.swift in Sources */,

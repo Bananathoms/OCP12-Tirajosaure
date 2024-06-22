@@ -9,14 +9,9 @@ import Foundation
 @testable import Tirajosaure
 
 class MockUserService: UserService {
-    var mockCurrentUser: User?
+    var splashDataCalled = false
 
     override func splashData() {
-        if let user = self.mockCurrentUser {
-            self.user = user
-            self.connexionState = .logged
-        } else {
-            self.connexionState = .unLogged
-        }
+        splashDataCalled = true
     }
 }

@@ -17,8 +17,8 @@ class UserService: ObservableObject {
     @Published var user: User?
     @Published var questions: [Question] = []
 
-    private let userDefaults = UserDefaults.standard
-    private let userKey = DefaultValues.currentUser
+    var userDefaults = UserDefaults.standard
+    let userKey = DefaultValues.currentUser
 
     /// Initializes the `UserService` and adds an observer for Parse initialization.
     init() {

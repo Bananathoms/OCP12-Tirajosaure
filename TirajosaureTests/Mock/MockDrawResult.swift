@@ -9,19 +9,16 @@ import Foundation
 import ParseSwift
 @testable import Tirajosaure
 
-class MockDrawResult {
+struct MockDrawResult {
     var drawResult: DrawResult
-    var saveCompletion: ((@escaping (Result<DrawResult, ParseError>) -> Void) -> Void)?
+    var saveCompletion: ((@escaping (Result<DrawResult, AppError>) -> Void) -> Void)?
     
-    init(drawResult: DrawResult) {
-        self.drawResult = drawResult
-    }
-    
-    func save(completion: @escaping (Result<DrawResult, ParseError>) -> Void) {
+    func save(completion: @escaping (Result<DrawResult, AppError>) -> Void) {
         if let saveCompletion = saveCompletion {
             saveCompletion(completion)
         } else {
-            completion(.failure(ParseError(code: .unknownError, message: "No saveCompletion closure defined")))
+            completion(.success(drawResult))
         }
     }
 }
+
