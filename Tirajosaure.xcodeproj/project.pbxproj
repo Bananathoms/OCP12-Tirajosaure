@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		306580229D58504903D424B6 /* Pods_Tirajosaure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21449DB63FCDCCDF2839BAE0 /* Pods_Tirajosaure.framework */; };
+		6D4608CCB30B2993D6486DC6 /* Pods_Tirajosaure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39EAF25766F871BA73FE487A /* Pods_Tirajosaure.framework */; };
 		DE2EEF6B2C120F3C002E4E60 /* Extension+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF6A2C120F3C002E4E60 /* Extension+Notification.swift */; };
 		DE2EEF6D2C128076002E4E60 /* UserServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF6C2C128076002E4E60 /* UserServiceTests.swift */; };
 		DE2EEF6F2C12814F002E4E60 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EEF6E2C12814F002E4E60 /* MockApiService.swift */; };
@@ -29,12 +29,6 @@
 		DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6077F52C1CA3A100AA2A0A /* PreviewDevices.swift */; };
 		DE6077F82C1CA5DC00AA2A0A /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6077F72C1CA5DC00AA2A0A /* PreviewData.swift */; };
 		DE60780E2C1CB92B00AA2A0A /* ApiServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60780D2C1CB92B00AA2A0A /* ApiServicesTests.swift */; };
-		DE60781C2C1DF4D600AA2A0A /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60781B2C1DF4D600AA2A0A /* QuestionView.swift */; };
-		DE60781F2C1DF51E00AA2A0A /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60781E2C1DF51D00AA2A0A /* TeamView.swift */; };
-		DE6078212C1E09EC00AA2A0A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078202C1E09EC00AA2A0A /* SettingsView.swift */; };
-		DE60782F2C1E2C0200AA2A0A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60782E2C1E2C0200AA2A0A /* Question.swift */; };
-		DE6078312C1E2C5100AA2A0A /* AddQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */; };
-		DE6078332C1E2C7B00AA2A0A /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */; };
 		DE6736712C0FD9B0001BEB56 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366D2C0FD9B0001BEB56 /* Nunito-Bold.ttf */; };
 		DE6736722C0FD9B0001BEB56 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366E2C0FD9B0001BEB56 /* Nunito-SemiBold.ttf */; };
 		DE6736732C0FD9B0001BEB56 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE67366F2C0FD9B0001BEB56 /* Nunito-Regular.ttf */; };
@@ -60,32 +54,6 @@
 		DE6736B22C107B9D001BEB56 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6736B12C107B9D001BEB56 /* SignInController.swift */; };
 		DE6736B42C1084AF001BEB56 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6736B32C1084AF001BEB56 /* SignUpController.swift */; };
 		DE6736B72C10BBD5001BEB56 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6736B62C10BBD5001BEB56 /* UserController.swift */; };
-		DE8950CB2C234529002A6BBD /* DrawResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950CA2C234529002A6BBD /* DrawResult.swift */; };
-		DE8950EC2C2464B4002A6BBD /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950EB2C2464B4002A6BBD /* StatisticsModel.swift */; };
-		DE8950F12C248926002A6BBD /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950F02C248926002A6BBD /* Format.swift */; };
-		DE8950F32C2492AD002A6BBD /* DrawResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950F22C2492AD002A6BBD /* DrawResultService.swift */; };
-		DE8950F52C249D22002A6BBD /* QueryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8950F42C249D22002A6BBD /* QueryKey.swift */; };
-		DE8951122C24D0BA002A6BBD /* MockDrawResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951112C24D0BA002A6BBD /* MockDrawResult.swift */; };
-		DE89515D2C24EA3B002A6BBD /* StatisticsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE89515C2C24EA3B002A6BBD /* StatisticsModelTests.swift */; };
-		DE8951B02C25E2BC002A6BBD /* ParseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951AF2C25E2BC002A6BBD /* ParseResponse.swift */; };
-		DE8951B42C25E321002A6BBD /* CodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B32C25E321002A6BBD /* CodingKeys.swift */; };
-		DE8951B62C25E770002A6BBD /* VoidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B52C25E770002A6BBD /* VoidResponse.swift */; };
-		DE8951BA2C25F8A3002A6BBD /* SaveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951B92C25F8A3002A6BBD /* SaveResponse.swift */; };
-		DE8951BC2C26245D002A6BBD /* Extension+ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951BB2C26245D002A6BBD /* Extension+ApiService.swift */; };
-		DE8951C02C262B20002A6BBD /* FormatConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951BF2C262B20002A6BBD /* FormatConstants.swift */; };
-		DE8951C22C26430F002A6BBD /* QuestionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951C12C26430F002A6BBD /* QuestionServiceTests.swift */; };
-		DE8951C62C2665F6002A6BBD /* DrawResultServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8951C52C2665F6002A6BBD /* DrawResultServiceTests.swift */; };
-		DE96D4F42C1F01B30009B86A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */; };
-		DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F52C1F02E90009B86A /* TabItem.swift */; };
-		DE96D4FA2C1F069B0009B86A /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4F92C1F069B0009B86A /* QuestionItem.swift */; };
-		DE96D4FE2C1F0D3B0009B86A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D4FD2C1F0D3B0009B86A /* AddButton.swift */; };
-		DE96D5022C1F96E00009B86A /* OptionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5012C1F96E00009B86A /* OptionsList.swift */; };
-		DE96D5052C1F9D8E0009B86A /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5042C1F9D8E0009B86A /* OptionsController.swift */; };
-		DE96D5092C1FA0CE0009B86A /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5082C1FA0CE0009B86A /* QuestionController.swift */; };
-		DE96D50E2C20814B0009B86A /* Extension+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D50D2C20814B0009B86A /* Extension+Collection.swift */; };
-		DE96D5162C20F2BE0009B86A /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5152C20F2BE0009B86A /* QuestionService.swift */; };
-		DE96D5182C2118E00009B86A /* QuestionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5172C2118E00009B86A /* QuestionEditView.swift */; };
-		DE96D51A2C22004B0009B86A /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D5192C22004B0009B86A /* CustomHeader.swift */; };
 		DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */; };
 		DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFA32C0CCAC200A9B894 /* ContentView.swift */; };
 		DECEFFA62C0CCAC400A9B894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECEFFA52C0CCAC400A9B894 /* Assets.xcassets */; };
@@ -146,9 +114,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21449DB63FCDCCDF2839BAE0 /* Pods_Tirajosaure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tirajosaure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4042CE6B9B9EDB77FC825064 /* Pods-Tirajosaure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.debug.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.debug.xcconfig"; sourceTree = "<group>"; };
-		9CE009D077A071F2EBE11127 /* Pods-Tirajosaure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.release.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.release.xcconfig"; sourceTree = "<group>"; };
+		39EAF25766F871BA73FE487A /* Pods_Tirajosaure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tirajosaure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F4333D0B6BD6F808E2A7BB4 /* Pods-Tirajosaure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.release.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.release.xcconfig"; sourceTree = "<group>"; };
+		6F19E293B5BE031A9A5FEBAC /* Pods-Tirajosaure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tirajosaure.debug.xcconfig"; path = "Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure.debug.xcconfig"; sourceTree = "<group>"; };
 		DE2EEF6A2C120F3C002E4E60 /* Extension+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Notification.swift"; sourceTree = "<group>"; };
 		DE2EEF6C2C128076002E4E60 /* UserServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceTests.swift; sourceTree = "<group>"; };
 		DE2EEF6E2C12814F002E4E60 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
@@ -171,12 +139,6 @@
 		DE6077F52C1CA3A100AA2A0A /* PreviewDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDevices.swift; sourceTree = "<group>"; };
 		DE6077F72C1CA5DC00AA2A0A /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		DE60780D2C1CB92B00AA2A0A /* ApiServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServicesTests.swift; sourceTree = "<group>"; };
-		DE60781B2C1DF4D600AA2A0A /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
-		DE60781E2C1DF51D00AA2A0A /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
-		DE6078202C1E09EC00AA2A0A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		DE60782E2C1E2C0200AA2A0A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionView.swift; sourceTree = "<group>"; };
-		DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
 		DE67366D2C0FD9B0001BEB56 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		DE67366E2C0FD9B0001BEB56 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE67366F2C0FD9B0001BEB56 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -202,32 +164,6 @@
 		DE6736B12C107B9D001BEB56 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		DE6736B32C1084AF001BEB56 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		DE6736B62C10BBD5001BEB56 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
-		DE8950CA2C234529002A6BBD /* DrawResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResult.swift; sourceTree = "<group>"; };
-		DE8950EB2C2464B4002A6BBD /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
-		DE8950F02C248926002A6BBD /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
-		DE8950F22C2492AD002A6BBD /* DrawResultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResultService.swift; sourceTree = "<group>"; };
-		DE8950F42C249D22002A6BBD /* QueryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryKey.swift; sourceTree = "<group>"; };
-		DE8951112C24D0BA002A6BBD /* MockDrawResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDrawResult.swift; sourceTree = "<group>"; };
-		DE89515C2C24EA3B002A6BBD /* StatisticsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModelTests.swift; sourceTree = "<group>"; };
-		DE8951AF2C25E2BC002A6BBD /* ParseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseResponse.swift; sourceTree = "<group>"; };
-		DE8951B32C25E321002A6BBD /* CodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingKeys.swift; sourceTree = "<group>"; };
-		DE8951B52C25E770002A6BBD /* VoidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResponse.swift; sourceTree = "<group>"; };
-		DE8951B92C25F8A3002A6BBD /* SaveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveResponse.swift; sourceTree = "<group>"; };
-		DE8951BB2C26245D002A6BBD /* Extension+ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ApiService.swift"; sourceTree = "<group>"; };
-		DE8951BF2C262B20002A6BBD /* FormatConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatConstants.swift; sourceTree = "<group>"; };
-		DE8951C12C26430F002A6BBD /* QuestionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionServiceTests.swift; sourceTree = "<group>"; };
-		DE8951C52C2665F6002A6BBD /* DrawResultServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResultServiceTests.swift; sourceTree = "<group>"; };
-		DE96D4F32C1F01B30009B86A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		DE96D4F52C1F02E90009B86A /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
-		DE96D4F92C1F069B0009B86A /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
-		DE96D4FD2C1F0D3B0009B86A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
-		DE96D5012C1F96E00009B86A /* OptionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsList.swift; sourceTree = "<group>"; };
-		DE96D5042C1F9D8E0009B86A /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
-		DE96D5082C1FA0CE0009B86A /* QuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
-		DE96D50D2C20814B0009B86A /* Extension+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Collection.swift"; sourceTree = "<group>"; };
-		DE96D5152C20F2BE0009B86A /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
-		DE96D5172C2118E00009B86A /* QuestionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionEditView.swift; sourceTree = "<group>"; };
-		DE96D5192C22004B0009B86A /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		DECEFF9E2C0CCAC200A9B894 /* Tirajosaure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tirajosaure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFA12C0CCAC200A9B894 /* TirajosaureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TirajosaureApp.swift; sourceTree = "<group>"; };
 		DECEFFA32C0CCAC200A9B894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -279,34 +215,12 @@
 		E9148EF52C2769AA00AC49B4 /* OptionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		DE8950DE2C23B86D002A6BBD /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Card/OptionCard.swift,
-				DrawView.swift,
-				Historic/HistoryContent.swift,
-				Historic/ResultCard.swift,
-				Statistics/StatisticsChartView.swift,
-				Statistics/StatisticsListView.swift,
-				Statistics/StatisticsResultCard.swift,
-				Statistics/ViewController/StatisticsController.swift,
-				ViewController/DrawViewController.swift,
-			);
-			target = DECEFF9D2C0CCAC200A9B894 /* Tirajosaure */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		DE8950DD2C23B86C002A6BBD /* DrawView */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (DE8950DE2C23B86D002A6BBD /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = DrawView; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		DECEFF9B2C0CCAC200A9B894 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				306580229D58504903D424B6 /* Pods_Tirajosaure.framework in Frameworks */,
+				6D4608CCB30B2993D6486DC6 /* Pods_Tirajosaure.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,8 +238,8 @@
 		974987061C1FBE1F4825AFC0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4042CE6B9B9EDB77FC825064 /* Pods-Tirajosaure.debug.xcconfig */,
-				9CE009D077A071F2EBE11127 /* Pods-Tirajosaure.release.xcconfig */,
+				6F19E293B5BE031A9A5FEBAC /* Pods-Tirajosaure.debug.xcconfig */,
+				4F4333D0B6BD6F808E2A7BB4 /* Pods-Tirajosaure.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -334,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2EEF702C1281E4002E4E60 /* ParseSwift.framework */,
-				21449DB63FCDCCDF2839BAE0 /* Pods_Tirajosaure.framework */,
+				39EAF25766F871BA73FE487A /* Pods_Tirajosaure.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -372,30 +286,6 @@
 				DE6077E62C1C964C00AA2A0A /* MockUserService.swift */,
 			);
 			path = Mock;
-			sourceTree = "<group>";
-		};
-		DE60781D2C1DF4FA00AA2A0A /* Draw */ = {
-			isa = PBXGroup;
-			children = (
-				DE96D5072C1FA0AE0009B86A /* Question */,
-			);
-			path = Draw;
-			sourceTree = "<group>";
-		};
-		DE6078342C1E2C8700AA2A0A /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				DE6078202C1E09EC00AA2A0A /* SettingsView.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		DE6078352C1E2C9500AA2A0A /* Team */ = {
-			isa = PBXGroup;
-			children = (
-				DE60781E2C1DF51D00AA2A0A /* TeamView.swift */,
-			);
-			path = Team;
 			sourceTree = "<group>";
 		};
 		DE67366C2C0FD9A1001BEB56 /* Font */ = {
@@ -450,8 +340,6 @@
 			children = (
 				DE67368A2C0FF1DD001BEB56 /* ConnexionState.swift */,
 				DE6077EC2C1C9A5800AA2A0A /* DefaultValues.swift */,
-				DE8950F42C249D22002A6BBD /* QueryKey.swift */,
-				DE8950F02C248926002A6BBD /* Format.swift */,
 				DE6077EA2C1C990300AA2A0A /* UserDefaultsKeys.swift */,
 				E9148EA22C2760B600AC49B4 /* QueryKey.swift */,
 				E9148EA42C2760CC00AC49B4 /* Format.swift */,
@@ -509,44 +397,6 @@
 				DE6736B62C10BBD5001BEB56 /* UserController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		DE96D5032C1F9D6C0009B86A /* OptionsList */ = {
-			isa = PBXGroup;
-			children = (
-				DE96D5062C1F9D9A0009B86A /* Controller */,
-				DE96D5012C1F96E00009B86A /* OptionsList.swift */,
-			);
-			path = OptionsList;
-			sourceTree = "<group>";
-		};
-		DE96D5062C1F9D9A0009B86A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				DE96D5042C1F9D8E0009B86A /* OptionsController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		DE96D5072C1FA0AE0009B86A /* Question */ = {
-			isa = PBXGroup;
-			children = (
-				DE96D50A2C1FA0D50009B86A /* ViewController */,
-				DE60781B2C1DF4D600AA2A0A /* QuestionView.swift */,
-				DE6078302C1E2C5100AA2A0A /* AddQuestionView.swift */,
-				DE6078322C1E2C7B00AA2A0A /* QuestionDetailView.swift */,
-				DE96D5172C2118E00009B86A /* QuestionEditView.swift */,
-				DE8950DD2C23B86C002A6BBD /* DrawView */,
-			);
-			path = Question;
-			sourceTree = "<group>";
-		};
-		DE96D50A2C1FA0D50009B86A /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DE96D5082C1FA0CE0009B86A /* QuestionController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		DECEFF952C0CCAC200A9B894 = {
@@ -832,11 +682,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DECEFFC22C0CCAC400A9B894 /* Build configuration list for PBXNativeTarget "Tirajosaure" */;
 			buildPhases = (
-				34C5CF2342B53C41BD60FEBB /* [CP] Check Pods Manifest.lock */,
+				5F2266F9273B6230174CEB58 /* [CP] Check Pods Manifest.lock */,
 				DECEFF9A2C0CCAC200A9B894 /* Sources */,
 				DECEFF9B2C0CCAC200A9B894 /* Frameworks */,
 				DECEFF9C2C0CCAC200A9B894 /* Resources */,
-				0D9EBF84FB9DD516BBFC7069 /* [CP] Embed Pods Frameworks */,
+				6E34C5A15286DC9CD8B2DB18 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -930,24 +780,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D9EBF84FB9DD516BBFC7069 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		34C5CF2342B53C41BD60FEBB /* [CP] Check Pods Manifest.lock */ = {
+		5F2266F9273B6230174CEB58 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -967,6 +800,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E34C5A15286DC9CD8B2DB18 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -998,13 +848,10 @@
 				DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */,
 				E9148EB52C2761D800AC49B4 /* QuestionService.swift in Sources */,
 				DE6077D42C17C39400AA2A0A /* PasswordResetView.swift in Sources */,
-				DE96D5092C1FA0CE0009B86A /* QuestionController.swift in Sources */,
 				DE67369B2C0FF5BF001BEB56 /* SignUpView.swift in Sources */,
 				DECEFFA42C0CCAC200A9B894 /* ContentView.swift in Sources */,
-				DE8951BA2C25F8A3002A6BBD /* SaveResponse.swift in Sources */,
 				DE6736862C0FF06A001BEB56 /* User.swift in Sources */,
 				DE6736882C0FF17C001BEB56 /* UserService.swift in Sources */,
-				DE8950F32C2492AD002A6BBD /* DrawResultService.swift in Sources */,
 				DE6736B72C10BBD5001BEB56 /* UserController.swift in Sources */,
 				DE6736932C0FF2EA001BEB56 /* Extension+View.swift in Sources */,
 				E9148EBB2C27626000AC49B4 /* Extension+ApiService.swift in Sources */,
@@ -1022,14 +869,10 @@
 				DE2EEF6B2C120F3C002E4E60 /* Extension+Notification.swift in Sources */,
 				E9148EA92C27610D00AC49B4 /* CodingKeys.swift in Sources */,
 				DE6736A42C0FF862001BEB56 /* SnackBarService.swift in Sources */,
-				DE8951B62C25E770002A6BBD /* VoidResponse.swift in Sources */,
 				DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */,
-				DE8951C02C262B20002A6BBD /* FormatConstants.swift in Sources */,
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
 				E9148E952C275FDC00AC49B4 /* Question.swift in Sources */,
 				DE6736992C0FF5AD001BEB56 /* SignInView.swift in Sources */,
-				DE60781C2C1DF4D600AA2A0A /* QuestionView.swift in Sources */,
-				DE96D5052C1F9D8E0009B86A /* OptionsController.swift in Sources */,
 				DE6077DC2C1BABC000AA2A0A /* CustomFont.swift in Sources */,
 				E9148EA52C2760CC00AC49B4 /* Format.swift in Sources */,
 				DE6736B22C107B9D001BEB56 /* SignInController.swift in Sources */,
@@ -1055,16 +898,10 @@
 				E9148EF32C27699000AC49B4 /* HistoryContent.swift in Sources */,
 				E9148E9B2C27603F00AC49B4 /* ParseResponse.swift in Sources */,
 				DE6736B02C107A28001BEB56 /* AppError.swift in Sources */,
-				DE8950EC2C2464B4002A6BBD /* StatisticsModel.swift in Sources */,
-				DE60782F2C1E2C0200AA2A0A /* Question.swift in Sources */,
-				DE96D5182C2118E00009B86A /* QuestionEditView.swift in Sources */,
-				DE6078312C1E2C5100AA2A0A /* AddQuestionView.swift in Sources */,
 				DE6077E02C1BAFB900AA2A0A /* ErrorMessage.swift in Sources */,
-				DE8950F12C248926002A6BBD /* Format.swift in Sources */,
 				DE6736AC2C0FFF10001BEB56 /* HomeView.swift in Sources */,
 				E9148EC22C27631900AC49B4 /* OptionController.swift in Sources */,
 				DE6736A82C0FF947001BEB56 /* ReusableSecureField.swift in Sources */,
-				DE96D4F62C1F02E90009B86A /* TabItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1072,8 +909,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE8951C62C2665F6002A6BBD /* DrawResultServiceTests.swift in Sources */,
-				DE8951C22C26430F002A6BBD /* QuestionServiceTests.swift in Sources */,
 				DE6077E72C1C964C00AA2A0A /* MockUserService.swift in Sources */,
 				DE2EEF6F2C12814F002E4E60 /* MockApiService.swift in Sources */,
 				DE60780E2C1CB92B00AA2A0A /* ApiServicesTests.swift in Sources */,
@@ -1231,7 +1066,7 @@
 		};
 		DECEFFC32C0CCAC400A9B894 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4042CE6B9B9EDB77FC825064 /* Pods-Tirajosaure.debug.xcconfig */;
+			baseConfigurationReference = 6F19E293B5BE031A9A5FEBAC /* Pods-Tirajosaure.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1262,7 +1097,7 @@
 		};
 		DECEFFC42C0CCAC400A9B894 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CE009D077A071F2EBE11127 /* Pods-Tirajosaure.release.xcconfig */;
+			baseConfigurationReference = 4F4333D0B6BD6F808E2A7BB4 /* Pods-Tirajosaure.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
