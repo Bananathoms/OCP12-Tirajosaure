@@ -60,6 +60,13 @@
 		DECEFFA92C0CCAC400A9B894 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECEFFA82C0CCAC400A9B894 /* Preview Assets.xcassets */; };
 		DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFCB2C0CCC5000A9B894 /* ParseConfig.swift */; };
 		DECEFFCF2C0CCC7700A9B894 /* MixpanelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFCE2C0CCC7700A9B894 /* MixpanelConfig.swift */; };
+		E9148E952C275FDC00AC49B4 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E942C275FDC00AC49B4 /* Question.swift */; };
+		E9148E972C27600B00AC49B4 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E962C27600B00AC49B4 /* TabItem.swift */; };
+		E9148E992C27602500AC49B4 /* DrawResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E982C27602500AC49B4 /* DrawResult.swift */; };
+		E9148E9B2C27603F00AC49B4 /* ParseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E9A2C27603F00AC49B4 /* ParseResponse.swift */; };
+		E9148E9D2C27605300AC49B4 /* SaveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E9C2C27605300AC49B4 /* SaveResponse.swift */; };
+		E9148E9F2C27606600AC49B4 /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E9E2C27606600AC49B4 /* StatisticsModel.swift */; };
+		E9148EA12C27607700AC49B4 /* VoidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EA02C27607700AC49B4 /* VoidResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +138,13 @@
 		DECEFFAE2C0CCAC400A9B894 /* TirajosaureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TirajosaureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFCB2C0CCC5000A9B894 /* ParseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConfig.swift; sourceTree = "<group>"; };
 		DECEFFCE2C0CCC7700A9B894 /* MixpanelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelConfig.swift; sourceTree = "<group>"; };
+		E9148E942C275FDC00AC49B4 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		E9148E962C27600B00AC49B4 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		E9148E982C27602500AC49B4 /* DrawResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResult.swift; sourceTree = "<group>"; };
+		E9148E9A2C27603F00AC49B4 /* ParseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseResponse.swift; sourceTree = "<group>"; };
+		E9148E9C2C27605300AC49B4 /* SaveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveResponse.swift; sourceTree = "<group>"; };
+		E9148E9E2C27606600AC49B4 /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
+		E9148EA02C27607700AC49B4 /* VoidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +234,13 @@
 			isa = PBXGroup;
 			children = (
 				DE6736852C0FF06A001BEB56 /* User.swift */,
+				E9148E942C275FDC00AC49B4 /* Question.swift */,
+				E9148E962C27600B00AC49B4 /* TabItem.swift */,
+				E9148E982C27602500AC49B4 /* DrawResult.swift */,
+				E9148E9A2C27603F00AC49B4 /* ParseResponse.swift */,
+				E9148E9C2C27605300AC49B4 /* SaveResponse.swift */,
+				E9148E9E2C27606600AC49B4 /* StatisticsModel.swift */,
+				E9148EA02C27607700AC49B4 /* VoidResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -600,10 +621,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE6736B42C1084AF001BEB56 /* SignUpController.swift in Sources */,
+				E9148E972C27600B00AC49B4 /* TabItem.swift in Sources */,
 				DE6077D62C17C3BC00AA2A0A /* PasswordResetController.swift in Sources */,
+				E9148E9D2C27605300AC49B4 /* SaveResponse.swift in Sources */,
 				DE6077E22C1BB29300AA2A0A /* LocalizedString.swift in Sources */,
 				DE6736AA2C0FF9D9001BEB56 /* TextButton.swift in Sources */,
 				DE6077ED2C1C9A5800AA2A0A /* DefaultValues.swift in Sources */,
+				E9148E992C27602500AC49B4 /* DrawResult.swift in Sources */,
 				DE6077F12C1C9EF700AA2A0A /* IconNames.swift in Sources */,
 				DE6077EB2C1C990300AA2A0A /* UserDefaultsKeys.swift in Sources */,
 				DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */,
@@ -619,11 +643,13 @@
 				DE6077F82C1CA5DC00AA2A0A /* PreviewData.swift in Sources */,
 				DE6077E42C1BB2B500AA2A0A /* Extension+LocalizedString.swift in Sources */,
 				DE67368F2C0FF291001BEB56 /* Extension+Font.swift in Sources */,
+				E9148E9F2C27606600AC49B4 /* StatisticsModel.swift in Sources */,
 				DE2EEF742C12A93F002E4E60 /* Extension+Date.swift in Sources */,
 				DE2EEF6B2C120F3C002E4E60 /* Extension+Notification.swift in Sources */,
 				DE6736A42C0FF862001BEB56 /* SnackBarService.swift in Sources */,
 				DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */,
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
+				E9148E952C275FDC00AC49B4 /* Question.swift in Sources */,
 				DE6736992C0FF5AD001BEB56 /* SignInView.swift in Sources */,
 				DE6077DC2C1BABC000AA2A0A /* CustomFont.swift in Sources */,
 				DE6736B22C107B9D001BEB56 /* SignInController.swift in Sources */,
@@ -632,8 +658,10 @@
 				DE6736A62C0FF8A2001BEB56 /* Extension+SwiftEntryKit.swift in Sources */,
 				DE6077DE2C1BADF700AA2A0A /* ApiConstants.swift in Sources */,
 				DECEFFCF2C0CCC7700A9B894 /* MixpanelConfig.swift in Sources */,
+				E9148EA12C27607700AC49B4 /* VoidResponse.swift in Sources */,
 				DE67368B2C0FF1DD001BEB56 /* ConnexionState.swift in Sources */,
 				DE6736A22C0FF78D001BEB56 /* ReusableTextField.swift in Sources */,
+				E9148E9B2C27603F00AC49B4 /* ParseResponse.swift in Sources */,
 				DE6736B02C107A28001BEB56 /* AppError.swift in Sources */,
 				DE6077E02C1BAFB900AA2A0A /* ErrorMessage.swift in Sources */,
 				DE6736AC2C0FFF10001BEB56 /* HomeView.swift in Sources */,
