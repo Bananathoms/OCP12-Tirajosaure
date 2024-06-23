@@ -10,19 +10,21 @@ import SwiftUI
 struct ReusableTextField: View {
     @Binding var hint: String
     let icon: String?
-    let title: String
+    let title: String?
     let fieldName: String
     
     var body: some View {
         VStack{
             HStack{
-                Text("\(title)")
-                    .font(.customFont(.nunitoRegular, size: 16))
-                    .foregroundColor(.oxfordBlue)
-                    .padding(.leading, 30)
-                    .padding(.bottom, 5)
-                    .frame(alignment: .topLeading)
-                Spacer()
+                if let title = title {
+                        Text("\(title)")
+                            .font(.customFont(.nunitoRegular, size: 16))
+                            .foregroundColor(.oxfordBlue)
+                            .padding(.leading, 30)
+                            .padding(.bottom, 5)
+                            .frame(alignment: .topLeading)
+                        Spacer()
+                    }
             }
             HStack{
                 if let iconUnwraped = icon {
