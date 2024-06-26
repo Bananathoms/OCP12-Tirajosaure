@@ -15,13 +15,13 @@ class EventController: ObservableObject {
     @Published var members: [Member] = []
     @Published var newEventTitle: String = DefaultValues.emptyString
     @Published var parametersController = ParametersListController(numberOfTeams: 0, teamNames: [])
-    
+
     init() {
         fetchAllData()
     }
 
     func fetchAllData() {
-        guard let currentUser = User.current else { return }
+        guard let currentUser = UserService.current.user else { return }
         let userPointer = Pointer<User>(objectId: currentUser.objectId ?? "")
 
         EventService.shared.fetchEvents(for: userPointer) { [weak self] result in
@@ -65,7 +65,7 @@ class EventController: ObservableObject {
     }
 
     @discardableResult
-    func addEvent() -> Bool {
+    func addEvent(parametersController: ParametersListController, optionsController: OptionsController) -> Bool {
         guard let userId = UserService.current.user?.objectId else {
             print("User ID not found")
             return false
@@ -91,6 +91,7 @@ class EventController: ObservableObject {
                     self?.events.append(savedEvent)
                     self?.newEventTitle = ""
                     self?.parametersController = ParametersListController(numberOfTeams: 0, teamNames: [])
+                    self?.saveTeamsAndMembers(for: savedEvent, parametersController: parametersController, optionsController: optionsController)
                     print("Event saved successfully: \(savedEvent)")
                 }
             case .failure(let error):
@@ -101,36 +102,79 @@ class EventController: ObservableObject {
         return true
     }
 
-    func updateEvent(_ event: Event, teams: [Team], equitableDistribution: Bool) {
+    func updateEvent(event: Event, parametersController: ParametersListController, optionsController: OptionsController) {
+        let teams = parametersController.teamNames.map { Team(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
+        let members = optionsController.options.map { Member(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
+        
         EventService.shared.saveEvent(event) { [weak self] result in
             switch result {
             case .success(let updatedEvent):
                 if let index = self?.events.firstIndex(where: { $0.objectId == updatedEvent.objectId }) {
                     self?.events[index] = updatedEvent
                 }
-                self?.updateTeams(for: updatedEvent, teams: teams)
+                self?.saveTeams(for: updatedEvent, teams: teams)
+                self?.saveMembers(for: updatedEvent, members: members)
+                print("Event updated successfully: \(updatedEvent)")
             case .failure(let error):
                 print("Failed to update event: \(error.localizedDescription)")
             }
         }
     }
 
-    private func updateTeams(for event: Event, teams: [Team]) {
+    func saveTeamsAndMembers(for event: Event, parametersController: ParametersListController, optionsController: OptionsController) {
+        let teams = parametersController.teamNames.map { Team(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
+        let members = optionsController.options.map { Member(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
+
+        print("saveTeamsAndMembers: Saving teams for event: \(event.objectId ?? "") with teams: \(teams.map { $0.name })")
+        saveTeams(for: event, teams: teams)
+
+        print("saveTeamsAndMembers: Saving members for event: \(event.objectId ?? "") with members: \(members.map { $0.name })")
+        saveMembers(for: event, members: members)
+    }
+
+    func saveTeams(for event: Event, teams: [Team]) {
+        print("saveTeams: Teams to save: \(teams.map { $0.name })")
+        let dispatchGroup = DispatchGroup()
+
         for team in teams {
-            var updatedTeam = team
-            updatedTeam.event = Pointer(objectId: event.objectId ?? "")
-            EventService.shared.saveTeam(updatedTeam) { [weak self] result in
+            dispatchGroup.enter()
+            print("saveTeams: Saving team: \(team.name)")
+            EventService.shared.saveTeam(team) { result in
                 switch result {
                 case .success(let savedTeam):
-                    if let index = self?.teams.firstIndex(where: { $0.objectId == savedTeam.objectId }) {
-                        self?.teams[index] = savedTeam
-                    } else {
-                        self?.teams.append(savedTeam)
-                    }
+                    print("saveTeams: Team saved successfully: \(savedTeam)")
                 case .failure(let error):
-                    print("Failed to update team: \(error.localizedDescription)")
+                    print("saveTeams: Failed to save team: \(error.localizedDescription)")
                 }
+                dispatchGroup.leave()
             }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            print("saveTeams: All teams saved.")
+        }
+    }
+
+    func saveMembers(for event: Event, members: [Member]) {
+        print("saveMembers: Members to save: \(members.map { $0.name })")
+        let dispatchGroup = DispatchGroup()
+
+        for member in members {
+            dispatchGroup.enter()
+            print("saveMembers: Saving member: \(member.name)")
+            EventService.shared.saveMember(member) { result in
+                switch result {
+                case .success(let savedMember):
+                    print("saveMembers: Member saved successfully: \(savedMember)")
+                case .failure(let error):
+                    print("saveMembers: Failed to save member: \(error.localizedDescription)")
+                }
+                dispatchGroup.leave()
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            print("saveMembers: All members saved.")
         }
     }
 
@@ -151,7 +195,7 @@ class EventController: ObservableObject {
     func moveEvent(from source: IndexSet, to destination: Int) {
         events.move(fromOffsets: source, toOffset: destination)
     }
-    
+
     func getTeams(for event: Event) -> [Team] {
         return teams.filter { $0.event.objectId == event.objectId }
     }

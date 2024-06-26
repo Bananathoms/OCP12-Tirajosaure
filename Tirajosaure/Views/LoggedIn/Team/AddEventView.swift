@@ -46,7 +46,7 @@ struct AddEventView: View {
                             OptionsListView(controller: optionsController)
                                 .frame(height: CGFloat(optionsController.options.count) * 44.0 + 50.0)
                         }
-                        
+
                         if let errorMessage = errorMessage {
                             Text(errorMessage)
                                 .foregroundColor(.red)
@@ -61,7 +61,7 @@ struct AddEventView: View {
                     isLoading: isLoading,
                     onClick: {
                         isLoading = true
-                        if eventController.addEvent() {
+                        if eventController.addEvent(parametersController: parametersController, optionsController: optionsController) {
                             isLoading = false
                             presentationMode.wrappedValue.dismiss()
                         } else {
@@ -88,62 +88,13 @@ struct AddEventView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
-
-
-    func saveTeams(for event: Event) {
-        var teams: [Team] = []
-        for teamName in parametersController.teamNames {
-            let team = Team(name: teamName, event: Pointer(objectId: event.objectId ?? ""))
-            teams.append(team)
-        }
-
-        let dispatchGroup = DispatchGroup()
-
-        for team in teams {
-            dispatchGroup.enter()
-            EventService.shared.saveTeam(team) { result in
-                switch result {
-                case .success(let savedTeam):
-                    print("Saved team: \(savedTeam.name)")
-                case .failure(let error):
-                    print("Failed to save team: \(error.localizedDescription)")
-                }
-                dispatchGroup.leave()
-            }
-        }
-
-        dispatchGroup.notify(queue: .main) {
-            self.saveMembers(for: event)
-        }
-    }
-
-    func saveMembers(for event: Event) {
-        let dispatchGroup = DispatchGroup()
-        let members = optionsController.options.map { Member(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
-
-        for member in members {
-            dispatchGroup.enter()
-            EventService.shared.saveMember(member) { result in
-                switch result {
-                case .success(let savedMember):
-                    print("Saved member: \(savedMember.name)")
-                case .failure(let error):
-                    print("Failed to save member: \(error.localizedDescription)")
-                }
-                dispatchGroup.leave()
-            }
-        }
-
-        dispatchGroup.notify(queue: .main) {
-            self.isLoading = false
-            self.presentationMode.wrappedValue.dismiss()
-        }
-    }
 }
+
+
 
 struct AddEventView_Previews: PreviewProvider {
     @StateObject static var controller = EventController()
-
+    
     static var previews: some View {
         AddEventView(eventController: controller)
             .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)

@@ -66,7 +66,7 @@ struct EventDetailView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        saveChanges()
+//                        saveChanges()
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         CustomHeader(title: event.title)
@@ -89,7 +89,7 @@ struct EventDetailView: View {
                 loadEventDetails()
             }
             .onDisappear {
-                saveChanges()
+//                saveChanges()
             }
             .onReceive(teamDistributionController.$teams) { newTeams in
                 self.teams = newTeams
@@ -97,28 +97,28 @@ struct EventDetailView: View {
         }
     }
     
-    private func saveChanges() {
-        event.equitableDistribution = parametersController.equitableDistribution
-        
-        for team in teams {
-            if let teamMembers = teamMembers[team.objectId ?? ""] {
-                for member in teamMembers {
-                    var updatedMember = member
-                    updatedMember.team = Pointer(objectId: team.objectId ?? "")
-                    EventService.shared.saveMember(updatedMember) { result in
-                        switch result {
-                        case .success:
-                            print("Member updated successfully")
-                        case .failure(let error):
-                            print("Failed to update member: \(error.localizedDescription)")
-                        }
-                    }
-                }
-            }
-        }
-        
-        eventController.updateEvent(event, teams: teams, equitableDistribution: event.equitableDistribution)
-    }
+//    private func saveChanges() {
+//        event.equitableDistribution = parametersController.equitableDistribution
+//        
+//        for team in teams {
+//            if let teamMembers = teamMembers[team.objectId ?? ""] {
+//                for member in teamMembers {
+//                    var updatedMember = member
+//                    updatedMember.team = Pointer(objectId: team.objectId ?? "")
+//                    EventService.shared.saveMember(updatedMember) { result in
+//                        switch result {
+//                        case .success:
+//                            print("Member updated successfully")
+//                        case .failure(let error):
+//                            print("Failed to update member: \(error.localizedDescription)")
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        
+//        eventController.updateEvent(event, teams: teams, equitableDistribution: event.equitableDistribution)
+//    }
 
     
     private func loadEventDetails() {

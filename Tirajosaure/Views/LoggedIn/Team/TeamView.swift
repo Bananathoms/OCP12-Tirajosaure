@@ -104,8 +104,12 @@ struct TeamView: View {
                 .listRowInsets(EdgeInsets())
                 .listRowBackground(Color.antiqueWhite)
             }
-            .onDelete(perform: eventController.removeEvent)
-            .onMove(perform: eventController.moveEvent)
+            .onDelete { indexSet in
+                eventController.removeEvent(at: indexSet)
+            }
+            .onMove { source, destination in
+                eventController.moveEvent(from: source, to: destination)
+            }
         }
         .contentMargins(.top, 24)
         .environment(\.editMode, .constant(isEditing ? .active : .inactive))

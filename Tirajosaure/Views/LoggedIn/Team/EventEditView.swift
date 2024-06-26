@@ -59,7 +59,7 @@ struct EventEditView: View {
                     loadEventDetails()
                 }
                 .onDisappear {
-                    saveChanges()
+                    
                 }
             }
             .padding(.top)
@@ -68,7 +68,7 @@ struct EventEditView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        saveChanges()
+                        
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         CustomHeader(title: "Modifier un évènement")
@@ -104,35 +104,7 @@ struct EventEditView: View {
         }
     }
 
-    private func saveChanges() {
-        let eventPointer = Pointer<Event>(objectId: event.objectId ?? "")
-        let updatedMembers = optionsController.options.map { Member(name: $0, event: eventPointer) }
-        updatedMembers.forEach { member in
-            EventService.shared.saveMember(member) { result in
-                switch result {
-                case .success:
-                    print("Member saved successfully")
-                case .failure(let error):
-                    print("Failed to save member: \(error.localizedDescription)")
-                }
-            }
-        }
 
-        let updatedTeams = parametersController.teamNames.map { Team(name: $0, event: eventPointer) }
-        updatedTeams.forEach { team in
-            EventService.shared.saveTeam(team) { result in
-                switch result {
-                case .success:
-                    print("Team saved successfully")
-                case .failure(let error):
-                    print("Failed to save team: \(error.localizedDescription)")
-                }
-            }
-        }
-
-        event.equitableDistribution = parametersController.equitableDistribution
-        eventController.updateEvent(event, teams: updatedTeams, equitableDistribution: event.equitableDistribution)
-    }
 }
 
 struct EventEditView_Previews: PreviewProvider {
