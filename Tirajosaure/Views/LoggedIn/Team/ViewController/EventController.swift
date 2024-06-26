@@ -13,7 +13,9 @@ class EventController: ObservableObject {
     @Published var events: [Event] = []
     @Published var teams: [Team] = []
     @Published var members: [Member] = []
-
+    @Published var newEventTitle: String = DefaultValues.emptyString
+    @Published var parametersController = ParametersListController(numberOfTeams: 0, teamNames: [])
+    
     init() {
         fetchAllData()
     }
@@ -62,15 +64,41 @@ class EventController: ObservableObject {
         }
     }
 
-    func addEvent(_ event: Event) {
-        EventService.shared.saveEvent(event) { [weak self] result in
+    @discardableResult
+    func addEvent() -> Bool {
+        guard let userId = UserService.current.user?.objectId else {
+            print("User ID not found")
+            return false
+        }
+
+        guard !newEventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            SnackBarService.current.error("Le titre de l'événement est vide")
+            print("Event title is empty")
+            return false
+        }
+
+        let userPointer = Pointer<User>(objectId: userId)
+        let newEvent = Event(
+            title: newEventTitle,
+            user: userPointer,
+            equitableDistribution: parametersController.equitableDistribution
+        )
+        print("Saving event: \(newEvent)")
+        EventService.shared.saveEvent(newEvent) { [weak self] result in
             switch result {
             case .success(let savedEvent):
-                self?.events.append(savedEvent)
+                DispatchQueue.main.async {
+                    self?.events.append(savedEvent)
+                    self?.newEventTitle = ""
+                    self?.parametersController = ParametersListController(numberOfTeams: 0, teamNames: [])
+                    print("Event saved successfully: \(savedEvent)")
+                }
             case .failure(let error):
-                print("Failed to add event: \(error.localizedDescription)")
+                SnackBarService.current.error("Échec de l'enregistrement de l'événement: \(error.localizedDescription)")
+                print("Failed to save event: \(error)")
             }
         }
+        return true
     }
 
     func updateEvent(_ event: Event, teams: [Team], equitableDistribution: Bool) {

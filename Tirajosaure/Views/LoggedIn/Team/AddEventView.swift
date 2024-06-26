@@ -11,7 +11,6 @@ import ParseSwift
 struct AddEventView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var eventController: EventController
-    @State private var eventName: String = ""
     @StateObject private var parametersController = ParametersListController(numberOfTeams: 2, teamNames: ["Équipe 1", "Équipe 2"])
     @StateObject private var optionsController = OptionsController()
     @State private var isLoading = false
@@ -27,7 +26,7 @@ struct AddEventView: View {
                             .padding(.leading, 20)
 
                         ReusableTextField(
-                            hint: $eventName,
+                            hint: $eventController.newEventTitle,
                             icon: IconNames.pencil.rawValue,
                             title: nil,
                             fieldName: "Nom de l'évènement"
@@ -58,10 +57,16 @@ struct AddEventView: View {
                 }
 
                 TextButton(
-                    text: "Ajouter l'évènement",
+                    text: "Ajouter l'événement",
                     isLoading: isLoading,
                     onClick: {
-                        addEvent()
+                        isLoading = true
+                        if eventController.addEvent() {
+                            isLoading = false
+                            presentationMode.wrappedValue.dismiss()
+                        } else {
+                            isLoading = false
+                        }
                     },
                     buttonColor: .antiqueWhite,
                     textColor: .oxfordBlue
@@ -83,23 +88,7 @@ struct AddEventView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
-    
-    func addEvent() {
-        isLoading = true
-        
-        let userPointer = Pointer<User>(objectId: User.current?.objectId ?? "")
-        let newEvent = Event(title: eventName, user: userPointer, equitableDistribution: parametersController.equitableDistribution)
-        
-        EventService.shared.saveEvent(newEvent) { result in
-            switch result {
-            case .success(let savedEvent):
-                self.saveTeams(for: savedEvent)
-            case .failure(let error):
-                self.isLoading = false
-                self.errorMessage = "Failed to save event: \(error.localizedDescription)"
-            }
-        }
-    }
+
 
     func saveTeams(for event: Event) {
         var teams: [Team] = []
