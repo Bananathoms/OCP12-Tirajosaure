@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct Team: Identifiable {
+struct Team: Identifiable, Equatable {
     var id = UUID()
     var name: String
     var members: [Member] = []
+
+    static func == (lhs: Team, rhs: Team) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.members == rhs.members
+    }
 }
-
-

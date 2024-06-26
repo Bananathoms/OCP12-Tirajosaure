@@ -8,150 +8,134 @@
 import SwiftUI
 
 struct EventDetailView: View {
+    @State var event: Event
+    @State var teams: [Team]
+    @State var equitableDistribution: Bool
     @ObservedObject var eventController: EventController
-    @State private var event: Event
-    @StateObject private var parametersController: ParametersListController
-    @StateObject private var optionsController = OptionsController()
-    @StateObject private var teamDistributionController: TeamDistributionController
-    @State private var isLoading = false
+    @StateObject var parametersController: ParametersListController
+    @StateObject var optionsController = OptionsController()
     @Environment(\.presentationMode) var presentationMode
-    @State private var eventName: String
-    @State private var navigateToResult = false
-    @State private var errorMessage: String?
-    
-    init(event: Event, eventController: EventController) {
-        self._event = State(initialValue: event)
-        self.eventController = eventController
-        self._eventName = State(initialValue: event.title)
-        let initialTeamNames = ["Équipe 1", "Équipe 2"]
-        let teamNames = event.teams.isEmpty ? initialTeamNames : event.teams.map { $0.name }
-        self._parametersController = StateObject(wrappedValue: ParametersListController(numberOfTeams: teamNames.count, teamNames: teamNames, equitableDistribution: event.equitableDistribution))
-           self._teamDistributionController = StateObject(wrappedValue: TeamDistributionController(teams: event.teams, membersToDistribute: event.members))
-       }
-    
+
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Nom de l'évènement")
-                            .font(.headline)
-                            .padding(.leading, 20)
-
-                        ReusableTextField(
-                            hint: $eventName,
-                            icon: IconNames.pencil.rawValue,
-                            title: nil,
-                            fieldName: eventName
-                        )
-
-                        Text("Paramètre de l'évènement")
-                            .font(.headline)
-                            .padding(.leading, 20)
-                        ParametersList(controller: parametersController)
-                            .frame(height: CGFloat(140.0 + Double(parametersController.numberOfTeams) * 44.0))
-
-                        VStack(alignment: .leading) {
-                            Text("Liste des membres")
-                                .font(.headline)
-                                .padding(.leading, 20)
-
-                            OptionsListView(controller: optionsController)
-                                .frame(height: CGFloat(optionsController.options.count) * 44.0 + 50.0)
-                        }
-                        
-                        if let errorMessage = errorMessage {
-                            Text(errorMessage)
-                                .foregroundColor(.red)
-                                .padding(.leading, 20)
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(teams) { team in
+                            VStack(alignment: .leading) {
+                                Text(team.name)
+                                    .font(.headline)
+                                    .foregroundColor(.oxfordBlue)
+                                ForEach(team.members) { member in
+                                    OptionCard(option: member.name, isSelected: false)
+                                }
+                            }
+                            .padding()
+                            .background(Color.antiqueWhite)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
                         }
                     }
-                    .padding(.bottom, 20)
+                    .padding()
                 }
+                .padding(.bottom, 20)
 
                 TextButton(
-                    text: "Effectuer le tirage",
-                    isLoading: isLoading,
+                    text: "Lancer le tirage",
+                    isLoading: false,
                     onClick: {
-                        performDraw()
+                        // Logique de tirage à ajouter ici
                     },
                     buttonColor: .antiqueWhite,
                     textColor: .oxfordBlue
                 )
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
-                .navigationDestination(isPresented: $navigateToResult) {
-                    TeamsResultView(
-                        teamDistributionController: teamDistributionController,
-                        equitableDistribution: parametersController.equitableDistribution
-                    )
-                }
             }
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
+                        saveChanges()
                         presentationMode.wrappedValue.dismiss()
                     }) {
-                        CustomHeader(title: event.title, showBackButton: true)
+                        CustomHeader(title: event.title)
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: EventEditView(event: $event, eventController: eventController)) {
+                        Image(systemName: IconNames.pencilCircleFill.rawValue)
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.oxfordBlue)
+                            .padding(.leading, 5)
+                            .padding(.top)
                     }
                 }
             }
+            .navigationBarBackButtonHidden(true)
+            .background(Color.skyBlue)
             .onAppear {
-                parametersController.updateTeamNames()
-                optionsController.options = event.members.map { $0.name }
+                loadEventDetails()
             }
             .onDisappear {
-                event.members = optionsController.options.map { Member(name: $0) }
+                saveChanges()
             }
-            .background(Color.skyBlue)
         }
-        .navigationBarBackButtonHidden(true)
     }
     
-    func performDraw() {
-        guard optionsController.options.count >= parametersController.numberOfTeams else {
-            SnackBarService.current.error("Le nombre de membres doit être au moins égal au nombre d'équipes.")
-            errorMessage = "Le nombre de membres doit être au moins égal au nombre d'équipes."
-            return
-        }
-
-        isLoading = true
-        teamDistributionController.createTeams(names: parametersController.teamNames)
-        
-        event.title = eventName
+    private func saveChanges() {
         event.members = optionsController.options.map { Member(name: $0) }
-        
-        eventController.updateEvent(event, teams: teamDistributionController.teams, equitableDistribution: parametersController.equitableDistribution)
-        
-        teamDistributionController.updateMembersToDistribute(event: event)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            isLoading = false
-            navigateToResult = true
-        }
+        event.teams = parametersController.teamNames.map { Team(name: $0, members: []) }
+        event.equitableDistribution = parametersController.equitableDistribution
+        eventController.updateEvent(event, teams: event.teams, equitableDistribution: event.equitableDistribution)
     }
-
+    
+    private func loadEventDetails() {
+        teams = event.teams
+        optionsController.options = event.members.map { $0.name }
+        parametersController.numberOfTeams = event.teams.count
+        parametersController.teamNames = event.teams.map { $0.name }
+    }
 }
 
 struct EventDetailView_Previews: PreviewProvider {
-    @StateObject static var controller = EventController()
+    @State static var event = Event(
+        title: "Tournoi de foot",
+        members: [Member(name: "Alice"), Member(name: "Bob"), Member(name: "Charlie"), Member(name: "David")],
+        teams: [Team(name: "Équipe 1", members: []), Team(name: "Équipe 2", members: [])],
+        equitableDistribution: true
+    )
 
     static var previews: some View {
-        Group {
-            EventDetailView(
-                event: Event(title: "Tournoi de foot", members: [Member(name: "Alice"), Member(name: "Bob"), Member(name: "Charlie"), Member(name: "David")]),
-                eventController: controller
+        EventDetailView(
+            event: event,
+            teams: event.teams,
+            equitableDistribution: event.equitableDistribution,
+            eventController: EventController(),
+            parametersController: ParametersListController(
+                numberOfTeams: event.teams.count,
+                teamNames: event.teams.map { $0.name }
             )
-            .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
-            .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
-
-            EventDetailView(
-                event: Event(title: "Tournoi de foot", members: [Member(name: "Alice"), Member(name: "Bob"), Member(name: "Charlie"), Member(name: "David")]),
-                eventController: controller
+        )
+        .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
+        .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
+        
+        EventDetailView(
+            event: event,
+            teams: event.teams,
+            equitableDistribution: event.equitableDistribution,
+            eventController: EventController(),
+            parametersController: ParametersListController(
+                numberOfTeams: event.teams.count,
+                teamNames: event.teams.map { $0.name }
             )
-            .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
-            .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
-        }
+        )
+        .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
+        .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }
 }

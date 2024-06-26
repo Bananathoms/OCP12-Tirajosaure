@@ -69,8 +69,6 @@
 		E909D6892C28D2A5004FC1C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D64D2C28D2A5004FC1C3 /* SettingsView.swift */; };
 		E909D68A2C28D2A5004FC1C3 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D64F2C28D2A5004FC1C3 /* EventController.swift */; };
 		E909D68B2C28D2A5004FC1C3 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6512C28D2A5004FC1C3 /* EventDetailView.swift */; };
-		E909D68C2C28D2A5004FC1C3 /* TeamDistributionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6522C28D2A5004FC1C3 /* TeamDistributionController.swift */; };
-		E909D68D2C28D2A5004FC1C3 /* TeamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6532C28D2A5004FC1C3 /* TeamResultView.swift */; };
 		E909D68E2C28D2A5004FC1C3 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6542C28D2A5004FC1C3 /* TeamView.swift */; };
 		E909D68F2C28D2A5004FC1C3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6562C28D2A5004FC1C3 /* HomeView.swift */; };
 		E909D6902C28D2A5004FC1C3 /* PasswordResetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6582C28D2A5004FC1C3 /* PasswordResetController.swift */; };
@@ -92,6 +90,8 @@
 		E909D6A02C28D2A5004FC1C3 /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6732C28D2A5004FC1C3 /* ReusableTextField.swift */; };
 		E909D6A12C28D2A5004FC1C3 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6742C28D2A5004FC1C3 /* TextButton.swift */; };
 		E909D6A22C28D2A5004FC1C3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6762C28D2A5004FC1C3 /* SplashView.swift */; };
+		E909D6A62C2B89AF004FC1C3 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6A52C2B89AF004FC1C3 /* AddEventView.swift */; };
+		E909D6A82C2B8CF2004FC1C3 /* EventEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6A72C2B8CF2004FC1C3 /* EventEditView.swift */; };
 		E9148E952C275FDC00AC49B4 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E942C275FDC00AC49B4 /* Question.swift */; };
 		E9148E972C27600B00AC49B4 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E962C27600B00AC49B4 /* TabItem.swift */; };
 		E9148E992C27602500AC49B4 /* DrawResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E982C27602500AC49B4 /* DrawResult.swift */; };
@@ -191,8 +191,6 @@
 		E909D64D2C28D2A5004FC1C3 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E909D64F2C28D2A5004FC1C3 /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		E909D6512C28D2A5004FC1C3 /* EventDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
-		E909D6522C28D2A5004FC1C3 /* TeamDistributionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDistributionController.swift; sourceTree = "<group>"; };
-		E909D6532C28D2A5004FC1C3 /* TeamResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamResultView.swift; sourceTree = "<group>"; };
 		E909D6542C28D2A5004FC1C3 /* TeamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		E909D6562C28D2A5004FC1C3 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E909D6582C28D2A5004FC1C3 /* PasswordResetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetController.swift; sourceTree = "<group>"; };
@@ -214,6 +212,8 @@
 		E909D6732C28D2A5004FC1C3 /* ReusableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableTextField.swift; sourceTree = "<group>"; };
 		E909D6742C28D2A5004FC1C3 /* TextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		E909D6762C28D2A5004FC1C3 /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		E909D6A52C2B89AF004FC1C3 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
+		E909D6A72C2B8CF2004FC1C3 /* EventEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditView.swift; sourceTree = "<group>"; };
 		E9148E942C275FDC00AC49B4 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		E9148E962C27600B00AC49B4 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		E9148E982C27602500AC49B4 /* DrawResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResult.swift; sourceTree = "<group>"; };
@@ -579,8 +579,8 @@
 			children = (
 				E909D6502C28D2A5004FC1C3 /* ViewController */,
 				E909D6512C28D2A5004FC1C3 /* EventDetailView.swift */,
-				E909D6522C28D2A5004FC1C3 /* TeamDistributionController.swift */,
-				E909D6532C28D2A5004FC1C3 /* TeamResultView.swift */,
+				E909D6A52C2B89AF004FC1C3 /* AddEventView.swift */,
+				E909D6A72C2B8CF2004FC1C3 /* EventEditView.swift */,
 				E909D6542C28D2A5004FC1C3 /* TeamView.swift */,
 			);
 			path = Team;
@@ -896,10 +896,8 @@
 				E909D68E2C28D2A5004FC1C3 /* TeamView.swift in Sources */,
 				E909D67D2C28D2A5004FC1C3 /* ResultCard.swift in Sources */,
 				E909D6952C28D2A5004FC1C3 /* SignUpView.swift in Sources */,
-				E909D68C2C28D2A5004FC1C3 /* TeamDistributionController.swift in Sources */,
 				E9148EA72C2760F100AC49B4 /* FormatConstants.swift in Sources */,
 				E909D67B2C28D2A5004FC1C3 /* OptionCard.swift in Sources */,
-				E909D68D2C28D2A5004FC1C3 /* TeamResultView.swift in Sources */,
 				DE6077F12C1C9EF700AA2A0A /* IconNames.swift in Sources */,
 				E909D6992C28D2A5004FC1C3 /* ParametersList.swift in Sources */,
 				DE6077EB2C1C990300AA2A0A /* UserDefaultsKeys.swift in Sources */,
@@ -937,6 +935,7 @@
 				E909D6792C28D2A5004FC1C3 /* UserController.swift in Sources */,
 				DE6736A42C0FF862001BEB56 /* SnackBarService.swift in Sources */,
 				E909D68A2C28D2A5004FC1C3 /* EventController.swift in Sources */,
+				E909D6A82C2B8CF2004FC1C3 /* EventEditView.swift in Sources */,
 				DE6077F62C1CA3A100AA2A0A /* PreviewDevices.swift in Sources */,
 				E909D69D2C28D2A5004FC1C3 /* EventItem.swift in Sources */,
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
@@ -950,6 +949,7 @@
 				DE6736952C0FF316001BEB56 /* Extension+String.swift in Sources */,
 				DE6736A62C0FF8A2001BEB56 /* Extension+SwiftEntryKit.swift in Sources */,
 				DE6077DE2C1BADF700AA2A0A /* ApiConstants.swift in Sources */,
+				E909D6A62C2B89AF004FC1C3 /* AddEventView.swift in Sources */,
 				E909D69A2C28D2A5004FC1C3 /* AddButton.swift in Sources */,
 				DECEFFCF2C0CCC7700A9B894 /* MixpanelConfig.swift in Sources */,
 				E9148EA12C27607700AC49B4 /* VoidResponse.swift in Sources */,

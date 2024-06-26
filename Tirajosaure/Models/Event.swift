@@ -7,10 +7,19 @@
 
 import Foundation
 
-struct Event: Identifiable {
-    let id: UUID = UUID()
+struct Event: Identifiable, Equatable {
+    let id = UUID()
     var title: String
     var members: [Member]
-    var teams: [Team] = [] // Ajouter cette ligne
-    var equitableDistribution: Bool = true // Ajouter cette ligne
+    var teams: [Team]
+    var equitableDistribution: Bool
+
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        return lhs.id == rhs.id &&
+               lhs.title == rhs.title &&
+               lhs.members == rhs.members &&
+               lhs.teams == rhs.teams &&
+               lhs.equitableDistribution == rhs.equitableDistribution
+    }
 }
+

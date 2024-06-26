@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Member: Identifiable {
+struct Member: Identifiable, Equatable {
     var id = UUID()
     var name: String
+
+    static func == (lhs: Member, rhs: Member) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name
+    }
 }

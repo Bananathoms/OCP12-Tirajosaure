@@ -44,7 +44,9 @@ struct EventItem_Previews: PreviewProvider {
         EventItem(
             event: Event(
                 title: "Tournoi de foot",
-                members: members
+                members: members,
+                teams: [Team(name: "Équipe 1", members: []), Team(name: "Équipe 2", members: [])],
+                equitableDistribution: true
             ),
             destination: { Text("Detail View") }
         )

@@ -10,61 +10,54 @@ import SwiftUI
 struct TeamView: View {
     @StateObject private var eventController = EventController()
     @State private var isEditing = false
-    @State private var eventCount = 1
 
     var body: some View {
-        VStack {
-            Text("")
-                .padding(.top, 24)
-            NavigationStack {
-                VStack {
-                    if eventController.events.isEmpty {
-                        emptyStateView
-                    } else {
-                        eventListView
-                    }
+        NavigationStack {
+            VStack {
+                if eventController.events.isEmpty {
+                    emptyStateView
+                } else {
+                    eventListView
+                }
 
-                    Button(action: {
-                        addNewEvent()
-                    }) {
-                        AddButton(
-                            text: "Créer un nouvel événement",
-                            image: IconNames.plusCircleFill.systemImage,
-                            buttonColor: .antiqueWhite,
-                            textColor: .oxfordBlue,
-                            width: 300,
-                            height: 50
-                        )
-                        .padding()
-                    }
+                NavigationLink(destination: AddEventView(eventController: eventController)) {
+                    AddButton(
+                        text: "Créer un nouvel événement",
+                        image: IconNames.plusCircleFill.systemImage,
+                        buttonColor: .antiqueWhite,
+                        textColor: .oxfordBlue,
+                        width: 300,
+                        height: 50
+                    )
+                    .padding()
                 }
-                .frame(maxWidth: .infinity)
-                .background(Color.skyBlue)
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        CustomHeader(title: "Événements", showBackButton: false, fontSize: 36)
-                            .padding(.vertical)
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            withAnimation {
-                                isEditing.toggle()
-                            }
-                        }) {
-                            Image(systemName: isEditing ? IconNames.checkmarkCircleFill.rawValue : IconNames.pencilCircleFill.rawValue)
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .padding(.top)
-                                .foregroundColor(.oxfordBlue)
-                        }
-                    }
-                }
-                .padding(.top)
-                .background(Color.skyBlue)
             }
-            .cornerRadius(20, corners: [.topLeft, .topRight])
+            .frame(maxWidth: .infinity)
+            .background(Color.skyBlue)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    CustomHeader(title: "Événements", showBackButton: false, fontSize: 36)
+                        .padding(.vertical)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        withAnimation {
+                            isEditing.toggle()
+                        }
+                    }) {
+                        Image(systemName: isEditing ? IconNames.checkmarkCircleFill.rawValue : IconNames.pencilCircleFill.rawValue)
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .padding(.top)
+                            .foregroundColor(.oxfordBlue)
+                    }
+                }
+            }
+            .padding(.top)
+            .background(Color.skyBlue)
         }
+        .cornerRadius(20, corners: [.topLeft, .topRight])
         .background(Color.thulianPink)
     }
 
@@ -90,7 +83,16 @@ struct TeamView: View {
                 EventItem(
                     event: event,
                     destination: {
-                        EventDetailView(event: event, eventController: eventController)
+                        EventDetailView(
+                            event: event,
+                            teams: event.teams,
+                            equitableDistribution: event.equitableDistribution,
+                            eventController: eventController,
+                            parametersController: ParametersListController(
+                                numberOfTeams: event.teams.count,
+                                teamNames: event.teams.map { $0.name }
+                            )
+                        )
                     }
                 )
                 .padding(.trailing)
@@ -103,13 +105,6 @@ struct TeamView: View {
         .contentMargins(.top, 24)
         .environment(\.editMode, .constant(isEditing ? .active : .inactive))
         .scrollContentBackground(.hidden)
-    }
-
-    private func addNewEvent() {
-        let newEventTitle = "Événement \(eventCount)"
-        let newEvent = Event(title: newEventTitle, members: [])
-        eventController.addEvent(newEvent)
-        eventCount += 1
     }
 }
 
