@@ -12,8 +12,9 @@ struct EventDetailView: View {
     @State var teams: [Team]
     @State var equitableDistribution: Bool
     @ObservedObject var eventController: EventController
+    @StateObject var teamDistributionController: TeamDistributionController
     @StateObject var parametersController: ParametersListController
-    @StateObject var optionsController = OptionsController()
+    @StateObject var optionsController: OptionsController
     @Environment(\.presentationMode) var presentationMode
 
     let columns = [
@@ -45,17 +46,22 @@ struct EventDetailView: View {
                 }
                 .padding(.bottom, 20)
 
-                TextButton(
-                    text: "Lancer le tirage",
-                    isLoading: false,
-                    onClick: {
-                        // Logique de tirage à ajouter ici
-                    },
-                    buttonColor: .antiqueWhite,
-                    textColor: .oxfordBlue
-                )
-                .padding(.horizontal, 20)
-                .padding(.bottom, 20)
+                if teamDistributionController.isLoading {
+                    ProgressView("Distribution en cours...")
+                        .padding(.bottom, 20)
+                } else {
+                    TextButton(
+                        text: "Lancer le tirage",
+                        isLoading: false,
+                        onClick: {
+                            startDistribution()
+                        },
+                        buttonColor: .antiqueWhite,
+                        textColor: .oxfordBlue
+                    )
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 20)
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -85,6 +91,9 @@ struct EventDetailView: View {
             .onDisappear {
                 saveChanges()
             }
+            .onReceive(teamDistributionController.$teams) { newTeams in
+                self.teams = newTeams
+            }
         }
     }
     
@@ -100,6 +109,12 @@ struct EventDetailView: View {
         optionsController.options = event.members.map { $0.name }
         parametersController.numberOfTeams = event.teams.count
         parametersController.teamNames = event.teams.map { $0.name }
+    }
+    
+    private func startDistribution() {
+        teamDistributionController.clearTeams()
+        teamDistributionController.updateMembersToDistribute(event: event)
+        teamDistributionController.startDistribution(equitableDistribution: event.equitableDistribution)
     }
 }
 
@@ -117,10 +132,15 @@ struct EventDetailView_Previews: PreviewProvider {
             teams: event.teams,
             equitableDistribution: event.equitableDistribution,
             eventController: EventController(),
+            teamDistributionController: TeamDistributionController(
+                teams: event.teams,
+                membersToDistribute: event.members
+            ),
             parametersController: ParametersListController(
                 numberOfTeams: event.teams.count,
                 teamNames: event.teams.map { $0.name }
-            )
+            ),
+            optionsController: OptionsController()
         )
         .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
         .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
@@ -130,10 +150,15 @@ struct EventDetailView_Previews: PreviewProvider {
             teams: event.teams,
             equitableDistribution: event.equitableDistribution,
             eventController: EventController(),
+            teamDistributionController: TeamDistributionController(
+                teams: event.teams,
+                membersToDistribute: event.members
+            ),
             parametersController: ParametersListController(
                 numberOfTeams: event.teams.count,
                 teamNames: event.teams.map { $0.name }
-            )
+            ),
+            optionsController: OptionsController()
         )
         .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
         .previewDisplayName(PreviewDevices.iPhoneSE.displayName)

@@ -88,10 +88,12 @@ struct TeamView: View {
                             teams: event.teams,
                             equitableDistribution: event.equitableDistribution,
                             eventController: eventController,
+                            teamDistributionController: TeamDistributionController(teams: event.teams, membersToDistribute: event.members),
                             parametersController: ParametersListController(
                                 numberOfTeams: event.teams.count,
                                 teamNames: event.teams.map { $0.name }
-                            )
+                            ),
+                            optionsController: OptionsController()
                         )
                     }
                 )

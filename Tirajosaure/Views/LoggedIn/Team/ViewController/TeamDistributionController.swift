@@ -20,26 +20,32 @@ class TeamDistributionController: ObservableObject {
     init(teams: [Team], membersToDistribute: [Member]) {
         self.teams = teams
         self.membersToDistribute = membersToDistribute
+        print("Initialized with teams: \(teams.map { $0.name }), members: \(membersToDistribute.map { $0.name })")
     }
 
     func createTeams(names: [String]) {
         self.teams = names.map { Team(name: $0, members: []) }
+        print("Created teams: \(names)")
     }
 
     func updateTeams(_ teams: [Team]) {
         self.teams = teams
+        print("Updated teams: \(teams.map { $0.name })")
     }
 
     func updateMembersToDistribute(event: Event) {
         self.membersToDistribute = event.members
+        print("Updated members to distribute: \(membersToDistribute.map { $0.name })")
     }
 
     func startDistribution(equitableDistribution: Bool) {
         guard !membersToDistribute.isEmpty else {
+            print("No members to distribute.")
             return
         }
         isLoading = true
         membersToDistribute.shuffle()
+        print("Shuffled members to distribute: \(membersToDistribute.map { $0.name })")
         isAnimating = true
         distributionIndex = 0
 
@@ -54,10 +60,15 @@ class TeamDistributionController: ObservableObject {
             timer = nil
             isAnimating = false
             isLoading = false
+            print("Distribution complete.")
             return
         }
 
-        currentMember = membersToDistribute[distributionIndex]
+        // Ensure we don't assign the same member twice in the same cycle
+        if currentMember == nil {
+            currentMember = membersToDistribute[distributionIndex]
+            print("Distributing member: \(currentMember?.name ?? "None")")
+        }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if let member = self.currentMember {
@@ -68,6 +79,7 @@ class TeamDistributionController: ObservableObject {
                     teamIndex = Int.random(in: 0..<self.teams.count)
                 }
                 self.teams[teamIndex].members.append(member)
+                print("Assigned \(member.name) to team \(self.teams[teamIndex].name)")
                 self.distributionIndex += 1
                 self.currentMember = nil
             }
@@ -78,10 +90,10 @@ class TeamDistributionController: ObservableObject {
         for index in teams.indices {
             teams[index].members.removeAll()
         }
+        print("Cleared all teams.")
     }
     
     func getTeams() -> [Team] {
         return teams
     }
 }
-
