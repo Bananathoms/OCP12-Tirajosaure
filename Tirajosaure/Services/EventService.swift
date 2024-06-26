@@ -50,4 +50,3 @@ class EventService {
         ApiService.current.deleteMember(member, completion: completion)
     }
 }
-

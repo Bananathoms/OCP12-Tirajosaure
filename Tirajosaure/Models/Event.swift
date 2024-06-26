@@ -6,20 +6,29 @@
 //
 
 import Foundation
+import ParseSwift
 
-struct Event: Identifiable, Equatable {
-    let id = UUID()
+struct Event: ParseObject {
+    var originalData: Data?
+
+    var objectId: String?
+    var createdAt: Date?
+    var updatedAt: Date?
+    var ACL: ParseACL?
+
     var title: String
-    var members: [Member]
-    var teams: [Team]
     var equitableDistribution: Bool
+    var user: Pointer<User>
 
-    static func == (lhs: Event, rhs: Event) -> Bool {
-        return lhs.id == rhs.id &&
-               lhs.title == rhs.title &&
-               lhs.members == rhs.members &&
-               lhs.teams == rhs.teams &&
-               lhs.equitableDistribution == rhs.equitableDistribution
+    init(title: String, user: Pointer<User>, equitableDistribution: Bool = true) {
+        self.title = title
+        self.user = user
+        self.equitableDistribution = equitableDistribution
+    }
+
+    init() {
+        self.title = ""
+        self.user = Pointer<User>(objectId: "")
+        self.equitableDistribution = true
     }
 }
-

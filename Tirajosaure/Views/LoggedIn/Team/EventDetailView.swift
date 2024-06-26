@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ParseSwift
 
 struct EventDetailView: View {
     @State var event: Event
@@ -16,6 +17,7 @@ struct EventDetailView: View {
     @StateObject var parametersController: ParametersListController
     @StateObject var optionsController: OptionsController
     @Environment(\.presentationMode) var presentationMode
+    @State private var teamMembers: [String: [Member]] = [:] 
 
     let columns = [
         GridItem(.flexible()),
@@ -32,8 +34,10 @@ struct EventDetailView: View {
                                 Text(team.name)
                                     .font(.headline)
                                     .foregroundColor(.oxfordBlue)
-                                ForEach(team.members) { member in
-                                    OptionCard(option: member.name, isSelected: false)
+                                if let members = teamMembers[team.objectId ?? ""] {
+                                    ForEach(members) { member in
+                                        OptionCard(option: member.name, isSelected: false)
+                                    }
                                 }
                             }
                             .padding()
@@ -46,22 +50,18 @@ struct EventDetailView: View {
                 }
                 .padding(.bottom, 20)
 
-                if teamDistributionController.isLoading {
-                    ProgressView("Distribution en cours...")
-                        .padding(.bottom, 20)
-                } else {
-                    TextButton(
-                        text: "Lancer le tirage",
-                        isLoading: false,
-                        onClick: {
-                            startDistribution()
-                        },
-                        buttonColor: .antiqueWhite,
-                        textColor: .oxfordBlue
-                    )
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 20)
-                }
+                TextButton(
+                    text: "Lancer le tirage",
+                    isLoading: teamDistributionController.isLoading,
+                    onClick: {
+                        startDistribution()
+                    },
+                    buttonColor: .antiqueWhite,
+                    textColor: .oxfordBlue
+                )
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -98,47 +98,83 @@ struct EventDetailView: View {
     }
     
     private func saveChanges() {
-        event.members = optionsController.options.map { Member(name: $0) }
-        event.teams = parametersController.teamNames.map { Team(name: $0, members: []) }
         event.equitableDistribution = parametersController.equitableDistribution
-        eventController.updateEvent(event, teams: event.teams, equitableDistribution: event.equitableDistribution)
+        
+        for team in teams {
+            if let teamMembers = teamMembers[team.objectId ?? ""] {
+                for member in teamMembers {
+                    var updatedMember = member
+                    updatedMember.team = Pointer(objectId: team.objectId ?? "")
+                    EventService.shared.saveMember(updatedMember) { result in
+                        switch result {
+                        case .success:
+                            print("Member updated successfully")
+                        case .failure(let error):
+                            print("Failed to update member: \(error.localizedDescription)")
+                        }
+                    }
+                }
+            }
+        }
+        
+        eventController.updateEvent(event, teams: teams, equitableDistribution: event.equitableDistribution)
     }
+
     
     private func loadEventDetails() {
-        teams = event.teams
-        optionsController.options = event.members.map { $0.name }
-        parametersController.numberOfTeams = event.teams.count
-        parametersController.teamNames = event.teams.map { $0.name }
+        EventService.shared.fetchTeams(for: Pointer<Event>(objectId: event.objectId ?? "")) { result in
+            switch result {
+            case .success(let teams):
+                self.teams = teams
+                for team in teams {
+                    EventService.shared.fetchMembers(for: Pointer<Event>(objectId: event.objectId ?? "")) { memberResult in
+                        switch memberResult {
+                        case .success(let members):
+                            let filteredMembers = members.filter { $0.team?.objectId == team.objectId }
+                            DispatchQueue.main.async {
+                                self.teamMembers[team.objectId ?? ""] = filteredMembers
+                            }
+                        case .failure(let error):
+                            print("Failed to fetch members: \(error.localizedDescription)")
+                        }
+                    }
+                }
+            case .failure(let error):
+                print("Failed to fetch teams: \(error.localizedDescription)")
+            }
+        }
     }
     
     private func startDistribution() {
         teamDistributionController.clearTeams()
-        teamDistributionController.updateMembersToDistribute(event: event)
+        teamDistributionController.updateMembersToDistribute(for: event)
         teamDistributionController.startDistribution(equitableDistribution: event.equitableDistribution)
     }
 }
 
+
 struct EventDetailView_Previews: PreviewProvider {
     @State static var event = Event(
         title: "Tournoi de foot",
-        members: [Member(name: "Alice"), Member(name: "Bob"), Member(name: "Charlie"), Member(name: "David")],
-        teams: [Team(name: "Équipe 1", members: []), Team(name: "Équipe 2", members: [])],
-        equitableDistribution: true
+        user: Pointer<User>(objectId: "sampleUserId"), equitableDistribution: true
     )
 
     static var previews: some View {
         EventDetailView(
             event: event,
-            teams: event.teams,
+            teams: [
+                Team(name: "Équipe 1", event: Pointer(objectId: "sampleEventId")),
+                Team(name: "Équipe 2", event: Pointer(objectId: "sampleEventId"))
+            ],
             equitableDistribution: event.equitableDistribution,
             eventController: EventController(),
             teamDistributionController: TeamDistributionController(
-                teams: event.teams,
-                membersToDistribute: event.members
+                teams: [],
+                membersToDistribute: []
             ),
             parametersController: ParametersListController(
-                numberOfTeams: event.teams.count,
-                teamNames: event.teams.map { $0.name }
+                numberOfTeams: 2,
+                teamNames: ["Équipe 1", "Équipe 2"]
             ),
             optionsController: OptionsController()
         )
@@ -147,16 +183,19 @@ struct EventDetailView_Previews: PreviewProvider {
         
         EventDetailView(
             event: event,
-            teams: event.teams,
+            teams: [
+                Team(name: "Équipe 1", event: Pointer(objectId: "sampleEventId")),
+                Team(name: "Équipe 2", event: Pointer(objectId: "sampleEventId"))
+            ],
             equitableDistribution: event.equitableDistribution,
             eventController: EventController(),
             teamDistributionController: TeamDistributionController(
-                teams: event.teams,
-                membersToDistribute: event.members
+                teams: [],
+                membersToDistribute: []
             ),
             parametersController: ParametersListController(
-                numberOfTeams: event.teams.count,
-                teamNames: event.teams.map { $0.name }
+                numberOfTeams: 2,
+                teamNames: ["Équipe 1", "Équipe 2"]
             ),
             optionsController: OptionsController()
         )

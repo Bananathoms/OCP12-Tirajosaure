@@ -16,6 +16,12 @@ struct APIConstants {
         static let questionsBase = "/classes/Question"
         static let questionById = "/classes/Question/{id}"
         static let drawResultBase = "/classes/DrawResult"
+        static let eventBase = "/classes/Event"
+        static let eventById = "/classes/Event/{id}"
+        static let teamBase = "/classes/Team"
+        static let teamById = "/classes/Team/{id}"
+        static let memberBase = "/classes/Member"
+        static let memberById = "/classes/Member/{id}"
     }
     
     struct Parameters {
@@ -33,6 +39,13 @@ struct APIConstants {
         static let option = "option"
         static let date = "date"
         static let question = "question"
+        // Event
+        static let equitableDistribution = "equitableDistribution"
+        // Team
+        static let name = "name"
+        static let event = "event"
+        // Member
+        static let team = "team"
         
         protocol PointerType {
             var className: String { get }
@@ -47,6 +60,16 @@ struct APIConstants {
         struct QuestionPointer: PointerType {
             let className = "Question"
             let parameterName = "question"
+        }
+        
+        struct EventPointer: PointerType {
+            let className = "Event"
+            let parameterName = "event"
+        }
+
+        struct TeamPointer: PointerType {
+            let className = "Team"
+            let parameterName = "team"
         }
         
         static func pointerParams(className: String, objectId: String) -> [String: Any] {

@@ -250,7 +250,7 @@ class ApiService {
             }
         }
     }
-
+    
     
     /// Returns the headers required for the API requests.
     /// - Returns: A `HTTPHeaders` object containing the necessary headers.
@@ -261,5 +261,189 @@ class ApiService {
             APIConstants.Headers.contentType: ParseConfig.contentType
         ]
     }
-}
+    
+    private func handleDeleteResponse(_ response: AFDataResponse<Data>, onResult: @escaping (Result<Void, AppError>) -> Void) {
+        switch response.result {
+        case .success:
+            onResult(.success(()))
+        case .failure(let error):
+            onResult(.failure(.networkError(error.localizedDescription)))
+        }
+    }
+    
+    // MARK: - Event Methods
+    
+    func saveEvent(_ event: Event, completion: @escaping (Result<Event, AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.eventBase
+        let headers = getHeaders()
 
+        let parameters: [String: Any] = [
+            APIConstants.Parameters.title: event.title,
+            APIConstants.Parameters.equitableDistribution: event.equitableDistribution,
+            APIConstants.Parameters.user: APIConstants.Parameters.pointerParams(className: "_User", objectId: event.user.objectId)
+        ]
+
+        let request: DataRequest
+        if let objectId = event.objectId {
+            request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        } else {
+            request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        }
+
+        request.validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: SaveResponse.self) { result in
+                switch result {
+                case .success(let saveResponse):
+                    var savedEvent = event
+                    savedEvent.objectId = saveResponse.objectId
+                    savedEvent.createdAt = DateFormatter.iso8601Full.date(from: saveResponse.createdAt)
+                    completion(.success(savedEvent))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    func fetchEvents(for userPointer: Pointer<User>, completion: @escaping (Result<[Event], AppError>) -> Void) {
+        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userPointer.objectId)
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.eventBase
+        
+        AF.request(url, parameters: parameters, headers: getHeaders()).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: ParseResponse<Event>.self) { result in
+                switch result {
+                case .success(let parseResponse):
+                    completion(.success(parseResponse.results))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    func deleteEvent(_ event: Event, completion: @escaping (Result<Void, AppError>) -> Void) {
+         guard let objectId = event.objectId else {
+             completion(.failure(.validationError("Invalid event ID")))
+             return
+         }
+         let url = ParseConfig.serverURL + APIConstants.Endpoints.eventById.replacingOccurrences(of: "{id}", with: objectId)
+         let headers = getHeaders()
+
+         AF.request(url, method: .delete, headers: headers).validate().responseData { response in
+             self.handleDeleteResponse(response, onResult: completion)
+         }
+     }
+    
+    // MARK: - Team Methods
+    
+    func saveTeam(_ team: Team, completion: @escaping (Result<Team, AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamBase
+        let headers = getHeaders()
+
+        let parameters: [String: Any] = [
+            APIConstants.Parameters.name: team.name,
+            APIConstants.Parameters.event: APIConstants.Parameters.pointerParams(className: "Event", objectId: team.event.objectId)
+        ]
+
+        let request: DataRequest
+        if let objectId = team.objectId {
+            request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        } else {
+            request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        }
+
+        request.validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: Team.self, onResult: completion)
+        }
+    }
+    
+
+    func fetchTeams(for eventPointer: Pointer<Event>, completion: @escaping (Result<[Team], AppError>) -> Void) {
+        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.EventPointer(), objectId: eventPointer.objectId)
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamBase
+        
+        AF.request(url, parameters: parameters, headers: getHeaders()).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: ParseResponse<Team>.self) { result in
+                switch result {
+                case .success(let parseResponse):
+                    completion(.success(parseResponse.results))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    func deleteTeam(_ team: Team, completion: @escaping (Result<Void, AppError>) -> Void) {
+        guard let objectId = team.objectId else {
+            completion(.failure(.validationError("Invalid team ID")))
+            return
+        }
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamById.replacingOccurrences(of: "{id}", with: objectId)
+        let headers = getHeaders()
+
+        AF.request(url, method: .delete, headers: headers).validate().responseData { response in
+            self.handleDeleteResponse(response, onResult: completion)
+        }
+    }
+    
+    // MARK: - Member Methods
+    
+    func saveMember(_ member: Member, completion: @escaping (Result<Member, AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.memberBase
+        let headers = getHeaders()
+
+        var parameters: [String: Any] = [
+            APIConstants.Parameters.name: member.name,
+            APIConstants.Parameters.event: APIConstants.Parameters.pointerParams(className: "Event", objectId: member.event.objectId)
+        ]
+
+        if let team = member.team {
+            parameters[APIConstants.Parameters.team] = APIConstants.Parameters.pointerParams(className: "Team", objectId: team.objectId)
+        }
+
+        let request: DataRequest
+        if let objectId = member.objectId {
+            request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        } else {
+            request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        }
+
+        request.validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: Member.self, onResult: completion)
+        }
+    }
+    
+    /// Fetches members associated with a specific event from the Parse server.
+    /// - Parameters:
+    ///   - event: The `Pointer<Event>` object whose members are to be fetched.
+    ///   - completion: A closure to handle the result of the fetch operation.
+    func fetchMembers(for event: Pointer<Event>, completion: @escaping (Result<[Member], AppError>) -> Void) {
+        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.EventPointer(), objectId: event.objectId)
+        let headers = getHeaders()
+
+        AF.request(ParseConfig.serverURL + APIConstants.Endpoints.memberBase, parameters: parameters, headers: headers).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: ParseResponse<Member>.self) { result in
+                switch result {
+                case .success(let parseResponse):
+                    completion(.success(parseResponse.results))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    func deleteMember(_ member: Member, completion: @escaping (Result<Void, AppError>) -> Void) {
+        guard let objectId = member.objectId else {
+            completion(.failure(.validationError("Invalid member ID")))
+            return
+        }
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.memberById.replacingOccurrences(of: "{id}", with: objectId)
+        let headers = getHeaders()
+
+        AF.request(url, method: .delete, headers: headers).validate().responseData { response in
+            self.handleDeleteResponse(response, onResult: completion)
+        }
+    }
+}

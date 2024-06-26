@@ -93,6 +93,7 @@
 		E909D6A62C2B89AF004FC1C3 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6A52C2B89AF004FC1C3 /* AddEventView.swift */; };
 		E909D6A82C2B8CF2004FC1C3 /* EventEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6A72C2B8CF2004FC1C3 /* EventEditView.swift */; };
 		E909D6AA2C2BA661004FC1C3 /* TeamDistributionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6A92C2BA661004FC1C3 /* TeamDistributionController.swift */; };
+		E909D6AC2C2C2264004FC1C3 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6AB2C2C2264004FC1C3 /* EventService.swift */; };
 		E9148E952C275FDC00AC49B4 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E942C275FDC00AC49B4 /* Question.swift */; };
 		E9148E972C27600B00AC49B4 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E962C27600B00AC49B4 /* TabItem.swift */; };
 		E9148E992C27602500AC49B4 /* DrawResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148E982C27602500AC49B4 /* DrawResult.swift */; };
@@ -216,6 +217,7 @@
 		E909D6A52C2B89AF004FC1C3 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		E909D6A72C2B8CF2004FC1C3 /* EventEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditView.swift; sourceTree = "<group>"; };
 		E909D6A92C2BA661004FC1C3 /* TeamDistributionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDistributionController.swift; sourceTree = "<group>"; };
+		E909D6AB2C2C2264004FC1C3 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		E9148E942C275FDC00AC49B4 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		E9148E962C27600B00AC49B4 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		E9148E982C27602500AC49B4 /* DrawResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawResult.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				DE6736872C0FF17C001BEB56 /* UserService.swift */,
 				E9148EB22C2761C400AC49B4 /* DrawResultService.swift */,
 				E9148EB42C2761D800AC49B4 /* QuestionService.swift */,
+				E909D6AB2C2C2264004FC1C3 /* EventService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				DE6077DE2C1BADF700AA2A0A /* ApiConstants.swift in Sources */,
 				E909D6A62C2B89AF004FC1C3 /* AddEventView.swift in Sources */,
 				E909D69A2C28D2A5004FC1C3 /* AddButton.swift in Sources */,
+				E909D6AC2C2C2264004FC1C3 /* EventService.swift in Sources */,
 				DECEFFCF2C0CCC7700A9B894 /* MixpanelConfig.swift in Sources */,
 				E9148EA12C27607700AC49B4 /* VoidResponse.swift in Sources */,
 				E909D67A2C28D2A5004FC1C3 /* ContentView.swift in Sources */,

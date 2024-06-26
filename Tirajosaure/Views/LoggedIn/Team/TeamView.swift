@@ -80,22 +80,25 @@ struct TeamView: View {
     private var eventListView: some View {
         List {
             ForEach(eventController.events) { event in
+                let members = eventController.getMembers(for: event)
                 EventItem(
                     event: event,
-                    destination: {
-                        EventDetailView(
-                            event: event,
-                            teams: event.teams,
-                            equitableDistribution: event.equitableDistribution,
-                            eventController: eventController,
-                            teamDistributionController: TeamDistributionController(teams: event.teams, membersToDistribute: event.members),
-                            parametersController: ParametersListController(
-                                numberOfTeams: event.teams.count,
-                                teamNames: event.teams.map { $0.name }
-                            ),
-                            optionsController: OptionsController()
-                        )
-                    }
+                    members: members,
+                    destination: EventDetailView(
+                        event: event,
+                        teams: eventController.getTeams(for: event),
+                        equitableDistribution: event.equitableDistribution,
+                        eventController: eventController,
+                        teamDistributionController: TeamDistributionController(
+                            teams: eventController.getTeams(for: event),
+                            membersToDistribute: eventController.getMembers(for: event)
+                        ),
+                        parametersController: ParametersListController(
+                            numberOfTeams: eventController.getTeams(for: event).count,
+                            teamNames: eventController.getTeams(for: event).map { $0.name }
+                        ),
+                        optionsController: OptionsController()
+                    )
                 )
                 .padding(.trailing)
                 .listRowInsets(EdgeInsets())

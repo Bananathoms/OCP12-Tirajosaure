@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ParseSwift
 
 struct AddEventView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -86,24 +87,67 @@ struct AddEventView: View {
     func addEvent() {
         isLoading = true
         
+        let userPointer = Pointer<User>(objectId: User.current?.objectId ?? "")
+        let newEvent = Event(title: eventName, user: userPointer, equitableDistribution: parametersController.equitableDistribution)
+        
+        EventService.shared.saveEvent(newEvent) { result in
+            switch result {
+            case .success(let savedEvent):
+                self.saveTeams(for: savedEvent)
+            case .failure(let error):
+                self.isLoading = false
+                self.errorMessage = "Failed to save event: \(error.localizedDescription)"
+            }
+        }
+    }
+
+    func saveTeams(for event: Event) {
         var teams: [Team] = []
-        for i in 0..<parametersController.numberOfTeams {
-            let team = Team(name: parametersController.teamNames[i], members: [])
+        for teamName in parametersController.teamNames {
+            let team = Team(name: teamName, event: Pointer(objectId: event.objectId ?? ""))
             teams.append(team)
         }
-        
-        let newEvent = Event(
-            title: eventName,
-            members: optionsController.options.map { Member(name: $0) },
-            teams: teams,
-            equitableDistribution: parametersController.equitableDistribution
-        )
-        
-        eventController.addEvent(newEvent)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            isLoading = false
-            presentationMode.wrappedValue.dismiss()
+
+        let dispatchGroup = DispatchGroup()
+
+        for team in teams {
+            dispatchGroup.enter()
+            EventService.shared.saveTeam(team) { result in
+                switch result {
+                case .success(let savedTeam):
+                    print("Saved team: \(savedTeam.name)")
+                case .failure(let error):
+                    print("Failed to save team: \(error.localizedDescription)")
+                }
+                dispatchGroup.leave()
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            self.saveMembers(for: event)
+        }
+    }
+
+    func saveMembers(for event: Event) {
+        let dispatchGroup = DispatchGroup()
+        let members = optionsController.options.map { Member(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
+
+        for member in members {
+            dispatchGroup.enter()
+            EventService.shared.saveMember(member) { result in
+                switch result {
+                case .success(let savedMember):
+                    print("Saved member: \(savedMember.name)")
+                case .failure(let error):
+                    print("Failed to save member: \(error.localizedDescription)")
+                }
+                dispatchGroup.leave()
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            self.isLoading = false
+            self.presentationMode.wrappedValue.dismiss()
         }
     }
 }

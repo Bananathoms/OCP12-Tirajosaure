@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import ParseSwift
 
 class TeamDistributionController: ObservableObject {
     @Published var teams: [Team]
@@ -20,27 +21,31 @@ class TeamDistributionController: ObservableObject {
     init(teams: [Team], membersToDistribute: [Member]) {
         self.teams = teams
         self.membersToDistribute = membersToDistribute
-        print("Initialized with teams: \(teams.map { $0.name }), members: \(membersToDistribute.map { $0.name })")
     }
 
-    func createTeams(names: [String]) {
-        self.teams = names.map { Team(name: $0, members: []) }
-        print("Created teams: \(names)")
+    func createTeams(names: [String], event: Pointer<Event>) {
+        self.teams = names.map { Team(name: $0, event: event) }
     }
 
     func updateTeams(_ teams: [Team]) {
         self.teams = teams
-        print("Updated teams: \(teams.map { $0.name })")
     }
 
-    func updateMembersToDistribute(event: Event) {
-        self.membersToDistribute = event.members
-        print("Updated members to distribute: \(membersToDistribute.map { $0.name })")
+    func updateMembersToDistribute(for event: Event) {
+        let eventPointer = Pointer<Event>(objectId: event.objectId ?? "")
+        EventService.shared.fetchMembers(for: eventPointer) { [weak self] result in
+            switch result {
+            case .success(let members):
+                print("Updated members to distribute: \(members.map { $0.name })")
+                self?.membersToDistribute = members
+            case .failure(let error):
+                print("Failed to fetch members: \(error.localizedDescription)")
+            }
+        }
     }
 
     func startDistribution(equitableDistribution: Bool) {
         guard !membersToDistribute.isEmpty else {
-            print("No members to distribute.")
             return
         }
         isLoading = true
@@ -64,11 +69,8 @@ class TeamDistributionController: ObservableObject {
             return
         }
 
-        // Ensure we don't assign the same member twice in the same cycle
-        if currentMember == nil {
-            currentMember = membersToDistribute[distributionIndex]
-            print("Distributing member: \(currentMember?.name ?? "None")")
-        }
+        currentMember = membersToDistribute[distributionIndex]
+        print("Distributing member: \(currentMember?.name ?? "")")
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if let member = self.currentMember {
@@ -78,8 +80,22 @@ class TeamDistributionController: ObservableObject {
                 } else {
                     teamIndex = Int.random(in: 0..<self.teams.count)
                 }
-                self.teams[teamIndex].members.append(member)
-                print("Assigned \(member.name) to team \(self.teams[teamIndex].name)")
+
+                guard let teamObjectId = self.teams[teamIndex].objectId else {
+                    print("Error: Team objectId is nil")
+                    return
+                }
+
+                var updatedMember = member
+                updatedMember.team = Pointer(objectId: teamObjectId)
+                EventService.shared.saveMember(updatedMember) { result in
+                    switch result {
+                    case .success(let savedMember):
+                        print("Assigned \(savedMember.name) to team \(self.teams[teamIndex].name)")
+                    case .failure(let error):
+                        print("Failed to assign member to team: \(error.localizedDescription)")
+                    }
+                }
                 self.distributionIndex += 1
                 self.currentMember = nil
             }
@@ -87,8 +103,26 @@ class TeamDistributionController: ObservableObject {
     }
 
     func clearTeams() {
-        for index in teams.indices {
-            teams[index].members.removeAll()
+        for team in teams {
+            EventService.shared.fetchMembers(for: Pointer<Event>(objectId: team.event.objectId)) { result in
+                switch result {
+                case .success(let members):
+                    for member in members {
+                        var updatedMember = member
+                        updatedMember.team = nil
+                        EventService.shared.saveMember(updatedMember) { saveResult in
+                            switch saveResult {
+                            case .success(let savedMember):
+                                print("Cleared team for member: \(savedMember.name)")
+                            case .failure(let error):
+                                print("Failed to clear team for member: \(error.localizedDescription)")
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    print("Failed to fetch members: \(error.localizedDescription)")
+                }
+            }
         }
         print("Cleared all teams.")
     }
