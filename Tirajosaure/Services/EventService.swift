@@ -19,14 +19,11 @@ class EventService {
     }
 
     func saveEvent(_ event: Event, completion: @escaping (Result<Event, AppError>) -> Void) {
-        ApiService.current.saveEvent(event, completion: completion)
-    }
-
-    func updateEvent(_ event: Event, completion: @escaping (Result<Event, AppError>) -> Void) {
-        ApiService.current.saveEvent(event, completion: completion)
+        ApiService.current.saveEvent(event, originalObject: event, completion: completion)
     }
 
     func deleteEvent(_ event: Event, completion: @escaping (Result<Void, AppError>) -> Void) {
         ApiService.current.deleteEvent(event, completion: completion)
     }
 }
+

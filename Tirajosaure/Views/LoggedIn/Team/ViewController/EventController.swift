@@ -88,7 +88,7 @@ class EventController: ObservableObject {
     func updateEvent(event: Event, parametersController: ParametersListController, optionsController: OptionsController, completion: @escaping (Result<Event, AppError>) -> Void) {
         let updatedEvent = Event(
             objectId: event.objectId,
-            title: parametersController.title,
+            title: event.title,
             user: event.user,
             equitableDistribution: parametersController.equitableDistribution,
             teams: parametersController.teamNames,

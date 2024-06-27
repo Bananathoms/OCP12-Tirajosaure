@@ -39,7 +39,7 @@ class ApiService {
         AF.request(ParseConfig.serverURL + APIConstants.Endpoints.signUp, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: getHeaders())
             .validate()
             .responseData { response in
-                self.handleAlamofireResponse(response, ofType: User.self, originalUser: user, onResult: onResult)
+                self.handleAlamofireResponse(response, ofType: User.self, onResult: onResult)
             }
     }
     
@@ -56,7 +56,7 @@ class ApiService {
         AF.request(ParseConfig.serverURL + APIConstants.Endpoints.logIn, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: getHeaders())
             .validate()
             .responseData { response in
-                self.handleAlamofireResponse(response, ofType: User.self, originalUser: User(username: email, email: email, password: password), onResult: onResult)
+                self.handleAlamofireResponse(response, ofType: User.self, onResult: onResult)
             }
     }
     
@@ -95,14 +95,7 @@ class ApiService {
         let headers = getHeaders()
         
         AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: ParseResponse<Question>.self) { result in
-                switch result {
-                case .success(let parseResponse):
-                    completion(.success(parseResponse.results))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            self.handleAlamofireResponse(response, ofType: ParseResponse<Question>.self, transform: { $0.results }, onResult: completion)
         }
     }
     
@@ -132,20 +125,16 @@ class ApiService {
         }
         
         request.validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: SaveResponse.self) { result in
-                switch result {
-                case .success(let saveResponse):
-                    var savedQuestion = question
-                    savedQuestion.objectId = saveResponse.objectId
-                    savedQuestion.createdAt = DateFormatter.iso8601Full.date(from: saveResponse.createdAt)
-                    savedQuestion.updatedAt = saveResponse.updatedAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.updatedAt!) : nil
-                    completion(.success(savedQuestion))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            self.handleAlamofireResponse(response, ofType: SaveResponse.self, transform: { saveResponse in
+                var savedQuestion = question
+                savedQuestion.objectId = saveResponse.objectId ?? question.objectId
+                savedQuestion.createdAt = saveResponse.createdAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.createdAt!) : question.createdAt
+                savedQuestion.updatedAt = saveResponse.updatedAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.updatedAt!) : question.updatedAt
+                return savedQuestion
+            }, onResult: completion)
         }
     }
+
 
     
     /// Deletes a `Question` object from the Parse server.
@@ -161,18 +150,7 @@ class ApiService {
         let headers = getHeaders()
         
         AF.request(url, method: .delete, headers: headers).validate().responseData { response in
-            if response.data?.isEmpty ?? true {
-                completion(.success(()))
-                return
-            }
-            self.handleAlamofireResponse(response, ofType: VoidResponse.self) { result in
-                switch result {
-                case .success:
-                    completion(.success(()))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            self.handleDeleteResponse(response, onResult: completion)
         }
     }
     
@@ -211,20 +189,14 @@ class ApiService {
         let headers = getHeaders()
         
         AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: ParseResponse<DrawResult>.self) { result in
-                switch result {
-                case .success(let parseResponse):
-                    completion(.success(parseResponse.results))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            self.handleAlamofireResponse(response, ofType: ParseResponse<DrawResult>.self, transform: { $0.results }, onResult: completion)
         }
     }
+
     
     // MARK: - Event Methods
     
-    func saveEvent(_ event: Event, completion: @escaping (Result<Event, AppError>) -> Void) {
+    func saveEvent(_ event: Event, originalObject: Event? = nil, completion: @escaping (Result<Event, AppError>) -> Void) {
         let url = ParseConfig.serverURL + APIConstants.Endpoints.eventBase
         let headers = getHeaders()
 
@@ -247,38 +219,19 @@ class ApiService {
             request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
         }
 
+        print("Sending request to URL: \(request)")
         request.validate().responseData { response in
-            print("Response data: \(String(describing: response.data))")  // Ajoutez ceci pour le débogage
-            self.handleAlamofireResponse(response, ofType: SaveResponse.self) { result in
-                switch result {
-                case .success(let saveResponse):
-                    var savedEvent = event
-                    savedEvent.objectId = saveResponse.objectId
-                    savedEvent.createdAt = DateFormatter.iso8601Full.date(from: saveResponse.createdAt)
-                    savedEvent.updatedAt = saveResponse.updatedAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.updatedAt!) : nil
-                    completion(.success(savedEvent))
-                case .failure(let error):
-                    print("Failed to save event: \(error.localizedDescription)")  // Ajoutez ceci pour le débogage
-                    completion(.failure(error))
-                }
-            }
+            print("Received response: \(response)")
+            self.handleAlamofireResponse(response, ofType: SaveResponse.self, originalObject: event, onResult: completion)
         }
     }
-
     
     func fetchEvents(for userPointer: Pointer<User>, completion: @escaping (Result<[Event], AppError>) -> Void) {
         let parameters = wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userPointer.objectId)
         let url = ParseConfig.serverURL + APIConstants.Endpoints.eventBase
         
         AF.request(url, parameters: parameters, headers: getHeaders()).validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: ParseResponse<Event>.self) { result in
-                switch result {
-                case .success(let parseResponse):
-                    completion(.success(parseResponse.results))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            self.handleAlamofireResponse(response, ofType: ParseResponse<Event>.self, transform: { $0.results }, onResult: completion)
         }
     }
     
@@ -297,35 +250,61 @@ class ApiService {
     
     // MARK: - Response Handling
     
-    private func handleAlamofireResponse<T: Decodable>(_ response: AFDataResponse<Data>, ofType: T.Type, originalUser: User? = nil, onResult: @escaping (Result<T, AppError>) -> Void) {
+
+    private func handleAlamofireResponse<T: Decodable, U>(_ response: AFDataResponse<Data>, ofType: T.Type, originalObject: Any? = nil, transform: ((T) -> U)? = nil, onResult: @escaping (Result<U, AppError>) -> Void) {
+        print("Handling Alamofire response...")
+
         switch response.result {
         case .success(let data):
+            print("Response data received: \(data)")
+
             if data.isEmpty, T.self == VoidResponse.self {
-                onResult(.success(VoidResponse() as! T))
+                print("Empty data and expecting VoidResponse")
+                onResult(.success(VoidResponse() as! U))
                 return
             }
+
             do {
-                print("Response data (success): \(String(data: data, encoding: .utf8) ?? "No data")") // Ajoutez ceci pour le débogage
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                print("Starting to decode response data...")
+
+                if T.self == SaveResponse.self, var event = originalObject as? Event {
+                    print("Decoding SaveResponse...")
+                    let saveResponse = try? decoder.decode(SaveResponse.self, from: data)
+                    if let saveResponse = saveResponse {
+                        print("Successfully decoded SaveResponse: \(saveResponse)")
+                        event.updatedAt = DateFormatter.iso8601Full.date(from: saveResponse.updatedAt ?? "")
+                        onResult(.success(event as! U))
+                        return
+                    } else {
+                        let responseString = String(data: data, encoding: .utf8)
+                        print("SaveResponse Decoding error: Les données n’ont pas pu être lues car elles sont introuvables.")
+                        print("Response data: \(responseString ?? "No response data")")
+                        onResult(.failure(.networkError("Une erreur réseau s'est produite : Les données n’ont pas pu être lues car elles sont introuvables.")))
+                        return
+                    }
+                }
+
                 let result = try decoder.decode(T.self, from: data)
-                if let user = result as? User, let originalUser = originalUser {
-                    var updatedUser = user
-                    updatedUser.firstName = user.firstName ?? originalUser.firstName
-                    updatedUser.lastName = user.lastName ?? originalUser.lastName
-                    onResult(.success(updatedUser as! T))
+                print("Successfully decoded data: \(result)")
+
+                if let transform = transform {
+                    onResult(.success(transform(result)))
                 } else {
-                    onResult(.success(result))
+                    onResult(.success(result as! U))
                 }
             } catch {
                 let responseString = String(data: data, encoding: .utf8)
-                print("Decoding error: \(error.localizedDescription)") // Ajoutez ceci pour le débogage
+                print("Decoding error: \(error.localizedDescription)")
+                print("Response data: \(responseString ?? "No response data")")
                 onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
             }
         case .failure(let error):
+            print("Network error: \(error.localizedDescription)")
             if let data = response.data {
                 let responseString = String(data: data, encoding: .utf8)
-                print("Response data (failure): \(responseString ?? "No data")") // Ajoutez ceci pour le débogage
+                print("Response data: \(responseString ?? "No response data")")
                 onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
             } else {
                 onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription)")))
