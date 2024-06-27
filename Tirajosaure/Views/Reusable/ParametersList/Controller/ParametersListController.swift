@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 class ParametersListController: ObservableObject {
+    @Published var title: String = "" 
     @Published var numberOfTeams: Int {
         didSet {
             updateTeamNames()

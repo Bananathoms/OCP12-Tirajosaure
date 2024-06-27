@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import ParseSwift
 
 struct TeamView: View {
     @StateObject private var eventController = EventController()
     @State private var isEditing = false
+    @State private var navigateToAdd = false
 
     var body: some View {
         NavigationStack {
@@ -20,7 +22,9 @@ struct TeamView: View {
                     eventListView
                 }
 
-                NavigationLink(destination: AddEventView(eventController: eventController)) {
+                Button(action: {
+                    navigateToAdd.toggle()
+                }) {
                     AddButton(
                         text: "Créer un nouvel événement",
                         image: IconNames.plusCircleFill.systemImage,
@@ -30,6 +34,9 @@ struct TeamView: View {
                         height: 50
                     )
                     .padding()
+                }
+                .navigationDestination(isPresented: $navigateToAdd) {
+                    AddEventView(eventController: eventController)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -80,29 +87,22 @@ struct TeamView: View {
     private var eventListView: some View {
         List {
             ForEach(eventController.events) { event in
-                let members = eventController.getMembers(for: event)
-                EventItem(
+                let detailView = EventDetailView(
                     event: event,
-                    members: members,
-                    destination: EventDetailView(
-                        event: event,
-                        teams: eventController.getTeams(for: event),
-                        equitableDistribution: event.equitableDistribution,
-                        eventController: eventController,
-                        teamDistributionController: TeamDistributionController(
-                            teams: eventController.getTeams(for: event),
-                            membersToDistribute: eventController.getMembers(for: event)
-                        ),
-                        parametersController: ParametersListController(
-                            numberOfTeams: eventController.getTeams(for: event).count,
-                            teamNames: eventController.getTeams(for: event).map { $0.name }
-                        ),
-                        optionsController: OptionsController()
-                    )
+                    eventController: eventController,
+                    teamDistributionController: TeamDistributionController(),
+                    parametersController: ParametersListController(numberOfTeams: event.teams.count, teamNames: event.teams),
+                    optionsController: {
+                        let controller = OptionsController()
+                        controller.options = event.members
+                        return controller
+                    }()
                 )
-                .padding(.trailing)
-                .listRowInsets(EdgeInsets())
-                .listRowBackground(Color.antiqueWhite)
+                
+                EventItem(event: event, destination: { detailView })
+                    .padding(.trailing)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.antiqueWhite)
             }
             .onDelete { indexSet in
                 eventController.removeEvent(at: indexSet)

@@ -11,15 +11,16 @@ import ParseSwift
 
 class EventController: ObservableObject {
     @Published var events: [Event] = []
-    @Published var teams: [Team] = []
-    @Published var members: [Member] = []
+    
     @Published var newEventTitle: String = DefaultValues.emptyString
-    @Published var parametersController = ParametersListController(numberOfTeams: 0, teamNames: [])
-
+    @Published var parametersController = ParametersListController(numberOfTeams: 2, teamNames: ["Équipe 1", "Équipe 2"])
+    @Published var optionsController = OptionsController()
+    
     init() {
         fetchAllData()
     }
-
+    
+    /// Fetch all events for the current user
     func fetchAllData() {
         guard let currentUser = UserService.current.user else { return }
         let userPointer = Pointer<User>(objectId: currentUser.objectId ?? "")
@@ -28,70 +29,50 @@ class EventController: ObservableObject {
             switch result {
             case .success(let events):
                 self?.events = events
-                self?.fetchTeamsForEvents(events)
-                self?.fetchMembersForEvents(events)
             case .failure(let error):
                 print("Failed to fetch events: \(error.localizedDescription)")
             }
         }
     }
-
-    func fetchTeamsForEvents(_ events: [Event]) {
-        for event in events {
-            let eventPointer = Pointer<Event>(objectId: event.objectId ?? "")
-            EventService.shared.fetchTeams(for: eventPointer) { [weak self] result in
-                switch result {
-                case .success(let teams):
-                    self?.teams.append(contentsOf: teams)
-                case .failure(let error):
-                    print("Failed to fetch teams: \(error.localizedDescription)")
-                }
-            }
-        }
-    }
-
-    func fetchMembersForEvents(_ events: [Event]) {
-        for event in events {
-            let eventPointer = Pointer<Event>(objectId: event.objectId ?? "")
-            EventService.shared.fetchMembers(for: eventPointer) { [weak self] result in
-                switch result {
-                case .success(let members):
-                    self?.members.append(contentsOf: members)
-                case .failure(let error):
-                    print("Failed to fetch members: \(error.localizedDescription)")
-                }
-            }
-        }
-    }
-
+    
+    /// Add an event in the list
     @discardableResult
-    func addEvent(parametersController: ParametersListController, optionsController: OptionsController) -> Bool {
+    func addEvent() -> Bool {
         guard let userId = UserService.current.user?.objectId else {
             print("User ID not found")
             return false
         }
-
+        
         guard !newEventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             SnackBarService.current.error("Le titre de l'événement est vide")
             print("Event title is empty")
             return false
         }
-
+        
+        let validOptions = optionsController.options.filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+        guard validOptions.count >= 2 else {
+            SnackBarService.current.error("Pas assez d'options valides")
+            print("Not enough valid options")
+            return false
+        }
+        
         let userPointer = Pointer<User>(objectId: userId)
         let newEvent = Event(
             title: newEventTitle,
             user: userPointer,
-            equitableDistribution: parametersController.equitableDistribution
+            equitableDistribution: parametersController.equitableDistribution,
+            teams: parametersController.teamNames,
+            members: validOptions
         )
         print("Saving event: \(newEvent)")
-        EventService.shared.saveEvent(newEvent) { [weak self] result in
+        EventService.shared.saveEvent(newEvent) { result in
             switch result {
             case .success(let savedEvent):
                 DispatchQueue.main.async {
-                    self?.events.append(savedEvent)
-                    self?.newEventTitle = ""
-                    self?.parametersController = ParametersListController(numberOfTeams: 0, teamNames: [])
-                    self?.saveTeamsAndMembers(for: savedEvent, parametersController: parametersController, optionsController: optionsController)
+                    self.events.append(savedEvent)
+                    self.newEventTitle = DefaultValues.emptyString
+                    self.parametersController = ParametersListController(numberOfTeams: 2, teamNames: ["Équipe 1", "Équipe 2"])
+                    self.optionsController.options = []
                     print("Event saved successfully: \(savedEvent)")
                 }
             case .failure(let error):
@@ -101,106 +82,60 @@ class EventController: ObservableObject {
         }
         return true
     }
-
-    func updateEvent(event: Event, parametersController: ParametersListController, optionsController: OptionsController) {
-        let teams = parametersController.teamNames.map { Team(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
-        let members = optionsController.options.map { Member(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
+    
+    /// Updates an existing event in the list.
+    /// - Parameter updatedEvent: The event containing the updated data.
+    func updateEvent(event: Event, parametersController: ParametersListController, optionsController: OptionsController, completion: @escaping (Result<Event, AppError>) -> Void) {
+        let updatedEvent = Event(
+            objectId: event.objectId,
+            title: parametersController.title,
+            user: event.user,
+            equitableDistribution: parametersController.equitableDistribution,
+            teams: parametersController.teamNames,
+            members: optionsController.options
+        )
         
-        EventService.shared.saveEvent(event) { [weak self] result in
+        print("Updating event: \(updatedEvent)")  
+        EventService.shared.saveEvent(updatedEvent) { result in
             switch result {
-            case .success(let updatedEvent):
-                if let index = self?.events.firstIndex(where: { $0.objectId == updatedEvent.objectId }) {
-                    self?.events[index] = updatedEvent
+            case .success(let savedEvent):
+                if let index = self.events.firstIndex(where: { $0.id == savedEvent.id }) {
+                    self.events[index] = savedEvent
                 }
-                self?.saveTeams(for: updatedEvent, teams: teams)
-                self?.saveMembers(for: updatedEvent, members: members)
-                print("Event updated successfully: \(updatedEvent)")
+                print("Event updated successfully: \(savedEvent)")
+                completion(.success(savedEvent))
             case .failure(let error):
                 print("Failed to update event: \(error.localizedDescription)")
+                SnackBarService.current.error("Échec de la mise à jour de l'événement: \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
     }
 
-    func saveTeamsAndMembers(for event: Event, parametersController: ParametersListController, optionsController: OptionsController) {
-        let teams = parametersController.teamNames.map { Team(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
-        let members = optionsController.options.map { Member(name: $0, event: Pointer(objectId: event.objectId ?? "")) }
-
-        print("saveTeamsAndMembers: Saving teams for event: \(event.objectId ?? "") with teams: \(teams.map { $0.name })")
-        saveTeams(for: event, teams: teams)
-
-        print("saveTeamsAndMembers: Saving members for event: \(event.objectId ?? "") with members: \(members.map { $0.name })")
-        saveMembers(for: event, members: members)
-    }
-
-    func saveTeams(for event: Event, teams: [Team]) {
-        print("saveTeams: Teams to save: \(teams.map { $0.name })")
-        let dispatchGroup = DispatchGroup()
-
-        for team in teams {
-            dispatchGroup.enter()
-            print("saveTeams: Saving team: \(team.name)")
-            EventService.shared.saveTeam(team) { result in
-                switch result {
-                case .success(let savedTeam):
-                    print("saveTeams: Team saved successfully: \(savedTeam)")
-                case .failure(let error):
-                    print("saveTeams: Failed to save team: \(error.localizedDescription)")
-                }
-                dispatchGroup.leave()
-            }
-        }
-
-        dispatchGroup.notify(queue: .main) {
-            print("saveTeams: All teams saved.")
-        }
-    }
-
-    func saveMembers(for event: Event, members: [Member]) {
-        print("saveMembers: Members to save: \(members.map { $0.name })")
-        let dispatchGroup = DispatchGroup()
-
-        for member in members {
-            dispatchGroup.enter()
-            print("saveMembers: Saving member: \(member.name)")
-            EventService.shared.saveMember(member) { result in
-                switch result {
-                case .success(let savedMember):
-                    print("saveMembers: Member saved successfully: \(savedMember)")
-                case .failure(let error):
-                    print("saveMembers: Failed to save member: \(error.localizedDescription)")
-                }
-                dispatchGroup.leave()
-            }
-        }
-
-        dispatchGroup.notify(queue: .main) {
-            print("saveMembers: All members saved.")
-        }
-    }
-
+    
+    /// Removes an event from the list.
+    /// - Parameter offsets: The set of indices specifying the events to be removed.
     func removeEvent(at offsets: IndexSet) {
         offsets.forEach { index in
             let event = events[index]
-            EventService.shared.deleteEvent(event) { [weak self] result in
+            EventService.shared.deleteEvent(event) { result in
                 switch result {
                 case .success:
-                    self?.events.remove(at: index)
+                    DispatchQueue.main.async {
+                        self.events.remove(at: index)
+                    }
                 case .failure(let error):
-                    print("Failed to delete event: \(error.localizedDescription)")
+                    SnackBarService.current.error("Échec de la suppression de l'événement: \(error.localizedDescription)")
                 }
             }
         }
     }
-
+    
+    /// Moves an event from one position to another within the list.
+    /// - Parameters:
+    ///   - source: The set of indices specifying the current positions of the events to be moved.
+    ///   - destination: The index specifying the new position for the events.
     func moveEvent(from source: IndexSet, to destination: Int) {
-        events.move(fromOffsets: source, toOffset: destination)
-    }
-
-    func getTeams(for event: Event) -> [Team] {
-        return teams.filter { $0.event.objectId == event.objectId }
-    }
-
-    func getMembers(for event: Event) -> [Member] {
-        return members.filter { $0.event.objectId == event.objectId }
+        self.events.move(fromOffsets: source, toOffset: destination)
     }
 }

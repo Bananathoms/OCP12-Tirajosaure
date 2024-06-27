@@ -10,14 +10,11 @@ import ParseSwift
 
 struct EventDetailView: View {
     @State var event: Event
-    @State var teams: [Team]
-    @State var equitableDistribution: Bool
     @ObservedObject var eventController: EventController
     @StateObject var teamDistributionController: TeamDistributionController
     @StateObject var parametersController: ParametersListController
     @StateObject var optionsController: OptionsController
     @Environment(\.presentationMode) var presentationMode
-    @State private var teamMembers: [String: [Member]] = [:] 
 
     let columns = [
         GridItem(.flexible()),
@@ -29,15 +26,13 @@ struct EventDetailView: View {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(teams) { team in
+                        ForEach(event.teams, id: \.self) { team in
                             VStack(alignment: .leading) {
-                                Text(team.name)
+                                Text(team)
                                     .font(.headline)
                                     .foregroundColor(.oxfordBlue)
-                                if let members = teamMembers[team.objectId ?? ""] {
-                                    ForEach(members) { member in
-                                        OptionCard(option: member.name, isSelected: false)
-                                    }
+                                ForEach(event.members.filter { $0.starts(with: team.prefix(1)) }, id: \.self) { member in
+                                    OptionCard(option: member, isSelected: false)
                                 }
                             }
                             .padding()
@@ -66,7 +61,6 @@ struct EventDetailView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-//                        saveChanges()
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         CustomHeader(title: event.title)
@@ -86,63 +80,21 @@ struct EventDetailView: View {
             .navigationBarBackButtonHidden(true)
             .background(Color.skyBlue)
             .onAppear {
+                print("ON APPEAR")
                 loadEventDetails()
-            }
-            .onDisappear {
-//                saveChanges()
-            }
-            .onReceive(teamDistributionController.$teams) { newTeams in
-                self.teams = newTeams
             }
         }
     }
-    
-//    private func saveChanges() {
-//        event.equitableDistribution = parametersController.equitableDistribution
-//        
-//        for team in teams {
-//            if let teamMembers = teamMembers[team.objectId ?? ""] {
-//                for member in teamMembers {
-//                    var updatedMember = member
-//                    updatedMember.team = Pointer(objectId: team.objectId ?? "")
-//                    EventService.shared.saveMember(updatedMember) { result in
-//                        switch result {
-//                        case .success:
-//                            print("Member updated successfully")
-//                        case .failure(let error):
-//                            print("Failed to update member: \(error.localizedDescription)")
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        
-//        eventController.updateEvent(event, teams: teams, equitableDistribution: event.equitableDistribution)
-//    }
 
-    
     private func loadEventDetails() {
-        EventService.shared.fetchTeams(for: Pointer<Event>(objectId: event.objectId ?? "")) { result in
-            switch result {
-            case .success(let teams):
-                self.teams = teams
-                for team in teams {
-                    EventService.shared.fetchMembers(for: Pointer<Event>(objectId: event.objectId ?? "")) { memberResult in
-                        switch memberResult {
-                        case .success(let members):
-                            let filteredMembers = members.filter { $0.team?.objectId == team.objectId }
-                            DispatchQueue.main.async {
-                                self.teamMembers[team.objectId ?? ""] = filteredMembers
-                            }
-                        case .failure(let error):
-                            print("Failed to fetch members: \(error.localizedDescription)")
-                        }
-                    }
-                }
-            case .failure(let error):
-                print("Failed to fetch teams: \(error.localizedDescription)")
-            }
-        }
+        print("LOAD EVENT DETAILS BEFORE: Teams - \(parametersController.teamNames), Members - \(optionsController.options)")
+
+        // Mise à jour des équipes et des membres
+        parametersController.numberOfTeams = event.teams.count
+        parametersController.teamNames = event.teams
+        optionsController.options = event.members
+
+        print("LOAD EVENT DETAILS AFTER: Teams - \(parametersController.teamNames), Members - \(optionsController.options)")
     }
     
     private func startDistribution() {
@@ -152,54 +104,22 @@ struct EventDetailView: View {
     }
 }
 
-
 struct EventDetailView_Previews: PreviewProvider {
     @State static var event = Event(
         title: "Tournoi de foot",
-        user: Pointer<User>(objectId: "sampleUserId"), equitableDistribution: true
+        user: Pointer<User>(objectId: "sampleUserId"),
+        equitableDistribution: true,
+        teams: ["Équipe 1", "Équipe 2"],
+        members: ["Membre 1", "Membre 2"]
     )
 
     static var previews: some View {
         EventDetailView(
             event: event,
-            teams: [
-                Team(name: "Équipe 1", event: Pointer(objectId: "sampleEventId")),
-                Team(name: "Équipe 2", event: Pointer(objectId: "sampleEventId"))
-            ],
-            equitableDistribution: event.equitableDistribution,
             eventController: EventController(),
-            teamDistributionController: TeamDistributionController(
-                teams: [],
-                membersToDistribute: []
-            ),
-            parametersController: ParametersListController(
-                numberOfTeams: 2,
-                teamNames: ["Équipe 1", "Équipe 2"]
-            ),
+            teamDistributionController: TeamDistributionController(),
+            parametersController: ParametersListController(numberOfTeams: event.teams.count, teamNames: event.teams),
             optionsController: OptionsController()
         )
-        .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
-        .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
-        
-        EventDetailView(
-            event: event,
-            teams: [
-                Team(name: "Équipe 1", event: Pointer(objectId: "sampleEventId")),
-                Team(name: "Équipe 2", event: Pointer(objectId: "sampleEventId"))
-            ],
-            equitableDistribution: event.equitableDistribution,
-            eventController: EventController(),
-            teamDistributionController: TeamDistributionController(
-                teams: [],
-                membersToDistribute: []
-            ),
-            parametersController: ParametersListController(
-                numberOfTeams: 2,
-                teamNames: ["Équipe 1", "Équipe 2"]
-            ),
-            optionsController: OptionsController()
-        )
-        .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
-        .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }
 }

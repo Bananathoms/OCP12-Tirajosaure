@@ -25,6 +25,14 @@ enum ErrorMessage: String {
     case networkErrorMessage = "network_error_message"
     case noResponseData = "no_response_data"
     case invalidQuestionID = "invalid_question_id"
+    case failedToSaveTeam = "failed_to_save_team"
+    case failedToUpdateTeam = "failed_to_update_team"
+    case failedToDeleteTeam = "failed_to_delete_team"
+    case failedToLoadTeams = "failed_to_load_teams"
+    case failedToSaveMember = "failed_to_save_member"
+    case failedToUpdateMember = "failed_to_update_member"
+    case failedToDeleteMember = "failed_to_delete_member"
+    case failedToLoadMembers = "failed_to_load_members"
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

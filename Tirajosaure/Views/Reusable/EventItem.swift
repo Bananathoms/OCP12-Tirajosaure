@@ -9,48 +9,50 @@ import SwiftUI
 import ParseSwift
 
 struct EventItem<Destination: View>: View {
-    var event: Event
-    var members: [Member]
-    var destination: Destination
+    let event: Event
+    let destination: () -> Destination
 
     var body: some View {
-        NavigationLink(destination: destination) {
+        NavigationLink(destination: destination()) {
             VStack(alignment: .leading) {
                 Text(event.title)
                     .font(.headline)
                     .foregroundColor(.oxfordBlue)
-                Text("\(members.count) membres")
+                Text("\(event.members.count) membres")
                     .font(.subheadline)
-                    .foregroundColor(.black)
+                    .foregroundColor(.gray)
             }
             .padding()
             .background(Color.antiqueWhite)
-            .cornerRadius(10)
-            .shadow(radius: 5)
+//            .cornerRadius(10)
+//            .shadow(radius: 5)
         }
     }
 }
 
-
 struct EventItem_Previews: PreviewProvider {
     static var previews: some View {
-        let event = Event(
+        let sampleEvent = Event(
             title: "Tournoi de foot",
             user: Pointer<User>(objectId: "sampleUserId"),
-            equitableDistribution: true
+            equitableDistribution: true,
+            teams: ["Équipe 1", "Équipe 2"],
+            members: ["Membre 1", "Membre 2"]
         )
         
-        let members = [
-            Member(name: "Alice", event: Pointer<Event>(objectId: "sampleEventId")),
-            Member(name: "Bob", event: Pointer<Event>(objectId: "sampleEventId"))
-        ]
+        let optionsController = OptionsController()
+        optionsController.options = ["Membre 1", "Membre 2"]
         
-        return EventItem(
-            event: event,
-            members: members,
-            destination: Text("Event Details")
-        )
-        .previewLayout(.sizeThatFits)
-        .padding()
+        return EventItem(event: sampleEvent) {
+            EventDetailView(
+                event: sampleEvent,
+                eventController: EventController(),
+                teamDistributionController: TeamDistributionController(),
+                parametersController: ParametersListController(numberOfTeams: 2, teamNames: ["Équipe 1", "Équipe 2"]),
+                optionsController: optionsController
+            )
+        }
+        .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
+        .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
     }
 }

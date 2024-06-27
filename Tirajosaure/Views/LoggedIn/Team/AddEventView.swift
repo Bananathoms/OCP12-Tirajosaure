@@ -11,8 +11,6 @@ import ParseSwift
 struct AddEventView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var eventController: EventController
-    @StateObject private var parametersController = ParametersListController(numberOfTeams: 2, teamNames: ["Équipe 1", "Équipe 2"])
-    @StateObject private var optionsController = OptionsController()
     @State private var isLoading = false
     @State private var errorMessage: String?
 
@@ -35,16 +33,17 @@ struct AddEventView: View {
                         Text("Paramètre de l'évènement")
                             .font(.headline)
                             .padding(.leading, 20)
-                        ParametersList(controller: parametersController)
-                            .frame(height: CGFloat(140.0 + Double(parametersController.numberOfTeams) * 44.0))
+
+                        ParametersList(controller: eventController.parametersController)
+                            .frame(height: CGFloat(140.0 + Double(eventController.parametersController.numberOfTeams) * 44.0))
 
                         VStack(alignment: .leading) {
                             Text("Liste des membres")
                                 .font(.headline)
                                 .padding(.leading, 20)
 
-                            OptionsListView(controller: optionsController)
-                                .frame(height: CGFloat(optionsController.options.count) * 44.0 + 50.0)
+                            OptionsListView(controller: eventController.optionsController)
+                                .frame(height: CGFloat(eventController.optionsController.options.count) * 44.0 + 50.0)
                         }
 
                         if let errorMessage = errorMessage {
@@ -61,7 +60,7 @@ struct AddEventView: View {
                     isLoading: isLoading,
                     onClick: {
                         isLoading = true
-                        if eventController.addEvent(parametersController: parametersController, optionsController: optionsController) {
+                        if eventController.addEvent() {
                             isLoading = false
                             presentationMode.wrappedValue.dismiss()
                         } else {
@@ -90,11 +89,9 @@ struct AddEventView: View {
     }
 }
 
-
-
 struct AddEventView_Previews: PreviewProvider {
     @StateObject static var controller = EventController()
-    
+
     static var previews: some View {
         AddEventView(eventController: controller)
             .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)

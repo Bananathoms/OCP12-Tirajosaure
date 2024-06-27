@@ -47,8 +47,6 @@
 		DECEFFA92C0CCAC400A9B894 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECEFFA82C0CCAC400A9B894 /* Preview Assets.xcassets */; };
 		DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFCB2C0CCC5000A9B894 /* ParseConfig.swift */; };
 		DECEFFCF2C0CCC7700A9B894 /* MixpanelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEFFCE2C0CCC7700A9B894 /* MixpanelConfig.swift */; };
-		E909D62F2C28D27C004FC1C3 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D62C2C28D27B004FC1C3 /* Member.swift */; };
-		E909D6302C28D27C004FC1C3 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D62D2C28D27C004FC1C3 /* Team.swift */; };
 		E909D6312C28D27C004FC1C3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D62E2C28D27C004FC1C3 /* Event.swift */; };
 		E909D6792C28D2A5004FC1C3 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6322C28D2A5004FC1C3 /* UserController.swift */; };
 		E909D67A2C28D2A5004FC1C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6342C28D2A5004FC1C3 /* ContentView.swift */; };
@@ -113,6 +111,7 @@
 		E9148EB52C2761D800AC49B4 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EB42C2761D800AC49B4 /* QuestionService.swift */; };
 		E9148EB92C27624A00AC49B4 /* Extension+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EB82C27624A00AC49B4 /* Extension+Collection.swift */; };
 		E9148EBB2C27626000AC49B4 /* Extension+ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EBA2C27626000AC49B4 /* Extension+ApiService.swift */; };
+		E9CB8FF72C2DD40400F8701B /* TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB8FF62C2DD40400F8701B /* TeamResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,8 +170,6 @@
 		DECEFFAE2C0CCAC400A9B894 /* TirajosaureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TirajosaureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEFFCB2C0CCC5000A9B894 /* ParseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConfig.swift; sourceTree = "<group>"; };
 		DECEFFCE2C0CCC7700A9B894 /* MixpanelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelConfig.swift; sourceTree = "<group>"; };
-		E909D62C2C28D27B004FC1C3 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
-		E909D62D2C28D27C004FC1C3 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		E909D62E2C28D27C004FC1C3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E909D6322C28D2A5004FC1C3 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		E909D6342C28D2A5004FC1C3 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -237,6 +234,7 @@
 		E9148EB42C2761D800AC49B4 /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
 		E9148EB82C27624A00AC49B4 /* Extension+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Collection.swift"; sourceTree = "<group>"; };
 		E9148EBA2C27626000AC49B4 /* Extension+ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ApiService.swift"; sourceTree = "<group>"; };
+		E9CB8FF62C2DD40400F8701B /* TeamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,11 +309,10 @@
 			children = (
 				DE6736852C0FF06A001BEB56 /* User.swift */,
 				E909D62E2C28D27C004FC1C3 /* Event.swift */,
-				E909D62C2C28D27B004FC1C3 /* Member.swift */,
-				E909D62D2C28D27C004FC1C3 /* Team.swift */,
 				E9148E942C275FDC00AC49B4 /* Question.swift */,
 				E9148E962C27600B00AC49B4 /* TabItem.swift */,
 				E9148E982C27602500AC49B4 /* DrawResult.swift */,
+				E9CB8FF62C2DD40400F8701B /* TeamResult.swift */,
 				E9148E9A2C27603F00AC49B4 /* ParseResponse.swift */,
 				E9148E9C2C27605300AC49B4 /* SaveResponse.swift */,
 				E9148E9E2C27606600AC49B4 /* StatisticsModel.swift */,
@@ -889,7 +886,6 @@
 				E9148E972C27600B00AC49B4 /* TabItem.swift in Sources */,
 				E909D6A22C28D2A5004FC1C3 /* SplashView.swift in Sources */,
 				E909D67F2C28D2A5004FC1C3 /* StatisticsChartView.swift in Sources */,
-				E909D62F2C28D27C004FC1C3 /* Member.swift in Sources */,
 				E9148E9D2C27605300AC49B4 /* SaveResponse.swift in Sources */,
 				DE6077E22C1BB29300AA2A0A /* LocalizedString.swift in Sources */,
 				E909D67E2C28D2A5004FC1C3 /* StatisticsController.swift in Sources */,
@@ -920,6 +916,7 @@
 				DE6736932C0FF2EA001BEB56 /* Extension+View.swift in Sources */,
 				E9148EBB2C27626000AC49B4 /* Extension+ApiService.swift in Sources */,
 				E909D6A02C28D2A5004FC1C3 /* ReusableTextField.swift in Sources */,
+				E9CB8FF72C2DD40400F8701B /* TeamResult.swift in Sources */,
 				DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */,
 				E909D6A12C28D2A5004FC1C3 /* TextButton.swift in Sources */,
 				DE6736842C0FF035001BEB56 /* ApiService.swift in Sources */,
@@ -948,7 +945,6 @@
 				DE6077E92C1C97B500AA2A0A /* MixpanelEvent.swift in Sources */,
 				E909D68B2C28D2A5004FC1C3 /* EventDetailView.swift in Sources */,
 				E909D6902C28D2A5004FC1C3 /* PasswordResetController.swift in Sources */,
-				E909D6302C28D27C004FC1C3 /* Team.swift in Sources */,
 				E909D6882C28D2A5004FC1C3 /* QuestionView.swift in Sources */,
 				E9148E952C275FDC00AC49B4 /* Question.swift in Sources */,
 				DE6077DC2C1BABC000AA2A0A /* CustomFont.swift in Sources */,

@@ -12,13 +12,21 @@ struct EventEditView: View {
     @Binding var event: Event
     @ObservedObject var eventController: EventController
     @StateObject private var parametersController: ParametersListController
-    @StateObject private var optionsController = OptionsController()
+    @StateObject private var optionsController: OptionsController
     @Environment(\.presentationMode) var presentationMode
 
     init(event: Binding<Event>, eventController: EventController) {
         self._event = event
         self.eventController = eventController
-        self._parametersController = StateObject(wrappedValue: ParametersListController(numberOfTeams: 0, teamNames: []))
+
+        let paramsController = ParametersListController(numberOfTeams: event.wrappedValue.teams.count, teamNames: event.wrappedValue.teams)
+        let optsController = OptionsController()
+        optsController.options = event.wrappedValue.members
+
+        _parametersController = StateObject(wrappedValue: paramsController)
+        _optionsController = StateObject(wrappedValue: optsController)
+        
+        print("INIT: Teams - \(event.wrappedValue.teams), Members - \(event.wrappedValue.members)")
     }
 
     var body: some View {
@@ -56,10 +64,8 @@ struct EventEditView: View {
                     .padding(.bottom, 20)
                 }
                 .onAppear {
+                    print("ON APPEAR")
                     loadEventDetails()
-                }
-                .onDisappear {
-                    
                 }
             }
             .padding(.top)
@@ -68,7 +74,7 @@ struct EventEditView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        
+                        saveChanges()
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         CustomHeader(title: "Modifier un évènement")
@@ -80,37 +86,40 @@ struct EventEditView: View {
     }
 
     private func loadEventDetails() {
-        EventService.shared.fetchTeams(for: Pointer<Event>(objectId: event.objectId ?? "")) { result in
+        print("LOAD EVENT DETAILS BEFORE: Teams - \(parametersController.teamNames), Members - \(optionsController.options)")
+
+        // Mise à jour des équipes et des membres
+        parametersController.numberOfTeams = event.teams.count
+        parametersController.teamNames = event.teams
+        optionsController.options = event.members
+
+        print("LOAD EVENT DETAILS AFTER: Teams - \(parametersController.teamNames), Members - \(optionsController.options)")
+    }
+
+    private func saveChanges() {
+        event.teams = parametersController.teamNames
+        event.members = optionsController.options
+        print("Updating event with teams: \(event.teams) and members: \(event.members)")  // Ajoutez ceci pour le débogage
+        eventController.updateEvent(event: event, parametersController: parametersController, optionsController: optionsController) { result in
             switch result {
-            case .success(let teams):
-                let teamNames = teams.map { $0.name }
-                DispatchQueue.main.async {
-                    self.parametersController.numberOfTeams = teams.count
-                    self.parametersController.teamNames = teamNames
-                }
+            case .success:
+                print("Event updated successfully")
             case .failure(let error):
-                print("Failed to fetch teams: \(error.localizedDescription)")
-            }
-        }
-        EventService.shared.fetchMembers(for: Pointer<Event>(objectId: event.objectId ?? "")) { result in
-            switch result {
-            case .success(let members):
-                DispatchQueue.main.async {
-                    self.optionsController.options = members.map { $0.name }
-                }
-            case .failure(let error):
-                print("Failed to fetch members: \(error.localizedDescription)")
+                SnackBarService.current.error("Échec de la mise à jour de l'événement: \(error.localizedDescription)")
+                print("Failed to update event: \(error)")
             }
         }
     }
-
 
 }
 
 struct EventEditView_Previews: PreviewProvider {
     @State static var event = Event(
         title: "Tournoi de foot",
-        user: Pointer<User>(objectId: "sampleUserId")
+        user: Pointer<User>(objectId: "sampleUserId"),
+        equitableDistribution: true,
+        teams: ["Équipe 1", "Équipe 2"],
+        members: ["Membre 1", "Membre 2"]
     )
 
     static var previews: some View {

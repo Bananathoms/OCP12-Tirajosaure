@@ -11,10 +11,18 @@ import SwiftUI
 import Alamofire
 
 /// A service class responsible for handling API requests.
+import Foundation
+import ParseSwift
+import SwiftUI
+import Alamofire
+
+/// A service class responsible for handling API requests.
 class ApiService {
     static var current = ApiService()
     
     init() {}
+
+    // MARK: - User Methods
     
     /// Registers a new user with the provided details.
     /// - Parameters:
@@ -74,6 +82,8 @@ class ApiService {
                 }
             }
     }
+    
+    // MARK: - Question Methods
     
     /// Fetches questions associated with a specific user from the Parse server.
     /// - Parameters:
@@ -212,76 +222,23 @@ class ApiService {
         }
     }
     
-    /// Handles the response from an Alamofire request.
-    /// - Parameters:
-    ///   - response: The `AFDataResponse<Data>` object containing the response data.
-    ///   - ofType: The type of the expected response.
-    ///   - originalUser: The original `User` object passed to the request (optional).
-    ///   - onResult: A closure to handle the result of the response.
-    func handleAlamofireResponse<T: Decodable>(_ response: AFDataResponse<Data>, ofType: T.Type, originalUser: User? = nil, onResult: @escaping (Result<T, AppError>) -> Void) {
-        switch response.result {
-        case .success(let data):
-            if data.isEmpty, T.self == VoidResponse.self {
-                onResult(.success(VoidResponse() as! T))
-                return
-            }
-            do {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-                let result = try decoder.decode(T.self, from: data)
-                if let user = result as? User, let originalUser = originalUser {
-                    var updatedUser = user
-                    updatedUser.firstName = user.firstName ?? originalUser.firstName
-                    updatedUser.lastName = user.lastName ?? originalUser.lastName
-                    onResult(.success(updatedUser as! T))
-                } else {
-                    onResult(.success(result))
-                }
-            } catch {
-                let responseString = String(data: data, encoding: .utf8)
-                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
-            }
-        case .failure(let error):
-            if let data = response.data {
-                let responseString = String(data: data, encoding: .utf8)
-                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
-            } else {
-                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription)")))
-            }
-        }
-    }
-    
-    
-    /// Returns the headers required for the API requests.
-    /// - Returns: A `HTTPHeaders` object containing the necessary headers.
-    private func getHeaders() -> HTTPHeaders {
-        return [
-            APIConstants.Headers.applicationID: ParseConfig.applicationID,
-            APIConstants.Headers.clientKey: ParseConfig.clientKey,
-            APIConstants.Headers.contentType: ParseConfig.contentType
-        ]
-    }
-    
-    private func handleDeleteResponse(_ response: AFDataResponse<Data>, onResult: @escaping (Result<Void, AppError>) -> Void) {
-        switch response.result {
-        case .success:
-            onResult(.success(()))
-        case .failure(let error):
-            onResult(.failure(.networkError(error.localizedDescription)))
-        }
-    }
-    
     // MARK: - Event Methods
     
     func saveEvent(_ event: Event, completion: @escaping (Result<Event, AppError>) -> Void) {
         let url = ParseConfig.serverURL + APIConstants.Endpoints.eventBase
         let headers = getHeaders()
 
-        let parameters: [String: Any] = [
+        var parameters: [String: Any] = [
             APIConstants.Parameters.title: event.title,
             APIConstants.Parameters.equitableDistribution: event.equitableDistribution,
-            APIConstants.Parameters.user: APIConstants.Parameters.pointerParams(className: "_User", objectId: event.user.objectId)
+            APIConstants.Parameters.user: pointerParams(className: "_User", objectId: event.user.objectId),
+            APIConstants.Parameters.teams: event.teams,
+            APIConstants.Parameters.members: event.members
         ]
+
+        if let objectId = event.objectId {
+            parameters[DefaultValues.objectId] = objectId
+        }
 
         let request: DataRequest
         if let objectId = event.objectId {
@@ -291,22 +248,26 @@ class ApiService {
         }
 
         request.validate().responseData { response in
+            print("Response data: \(String(describing: response.data))")  // Ajoutez ceci pour le débogage
             self.handleAlamofireResponse(response, ofType: SaveResponse.self) { result in
                 switch result {
                 case .success(let saveResponse):
                     var savedEvent = event
                     savedEvent.objectId = saveResponse.objectId
                     savedEvent.createdAt = DateFormatter.iso8601Full.date(from: saveResponse.createdAt)
+                    savedEvent.updatedAt = saveResponse.updatedAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.updatedAt!) : nil
                     completion(.success(savedEvent))
                 case .failure(let error):
+                    print("Failed to save event: \(error.localizedDescription)")  // Ajoutez ceci pour le débogage
                     completion(.failure(error))
                 }
             }
         }
     }
+
     
     func fetchEvents(for userPointer: Pointer<User>, completion: @escaping (Result<[Event], AppError>) -> Void) {
-        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userPointer.objectId)
+        let parameters = wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userPointer.objectId)
         let url = ParseConfig.serverURL + APIConstants.Endpoints.eventBase
         
         AF.request(url, parameters: parameters, headers: getHeaders()).validate().responseData { response in
@@ -322,64 +283,11 @@ class ApiService {
     }
     
     func deleteEvent(_ event: Event, completion: @escaping (Result<Void, AppError>) -> Void) {
-         guard let objectId = event.objectId else {
-             completion(.failure(.validationError("Invalid event ID")))
-             return
-         }
-         let url = ParseConfig.serverURL + APIConstants.Endpoints.eventById.replacingOccurrences(of: "{id}", with: objectId)
-         let headers = getHeaders()
-
-         AF.request(url, method: .delete, headers: headers).validate().responseData { response in
-             self.handleDeleteResponse(response, onResult: completion)
-         }
-     }
-    
-    // MARK: - Team Methods
-    
-    func saveTeam(_ team: Team, completion: @escaping (Result<Team, AppError>) -> Void) {
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamBase
-        let headers = getHeaders()
-
-        let parameters: [String: Any] = [
-            APIConstants.Parameters.name: team.name,
-            APIConstants.Parameters.event: APIConstants.Parameters.pointerParams(className: "Event", objectId: team.event.objectId)
-        ]
-
-        let request: DataRequest
-        if let objectId = team.objectId {
-            request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-        } else {
-            request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-        }
-
-        request.validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: Team.self, onResult: completion)
-        }
-    }
-    
-
-    func fetchTeams(for eventPointer: Pointer<Event>, completion: @escaping (Result<[Team], AppError>) -> Void) {
-        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.EventPointer(), objectId: eventPointer.objectId)
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamBase
-        
-        AF.request(url, parameters: parameters, headers: getHeaders()).validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: ParseResponse<Team>.self) { result in
-                switch result {
-                case .success(let parseResponse):
-                    completion(.success(parseResponse.results))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
-    
-    func deleteTeam(_ team: Team, completion: @escaping (Result<Void, AppError>) -> Void) {
-        guard let objectId = team.objectId else {
-            completion(.failure(.validationError("Invalid team ID")))
+        guard let objectId = event.objectId else {
+            completion(.failure(.validationError("Invalid event ID")))
             return
         }
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamById.replacingOccurrences(of: "{id}", with: objectId)
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.eventById.replacingOccurrences(of: "{id}", with: objectId)
         let headers = getHeaders()
 
         AF.request(url, method: .delete, headers: headers).validate().responseData { response in
@@ -387,63 +295,64 @@ class ApiService {
         }
     }
     
-    // MARK: - Member Methods
+    // MARK: - Response Handling
     
-    func saveMember(_ member: Member, completion: @escaping (Result<Member, AppError>) -> Void) {
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.memberBase
-        let headers = getHeaders()
-
-        var parameters: [String: Any] = [
-            APIConstants.Parameters.name: member.name,
-            APIConstants.Parameters.event: APIConstants.Parameters.pointerParams(className: "Event", objectId: member.event.objectId)
-        ]
-
-        if let team = member.team {
-            parameters[APIConstants.Parameters.team] = APIConstants.Parameters.pointerParams(className: "Team", objectId: team.objectId)
-        }
-
-        let request: DataRequest
-        if let objectId = member.objectId {
-            request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-        } else {
-            request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-        }
-
-        request.validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: Member.self, onResult: completion)
-        }
-    }
-    
-    /// Fetches members associated with a specific event from the Parse server.
-    /// - Parameters:
-    ///   - event: The `Pointer<Event>` object whose members are to be fetched.
-    ///   - completion: A closure to handle the result of the fetch operation.
-    func fetchMembers(for event: Pointer<Event>, completion: @escaping (Result<[Member], AppError>) -> Void) {
-        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.EventPointer(), objectId: event.objectId)
-        let headers = getHeaders()
-
-        AF.request(ParseConfig.serverURL + APIConstants.Endpoints.memberBase, parameters: parameters, headers: headers).validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: ParseResponse<Member>.self) { result in
-                switch result {
-                case .success(let parseResponse):
-                    completion(.success(parseResponse.results))
-                case .failure(let error):
-                    completion(.failure(error))
+    private func handleAlamofireResponse<T: Decodable>(_ response: AFDataResponse<Data>, ofType: T.Type, originalUser: User? = nil, onResult: @escaping (Result<T, AppError>) -> Void) {
+        switch response.result {
+        case .success(let data):
+            if data.isEmpty, T.self == VoidResponse.self {
+                onResult(.success(VoidResponse() as! T))
+                return
+            }
+            do {
+                print("Response data (success): \(String(data: data, encoding: .utf8) ?? "No data")") // Ajoutez ceci pour le débogage
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                let result = try decoder.decode(T.self, from: data)
+                if let user = result as? User, let originalUser = originalUser {
+                    var updatedUser = user
+                    updatedUser.firstName = user.firstName ?? originalUser.firstName
+                    updatedUser.lastName = user.lastName ?? originalUser.lastName
+                    onResult(.success(updatedUser as! T))
+                } else {
+                    onResult(.success(result))
                 }
+            } catch {
+                let responseString = String(data: data, encoding: .utf8)
+                print("Decoding error: \(error.localizedDescription)") // Ajoutez ceci pour le débogage
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
+            }
+        case .failure(let error):
+            if let data = response.data {
+                let responseString = String(data: data, encoding: .utf8)
+                print("Response data (failure): \(responseString ?? "No data")") // Ajoutez ceci pour le débogage
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription) : \(responseString ?? "No response data")")))
+            } else {
+                onResult(.failure(.networkError("Une erreur réseau s'est produite : \(error.localizedDescription)")))
             }
         }
     }
-    
-    func deleteMember(_ member: Member, completion: @escaping (Result<Void, AppError>) -> Void) {
-        guard let objectId = member.objectId else {
-            completion(.failure(.validationError("Invalid member ID")))
-            return
-        }
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.memberById.replacingOccurrences(of: "{id}", with: objectId)
-        let headers = getHeaders()
 
-        AF.request(url, method: .delete, headers: headers).validate().responseData { response in
-            self.handleDeleteResponse(response, onResult: completion)
+
+    private func handleDeleteResponse(_ response: AFDataResponse<Data>, onResult: @escaping (Result<Void, AppError>) -> Void) {
+        switch response.result {
+        case .success:
+            onResult(.success(()))
+        case .failure(let error):
+            onResult(.failure(.networkError(error.localizedDescription)))
         }
     }
+
+    // MARK: - Utility Methods
+    
+    private func getHeaders() -> HTTPHeaders {
+        return [
+            APIConstants.Headers.applicationID: ParseConfig.applicationID,
+            APIConstants.Headers.clientKey: ParseConfig.clientKey,
+            APIConstants.Headers.contentType: ParseConfig.contentType
+        ]
+    }
+    
+    
+    
 }
