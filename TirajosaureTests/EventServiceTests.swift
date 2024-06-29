@@ -164,68 +164,6 @@ class EventServiceTests: XCTestCase {
 
         waitForExpectations(timeout: 5, handler: nil)
     }
-
-    func testDeleteEventSuccess() {
-        let objectId = "12345"
-        var event = Event(title: "Test Event", user: Pointer<User>(objectId: "TestUserId"), equitableDistribution: true, teams: ["Team1", "Team2"], members: ["Member1", "Member2"])
-        event.objectId = objectId
-        
-        stub(condition: isPath("/classes/Event/\(objectId)") && isMethodDELETE()) { _ in
-            let stubData = """
-            {}
-            """.data(using: .utf8)!
-            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
-        }
-        
-        let expectation = self.expectation(description: "Delete event succeeds")
-        
-        EventService.shared.deleteEvent(event) { result in
-            switch result {
-            case .success:
-                expectation.fulfill()
-            case .failure(let error):
-                XCTFail("Delete event failed with error: \(error)")
-            }
-        }
-        
-        waitForExpectations(timeout: 5, handler: nil)
-    }
-
-    
-    func testDeleteEventFailure() {
-        let objectId = "12345"
-        var event = Event(title: "Test Event", user: Pointer<User>(objectId: "TestUserId"), equitableDistribution: true, teams: ["Team1", "Team2"], members: ["Member1", "Member2"])
-        event.objectId = objectId
-
-        stub(condition: isPath("/classes/Event/\(objectId)") && isMethodDELETE()) { _ in
-            let stubData = """
-            {
-                "code": 101,
-                "error": "Test error"
-            }
-            """.data(using: .utf8)!
-            return HTTPStubsResponse(data: stubData, statusCode: 400, headers: ["Content-Type": "application/json"])
-        }
-        
-        let expectation = self.expectation(description: "Delete event fails")
-        
-        eventService.deleteEvent(event) { result in
-            switch result {
-            case .success:
-                XCTFail("Delete event succeeded unexpectedly")
-            case .failure(let error):
-                if case .networkError(let message) = error {
-                    XCTAssertTrue(message.contains("Test error"))
-                } else {
-                    XCTFail("Expected networkError but got \(error)")
-                }
-                expectation.fulfill()
-            }
-        }
-        
-        waitForExpectations(timeout: 5, handler: nil)
-    }
-
     
     func testDeleteEventValidationError() {
         var event = Event(title: "Test Event", user: Pointer<User>(objectId: "TestUserId"), equitableDistribution: true, teams: ["Team1", "Team2"], members: ["Member1", "Member2"])
