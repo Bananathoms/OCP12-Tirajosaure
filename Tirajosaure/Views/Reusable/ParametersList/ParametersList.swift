@@ -45,7 +45,6 @@ struct ParametersList: View {
                     .listRowBackground(Color.antiqueWhite)
                 }
             }
-            .contentMargins(.top, 0)
             .scrollContentBackground(.hidden)
             .listStyle(InsetGroupedListStyle())
         }

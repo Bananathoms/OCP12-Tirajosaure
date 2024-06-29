@@ -47,7 +47,6 @@ struct OptionsListView: View {
                 .onDelete(perform: controller.removeOption)
                 .onMove(perform: controller.moveOption)
             }
-            .contentMargins(.top, 0)
             .scrollContentBackground(.hidden)
             .listStyle(InsetGroupedListStyle())
             .environment(\.editMode, .constant(.active))

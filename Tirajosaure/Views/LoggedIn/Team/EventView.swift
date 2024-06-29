@@ -120,7 +120,6 @@ struct EventView: View {
                 eventController.moveEvent(from: source, to: destination)
             }
         }
-        .contentMargins(.top, 24)
         .environment(\.editMode, .constant(isEditing ? .active : .inactive))
         .scrollContentBackground(.hidden)
     }

@@ -105,7 +105,7 @@ struct QuestionView: View {
             .onDelete(perform: questionController.removeQuestion)
             .onMove(perform: questionController.moveQuestion)
         }
-        .contentMargins(.top, 24)
+//        .contentMargins(.top, 24)
         .environment(\.editMode, .constant(isEditing ? .active : .inactive))
         .scrollContentBackground(.hidden)
     }

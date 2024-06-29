@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     macos:
-      xcode: "15.3.0"
+      xcode: "15.4.0"
     environment:
       OUTPUT_DIR: /Users/distiller/Library/Developer/Xcode/DerivedData
       CONFIGURATION_BUILD_DIR: /Users/distiller/Library/Developer/Xcode/DerivedData/Tirajosaure-fjxtttdvoeihhkeornjdvafkbldn/Build/Products/Debug-iphonesimulator
