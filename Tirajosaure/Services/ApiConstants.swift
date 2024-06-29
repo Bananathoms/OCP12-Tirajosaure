@@ -20,7 +20,9 @@ struct APIConstants {
         static let eventBase = "/classes/Event"
         static let eventById = "/classes/Event/{id}"
         static let teamsDrawBase = "/classes/TeamsDraw"
+        static let teamsDrawById = "/classes/TeamsDraw/{objectId}"
         static let teamResultBase = "/classes/TeamResult"
+        static let teamResultById = "/classes/TeamResult/{objectId}"
     }
     
     struct Parameters {

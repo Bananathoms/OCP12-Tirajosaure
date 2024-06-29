@@ -56,7 +56,9 @@
 "failed_to_save_teams_draw" = "Échec de l'enregistrement du tirage des équipes: %@";
 "failed_to_fetch_teams_draw" = "Échec de la récupération du tirage des équipes: %@";
 "failed_to_fetch_team_results" = "Échec de la récupération des résultats de l'équipe: %@";
-
+"invalid_teams_draw_id" = "ID TeamsDraw invalide";
+"invalid_team_result_id" = "ID TeamResult invalide";
+"invalid_event_id" = "ID de l'événement invalide";
 
 // Erreurs d'authentification
 "authentication_error_message" = "Nom d'utilisateur ou mot de passe invalide.";

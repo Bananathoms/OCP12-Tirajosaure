@@ -17,6 +17,8 @@ class TeamDistributionController: ObservableObject {
     var membersToDistribute: [String] = []
     var teamsDraw: TeamsDraw?
     
+    private let teamsDrawService = TeamsDrawService.shared
+    
     /// Initializes teams based on the provided event.
     /// - Parameter event: The event for which teams are being initialized.
     func initializeTeams(for event: Event) {
@@ -67,13 +69,13 @@ class TeamDistributionController: ObservableObject {
     /// Saves the teams draw to the server.
     private func saveTeamsDraw() {
         guard let teamsDraw = self.teamsDraw else { return }
-        TeamsDrawService.saveTeamsDraw(teamsDraw) { result in
+        teamsDrawService.saveTeamsDraw(teamsDraw) { [self] result in
             switch result {
             case .success(let savedDraw):
                 for team in self.teams {
                     var teamToSave = team
                     teamToSave.draw = Pointer<TeamsDraw>(objectId: savedDraw.objectId!)
-                    TeamsDrawService.saveTeamResult(teamToSave) { _ in }
+                    teamsDrawService.saveTeamResult(teamToSave) { _ in }
                 }
             case .failure(let error):
                 SnackBarService.current.error(String(format: ErrorMessage.failedToSaveTeam.localized, error.localizedDescription))

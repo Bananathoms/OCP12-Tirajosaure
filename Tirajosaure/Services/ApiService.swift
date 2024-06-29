@@ -130,7 +130,7 @@ class ApiService {
             completion(.failure(.validationError(LocalizedString.invalidQuestionID.localized)))
             return
         }
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.questionById.replacingOccurrences(of: FormatConstants.objectIdPlaceholder, with: objectId)
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.questionById.replacingOccurrences(of: FormatConstants.idPlaceholder, with: objectId)
         let headers = getHeaders()
         
         AF.request(url, method: .delete, headers: headers).validate().responseData { response in
@@ -188,7 +188,7 @@ class ApiService {
             completion(.failure(.validationError(ErrorMessage.invalidQuestionID.localized)))
             return
         }
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.drawResultById.replacingOccurrences(of: FormatConstants.objectIdPlaceholder, with: objectId)
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.drawResultById.replacingOccurrences(of: FormatConstants.idPlaceholder, with: objectId)
         let headers = getHeaders()
 
         AF.request(url, method: .delete, headers: headers).validate().responseData { response in
@@ -217,10 +217,10 @@ class ApiService {
     ///   - event: The `Event` object to be saved.
     ///   - originalObject: An optional original object to compare with.
     ///   - completion: A closure to handle the result of the save operation.
-    func saveEvent(_ event: Event, originalObject: Event? = nil, completion: @escaping (Result<Event, AppError>) -> Void) {
+    func saveEvent(_ event: Event, completion: @escaping (Result<Event, AppError>) -> Void) {
         let url = ParseConfig.serverURL + APIConstants.Endpoints.eventBase
         let headers = getHeaders()
-
+        
         var parameters: [String: Any] = [
             APIConstants.Parameters.title: event.title,
             APIConstants.Parameters.equitableDistribution: event.equitableDistribution,
@@ -228,20 +228,26 @@ class ApiService {
             APIConstants.Parameters.teams: event.teams,
             APIConstants.Parameters.members: event.members
         ]
-
+        
         if let objectId = event.objectId {
             parameters[DefaultValues.objectId] = objectId
         }
-
+        
         let request: DataRequest
         if let objectId = event.objectId {
             request = AF.request("\(url)/\(objectId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
         } else {
             request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
         }
-
+        
         request.validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: SaveResponse.self, originalObject: event, onResult: completion)
+            self.handleAlamofireResponse(response, ofType: SaveResponse.self, transform: { saveResponse in
+                var savedEvent = event
+                savedEvent.objectId = saveResponse.objectId ?? event.objectId
+                savedEvent.createdAt = saveResponse.createdAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.createdAt!) : event.createdAt
+                savedEvent.updatedAt = saveResponse.updatedAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.updatedAt!) : event.updatedAt
+                return savedEvent
+            }, onResult: completion)
         }
     }
     
@@ -251,12 +257,11 @@ class ApiService {
     ///   - completion: A closure to handle the result of the delete operation.
     func deleteEvent(_ event: Event, completion: @escaping (Result<Void, AppError>) -> Void) {
         guard let objectId = event.objectId else {
-            completion(.failure(.validationError(ErrorMessage.invalidQuestionID.localized)))
+            completion(.failure(.validationError(ErrorMessage.invalidEventID.localized)))
             return
         }
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.eventById.replacingOccurrences(of: FormatConstants.objectIdPlaceholder, with: objectId)
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.eventById.replacingOccurrences(of: FormatConstants.idPlaceholder, with: objectId)
         let headers = getHeaders()
-
         AF.request(url, method: .delete, headers: headers).validate().responseData { response in
             self.handleDeleteResponse(response, onResult: completion)
         }
@@ -295,6 +300,33 @@ class ApiService {
             }, onResult: completion)
         }
     }
+    
+    /// Fetches TeamsDraw objects for a specific event.
+    /// - Parameters:
+    ///   - event: The `Event` object whose draws are to be fetched.
+    ///   - completion: A closure to handle the result of the fetch operation.
+    func fetchTeamsDraw(for eventPointer: Pointer<Event>, completion: @escaping (Result<[TeamsDraw], AppError>) -> Void) {
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamsDrawBase
+        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.EventPointer(), objectId: eventPointer.objectId)
+        let headers = getHeaders()
+
+        AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: ParseResponse<TeamsDraw>.self, transform: { $0.results }, onResult: completion)
+        }
+    }
+    
+    func deleteTeamsDraw(_ teamsDraw: TeamsDraw, completion: @escaping (Result<Void, AppError>) -> Void) {
+        guard let objectId = teamsDraw.objectId else {
+            completion(.failure(.validationError(ErrorMessage.invalidTeamsDrawID.localized)))
+            return
+        }
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamsDrawById.replacingOccurrences(of: FormatConstants.objectIdPlaceholder, with: objectId)
+        let headers = getHeaders()
+        
+        AF.request(url, method: .delete, headers: headers).validate().responseData { response in
+            self.handleDeleteResponse(response, onResult: completion)
+        }
+    }
 
     /// Saves a TeamResult to the Parse server.
     /// - Parameters:
@@ -325,26 +357,13 @@ class ApiService {
             self.handleAlamofireResponse(response, ofType: SaveResponse.self, originalObject: teamResult, transform: { saveResponse in
                 var savedTeamResult = teamResult
                 savedTeamResult.objectId = saveResponse.objectId
-                savedTeamResult.createdAt = DateFormatter.iso8601Full.date(from: saveResponse.createdAt ?? "") ?? Date()
+                savedTeamResult.createdAt = DateFormatter.iso8601Full.date(from: saveResponse.createdAt ?? DefaultValues.emptyString) ?? Date()
                 savedTeamResult.updatedAt = saveResponse.updatedAt != nil ? DateFormatter.iso8601Full.date(from: saveResponse.updatedAt!) : nil
                 return savedTeamResult
             }, onResult: completion)
         }
     }
-    
-    /// Fetches TeamsDraw objects for a specific event.
-    /// - Parameters:
-    ///   - event: The `Event` object whose draws are to be fetched.
-    ///   - completion: A closure to handle the result of the fetch operation.
-    func fetchTeamsDraw(for event: Event, completion: @escaping (Result<[TeamsDraw], AppError>) -> Void) {
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamsDrawBase
-        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.EventPointer(), objectId: event.objectId ?? DefaultValues.emptyString)
-        let headers = getHeaders()
 
-        AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: ParseResponse<TeamsDraw>.self, transform: { $0.results }, onResult: completion)
-        }
-    }
     
     /// Fetches TeamResult objects for a specific TeamsDraw.
     /// - Parameters:
@@ -357,6 +376,20 @@ class ApiService {
 
         AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
             self.handleAlamofireResponse(response, ofType: ParseResponse<TeamResult>.self, transform: { $0.results }, onResult: completion)
+        }
+    }
+
+
+    func deleteTeamResult(_ teamResult: TeamResult, completion: @escaping (Result<Void, AppError>) -> Void) {
+        guard let objectId = teamResult.objectId else {
+            completion(.failure(.validationError(ErrorMessage.invalidTeamResultID.localized)))
+            return
+        }
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.teamResultById.replacingOccurrences(of: FormatConstants.objectIdPlaceholder, with: objectId)
+        let headers = getHeaders()
+
+        AF.request(url, method: .delete, headers: headers).validate().responseData { response in
+            self.handleDeleteResponse(response, onResult: completion)
         }
     }
 
@@ -388,7 +421,7 @@ class ApiService {
                         onResult(.success(event as! U))
                         return
                     } else {
-                        let responseString = String(data: data, encoding: .utf8)
+                        _ = String(data: data, encoding: .utf8)
                         onResult(.failure(.networkError("\(ErrorMessage.networkDataMissing.localized)")))
                         return
                     }
@@ -424,7 +457,12 @@ class ApiService {
         case .success:
             onResult(.success(()))
         case .failure(let error):
-            onResult(.failure(.networkError(error.localizedDescription)))
+            if let statusCode = response.response?.statusCode, statusCode == 404 {
+                onResult(.success(()))
+            } else {
+                let responseString = String(data: response.data ?? Data(), encoding: .utf8)
+                onResult(.failure(.networkError(String(format: ErrorMessage.networkErrorWithResponse.localized, error.localizedDescription, responseString ?? ErrorMessage.noResponseData.localized))))
+            }
         }
     }
 

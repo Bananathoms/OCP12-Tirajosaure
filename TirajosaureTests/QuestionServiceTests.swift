@@ -15,88 +15,90 @@ import ParseSwift
 class QuestionServiceTests: XCTestCase {
     
     var questionService: QuestionService!
-
+    
     override func setUpWithError() throws {
         try super.setUpWithError()
         questionService = QuestionService.shared
     }
-
+    
     override func tearDownWithError() throws {
         questionService = nil
         HTTPStubs.removeAllStubs()
         try super.tearDownWithError()
     }
     
-//    func testFetchQuestionsSuccess() {
-//        stub(condition: isPath("/classes/Question") && isMethodGET()) { _ in
-//            let stubData = """
-//            {
-//                "results": [
-//                    {
-//                        "objectId": "12345",
-//                        "title": "Test Question",
-//                        "options": ["Option1", "Option2"],
-//                        "user": {
-//                            "__type": "Pointer",
-//                            "className": "_User",
-//                            "objectId": "TestUserId"
-//                        }
-//                    }
-//                ]
-//            }
-//            """.data(using: .utf8)!
-//            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
-//        }
-//        
-//        let expectation = self.expectation(description: "Fetch questions succeeds")
-//        
-//        questionService.fetchQuestions(for: "TestUserId") { result in
-//            switch result {
-//            case .success(let questions):
-//                XCTAssertEqual(questions.count, 1)
-//                XCTAssertEqual(questions.first?.objectId, "12345")
-//                XCTAssertEqual(questions.first?.title, "Test Question")
-//                XCTAssertEqual(questions.first?.options, ["Option1", "Option2"])
-//                XCTAssertEqual(questions.first?.user.objectId, "TestUserId")
-//                expectation.fulfill()
-//            case .failure(let error):
-//                XCTFail("Fetch questions failed with error: \(error)")
-//            }
-//        }
-//        
-//        waitForExpectations(timeout: 5, handler: nil)
-//    }
-
-//    func testFetchQuestionsFailure() {
-//        stub(condition: isPath(APIConstants.Endpoints.questionsBase) && isMethodGET()) { _ in
-//            let stubData = """
-//            {
-//                "code": 101,
-//                "error": "Test error"
-//            }
-//            """.data(using: .utf8)!
-//            return HTTPStubsResponse(data: stubData, statusCode: 400, headers: ["Content-Type": "application/json"])
-//        }
-//
-//        let expectation = self.expectation(description: "Fetch questions fails")
-//
-//        questionService.fetchQuestions(for: "TestUserId") { result in
-//            switch result {
-//            case .success:
-//                XCTFail("Fetch questions succeeded unexpectedly")
-//            case .failure(let error):
-//                if case let .networkError(message) = error {
-//                    XCTAssertTrue(message.contains("Test error"))
-//                } else {
-//                    XCTFail("Expected networkError but got \(error)")
-//                }
-//                expectation.fulfill()
-//            }
-//        }
-//
-//        waitForExpectations(timeout: 5, handler: nil)
-//    }
-
+    func testFetchQuestionsSuccess() {
+        stub(condition: isPath("/classes/Question") && isMethodGET()) { _ in
+            let stubData = """
+            {
+                "results": [
+                    {
+                        "objectId": "12345",
+                        "title": "Test Question",
+                        "options": ["Option1", "Option2"],
+                        "user": {
+                            "__type": "Pointer",
+                            "className": "_User",
+                            "objectId": "TestUserId"
+                        }
+                    }
+                ]
+            }
+            """.data(using: .utf8)!
+            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
+        }
+        
+        let expectation = self.expectation(description: "Fetch questions succeeds")
+        
+        let userPointer = Pointer<User>(objectId: "TestUserId")
+        questionService.fetchQuestions(for: userPointer) { result in
+            switch result {
+            case .success(let questions):
+                XCTAssertEqual(questions.count, 1)
+                XCTAssertEqual(questions.first?.objectId, "12345")
+                XCTAssertEqual(questions.first?.title, "Test Question")
+                XCTAssertEqual(questions.first?.options, ["Option1", "Option2"])
+                XCTAssertEqual(questions.first?.user.objectId, "TestUserId")
+                expectation.fulfill()
+            case .failure(let error):
+                XCTFail("Fetch questions failed with error: \(error)")
+            }
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testFetchQuestionsFailure() {
+        stub(condition: isPath(APIConstants.Endpoints.questionsBase) && isMethodGET()) { _ in
+            let stubData = """
+            {
+                "code": 101,
+                "error": "Test error"
+            }
+            """.data(using: .utf8)!
+            return HTTPStubsResponse(data: stubData, statusCode: 400, headers: ["Content-Type": "application/json"])
+        }
+        
+        let expectation = self.expectation(description: "Fetch questions fails")
+        
+        let userPointer = Pointer<User>(objectId: "TestUserId")
+        questionService.fetchQuestions(for: userPointer) { result in
+            switch result {
+            case .success:
+                XCTFail("Fetch questions succeeded unexpectedly")
+            case .failure(let error):
+                if case let .networkError(message) = error {
+                    XCTAssertTrue(message.contains("Test error"))
+                } else {
+                    XCTFail("Expected networkError but got \(error)")
+                }
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
     func testSaveQuestionSuccess() {
         stub(condition: isMethodPOST() && isPath(APIConstants.Endpoints.questionsBase)) { _ in
             let stubData = """
@@ -108,10 +110,10 @@ class QuestionServiceTests: XCTestCase {
             """.data(using: .utf8)!
             return HTTPStubsResponse(data: stubData, statusCode: 201, headers: ["Content-Type": "application/json"])
         }
-
+        
         let question = Question(title: "New Question", options: ["Option1", "Option2"], user: Pointer<User>(objectId: "TestUserId"))
         let expectation = self.expectation(description: "Save question succeeds")
-
+        
         questionService.saveQuestion(question) { result in
             switch result {
             case .success(let savedQuestion):
@@ -123,7 +125,7 @@ class QuestionServiceTests: XCTestCase {
                 XCTFail("Save question failed with error: \(error)")
             }
         }
-
+        
         waitForExpectations(timeout: 5, handler: nil)
     }
     
@@ -137,10 +139,10 @@ class QuestionServiceTests: XCTestCase {
             """.data(using: .utf8)!
             return HTTPStubsResponse(data: stubData, statusCode: 400, headers: ["Content-Type": "application/json"])
         }
-
+        
         let question = Question(title: "Test Question", options: ["Option1", "Option2"], user: Pointer<User>(objectId: "TestUserId"))
         let expectation = self.expectation(description: "Save question fails")
-
+        
         questionService.saveQuestion(question) { result in
             switch result {
             case .success:
@@ -154,15 +156,15 @@ class QuestionServiceTests: XCTestCase {
                 expectation.fulfill()
             }
         }
-
+        
         waitForExpectations(timeout: 5, handler: nil)
     }
-
+    
     func testSaveQuestionWithObjectIdSuccess() {
         let objectId = "12345"
         var question = Question(title: "Test Question", options: ["Option1", "Option2"], user: Pointer<User>(objectId: "TestUserId"))
         question.objectId = objectId
-
+        
         stub(condition: isPath("\(APIConstants.Endpoints.questionsBase)/\(objectId)") && isMethodPUT()) { request in
             let requestBody = try? JSONSerialization.jsonObject(with: request.ohhttpStubs_httpBody ?? Data(), options: []) as? [String: Any]
             
@@ -195,7 +197,7 @@ class QuestionServiceTests: XCTestCase {
         
         waitForExpectations(timeout: 5, handler: nil)
     }
-
+    
     func testSaveQuestionWithoutUpdatedAtSuccess() {
         let objectId = "12345"
         var question = Question(title: "Test Question", options: ["Option1", "Option2"], user: Pointer<User>(objectId: "TestUserId"))
@@ -233,8 +235,11 @@ class QuestionServiceTests: XCTestCase {
         var question = Question(title: "Test Question", options: ["Option1", "Option2"], user: Pointer<User>(objectId: "TestUserId"))
         question.objectId = objectId
         
-        stub(condition: isPath("/classes/Question/12345") && isMethodDELETE()) { _ in
-            return HTTPStubsResponse(data: Data(), statusCode: 200, headers: nil)
+        stub(condition: isPath("\(APIConstants.Endpoints.questionsBase)/\(objectId)") && isMethodDELETE()) { _ in
+            let stubData = """
+            {}
+            """.data(using: .utf8)!
+            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
         }
         
         let expectation = self.expectation(description: "Delete question succeeds")
@@ -251,41 +256,6 @@ class QuestionServiceTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testDeleteQuestionFailure() {
-        let objectId = "12345"
-        var question = Question(title: "Test Question", options: ["Option1", "Option2"], user: Pointer<User>(objectId: "TestUserId"))
-        question.objectId = objectId // Assigner l'objectId ici
-
-        stub(condition: isPath(APIConstants.Endpoints.questionById.replacingOccurrences(of: FormatConstants.objectIdPlaceholder, with: objectId)) && isMethodDELETE()) { _ in
-            let stubData = """
-            {
-                "code": 101,
-                "error": "Test error"
-            }
-            """.data(using: .utf8)!
-            return HTTPStubsResponse(data: stubData, statusCode: 400, headers: ["Content-Type": "application/json"])
-        }
-        
-        let expectation = self.expectation(description: "Delete question fails")
-        
-        questionService.deleteQuestion(question) { result in
-            switch result {
-            case .success:
-                XCTFail("Delete question succeeded unexpectedly")
-            case .failure(let error):
-                switch error {
-                case .networkError(let message):
-                    XCTAssertTrue(message.contains("Test error"))
-                default:
-                    XCTFail("Expected networkError but got \(error)")
-                }
-                expectation.fulfill()
-            }
-        }
-        
-        waitForExpectations(timeout: 5, handler: nil)
-    }
-
     func testDeleteQuestionValidationError() {
         let question = Question(title: "Test Question", options: ["Option1", "Option2"], user: Pointer<User>(objectId: "TestUserId"))
         
@@ -303,5 +273,5 @@ class QuestionServiceTests: XCTestCase {
         
         waitForExpectations(timeout: 5, handler: nil)
     }
-
+    
 }

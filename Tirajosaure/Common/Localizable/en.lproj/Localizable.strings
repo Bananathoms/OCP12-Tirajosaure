@@ -71,6 +71,9 @@
 "failed_to_save_teams_draw" = "Failed to save teams draw: %@";
 "failed_to_fetch_teams_draw" = "Failed to fetch teams draw: %@";
 "failed_to_fetch_team_results" = "Failed to fetch team results: %@";
+"invalid_teams_draw_id" = "Invalid TeamsDraw ID.";
+"invalid_team_result_id" = "Invalid TeamResult ID.";
+"invalid_event_id" = "Invalid event ID.";
 
 // Authentication Errors
 "authentication_error_message" = "Invalid username or password.";

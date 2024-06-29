@@ -14,11 +14,13 @@ class EventHistoricController: ObservableObject {
     @Published var teamsDraws: [TeamsDraw] = []
     @Published var isLoading = false
     
+    private let teamsDrawService = TeamsDrawService.shared
+    
     /// Loads historic data for a specific event.
     /// - Parameter event: The event for which historic data is being loaded.
     func loadHistoricData(for event: Event) {
         isLoading = true
-        TeamsDrawService.fetchTeamsDraw(for: event) { result in
+        teamsDrawService.fetchTeamsDraw(for: event) { result in
             switch result {
             case .success(let draws):
                 self.teamsDraws = draws
@@ -32,7 +34,7 @@ class EventHistoricController: ObservableObject {
     /// Loads team results for a specific draw.
     /// - Parameter draw: The draw for which team results are being loaded.
     func loadTeamResults(for draw: TeamsDraw) {
-        TeamsDrawService.fetchTeamResults(for: draw) { result in
+        teamsDrawService.fetchTeamResults(for: draw) { result in
             switch result {
             case .success(let teamResults):
                 let sortedTeamsWithMembers = SortedModel.sortedTeamsWithMembers(teamResults)

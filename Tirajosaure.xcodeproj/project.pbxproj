@@ -111,6 +111,9 @@
 		E9148EB52C2761D800AC49B4 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EB42C2761D800AC49B4 /* QuestionService.swift */; };
 		E9148EB92C27624A00AC49B4 /* Extension+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EB82C27624A00AC49B4 /* Extension+Collection.swift */; };
 		E9148EBB2C27626000AC49B4 /* Extension+ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EBA2C27626000AC49B4 /* Extension+ApiService.swift */; };
+		E9551EF12C307546001E0F7A /* TeamsDrawServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551EF02C307546001E0F7A /* TeamsDrawServiceTests.swift */; };
+		E9551EF32C307B52001E0F7A /* TeamDistributionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551EF22C307B52001E0F7A /* TeamDistributionModelTests.swift */; };
+		E9551EF52C307BC6001E0F7A /* SortedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551EF42C307BC6001E0F7A /* SortedModelTests.swift */; };
 		E9B03C422C2E4A8900AFA4BA /* TeamCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C412C2E4A8900AFA4BA /* TeamCard.swift */; };
 		E9B03C442C2E4B3200AFA4BA /* MemberCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C432C2E4B3200AFA4BA /* MemberCard.swift */; };
 		E9B03C462C2F03F200AFA4BA /* TeamsDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C452C2F03F200AFA4BA /* TeamsDraw.swift */; };
@@ -119,6 +122,7 @@
 		E9B03C502C2F794C00AFA4BA /* EventHistoricController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C4F2C2F794C00AFA4BA /* EventHistoricController.swift */; };
 		E9B03C522C2F7A4600AFA4BA /* SortedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C512C2F7A4500AFA4BA /* SortedModel.swift */; };
 		E9B03C542C2F7B7C00AFA4BA /* TeamDistributionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C532C2F7B7C00AFA4BA /* TeamDistributionModel.swift */; };
+		E9B03C562C30380800AFA4BA /* EventServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C552C30380800AFA4BA /* EventServiceTests.swift */; };
 		E9CB8FF72C2DD40400F8701B /* TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB8FF62C2DD40400F8701B /* TeamResult.swift */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +246,9 @@
 		E9148EB42C2761D800AC49B4 /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
 		E9148EB82C27624A00AC49B4 /* Extension+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Collection.swift"; sourceTree = "<group>"; };
 		E9148EBA2C27626000AC49B4 /* Extension+ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ApiService.swift"; sourceTree = "<group>"; };
+		E9551EF02C307546001E0F7A /* TeamsDrawServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDrawServiceTests.swift; sourceTree = "<group>"; };
+		E9551EF22C307B52001E0F7A /* TeamDistributionModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDistributionModelTests.swift; sourceTree = "<group>"; };
+		E9551EF42C307BC6001E0F7A /* SortedModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedModelTests.swift; sourceTree = "<group>"; };
 		E9B03C412C2E4A8900AFA4BA /* TeamCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCard.swift; sourceTree = "<group>"; };
 		E9B03C432C2E4B3200AFA4BA /* MemberCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCard.swift; sourceTree = "<group>"; };
 		E9B03C452C2F03F200AFA4BA /* TeamsDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDraw.swift; sourceTree = "<group>"; };
@@ -250,6 +257,7 @@
 		E9B03C4F2C2F794C00AFA4BA /* EventHistoricController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHistoricController.swift; sourceTree = "<group>"; };
 		E9B03C512C2F7A4500AFA4BA /* SortedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedModel.swift; sourceTree = "<group>"; };
 		E9B03C532C2F7B7C00AFA4BA /* TeamDistributionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDistributionModel.swift; sourceTree = "<group>"; };
+		E9B03C552C30380800AFA4BA /* EventServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventServiceTests.swift; sourceTree = "<group>"; };
 		E9CB8FF62C2DD40400F8701B /* TeamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -454,6 +462,10 @@
 				E9148EAA2C27613B00AC49B4 /* StatisticsModelTests.swift */,
 				E9148EAC2C27615000AC49B4 /* QuestionServiceTests.swift */,
 				E9148EAE2C27616A00AC49B4 /* DrawResultsTests.swift */,
+				E9B03C552C30380800AFA4BA /* EventServiceTests.swift */,
+				E9551EF02C307546001E0F7A /* TeamsDrawServiceTests.swift */,
+				E9551EF22C307B52001E0F7A /* TeamDistributionModelTests.swift */,
+				E9551EF42C307BC6001E0F7A /* SortedModelTests.swift */,
 				DE6077E52C1C961F00AA2A0A /* Mock */,
 			);
 			path = TirajosaureTests;
@@ -1009,11 +1021,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9551EF12C307546001E0F7A /* TeamsDrawServiceTests.swift in Sources */,
 				DE6077E72C1C964C00AA2A0A /* MockUserService.swift in Sources */,
+				E9551EF52C307BC6001E0F7A /* SortedModelTests.swift in Sources */,
 				DE2EEF6F2C12814F002E4E60 /* MockApiService.swift in Sources */,
+				E9551EF32C307B52001E0F7A /* TeamDistributionModelTests.swift in Sources */,
 				DE60780E2C1CB92B00AA2A0A /* ApiServicesTests.swift in Sources */,
 				E9148EAF2C27616A00AC49B4 /* DrawResultsTests.swift in Sources */,
 				E9148EAD2C27615000AC49B4 /* QuestionServiceTests.swift in Sources */,
+				E9B03C562C30380800AFA4BA /* EventServiceTests.swift in Sources */,
 				DE2EEF6D2C128076002E4E60 /* UserServiceTests.swift in Sources */,
 				E9148EB12C27618400AC49B4 /* MockDrawResult.swift in Sources */,
 				E9148EAB2C27613B00AC49B4 /* StatisticsModelTests.swift in Sources */,

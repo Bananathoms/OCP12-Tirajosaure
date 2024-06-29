@@ -47,6 +47,9 @@ enum ErrorMessage: String {
     case failedToSaveTeamsDraw = "failed_to_save_teams_draw"
     case failedToFetchTeamsDraw = "failed_to_fetch_teams_draw"
     case failedToFetchTeamResults = "failed_to_fetch_team_results"
+    case invalidTeamsDrawID = "invalid_teams_draw_id"
+    case invalidTeamResultID = "invalid_team_result_id"
+    case invalidEventID = "invalid_event_id"
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")
