@@ -180,4 +180,106 @@ class DrawResultServiceTests: XCTestCase {
         }
         waitForExpectations(timeout: 5, handler: nil)
     }
+    
+    func testDeleteDrawResultsSuccess() {
+        let questionId = "TestQuestion"
+        _ = [
+            DrawResult(option: "Option1", date: Date(), question: Pointer<Question>(objectId: questionId)),
+            DrawResult(option: "Option2", date: Date(), question: Pointer<Question>(objectId: questionId))
+        ]
+        
+        stub(condition: isPath("/classes/DrawResult") && isMethodGET()) { _ in
+            let stubData = """
+            {
+                "results": [
+                    { "objectId": "drawResult1", "option": "Option1", "date": { "__type": "Date", "iso": "\(DateFormatter.iso8601Full.string(from: Date()))" }, "question": { "__type": "Pointer", "className": "Question", "objectId": "TestQuestion" } },
+                    { "objectId": "drawResult2", "option": "Option2", "date": { "__type": "Date", "iso": "\(DateFormatter.iso8601Full.string(from: Date()))" }, "question": { "__type": "Pointer", "className": "Question", "objectId": "TestQuestion" } }
+                ]
+            }
+            """.data(using: .utf8)!
+            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
+        }
+
+        stub(condition: isPath("/classes/DrawResult/drawResult1") && isMethodDELETE()) { _ in
+            let stubData = "{}".data(using: .utf8)!
+            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
+        }
+        
+        stub(condition: isPath("/classes/DrawResult/drawResult2") && isMethodDELETE()) { _ in
+            let stubData = "{}".data(using: .utf8)!
+            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
+        }
+        
+        let expectation = self.expectation(description: "Delete draw results succeeds")
+        
+        let drawResultService = DrawResultService()
+        drawResultService.deleteDrawResults(for: Pointer<Question>(objectId: questionId)) { result in
+            switch result {
+            case .success:
+                expectation.fulfill()
+            case .failure(let error):
+                XCTFail("Delete draw results failed with error: \(error)")
+            }
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+
+    func testDeleteDrawResultsFailure() {
+        let questionId = "TestQuestion"
+        _ = [
+            DrawResult(option: "Option1", date: Date(), question: Pointer<Question>(objectId: questionId)),
+            DrawResult(option: "Option2", date: Date(), question: Pointer<Question>(objectId: questionId))
+        ]
+        
+        stub(condition: isPath("/classes/DrawResult") && isMethodGET()) { _ in
+            let stubData = """
+            {
+                "results": [
+                    { "objectId": "drawResult1", "option": "Option1", "date": { "__type": "Date", "iso": "\(DateFormatter.iso8601Full.string(from: Date()))" }, "question": { "__type": "Pointer", "className": "Question", "objectId": "TestQuestion" } },
+                    { "objectId": "drawResult2", "option": "Option2", "date": { "__type": "Date", "iso": "\(DateFormatter.iso8601Full.string(from: Date()))" }, "question": { "__type": "Pointer", "className": "Question", "objectId": "TestQuestion" } }
+                ]
+            }
+            """.data(using: .utf8)!
+            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
+        }
+
+        stub(condition: isPath("/classes/DrawResult/drawResult1") && isMethodDELETE()) { _ in
+            let stubData = """
+            {
+                "code": 101,
+                "error": "Test error"
+            }
+            """.data(using: .utf8)!
+            return HTTPStubsResponse(data: stubData, statusCode: 400, headers: ["Content-Type": "application/json"])
+        }
+        
+        stub(condition: isPath("/classes/DrawResult/drawResult2") && isMethodDELETE()) { _ in
+            let stubData = "{}".data(using: .utf8)!
+            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
+        }
+
+        let expectation = self.expectation(description: "Delete draw results fails")
+
+        let drawResultService = DrawResultService()
+        drawResultService.deleteDrawResults(for: Pointer<Question>(objectId: questionId)) { result in
+            switch result {
+            case .success:
+                XCTFail("Delete draw results succeeded unexpectedly")
+            case .failure(let error):
+                print("Error: \(error)")
+                if case .networkError(let message) = error {
+                    print("Error message: \(message)")
+                    XCTAssertTrue(message.contains("Test error"))
+                } else {
+                    XCTFail("Expected networkError but got \(error)")
+                }
+                expectation.fulfill()
+            }
+        }
+
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+
+
 }

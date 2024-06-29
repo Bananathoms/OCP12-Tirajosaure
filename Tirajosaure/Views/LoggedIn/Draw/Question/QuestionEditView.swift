@@ -39,6 +39,7 @@ struct QuestionEditView: View {
                 }
             }
             .onAppear {
+                MixpanelEvent.editQuestionButtonClicked.trackEvent()
                 loadOptions()
             }
         }

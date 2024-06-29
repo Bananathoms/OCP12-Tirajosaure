@@ -6,7 +6,7 @@
 //
 
 struct SaveResponse: Codable {
-    let objectId: String
-    let createdAt: String
+    let objectId: String?
+    let createdAt: String?
     let updatedAt: String?
 }

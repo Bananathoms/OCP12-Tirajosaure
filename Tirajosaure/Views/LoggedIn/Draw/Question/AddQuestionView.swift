@@ -22,6 +22,7 @@ struct AddQuestionView: View {
                     text: LocalizedString.addNewQuestion.rawValue.localized,
                     isLoading: false,
                     onClick: {
+                        MixpanelEvent.addQuestionButtonClicked.trackEvent()
                         if questionController.addQuestion() {
                             presentationMode.wrappedValue.dismiss()
                         }

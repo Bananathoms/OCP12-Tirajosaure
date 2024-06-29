@@ -12,11 +12,6 @@ struct OptionsListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(LocalizedString.elements.rawValue.localized)
-                .font(.customFont(.nunitoRegular, size: 16))
-                .foregroundColor(.oxfordBlue)
-                .padding(.leading, 30)
-            
             List {
                 HStack(spacing: 0) {
                     Text(DefaultValues.emptyString) /// Able to have separator under button
@@ -52,7 +47,6 @@ struct OptionsListView: View {
                 .onDelete(perform: controller.removeOption)
                 .onMove(perform: controller.moveOption)
             }
-            .contentMargins(.top, 0)
             .scrollContentBackground(.hidden)
             .listStyle(InsetGroupedListStyle())
             .environment(\.editMode, .constant(.active))
@@ -68,6 +62,3 @@ struct OptionsListView_Previews: PreviewProvider {
         OptionsListView(controller: controller)
     }
 }
-
-
-

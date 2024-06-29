@@ -1,36 +1,40 @@
 //
-//  QuestionView.swift
+//  EventView.swift
 //  Tirajosaure
 //
-//  Created par Thomas Carlier le 15/06/2024.
+//  Created by Thomas Carlier on 15/06/2024.
 //
 
 import SwiftUI
+import ParseSwift
 
-struct QuestionView: View {
-    @StateObject private var questionController = QuestionController()
+struct EventView: View {
+    @StateObject private var eventController = EventController()
     @State private var isEditing = false
     @State private var navigateToAdd = false
-    @State private var selectedQuestion: Question?
-    
+
     var body: some View {
         NavigationStack {
             VStack {
-                if questionController.isLoading {
+                if eventController.isLoading {
                     Spacer()
                     ProgressView(LocalizedString.loading.localized)
                     Spacer()
                 } else {
-                    if questionController.questions.isEmpty {
+                    if eventController.events.isEmpty {
                         emptyStateView
                     } else {
-                        questionListView
+                        eventListView
                     }
+                    
+                    Spacer()
+                    
                     Button(action: {
+                        MixpanelEvent.deleteEventButtonClicked.trackEvent()
                         navigateToAdd.toggle()
                     }) {
                         AddButton(
-                            text: LocalizedString.addNewQuestion.rawValue.localized,
+                            text: LocalizedString.createNewEvent.localized,
                             image: IconNames.plusCircleFill.systemImage,
                             buttonColor: .antiqueWhite,
                             textColor: .oxfordBlue,
@@ -40,7 +44,7 @@ struct QuestionView: View {
                         .padding()
                     }
                     .navigationDestination(isPresented: $navigateToAdd) {
-                        AddQuestionView(questionController: questionController)
+                        AddEventView(eventController: eventController)
                     }
                 }
             }
@@ -49,7 +53,7 @@ struct QuestionView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    CustomHeader(title: LocalizedString.questionsTitle.localized, showBackButton: false, fontSize: 36)
+                    CustomHeader(title: LocalizedString.events.localized, showBackButton: false, fontSize: 36)
                         .padding(.vertical)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -72,14 +76,14 @@ struct QuestionView: View {
         .cornerRadius(20, corners: [.topLeft, .topRight])
         .background(Color.thulianPink)
     }
-    
+
     private var emptyStateView: some View {
         VStack {
-            Text(LocalizedString.emptyQuestionsTitle.rawValue.localized)
+            Text(LocalizedString.noEventsAvailable.localized)
                 .font(.customFont(.nunitoBold, size: 20))
                 .foregroundColor(.gray)
                 .padding(.top, 40)
-            Text(LocalizedString.emptyQuestionsMessage.rawValue.localized)
+            Text(LocalizedString.pressButtonToCreateEvent.localized)
                 .font(.customFont(.nunitoRegular, size: 16))
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
@@ -88,35 +92,45 @@ struct QuestionView: View {
             Spacer()
         }
     }
-    
-    private var questionListView: some View {
+
+    private var eventListView: some View {
         List {
-            ForEach(questionController.questions) { question in
-                QuestionItem(
-                    question: question,
-                    destination: {
-                        QuestionDetailView(question: question, questionController: questionController)
-                    }
+            ForEach(eventController.events) { event in
+                let detailView = EventDetailView(
+                    event: event,
+                    eventController: eventController,
+                    teamDistributionController: TeamDistributionController(),
+                    parametersController: ParametersListController(numberOfTeams: event.teams.count, teamNames: event.teams),
+                    optionsController: {
+                        let controller = OptionsController()
+                        controller.options = event.members
+                        return controller
+                    }()
                 )
-                .padding(.trailing)
-                .listRowInsets(EdgeInsets())
-                .listRowBackground(Color.antiqueWhite)
+                
+                EventItem(event: event, destination: { detailView })
+                    .padding(.trailing)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.antiqueWhite)
             }
-            .onDelete(perform: questionController.removeQuestion)
-            .onMove(perform: questionController.moveQuestion)
+            .onDelete { indexSet in
+                eventController.removeEvent(at: indexSet)
+            }
+            .onMove { source, destination in
+                eventController.moveEvent(from: source, to: destination)
+            }
         }
-//        .contentMargins(.top, 24)
         .environment(\.editMode, .constant(isEditing ? .active : .inactive))
         .scrollContentBackground(.hidden)
     }
 }
 
-struct QuestionView_Previews: PreviewProvider {
+struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView()
+        EventView()
             .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
             .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
-        QuestionView()
+        EventView()
             .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
             .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }

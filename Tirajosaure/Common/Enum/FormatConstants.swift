@@ -8,5 +8,6 @@
 import Foundation
 
 struct FormatConstants {
-    static let objectIdPlaceholder = "{id}"
+    static let idPlaceholder = "{id}"
+    static let objectIdPlaceholder = "{objectId}"
 }

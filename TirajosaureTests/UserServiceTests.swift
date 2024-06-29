@@ -88,25 +88,25 @@ class UserServiceTests: XCTestCase {
         waitForExpectations(timeout: 2, handler: nil)
     }
     
-        func testLogOut() {
-            let expectation = self.expectation(description: "LogOut")
+    func testLogOut() {
+        let expectation = self.expectation(description: "LogOut")
     
-            let user = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "Test", lastName: "User")
-            userService.setUser(newUser: user)
+        let user = User(username: "test@example.com", email: "test@example.com", password: "Password123", firstName: "Test", lastName: "User")
+        userService.setUser(newUser: user)
     
-            XCTAssertEqual(userService.user?.username, user.username)
-            XCTAssertEqual(userService.connexionState, .logged)
+        XCTAssertEqual(userService.user?.username, user.username)
+        XCTAssertEqual(userService.connexionState, .logged)
     
-            userService.logOut()
+        userService.logOut()
     
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                XCTAssertNil(self.userService.user)
-                XCTAssertEqual(self.userService.connexionState, .unLogged)
-                expectation.fulfill()
-            }
-    
-            waitForExpectations(timeout: 2, handler: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            XCTAssertNil(self.userService.user)
+            XCTAssertEqual(self.userService.connexionState, .unLogged)
+            expectation.fulfill()
         }
+    
+        waitForExpectations(timeout: 2, handler: nil)
+    }
     
     func testSignUpSuccess() {
         stub(condition: isMethodPOST() && isAbsoluteURLString(ParseConfig.serverURL + APIConstants.Endpoints.signUp)) { request in

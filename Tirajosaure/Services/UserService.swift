@@ -48,7 +48,6 @@ class UserService: ObservableObject {
         self.user = newUser
         self.connexionState = .logged
         self.saveUserData(user: newUser)
-        self.loadQuestions(for: newUser)
     }
     
     /// Logs out the current user and resets the service.
@@ -190,21 +189,5 @@ class UserService: ObservableObject {
     /// Clears the user data from UserDefaults.
     func clearUserDefaults() {
         userDefaults.removeObject(forKey: userKey)
-    }
-
-    /// Loads questions for the given user from the Parse server.
-    /// - Parameter user: The user whose questions are to be loaded.
-    func loadQuestions(for user: User) {
-        guard let userId = user.objectId else { return }
-        QuestionService.shared.fetchQuestions(for: userId) { result in
-            switch result {
-            case .success(let questions):
-                DispatchQueue.main.async {
-                    self.questions = questions
-                }
-            case .failure(let error):
-                SnackBarService.current.error("\(ErrorMessage.failedToLoadQuestions.rawValue): \(error.localizedDescription)")
-            }
-        }
     }
 }

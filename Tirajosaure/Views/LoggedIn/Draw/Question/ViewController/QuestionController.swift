@@ -14,34 +14,53 @@ import ParseSwift
 /// This class provides functionality to add, update, remove, and move questions within the list.
 class QuestionController: ObservableObject {
     @Published var questions: [Question] = []
+    @Published var isLoading = false
     
     @Published var newQuestionTitle: String = DefaultValues.emptyString
     @Published var optionsController = OptionsController()
     
     init() {
-        UserService.current.$questions
-            .receive(on: RunLoop.main)
-            .assign(to: &$questions)
+        self.loadQuestions()
+    }
+    
+    /// Fetches all events for the current user.
+    func loadQuestions() {
+        self.isLoading = true
+        guard let currentUser = UserService.current.user else {
+            SnackBarService.current.error(ErrorMessage.userIDNotFound.localized)
+            self.isLoading = false
+            return
+        }
+        let userPointer = Pointer<User>(objectId: currentUser.objectId ?? DefaultValues.emptyString)
+        
+        QuestionService.shared.fetchQuestions(for: userPointer) { [weak self] result in
+            switch result {
+            case .success(let questions):
+                self?.questions = questions
+                self?.isLoading = false
+            case .failure(let error):
+                self?.isLoading = false
+                SnackBarService.current.error(String(format: ErrorMessage.failedToFetchQuestions.localized, error.localizedDescription))
+            }
+        }
     }
     
     /// Add a question in the list
     @discardableResult
     func addQuestion() -> Bool {
         guard let userId = UserService.current.user?.objectId else {
-            print("User ID not found")
+            SnackBarService.current.error(ErrorMessage.userIDNotFound.localized)
             return false
         }
         
         guard !newQuestionTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             SnackBarService.current.error(ErrorMessage.emptyQuestionTitle.localized)
-            print("Question title is empty")
             return false
         }
         
         let validOptions = optionsController.options.filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
         guard validOptions.count >= 2 else {
             SnackBarService.current.error(ErrorMessage.insufficientOptions.localized)
-            print("Not enough valid options")
             return false
         }
         
@@ -51,7 +70,6 @@ class QuestionController: ObservableObject {
             options: validOptions,
             user: userPointer
         )
-        print("Saving question: \(newQuestion)")
         QuestionService.shared.saveQuestion(newQuestion) { result in
             switch result {
             case .success(let savedQuestion):
@@ -59,15 +77,15 @@ class QuestionController: ObservableObject {
                     self.questions.append(savedQuestion)
                     self.newQuestionTitle = DefaultValues.emptyString
                     self.optionsController.options = []
-                    print("Question saved successfully: \(savedQuestion)")
                 }
             case .failure(let error):
                 SnackBarService.current.error("\(ErrorMessage.failedToSaveQuestion.localized): \(error.localizedDescription)")
-                print("Failed to save question: \(error)")
             }
         }
         return true
     }
+    
+    
     
     /// Updates an existing question in the list.
     /// - Parameter updatedQuestion: The question containing the updated data.

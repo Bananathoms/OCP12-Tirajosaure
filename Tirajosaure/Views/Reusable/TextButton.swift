@@ -31,7 +31,8 @@ struct TextButton: View {
         }
         .frame(width: 170, height: 50)
         .background(buttonColor)
-        .cornerRadius(40.0)
+        .cornerRadius(20.0)
+        .shadow(radius: 5)
         .padding(20)
         .disabled(isLoading)
     }

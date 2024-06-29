@@ -7,10 +7,11 @@
 
 import Foundation
 
+/// Enum representing localized strings used in the app.
 enum LocalizedString: String {
     // General
-    case email = "email"
-    case password = "password"
+    case email
+    case password
     case firstName = "first_name"
     case lastName = "last_name"
     case enterYourPassword = "enter_your_password"
@@ -24,6 +25,7 @@ enum LocalizedString: String {
     // General Errors
     case networkErrorMessage = "network_error_message"
     case unknownErrorMessage = "unknown_error_message"
+    case failedToRequestPasswordReset = "failed_to_request_password_reset"
 
     // Validation Errors
     case validationErrorMessage = "validation_error_message"
@@ -35,6 +37,7 @@ enum LocalizedString: String {
     case lastNameMissing = "last_name_missing"
     case passwordLengthError = "password_length_error"
     case passwordUppercaseError = "password_uppercase_error"
+    case invalidQuestionID = "invalid_question_id"
 
     // Authentication Errors
     case authenticationErrorMessage = "authentication_error_message"
@@ -77,7 +80,34 @@ enum LocalizedString: String {
     case drawsLabel = "draws_label"
     case noResultsYet = "no_results_yet"
 
-    //Empty QuestionList
+    // Empty QuestionList
     case emptyQuestionsTitle = "empty_questions_title"
     case emptyQuestionsMessage = "empty_questions_message"
+    
+    // Team
+    case defaultTeamName = "default_team_name"
+    case launchDraw = "launch_draw"
+    case history = "history"
+    case loading = "loading"
+    case noDrawFound = "no_draw_found"
+    case drawOn = "draw_on"
+    
+    // AddEvent
+    case eventName = "event_name"
+    case eventParameters = "event_parameters"
+    case memberList = "member_list"
+    case addEvent = "add_event"
+    
+    // EditEvent
+    case editEvent = "edit_event"
+    
+    // TeamView
+    case createNewEvent = "create_new_event"
+    case events = "events"
+    case noEventsAvailable = "no_events_available"
+    case pressButtonToCreateEvent = "press_button_to_create_event"
+    case teamNumber = "team_number"
+    
+    // Members
+    case members = "members"
 }
