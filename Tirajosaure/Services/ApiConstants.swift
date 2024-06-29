@@ -18,6 +18,8 @@ struct APIConstants {
         static let drawResultBase = "/classes/DrawResult"
         static let eventBase = "/classes/Event"
         static let eventById = "/classes/Event/{id}"
+        static let teamsDrawBase = "/classes/TeamsDraw"
+        static let teamResultBase = "/classes/TeamResult"
     }
     
     struct Parameters {
@@ -36,27 +38,47 @@ struct APIConstants {
         static let objectId = "objectId"
         static let date = "date"
         static let question = "question"
+        static let teamsDrawBase = "teamsDrawBase"
+        static let event = "event"
+        static let teamResultBase = "teamResultBase"
+        static let name = "name"
+        static let draw = "draw"
         
+        /// Protocol defining the necessary properties for pointer types.
         protocol PointerType {
             var className: String { get }
             var parameterName: String { get }
         }
-
+        
+        /// User pointer for API requests.
         struct UserPointer: PointerType {
             let className = "_User"
             let parameterName = "user"
         }
-
+        
+        /// Question pointer for API requests.
         struct QuestionPointer: PointerType {
             let className = "Question"
             let parameterName = "question"
         }
         
+        /// Event pointer for API requests.
         struct EventPointer: PointerType {
             let className = "Event"
             let parameterName = "event"
         }
         
+        /// TeamsDraw pointer for API requests.
+        struct TeamsDrawPointer: PointerType {
+            let className = "TeamsDraw"
+            let parameterName = "teamsDraw"
+        }
+        
+        /// Constructs the parameters for a pointer object.
+        /// - Parameters:
+        ///   - className: The class name of the pointer.
+        ///   - objectId: The object ID of the pointer.
+        /// - Returns: A dictionary representing the pointer parameters.
         static func pointerParams(className: String, objectId: String) -> [String: Any] {
             return [
                 "__type": "Pointer",
@@ -65,6 +87,11 @@ struct APIConstants {
             ]
         }
         
+        /// Constructs the "where" parameters for a pointer query.
+        /// - Parameters:
+        ///   - type: The pointer type.
+        ///   - objectId: The object ID of the pointer.
+        /// - Returns: A dictionary representing the "where" parameters.
         static func wherePointer(type: PointerType, objectId: String) -> [String: Any] {
             return [
                 "where": [
@@ -73,6 +100,9 @@ struct APIConstants {
             ]
         }
         
+        /// Constructs the date parameters for a date query.
+        /// - Parameter date: The date to be used in the query.
+        /// - Returns: A dictionary representing the date parameters.
         static func dateParameter(from date: Date) -> [String: Any] {
             return [
                 "__type": "Date",
@@ -81,9 +111,10 @@ struct APIConstants {
         }
     }
     
-    struct Headers {
-        static let applicationID = "X-Parse-Application-Id"
-        static let clientKey = "X-Parse-Client-Key"
-        static let contentType = "Content-Type"
+    /// Headers used in API requests.
+    enum Headers: String {
+        case applicationID = "X-Parse-Application-Id"
+        case clientKey = "X-Parse-Client-Key"
+        case contentType = "Content-Type"
     }
 }

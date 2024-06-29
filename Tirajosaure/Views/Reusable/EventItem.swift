@@ -18,14 +18,12 @@ struct EventItem<Destination: View>: View {
                 Text(event.title)
                     .font(.headline)
                     .foregroundColor(.oxfordBlue)
-                Text("\(event.members.count) membres")
+                Text("\(event.members.count) \(LocalizedString.members.localized)")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
             .padding()
             .background(Color.antiqueWhite)
-//            .cornerRadius(10)
-//            .shadow(radius: 5)
         }
     }
 }

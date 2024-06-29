@@ -48,7 +48,14 @@
 "failed_to_load_user_data" = "Échec du chargement des données utilisateur";
 "failed_to_save_draw_result" = "Échec de l'enregistrement du résultat du tirage";
 "failed_to_load_draw_results" = "Échec du chargement des résultats du tirage";
-"invalid_question_id" = "Question ID invalide";
+"invalid_question_id" = "ID de la question invalide";
+"network_data_missing" = "Une erreur réseau s'est produite : Les données n’ont pas pu être lues car elles sont introuvables.";
+"network_error_description" = "Une erreur réseau s'est produite : %@";
+"network_error_with_response" = "Une erreur réseau s'est produite : %@ : %@";
+"failed_to_save_teams_draw" = "Échec de l'enregistrement du tirage des équipes: %@";
+"failed_to_fetch_teams_draw" = "Échec de la récupération du tirage des équipes: %@";
+"failed_to_fetch_team_results" = "Échec de la récupération des résultats de l'équipe: %@";
+
 
 // Erreurs d'authentification
 "authentication_error_message" = "Nom d'utilisateur ou mot de passe invalide.";
@@ -94,4 +101,31 @@
 //Liste de question vide
 "empty_questions_title" = "Aucune question disponible.";
 "empty_questions_message" = "Appuyez sur le bouton ci-dessous pour ajouter votre première question.";
+
+//Equipe
+"default_team_name" = "Équipe";
+"launch_draw" = "Lancer le tirage";
+"history" = "Historique";
+"loading" = "Chargement...";
+"no_draw_found" = "Aucun tirage trouvé";
+"draw_on" = "Tirage du";
+
+//Ajout d'événement
+"event_name" = "Nom de l'évènement";
+"event_parameters" = "Paramètre de l'évènement";
+"member_list" = "Liste des membres";
+"add_event" = "Ajouter l'événement";
+
+//Edition d'événement
+"edit_event" = "Modifier un évènement";
+
+//TeamVIew
+"create_new_event" = "Créer un nouvel événement";
+"events" = "Événements";
+"no_events_available" = "Aucun événement disponible";
+"press_button_to_create_event" = "Appuyez sur le bouton ci-dessous pour créer un nouvel événement.";
+"team_number" = "Équipe %d";
+
+//Membres
+"members" = "membres";
 

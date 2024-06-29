@@ -11,11 +11,7 @@ import Combine
 
 /// A controller class responsible for managing the list of options for a question.
 class OptionsController: ObservableObject {
-    @Published var options: [String] = [] {
-        didSet {
-            print("Options updated: \(options)")
-        }
-    }
+    @Published var options: [String] = [] 
     
     /// Adds a new option to the list of options.
     func addOption() {

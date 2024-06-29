@@ -25,8 +25,6 @@ struct EventEditView: View {
 
         _parametersController = StateObject(wrappedValue: paramsController)
         _optionsController = StateObject(wrappedValue: optsController)
-        
-        print("INIT: Teams - \(event.wrappedValue.teams), Members - \(event.wrappedValue.members)")
     }
 
     var body: some View {
@@ -34,7 +32,7 @@ struct EventEditView: View {
             VStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
-                        Text("Nom de l'évènement")
+                        Text(LocalizedString.eventName.localized)
                             .font(.headline)
                             .padding(.leading, 20)
 
@@ -42,10 +40,10 @@ struct EventEditView: View {
                             hint: $event.title,
                             icon: nil,
                             title: nil,
-                            fieldName: "Nom de l'évènement"
+                            fieldName: LocalizedString.eventName.localized
                         )
 
-                        Text("Paramètre de l'évènement")
+                        Text(LocalizedString.eventParameters.localized)
                             .font(.headline)
                             .padding(.leading, 20)
 
@@ -53,7 +51,7 @@ struct EventEditView: View {
                             .frame(height: CGFloat(140.0 + Double(parametersController.numberOfTeams) * 44.0))
 
                         VStack(alignment: .leading) {
-                            Text("Liste des membres")
+                            Text(LocalizedString.memberList.localized)
                                 .font(.headline)
                                 .padding(.leading, 20)
 
@@ -64,7 +62,7 @@ struct EventEditView: View {
                     .padding(.bottom, 20)
                 }
                 .onAppear {
-                    print("ON APPEAR")
+                    MixpanelEvent.editEventButtonClicked.trackEvent()
                     loadEventDetails()
                 }
             }
@@ -77,7 +75,7 @@ struct EventEditView: View {
                         saveChanges()
                         presentationMode.wrappedValue.dismiss()
                     }) {
-                        CustomHeader(title: "Modifier un évènement")
+                        CustomHeader(title: LocalizedString.editEvent.localized)
                     }
                 }
             }
@@ -86,31 +84,25 @@ struct EventEditView: View {
     }
 
     private func loadEventDetails() {
-        print("LOAD EVENT DETAILS BEFORE: Teams - \(parametersController.teamNames), Members - \(optionsController.options)")
-
-        // Mise à jour des équipes et des membres
+        parametersController.equitableDistribution = event.equitableDistribution
         parametersController.numberOfTeams = event.teams.count
         parametersController.teamNames = event.teams
         optionsController.options = event.members
-
-        print("LOAD EVENT DETAILS AFTER: Teams - \(parametersController.teamNames), Members - \(optionsController.options)")
     }
 
     private func saveChanges() {
+        event.equitableDistribution = parametersController.equitableDistribution
         event.teams = parametersController.teamNames
         event.members = optionsController.options
-        print("Updating event with teams: \(event.teams) and members: \(event.members)")  // Ajoutez ceci pour le débogage
         eventController.updateEvent(event: event, parametersController: parametersController, optionsController: optionsController) { result in
             switch result {
             case .success:
-                print("Event updated successfully")
+                break
             case .failure(let error):
-                SnackBarService.current.error("Échec de la mise à jour de l'événement: \(error.localizedDescription)")
-                print("Failed to update event: \(error)")
+                SnackBarService.current.error(ErrorMessage.failedToUpdateEvent.localized + ": \(error.localizedDescription)")
             }
         }
     }
-
 }
 
 struct EventEditView_Previews: PreviewProvider {

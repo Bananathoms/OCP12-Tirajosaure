@@ -8,10 +8,9 @@
 import Foundation
 import ParseSwift
 
-/// A struct representing the result of a team distribution in the Tirajosaure app.
-struct TeamResult: ParseObject, Identifiable, Codable {
+struct TeamResult: ParseObject, Identifiable {
     var originalData: Data?
-
+    
     var objectId: String?
     var createdAt: Date?
     var updatedAt: Date?
@@ -19,24 +18,19 @@ struct TeamResult: ParseObject, Identifiable, Codable {
 
     var name: String
     var members: [String]
-    
-    var event: Pointer<Event>
+    var draw: Pointer<TeamsDraw>
 
-    init(name: String, members: [String], event: Pointer<Event>) {
+    init(name: String, members: [String], draw: Pointer<TeamsDraw>) {
         self.name = name
         self.members = members
-        self.event = event
+        self.draw = draw
     }
 
     // Required initializer for conforming to ParseObject
     init() {
         self.name = DefaultValues.emptyString
         self.members = []
-        self.event = Pointer<Event>(objectId: DefaultValues.emptyString)
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case objectId, createdAt, updatedAt, ACL, name, members, event
+        self.draw = Pointer<TeamsDraw>(objectId: DefaultValues.emptyString)
     }
 
     init(from decoder: Decoder) throws {
@@ -47,6 +41,6 @@ struct TeamResult: ParseObject, Identifiable, Codable {
         ACL = try container.decodeIfPresent(ParseACL.self, forKey: .ACL)
         name = try container.decode(String.self, forKey: .name)
         members = try container.decode([String].self, forKey: .members)
-        event = try container.decode(Pointer<Event>.self, forKey: .event)
+        draw = try container.decode(Pointer<TeamsDraw>.self, forKey: .draw)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class ParametersListController: ObservableObject {
-    @Published var title: String = "" 
+    @Published var title: String = ""
     @Published var numberOfTeams: Int {
         didSet {
             updateTeamNames()
@@ -26,9 +26,10 @@ class ParametersListController: ObservableObject {
     }
     
     func updateTeamNames() {
+        let defaultTeamName = LocalizedString.defaultTeamName.localized
         if teamNames.count < numberOfTeams {
-            for _ in teamNames.count..<numberOfTeams {
-                teamNames.append("Équipe \(teamNames.count + 1)")
+            for i in teamNames.count..<numberOfTeams {
+                teamNames.append(String(format: LocalizedString.teamNumber.localized, i + 1))
             }
         } else if teamNames.count > numberOfTeams {
             teamNames = Array(teamNames.prefix(numberOfTeams))

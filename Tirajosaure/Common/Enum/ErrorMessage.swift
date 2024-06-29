@@ -33,6 +33,19 @@ enum ErrorMessage: String {
     case failedToUpdateMember = "failed_to_update_member"
     case failedToDeleteMember = "failed_to_delete_member"
     case failedToLoadMembers = "failed_to_load_members"
+    case networkDataMissing = "network_data_missing"
+    case networkErrorDescription = "network_error_description"
+    case networkErrorWithResponse = "network_error_with_response"
+    case failedToFetchEvents = "failed_to_fetch_events"
+    case userIDNotFound = "user_id_not_found"
+    case eventTitleEmpty = "event_title_empty"
+    case notEnoughValidOptions = "not_enough_valid_options"
+    case failedToSaveEvent = "failed_to_save_event"
+    case failedToUpdateEvent = "failed_to_update_event"
+    case failedToDeleteEvent = "failed_to_delete_event"
+    case failedToSaveTeamsDraw = "failed_to_save_teams_draw"
+    case failedToFetchTeamsDraw = "failed_to_fetch_teams_draw"
+    case failedToFetchTeamResults = "failed_to_fetch_team_results"
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

@@ -28,20 +28,18 @@ class QuestionController: ObservableObject {
     @discardableResult
     func addQuestion() -> Bool {
         guard let userId = UserService.current.user?.objectId else {
-            print("User ID not found")
+            SnackBarService.current.error(ErrorMessage.userIDNotFound.localized)
             return false
         }
         
         guard !newQuestionTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             SnackBarService.current.error(ErrorMessage.emptyQuestionTitle.localized)
-            print("Question title is empty")
             return false
         }
         
         let validOptions = optionsController.options.filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
         guard validOptions.count >= 2 else {
             SnackBarService.current.error(ErrorMessage.insufficientOptions.localized)
-            print("Not enough valid options")
             return false
         }
         
@@ -51,7 +49,6 @@ class QuestionController: ObservableObject {
             options: validOptions,
             user: userPointer
         )
-        print("Saving question: \(newQuestion)")
         QuestionService.shared.saveQuestion(newQuestion) { result in
             switch result {
             case .success(let savedQuestion):
@@ -59,11 +56,9 @@ class QuestionController: ObservableObject {
                     self.questions.append(savedQuestion)
                     self.newQuestionTitle = DefaultValues.emptyString
                     self.optionsController.options = []
-                    print("Question saved successfully: \(savedQuestion)")
                 }
             case .failure(let error):
                 SnackBarService.current.error("\(ErrorMessage.failedToSaveQuestion.localized): \(error.localizedDescription)")
-                print("Failed to save question: \(error)")
             }
         }
         return true

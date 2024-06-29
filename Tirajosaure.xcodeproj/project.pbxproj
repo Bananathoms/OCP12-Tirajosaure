@@ -111,6 +111,14 @@
 		E9148EB52C2761D800AC49B4 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EB42C2761D800AC49B4 /* QuestionService.swift */; };
 		E9148EB92C27624A00AC49B4 /* Extension+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EB82C27624A00AC49B4 /* Extension+Collection.swift */; };
 		E9148EBB2C27626000AC49B4 /* Extension+ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9148EBA2C27626000AC49B4 /* Extension+ApiService.swift */; };
+		E9B03C422C2E4A8900AFA4BA /* TeamCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C412C2E4A8900AFA4BA /* TeamCard.swift */; };
+		E9B03C442C2E4B3200AFA4BA /* MemberCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C432C2E4B3200AFA4BA /* MemberCard.swift */; };
+		E9B03C462C2F03F200AFA4BA /* TeamsDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C452C2F03F200AFA4BA /* TeamsDraw.swift */; };
+		E9B03C482C2F05BD00AFA4BA /* TeamsDrawService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C472C2F05BD00AFA4BA /* TeamsDrawService.swift */; };
+		E9B03C4A2C2F176D00AFA4BA /* EventHistoricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C492C2F176D00AFA4BA /* EventHistoricView.swift */; };
+		E9B03C502C2F794C00AFA4BA /* EventHistoricController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C4F2C2F794C00AFA4BA /* EventHistoricController.swift */; };
+		E9B03C522C2F7A4600AFA4BA /* SortedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C512C2F7A4500AFA4BA /* SortedModel.swift */; };
+		E9B03C542C2F7B7C00AFA4BA /* TeamDistributionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C532C2F7B7C00AFA4BA /* TeamDistributionModel.swift */; };
 		E9CB8FF72C2DD40400F8701B /* TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB8FF62C2DD40400F8701B /* TeamResult.swift */; };
 /* End PBXBuildFile section */
 
@@ -234,6 +242,14 @@
 		E9148EB42C2761D800AC49B4 /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
 		E9148EB82C27624A00AC49B4 /* Extension+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Collection.swift"; sourceTree = "<group>"; };
 		E9148EBA2C27626000AC49B4 /* Extension+ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ApiService.swift"; sourceTree = "<group>"; };
+		E9B03C412C2E4A8900AFA4BA /* TeamCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCard.swift; sourceTree = "<group>"; };
+		E9B03C432C2E4B3200AFA4BA /* MemberCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCard.swift; sourceTree = "<group>"; };
+		E9B03C452C2F03F200AFA4BA /* TeamsDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDraw.swift; sourceTree = "<group>"; };
+		E9B03C472C2F05BD00AFA4BA /* TeamsDrawService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDrawService.swift; sourceTree = "<group>"; };
+		E9B03C492C2F176D00AFA4BA /* EventHistoricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHistoricView.swift; sourceTree = "<group>"; };
+		E9B03C4F2C2F794C00AFA4BA /* EventHistoricController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHistoricController.swift; sourceTree = "<group>"; };
+		E9B03C512C2F7A4500AFA4BA /* SortedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedModel.swift; sourceTree = "<group>"; };
+		E9B03C532C2F7B7C00AFA4BA /* TeamDistributionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDistributionModel.swift; sourceTree = "<group>"; };
 		E9CB8FF62C2DD40400F8701B /* TeamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -313,6 +329,9 @@
 				E9148E962C27600B00AC49B4 /* TabItem.swift */,
 				E9148E982C27602500AC49B4 /* DrawResult.swift */,
 				E9CB8FF62C2DD40400F8701B /* TeamResult.swift */,
+				E9B03C452C2F03F200AFA4BA /* TeamsDraw.swift */,
+				E9B03C512C2F7A4500AFA4BA /* SortedModel.swift */,
+				E9B03C532C2F7B7C00AFA4BA /* TeamDistributionModel.swift */,
 				E9148E9A2C27603F00AC49B4 /* ParseResponse.swift */,
 				E9148E9C2C27605300AC49B4 /* SaveResponse.swift */,
 				E9148E9E2C27606600AC49B4 /* StatisticsModel.swift */,
@@ -331,6 +350,7 @@
 				E9148EB22C2761C400AC49B4 /* DrawResultService.swift */,
 				E9148EB42C2761D800AC49B4 /* QuestionService.swift */,
 				E909D6AB2C2C2264004FC1C3 /* EventService.swift */,
+				E9B03C472C2F05BD00AFA4BA /* TeamsDrawService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -573,6 +593,7 @@
 			children = (
 				E909D64F2C28D2A5004FC1C3 /* EventController.swift */,
 				E909D6A92C2BA661004FC1C3 /* TeamDistributionController.swift */,
+				E9B03C4F2C2F794C00AFA4BA /* EventHistoricController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -582,6 +603,7 @@
 			children = (
 				E909D6502C28D2A5004FC1C3 /* ViewController */,
 				E909D6512C28D2A5004FC1C3 /* EventDetailView.swift */,
+				E9B03C492C2F176D00AFA4BA /* EventHistoricView.swift */,
 				E909D6A52C2B89AF004FC1C3 /* AddEventView.swift */,
 				E909D6A72C2B8CF2004FC1C3 /* EventEditView.swift */,
 				E909D6542C28D2A5004FC1C3 /* TeamView.swift */,
@@ -701,6 +723,8 @@
 				E909D6682C28D2A5004FC1C3 /* OptionList */,
 				E909D66C2C28D2A5004FC1C3 /* ParametersList */,
 				E909D66D2C28D2A5004FC1C3 /* AddButton.swift */,
+				E9B03C412C2E4A8900AFA4BA /* TeamCard.swift */,
+				E9B03C432C2E4B3200AFA4BA /* MemberCard.swift */,
 				E909D66E2C28D2A5004FC1C3 /* CustomHeader.swift */,
 				E909D66F2C28D2A5004FC1C3 /* CustomTabBar.swift */,
 				E909D6702C28D2A5004FC1C3 /* EventItem.swift */,
@@ -919,6 +943,8 @@
 				E9CB8FF72C2DD40400F8701B /* TeamResult.swift in Sources */,
 				DECEFFA22C0CCAC200A9B894 /* TirajosaureApp.swift in Sources */,
 				E909D6A12C28D2A5004FC1C3 /* TextButton.swift in Sources */,
+				E9B03C442C2E4B3200AFA4BA /* MemberCard.swift in Sources */,
+				E9B03C482C2F05BD00AFA4BA /* TeamsDrawService.swift in Sources */,
 				DE6736842C0FF035001BEB56 /* ApiService.swift in Sources */,
 				DE6077F82C1CA5DC00AA2A0A /* PreviewData.swift in Sources */,
 				E909D69C2C28D2A5004FC1C3 /* CustomTabBar.swift in Sources */,
@@ -930,13 +956,17 @@
 				E909D68F2C28D2A5004FC1C3 /* HomeView.swift in Sources */,
 				E9148E9F2C27606600AC49B4 /* StatisticsModel.swift in Sources */,
 				DE2EEF742C12A93F002E4E60 /* Extension+Date.swift in Sources */,
+				E9B03C502C2F794C00AFA4BA /* EventHistoricController.swift in Sources */,
 				DE2EEF6B2C120F3C002E4E60 /* Extension+Notification.swift in Sources */,
 				E909D6972C28D2A5004FC1C3 /* OptionList.swift in Sources */,
 				E909D6822C28D2A5004FC1C3 /* DrawViewController.swift in Sources */,
+				E9B03C4A2C2F176D00AFA4BA /* EventHistoricView.swift in Sources */,
 				E9148EA92C27610D00AC49B4 /* CodingKeys.swift in Sources */,
 				E909D69E2C28D2A5004FC1C3 /* QuestionItem.swift in Sources */,
 				E909D6962C28D2A5004FC1C3 /* OptionController.swift in Sources */,
 				E909D6792C28D2A5004FC1C3 /* UserController.swift in Sources */,
+				E9B03C522C2F7A4600AFA4BA /* SortedModel.swift in Sources */,
+				E9B03C542C2F7B7C00AFA4BA /* TeamDistributionModel.swift in Sources */,
 				DE6736A42C0FF862001BEB56 /* SnackBarService.swift in Sources */,
 				E909D68A2C28D2A5004FC1C3 /* EventController.swift in Sources */,
 				E909D6A82C2B8CF2004FC1C3 /* EventEditView.swift in Sources */,
@@ -964,7 +994,9 @@
 				DE67368B2C0FF1DD001BEB56 /* ConnexionState.swift in Sources */,
 				E9148EA32C2760B600AC49B4 /* QueryKey.swift in Sources */,
 				E909D6812C28D2A5004FC1C3 /* StatisticsResultCard.swift in Sources */,
+				E9B03C462C2F03F200AFA4BA /* TeamsDraw.swift in Sources */,
 				E909D67C2C28D2A5004FC1C3 /* HistoryContent.swift in Sources */,
+				E9B03C422C2E4A8900AFA4BA /* TeamCard.swift in Sources */,
 				E9148E9B2C27603F00AC49B4 /* ParseResponse.swift in Sources */,
 				E909D6802C28D2A5004FC1C3 /* StatisticsListView.swift in Sources */,
 				DE6736B02C107A28001BEB56 /* AppError.swift in Sources */,

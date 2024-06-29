@@ -1,4 +1,3 @@
-//
 //  TeamView.swift
 //  Tirajosaure
 //
@@ -22,11 +21,14 @@ struct TeamView: View {
                     eventListView
                 }
 
+                Spacer()
+                
                 Button(action: {
+                    MixpanelEvent.deleteEventButtonClicked.trackEvent()
                     navigateToAdd.toggle()
                 }) {
                     AddButton(
-                        text: "Créer un nouvel événement",
+                        text: LocalizedString.createNewEvent.localized,
                         image: IconNames.plusCircleFill.systemImage,
                         buttonColor: .antiqueWhite,
                         textColor: .oxfordBlue,
@@ -44,7 +46,7 @@ struct TeamView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    CustomHeader(title: "Événements", showBackButton: false, fontSize: 36)
+                    CustomHeader(title: LocalizedString.events.localized, showBackButton: false, fontSize: 36)
                         .padding(.vertical)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -70,11 +72,11 @@ struct TeamView: View {
 
     private var emptyStateView: some View {
         VStack {
-            Text("Aucun événement disponible")
+            Text(LocalizedString.noEventsAvailable.localized)
                 .font(.customFont(.nunitoBold, size: 20))
                 .foregroundColor(.gray)
                 .padding(.top, 40)
-            Text("Appuyez sur le bouton ci-dessous pour créer un nouvel événement.")
+            Text(LocalizedString.pressButtonToCreateEvent.localized)
                 .font(.customFont(.nunitoRegular, size: 16))
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
@@ -105,6 +107,7 @@ struct TeamView: View {
                     .listRowBackground(Color.antiqueWhite)
             }
             .onDelete { indexSet in
+                
                 eventController.removeEvent(at: indexSet)
             }
             .onMove { source, destination in

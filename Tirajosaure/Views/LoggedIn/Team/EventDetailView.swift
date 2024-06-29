@@ -26,37 +26,34 @@ struct EventDetailView: View {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(event.teams, id: \.self) { team in
-                            VStack(alignment: .leading) {
-                                Text(team)
-                                    .font(.headline)
-                                    .foregroundColor(.oxfordBlue)
-                                ForEach(event.members.filter { $0.starts(with: team.prefix(1)) }, id: \.self) { member in
-                                    OptionCard(option: member, isSelected: false)
-                                }
-                            }
-                            .padding()
-                            .background(Color.antiqueWhite)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
+                        ForEach(teamDistributionController.teams) { teamResult in
+                            TeamCard(name: teamResult.name, members: teamResult.members)
                         }
                     }
                     .padding()
                 }
                 .padding(.bottom, 20)
 
-                TextButton(
-                    text: "Lancer le tirage",
-                    isLoading: teamDistributionController.isLoading,
-                    onClick: {
-                        startDistribution()
-                    },
-                    buttonColor: .antiqueWhite,
-                    textColor: .oxfordBlue
-                )
-                .padding(.horizontal, 20)
-                .padding(.bottom, 20)
-                
+                if let currentMember = teamDistributionController.currentMember {
+                    MemberCard(member: currentMember)
+                        .transition(.slide)
+                        .animation(.easeInOut, value: teamDistributionController.currentMember)
+                }
+
+                HStack {
+                    TextButton(
+                        text: LocalizedString.launchDraw.localized,
+                        isLoading: teamDistributionController.isLoading,
+                        onClick: {
+                            MixpanelEvent.launchDrawButtonClicked.trackEvent()
+                            startDistribution()
+                        },
+                        buttonColor: .antiqueWhite,
+                        textColor: .oxfordBlue
+                    )
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 20)
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -67,39 +64,45 @@ struct EventDetailView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: EventEditView(event: $event, eventController: eventController)) {
-                        Image(systemName: IconNames.pencilCircleFill.rawValue)
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(.oxfordBlue)
-                            .padding(.leading, 5)
-                            .padding(.top)
+                    HStack{
+                        NavigationLink(destination: EventHistoricView(event: event)) {
+                            Image(systemName: IconNames.clockFill.rawValue)
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.oxfordBlue)
+                                .padding(.leading, 5)
+                                .padding(.top)
+                        }
+                        NavigationLink(destination: EventEditView(event: $event, eventController: eventController)) {
+                            Image(systemName: IconNames.pencilCircleFill.rawValue)
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.oxfordBlue)
+                                .padding(.leading, 5)
+                                .padding(.top)
+                        }
                     }
                 }
             }
             .navigationBarBackButtonHidden(true)
             .background(Color.skyBlue)
             .onAppear {
-                print("ON APPEAR")
                 loadEventDetails()
             }
         }
     }
 
     private func loadEventDetails() {
-        print("LOAD EVENT DETAILS BEFORE: Teams - \(parametersController.teamNames), Members - \(optionsController.options)")
-
-        // Mise à jour des équipes et des membres
         parametersController.numberOfTeams = event.teams.count
         parametersController.teamNames = event.teams
         optionsController.options = event.members
-
-        print("LOAD EVENT DETAILS AFTER: Teams - \(parametersController.teamNames), Members - \(optionsController.options)")
+        teamDistributionController.initializeTeams(for: event)
     }
     
     private func startDistribution() {
         teamDistributionController.clearTeams()
         teamDistributionController.updateMembersToDistribute(for: event)
+        teamDistributionController.teamsDraw = TeamsDraw(date: Date(), event: Pointer<Event>(objectId: event.objectId!))
         teamDistributionController.startDistribution(equitableDistribution: event.equitableDistribution)
     }
 }

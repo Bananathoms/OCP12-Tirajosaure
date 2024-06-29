@@ -13,6 +13,13 @@ enum MixpanelEvent: String {
     case loginButtonClicked = "Login Button Clicked"
     case signUpButtonClicked = "Sign Up Button Clicked"
     case forgotPasswordButtonClicked = "Forgot Password Button Clicked"
+    case launchDrawButtonClicked = "Launch Draw Button Clicked"
+    case addQuestionButtonClicked = "Add Question Button Clicked"
+    case editQuestionButtonClicked = "Edit Question Button Clicked"
+    case deleteQuestionButtonClicked = "Delete Question Button Clicked"
+    case addEventButtonClicked = "Add Event Button Clicked"
+    case editEventButtonClicked = "Edit Event Button Clicked"
+    case deleteEventButtonClicked = "Delete Event Button Clicked"
 
     var eventName: String {
         return self.rawValue

@@ -50,6 +50,26 @@
 "failed_to_save_draw_result" = "Failed to save draw result";
 "failed_to_load_draw_results" = "Failed to load draw results";
 "invalid_question_id" = "Invalid Question ID";
+"network_data_missing" = "A network error occurred: Data could not be read because it is missing.";
+"network_error_description" = "A network error occurred: %@";
+"network_error_with_response" = "A network error occurred: %@: %@";
+"failed_to_fetch_events" = "Failed to fetch events: %@";
+"user_id_not_found" = "User ID not found.";
+"event_title_empty" = "Event title is empty.";
+"not_enough_valid_options" = "Not enough valid options.";
+"failed_to_save_event" = "Failed to save event: %@";
+"failed_to_update_event" = "Failed to update event: %@";
+"failed_to_delete_event" = "Failed to delete event: %@";
+"failed_to_fetch_events" = "Échec de la récupération des événements : %@";
+"user_id_not_found" = "ID utilisateur non trouvé.";
+"event_title_empty" = "Le titre de l'événement est vide.";
+"not_enough_valid_options" = "Pas assez d'options valides.";
+"failed_to_save_event" = "Échec de l'enregistrement de l'événement : %@";
+"failed_to_update_event" = "Échec de la mise à jour de l'événement : %@";
+"failed_to_delete_event" = "Échec de la suppression de l'événement : %@";
+"failed_to_save_teams_draw" = "Failed to save teams draw: %@";
+"failed_to_fetch_teams_draw" = "Failed to fetch teams draw: %@";
+"failed_to_fetch_team_results" = "Failed to fetch team results: %@";
 
 // Authentication Errors
 "authentication_error_message" = "Invalid username or password.";
@@ -92,7 +112,34 @@
 "draws_label" = "draws";
 "no_results_yet" = "No results yet";
 
-
 //Empty QuestionList
 "empty_questions_title" = "No questions available.";
 "empty_questions_message" = "Tap the button below to add your first question.";
+
+//Team
+"default_team_name" = "Team";
+"launch_draw" = "Launch the draw";
+"history" = "History";
+"loading" = "Loading...";
+"no_draw_found" = "No draw found";
+"draw_on" = "Draw on";
+
+//Add Event
+"event_name" = "Event Name";
+"event_parameters" = "Event Parameters";
+"member_list" = "Member List";
+"add_event" = "Add Event";
+
+//Event Edit
+"edit_event" = "Edit Event";
+
+//TeamView
+"create_new_event" = "Create a New Event";
+"events" = "Events";
+"no_events_available" = "No Events Available";
+"press_button_to_create_event" = "Press the button below to create a new event.";
+"team_number" = "Team %d";
+
+//Members
+"members" = "members";
+

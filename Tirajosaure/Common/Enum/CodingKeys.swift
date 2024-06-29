@@ -13,4 +13,6 @@ enum CodingKeys: String, CodingKey {
     case title
     case options
     case user
+    case date
+    case event
 }

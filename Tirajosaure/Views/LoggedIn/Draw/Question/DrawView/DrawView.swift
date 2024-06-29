@@ -73,6 +73,7 @@ struct DrawView: View {
                 text: LocalizedString.draw.localized,
                 isLoading: false,
                 onClick: {
+                    MixpanelEvent.launchDrawButtonClicked.trackEvent()
                     drawViewController.startDrawing(options: options, question: question)
                 },
                 buttonColor: .antiqueWhite,

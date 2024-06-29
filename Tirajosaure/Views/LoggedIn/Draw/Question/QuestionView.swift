@@ -13,61 +13,56 @@ struct QuestionView: View {
     @State private var selectedQuestion: Question?
     
     var body: some View {
-        VStack {
-            Text("")
-                .padding(.top, 24)
-            NavigationStack {
-                VStack {
-                    if questionController.questions.isEmpty {
-                        emptyStateView
-                    } else {
-                        questionListView
-                    }
-                    
-                    Button(action: {
-                        navigateToAdd.toggle()
-                    }) {
-                        AddButton(
-                            text: LocalizedString.addNewQuestion.rawValue.localized,
-                            image: IconNames.plusCircleFill.systemImage,
-                            buttonColor: .antiqueWhite,
-                            textColor: .oxfordBlue,
-                            width: 300,
-                            height: 50
-                        )
-                        .padding()
-                    }
-                    .navigationDestination(isPresented: $navigateToAdd) {
-                        AddQuestionView(questionController: questionController)
-                    }
+        NavigationStack {
+            VStack {
+                if questionController.questions.isEmpty {
+                    emptyStateView
+                } else {
+                    questionListView
                 }
-                .frame(maxWidth: .infinity)
-                .background(Color.skyBlue)
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        CustomHeader(title: LocalizedString.questionsTitle.localized, showBackButton: false, fontSize: 36)
-                            .padding(.vertical)
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            withAnimation {
-                                isEditing.toggle()
-                            }
-                        }) {
-                            Image(systemName: isEditing ? IconNames.checkmarkCircleFill.rawValue : IconNames.pencilCircleFill.rawValue)
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .padding(.top)
-                                .foregroundColor(.oxfordBlue)
-                        }
-                    }
+                Button(action: {
+                    navigateToAdd.toggle()
+                }) {
+                    AddButton(
+                        text: LocalizedString.addNewQuestion.rawValue.localized,
+                        image: IconNames.plusCircleFill.systemImage,
+                        buttonColor: .antiqueWhite,
+                        textColor: .oxfordBlue,
+                        width: 300,
+                        height: 50
+                    )
+                    .padding()
                 }
-                .padding(.top)
-                .background(Color.skyBlue)
+                .navigationDestination(isPresented: $navigateToAdd) {
+                    AddQuestionView(questionController: questionController)
+                }
             }
-            .cornerRadius(20, corners: [.topLeft, .topRight])
+            .frame(maxWidth: .infinity)
+            .background(Color.skyBlue)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    CustomHeader(title: LocalizedString.questionsTitle.localized, showBackButton: false, fontSize: 36)
+                        .padding(.vertical)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        withAnimation {
+                            isEditing.toggle()
+                        }
+                    }) {
+                        Image(systemName: isEditing ? IconNames.checkmarkCircleFill.rawValue : IconNames.pencilCircleFill.rawValue)
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .padding(.top)
+                            .foregroundColor(.oxfordBlue)
+                    }
+                }
+            }
+            .padding(.top)
+            .background(Color.skyBlue)
         }
+        .cornerRadius(20, corners: [.topLeft, .topRight])
         .background(Color.thulianPink)
     }
     

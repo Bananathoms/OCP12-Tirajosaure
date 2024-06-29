@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import ParseSwift
 
 struct AddEventView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var eventController: EventController
+    @StateObject private var optionsController = OptionsController()
     @State private var isLoading = false
     @State private var errorMessage: String?
 
@@ -19,7 +19,7 @@ struct AddEventView: View {
             VStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
-                        Text("Nom de l'évènement")
+                        Text(LocalizedString.eventName.localized)
                             .font(.headline)
                             .padding(.leading, 20)
 
@@ -27,10 +27,10 @@ struct AddEventView: View {
                             hint: $eventController.newEventTitle,
                             icon: IconNames.pencil.rawValue,
                             title: nil,
-                            fieldName: "Nom de l'évènement"
+                            fieldName: LocalizedString.eventName.localized
                         )
 
-                        Text("Paramètre de l'évènement")
+                        Text(LocalizedString.eventParameters.localized)
                             .font(.headline)
                             .padding(.leading, 20)
 
@@ -38,27 +38,22 @@ struct AddEventView: View {
                             .frame(height: CGFloat(140.0 + Double(eventController.parametersController.numberOfTeams) * 44.0))
 
                         VStack(alignment: .leading) {
-                            Text("Liste des membres")
+                            Text(LocalizedString.memberList.localized)
                                 .font(.headline)
                                 .padding(.leading, 20)
 
-                            OptionsListView(controller: eventController.optionsController)
-                                .frame(height: CGFloat(eventController.optionsController.options.count) * 44.0 + 50.0)
-                        }
-
-                        if let errorMessage = errorMessage {
-                            Text(errorMessage)
-                                .foregroundColor(.red)
-                                .padding(.leading, 20)
+                            OptionsListView(controller: optionsController)
+                                .frame(height: CGFloat(optionsController.options.count) * 44.0 + 50.0)
                         }
                     }
                     .padding(.bottom, 20)
                 }
 
                 TextButton(
-                    text: "Ajouter l'événement",
+                    text: LocalizedString.addEvent.localized,
                     isLoading: isLoading,
                     onClick: {
+                        eventController.optionsController = optionsController
                         isLoading = true
                         if eventController.addEvent() {
                             isLoading = false
@@ -79,7 +74,7 @@ struct AddEventView: View {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {
-                        CustomHeader(title: "Ajouter un évènement")
+                        CustomHeader(title: LocalizedString.addEvent.localized)
                     }
                 }
             }
