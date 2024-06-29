@@ -44,6 +44,7 @@
 "failed_to_save_question" = "Failed to save question";
 "failed_to_update_question" = "Failed to update question";
 "failed_to_delete_question" = "Failed to delete question";
+"failed_to_fetch_questions" = "Failed to fetch questions : %@";
 "failed_to_load_questions" = "Failed to load questions";
 "failed_to_save_user_data" = "Failed to save user data";
 "failed_to_load_user_data" = "Failed to load user data";

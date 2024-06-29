@@ -44,6 +44,7 @@
 "failed_to_update_question" = "Échec de la mise à jour de la question";
 "failed_to_delete_question" = "Échec de la suppression de la question";
 "failed_to_load_questions" = "Échec du chargement des questions";
+"failed_to_fetch_questions" = "Échec de la récupération des questions : %@";
 "failed_to_save_user_data" = "Échec de l'enregistrement des données utilisateur";
 "failed_to_load_user_data" = "Échec du chargement des données utilisateur";
 "failed_to_save_draw_result" = "Échec de l'enregistrement du résultat du tirage";

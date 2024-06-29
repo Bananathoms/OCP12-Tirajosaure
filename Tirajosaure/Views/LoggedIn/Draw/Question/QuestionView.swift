@@ -1,7 +1,8 @@
+//
 //  QuestionView.swift
 //  Tirajosaure
 //
-//  Created by Thomas Carlier on 15/06/2024.
+//  Created par Thomas Carlier le 15/06/2024.
 //
 
 import SwiftUI
@@ -15,26 +16,32 @@ struct QuestionView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if questionController.questions.isEmpty {
-                    emptyStateView
+                if questionController.isLoading {
+                    Spacer()
+                    ProgressView(LocalizedString.loading.localized)
+                    Spacer()
                 } else {
-                    questionListView
-                }
-                Button(action: {
-                    navigateToAdd.toggle()
-                }) {
-                    AddButton(
-                        text: LocalizedString.addNewQuestion.rawValue.localized,
-                        image: IconNames.plusCircleFill.systemImage,
-                        buttonColor: .antiqueWhite,
-                        textColor: .oxfordBlue,
-                        width: 300,
-                        height: 50
-                    )
-                    .padding()
-                }
-                .navigationDestination(isPresented: $navigateToAdd) {
-                    AddQuestionView(questionController: questionController)
+                    if questionController.questions.isEmpty {
+                        emptyStateView
+                    } else {
+                        questionListView
+                    }
+                    Button(action: {
+                        navigateToAdd.toggle()
+                    }) {
+                        AddButton(
+                            text: LocalizedString.addNewQuestion.rawValue.localized,
+                            image: IconNames.plusCircleFill.systemImage,
+                            buttonColor: .antiqueWhite,
+                            textColor: .oxfordBlue,
+                            width: 300,
+                            height: 50
+                        )
+                        .padding()
+                    }
+                    .navigationDestination(isPresented: $navigateToAdd) {
+                        AddQuestionView(questionController: questionController)
+                    }
                 }
             }
             .frame(maxWidth: .infinity)

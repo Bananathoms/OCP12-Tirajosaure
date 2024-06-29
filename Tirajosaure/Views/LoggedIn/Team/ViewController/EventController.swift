@@ -12,6 +12,8 @@ import ParseSwift
 /// Controller class responsible for managing events.
 class EventController: ObservableObject {
     @Published var events: [Event] = []
+    @Published var isLoading = false
+    
     @Published var newEventTitle: String = DefaultValues.emptyString
     @Published var parametersController = ParametersListController(numberOfTeams: 2, teamNames: [
         "\(LocalizedString.defaultTeamName.localized) 1",
@@ -20,19 +22,26 @@ class EventController: ObservableObject {
     @Published var optionsController = OptionsController()
     
     init() {
-        fetchAllData()
+        loadEvents()
     }
     
     /// Fetches all events for the current user.
-    func fetchAllData() {
-        guard let currentUser = UserService.current.user else { return }
+    func loadEvents() {
+        self.isLoading = true
+        guard let currentUser = UserService.current.user else {
+            SnackBarService.current.error(ErrorMessage.userIDNotFound.localized)
+            self.isLoading = false
+            return
+        }
         let userPointer = Pointer<User>(objectId: currentUser.objectId ?? DefaultValues.emptyString)
 
         EventService.shared.fetchEvents(for: userPointer) { [weak self] result in
             switch result {
             case .success(let events):
                 self?.events = events
+                self?.isLoading = false
             case .failure(let error):
+                self?.isLoading = false
                 SnackBarService.current.error(String(format: ErrorMessage.failedToFetchEvents.localized, error.localizedDescription))
             }
         }

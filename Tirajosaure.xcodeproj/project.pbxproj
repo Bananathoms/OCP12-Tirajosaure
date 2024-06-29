@@ -67,7 +67,7 @@
 		E909D6892C28D2A5004FC1C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D64D2C28D2A5004FC1C3 /* SettingsView.swift */; };
 		E909D68A2C28D2A5004FC1C3 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D64F2C28D2A5004FC1C3 /* EventController.swift */; };
 		E909D68B2C28D2A5004FC1C3 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6512C28D2A5004FC1C3 /* EventDetailView.swift */; };
-		E909D68E2C28D2A5004FC1C3 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6542C28D2A5004FC1C3 /* TeamView.swift */; };
+		E909D68E2C28D2A5004FC1C3 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6542C28D2A5004FC1C3 /* EventView.swift */; };
 		E909D68F2C28D2A5004FC1C3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6562C28D2A5004FC1C3 /* HomeView.swift */; };
 		E909D6902C28D2A5004FC1C3 /* PasswordResetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D6582C28D2A5004FC1C3 /* PasswordResetController.swift */; };
 		E909D6912C28D2A5004FC1C3 /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909D65A2C28D2A5004FC1C3 /* PasswordResetView.swift */; };
@@ -198,7 +198,7 @@
 		E909D64D2C28D2A5004FC1C3 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E909D64F2C28D2A5004FC1C3 /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		E909D6512C28D2A5004FC1C3 /* EventDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
-		E909D6542C28D2A5004FC1C3 /* TeamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		E909D6542C28D2A5004FC1C3 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		E909D6562C28D2A5004FC1C3 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E909D6582C28D2A5004FC1C3 /* PasswordResetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetController.swift; sourceTree = "<group>"; };
 		E909D65A2C28D2A5004FC1C3 /* PasswordResetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
@@ -606,7 +606,7 @@
 				E9B03C492C2F176D00AFA4BA /* EventHistoricView.swift */,
 				E909D6A52C2B89AF004FC1C3 /* AddEventView.swift */,
 				E909D6A72C2B8CF2004FC1C3 /* EventEditView.swift */,
-				E909D6542C28D2A5004FC1C3 /* TeamView.swift */,
+				E909D6542C28D2A5004FC1C3 /* EventView.swift */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -919,7 +919,7 @@
 				E9148EB32C2761C400AC49B4 /* DrawResultService.swift in Sources */,
 				E9148E992C27602500AC49B4 /* DrawResult.swift in Sources */,
 				E909D6942C28D2A5004FC1C3 /* SignUpController.swift in Sources */,
-				E909D68E2C28D2A5004FC1C3 /* TeamView.swift in Sources */,
+				E909D68E2C28D2A5004FC1C3 /* EventView.swift in Sources */,
 				E909D67D2C28D2A5004FC1C3 /* ResultCard.swift in Sources */,
 				E909D6952C28D2A5004FC1C3 /* SignUpView.swift in Sources */,
 				E9148EA72C2760F100AC49B4 /* FormatConstants.swift in Sources */,

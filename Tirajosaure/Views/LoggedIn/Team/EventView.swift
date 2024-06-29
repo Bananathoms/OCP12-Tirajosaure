@@ -1,4 +1,5 @@
-//  TeamView.swift
+//
+//  EventView.swift
 //  Tirajosaure
 //
 //  Created by Thomas Carlier on 15/06/2024.
@@ -7,7 +8,7 @@
 import SwiftUI
 import ParseSwift
 
-struct TeamView: View {
+struct EventView: View {
     @StateObject private var eventController = EventController()
     @State private var isEditing = false
     @State private var navigateToAdd = false
@@ -15,30 +16,36 @@ struct TeamView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if eventController.events.isEmpty {
-                    emptyStateView
+                if eventController.isLoading {
+                    Spacer()
+                    ProgressView(LocalizedString.loading.localized)
+                    Spacer()
                 } else {
-                    eventListView
-                }
-
-                Spacer()
-                
-                Button(action: {
-                    MixpanelEvent.deleteEventButtonClicked.trackEvent()
-                    navigateToAdd.toggle()
-                }) {
-                    AddButton(
-                        text: LocalizedString.createNewEvent.localized,
-                        image: IconNames.plusCircleFill.systemImage,
-                        buttonColor: .antiqueWhite,
-                        textColor: .oxfordBlue,
-                        width: 300,
-                        height: 50
-                    )
-                    .padding()
-                }
-                .navigationDestination(isPresented: $navigateToAdd) {
-                    AddEventView(eventController: eventController)
+                    if eventController.events.isEmpty {
+                        emptyStateView
+                    } else {
+                        eventListView
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        MixpanelEvent.deleteEventButtonClicked.trackEvent()
+                        navigateToAdd.toggle()
+                    }) {
+                        AddButton(
+                            text: LocalizedString.createNewEvent.localized,
+                            image: IconNames.plusCircleFill.systemImage,
+                            buttonColor: .antiqueWhite,
+                            textColor: .oxfordBlue,
+                            width: 300,
+                            height: 50
+                        )
+                        .padding()
+                    }
+                    .navigationDestination(isPresented: $navigateToAdd) {
+                        AddEventView(eventController: eventController)
+                    }
                 }
             }
             .frame(maxWidth: .infinity)
@@ -107,7 +114,6 @@ struct TeamView: View {
                     .listRowBackground(Color.antiqueWhite)
             }
             .onDelete { indexSet in
-                
                 eventController.removeEvent(at: indexSet)
             }
             .onMove { source, destination in
@@ -120,12 +126,12 @@ struct TeamView: View {
     }
 }
 
-struct TeamView_Previews: PreviewProvider {
+struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamView()
+        EventView()
             .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
             .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
-        TeamView()
+        EventView()
             .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
             .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }

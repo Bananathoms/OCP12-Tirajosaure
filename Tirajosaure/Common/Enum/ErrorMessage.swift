@@ -15,6 +15,7 @@ enum ErrorMessage: String {
     case emptyQuestionTitle = "empty_question_title"
     case insufficientOptions = "insufficient_options"
     case failedToSaveQuestion = "failed_to_save_question"
+    case failedToFetchQuestions = "failed_to_fetch_equestions"
     case failedToUpdateQuestion = "failed_to_update_question"
     case failedToDeleteQuestion = "failed_to_delete_question"
     case failedToLoadQuestions = "failed_to_load_questions"

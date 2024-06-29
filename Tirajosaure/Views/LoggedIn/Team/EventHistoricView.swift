@@ -69,7 +69,7 @@ struct EventHistoricView: View {
     }
     
     private func drawDisclosureGroup(draw: TeamsDraw) -> some View {
-        DisclosureGroup("\(LocalizedString.drawOn.rawValue) \(draw.dateFormatted)") {
+        DisclosureGroup("\(LocalizedString.drawOn.localized) \(draw.dateFormatted)") {
             if draw.teamResults.isEmpty {
                 Text(LocalizedString.noDrawFound.localized)
                     .onAppear {

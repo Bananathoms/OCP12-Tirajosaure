@@ -102,7 +102,7 @@ struct EventDetailView: View {
     private func startDistribution() {
         teamDistributionController.clearTeams()
         teamDistributionController.updateMembersToDistribute(for: event)
-        teamDistributionController.teamsDraw = TeamsDraw(date: Date(), event: Pointer<Event>(objectId: event.objectId!))
+        teamDistributionController.teamsDraw = TeamsDraw(date: Date(), event: Pointer<Event>(objectId: event.objectId ?? DefaultValues.emptyString))
         teamDistributionController.startDistribution(equitableDistribution: event.equitableDistribution)
     }
 }

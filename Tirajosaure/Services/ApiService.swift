@@ -76,12 +76,11 @@ class ApiService {
     /// - Parameters:
     ///   - userId: The ID of the user whose questions are to be fetched.
     ///   - completion: A closure to handle the result of the fetch operation.
-    func fetchQuestions(for userId: String, completion: @escaping (Result<[Question], AppError>) -> Void) {
+    func fetchQuestions(for userPointer: Pointer<User>, completion: @escaping (Result<[Question], AppError>) -> Void) {
+        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userPointer.objectId)
         let url = ParseConfig.serverURL + APIConstants.Endpoints.questionsBase
-        let parameters = wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userId)
-        let headers = getHeaders()
-        
-        AF.request(url, parameters: parameters, headers: headers).validate().responseData { response in
+
+        AF.request(url, parameters: parameters, headers: getHeaders()).validate().responseData { response in
             self.handleAlamofireResponse(response, ofType: ParseResponse<Question>.self, transform: { $0.results }, onResult: completion)
         }
     }
@@ -179,9 +178,39 @@ class ApiService {
             self.handleAlamofireResponse(response, ofType: ParseResponse<DrawResult>.self, transform: { $0.results }, onResult: completion)
         }
     }
+    
+    /// Deletes a `DrawResult` object from the Parse server.
+    /// - Parameters:
+    ///   - drawResult: The `DrawResult` object to be deleted.
+    ///   - completion: A closure to handle the result of the delete operation, returning a `Result` with either `Void` ou an `AppError`.
+    func deleteDrawResult(_ drawResult: DrawResult, completion: @escaping (Result<Void, AppError>) -> Void) {
+        guard let objectId = drawResult.objectId else {
+            completion(.failure(.validationError(ErrorMessage.invalidQuestionID.localized)))
+            return
+        }
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.drawResultById.replacingOccurrences(of: FormatConstants.objectIdPlaceholder, with: objectId)
+        let headers = getHeaders()
+
+        AF.request(url, method: .delete, headers: headers).validate().responseData { response in
+            self.handleDeleteResponse(response, onResult: completion)
+        }
+    }
 
     
     // MARK: - Event Methods
+    
+    /// Fetches events for a specific user.
+    /// - Parameters:
+    ///   - userPointer: A pointer to the user whose events are to be fetched.
+    ///   - completion: A closure to handle the result of the fetch operation.
+    func fetchEvents(for userPointer: Pointer<User>, completion: @escaping (Result<[Event], AppError>) -> Void) {
+        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userPointer.objectId)
+        let url = ParseConfig.serverURL + APIConstants.Endpoints.eventBase
+        
+        AF.request(url, parameters: parameters, headers: getHeaders()).validate().responseData { response in
+            self.handleAlamofireResponse(response, ofType: ParseResponse<Event>.self, transform: { $0.results }, onResult: completion)
+        }
+    }
     
     /// Saves an event to the Parse server.
     /// - Parameters:
@@ -213,19 +242,6 @@ class ApiService {
 
         request.validate().responseData { response in
             self.handleAlamofireResponse(response, ofType: SaveResponse.self, originalObject: event, onResult: completion)
-        }
-    }
-    
-    /// Fetches events for a specific user.
-    /// - Parameters:
-    ///   - userPointer: A pointer to the user whose events are to be fetched.
-    ///   - completion: A closure to handle the result of the fetch operation.
-    func fetchEvents(for userPointer: Pointer<User>, completion: @escaping (Result<[Event], AppError>) -> Void) {
-        let parameters = APIConstants.Parameters.wherePointer(type: APIConstants.Parameters.UserPointer(), objectId: userPointer.objectId)
-        let url = ParseConfig.serverURL + APIConstants.Endpoints.eventBase
-        
-        AF.request(url, parameters: parameters, headers: getHeaders()).validate().responseData { response in
-            self.handleAlamofireResponse(response, ofType: ParseResponse<Event>.self, transform: { $0.results }, onResult: completion)
         }
     }
     

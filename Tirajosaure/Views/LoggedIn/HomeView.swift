@@ -24,7 +24,7 @@ struct HomeView: View {
                 case 0:
                     QuestionView()
                 case 1:
-                    TeamView()
+                    EventView()
                 case 2:
                     SettingsView()
                 default:

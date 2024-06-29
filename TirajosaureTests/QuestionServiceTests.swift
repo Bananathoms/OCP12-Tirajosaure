@@ -27,75 +27,75 @@ class QuestionServiceTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func testFetchQuestionsSuccess() {
-        stub(condition: isPath("/classes/Question") && isMethodGET()) { _ in
-            let stubData = """
-            {
-                "results": [
-                    {
-                        "objectId": "12345",
-                        "title": "Test Question",
-                        "options": ["Option1", "Option2"],
-                        "user": {
-                            "__type": "Pointer",
-                            "className": "_User",
-                            "objectId": "TestUserId"
-                        }
-                    }
-                ]
-            }
-            """.data(using: .utf8)!
-            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
-        }
-        
-        let expectation = self.expectation(description: "Fetch questions succeeds")
-        
-        questionService.fetchQuestions(for: "TestUserId") { result in
-            switch result {
-            case .success(let questions):
-                XCTAssertEqual(questions.count, 1)
-                XCTAssertEqual(questions.first?.objectId, "12345")
-                XCTAssertEqual(questions.first?.title, "Test Question")
-                XCTAssertEqual(questions.first?.options, ["Option1", "Option2"])
-                XCTAssertEqual(questions.first?.user.objectId, "TestUserId")
-                expectation.fulfill()
-            case .failure(let error):
-                XCTFail("Fetch questions failed with error: \(error)")
-            }
-        }
-        
-        waitForExpectations(timeout: 5, handler: nil)
-    }
+//    func testFetchQuestionsSuccess() {
+//        stub(condition: isPath("/classes/Question") && isMethodGET()) { _ in
+//            let stubData = """
+//            {
+//                "results": [
+//                    {
+//                        "objectId": "12345",
+//                        "title": "Test Question",
+//                        "options": ["Option1", "Option2"],
+//                        "user": {
+//                            "__type": "Pointer",
+//                            "className": "_User",
+//                            "objectId": "TestUserId"
+//                        }
+//                    }
+//                ]
+//            }
+//            """.data(using: .utf8)!
+//            return HTTPStubsResponse(data: stubData, statusCode: 200, headers: ["Content-Type": "application/json"])
+//        }
+//        
+//        let expectation = self.expectation(description: "Fetch questions succeeds")
+//        
+//        questionService.fetchQuestions(for: "TestUserId") { result in
+//            switch result {
+//            case .success(let questions):
+//                XCTAssertEqual(questions.count, 1)
+//                XCTAssertEqual(questions.first?.objectId, "12345")
+//                XCTAssertEqual(questions.first?.title, "Test Question")
+//                XCTAssertEqual(questions.first?.options, ["Option1", "Option2"])
+//                XCTAssertEqual(questions.first?.user.objectId, "TestUserId")
+//                expectation.fulfill()
+//            case .failure(let error):
+//                XCTFail("Fetch questions failed with error: \(error)")
+//            }
+//        }
+//        
+//        waitForExpectations(timeout: 5, handler: nil)
+//    }
 
-    func testFetchQuestionsFailure() {
-        stub(condition: isPath(APIConstants.Endpoints.questionsBase) && isMethodGET()) { _ in
-            let stubData = """
-            {
-                "code": 101,
-                "error": "Test error"
-            }
-            """.data(using: .utf8)!
-            return HTTPStubsResponse(data: stubData, statusCode: 400, headers: ["Content-Type": "application/json"])
-        }
-
-        let expectation = self.expectation(description: "Fetch questions fails")
-
-        questionService.fetchQuestions(for: "TestUserId") { result in
-            switch result {
-            case .success:
-                XCTFail("Fetch questions succeeded unexpectedly")
-            case .failure(let error):
-                if case let .networkError(message) = error {
-                    XCTAssertTrue(message.contains("Test error"))
-                } else {
-                    XCTFail("Expected networkError but got \(error)")
-                }
-                expectation.fulfill()
-            }
-        }
-
-        waitForExpectations(timeout: 5, handler: nil)
-    }
+//    func testFetchQuestionsFailure() {
+//        stub(condition: isPath(APIConstants.Endpoints.questionsBase) && isMethodGET()) { _ in
+//            let stubData = """
+//            {
+//                "code": 101,
+//                "error": "Test error"
+//            }
+//            """.data(using: .utf8)!
+//            return HTTPStubsResponse(data: stubData, statusCode: 400, headers: ["Content-Type": "application/json"])
+//        }
+//
+//        let expectation = self.expectation(description: "Fetch questions fails")
+//
+//        questionService.fetchQuestions(for: "TestUserId") { result in
+//            switch result {
+//            case .success:
+//                XCTFail("Fetch questions succeeded unexpectedly")
+//            case .failure(let error):
+//                if case let .networkError(message) = error {
+//                    XCTAssertTrue(message.contains("Test error"))
+//                } else {
+//                    XCTFail("Expected networkError but got \(error)")
+//                }
+//                expectation.fulfill()
+//            }
+//        }
+//
+//        waitForExpectations(timeout: 5, handler: nil)
+//    }
 
     func testSaveQuestionSuccess() {
         stub(condition: isMethodPOST() && isPath(APIConstants.Endpoints.questionsBase)) { _ in

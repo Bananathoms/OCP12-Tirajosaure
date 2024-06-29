@@ -16,6 +16,7 @@ struct APIConstants {
         static let questionsBase = "/classes/Question"
         static let questionById = "/classes/Question/{id}"
         static let drawResultBase = "/classes/DrawResult"
+        static let drawResultById = "/classes/DrawResult/{id}"
         static let eventBase = "/classes/Event"
         static let eventById = "/classes/Event/{id}"
         static let teamsDrawBase = "/classes/TeamsDraw"
@@ -71,7 +72,7 @@ struct APIConstants {
         /// TeamsDraw pointer for API requests.
         struct TeamsDrawPointer: PointerType {
             let className = "TeamsDraw"
-            let parameterName = "teamsDraw"
+            let parameterName = "draw"
         }
         
         /// Constructs the parameters for a pointer object.

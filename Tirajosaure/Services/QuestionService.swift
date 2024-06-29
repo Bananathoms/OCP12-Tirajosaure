@@ -12,6 +12,7 @@ import Alamofire
 /// A service class responsible for handling operations related to `Question` objects,
 class QuestionService {
     static let shared = QuestionService()
+    private let drawResultService = DrawResultService()
 
     private init() {}
     
@@ -19,8 +20,8 @@ class QuestionService {
     /// - Parameters:
     ///   - userId: The ID of the user whose questions are to be fetched.
     ///   - completion: A closure to handle the result of the fetch operation, returning a `Result` with either an array of `Question` objects or an `AppError`.
-    func fetchQuestions(for userId: String, completion: @escaping (Result<[Question], AppError>) -> Void) {
-        ApiService.current.fetchQuestions(for: userId, completion: completion)
+    func fetchQuestions(for userPointer: Pointer<User>, completion: @escaping (Result<[Question], AppError>) -> Void) {
+        ApiService.current.fetchQuestions(for: userPointer, completion: completion)
     }
 
     /// Saves a `Question` object to the Parse server.
@@ -36,6 +37,28 @@ class QuestionService {
     ///   - question: The `Question` object to be deleted.
     ///   - completion: A closure to handle the result of the delete operation, returning a `Result` with either `Void` or an `AppError`.
     func deleteQuestion(_ question: Question, completion: @escaping (Result<Void, AppError>) -> Void) {
+        guard let questionId = question.objectId else {
+            completion(.failure(.validationError(LocalizedString.invalidQuestionID.localized)))
+            return
+        }
+        
+        let questionPointer = Pointer<Question>(objectId: questionId)
+        
+        drawResultService.deleteDrawResults(for: questionPointer) { [weak self] result in
+            switch result {
+            case .success:
+                self?.deleteQuestionOnly(question, completion: completion)
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    /// Deletes only a question from the Parse server.
+    /// - Parameters:
+    ///   - question: The question to be deleted.
+    ///   - completion: A closure to handle the result of the delete operation, returning a `Result` with either `Void` or an `AppError`.
+    private func deleteQuestionOnly(_ question: Question, completion: @escaping (Result<Void, AppError>) -> Void) {
         ApiService.current.deleteQuestion(question, completion: completion)
     }
 }
