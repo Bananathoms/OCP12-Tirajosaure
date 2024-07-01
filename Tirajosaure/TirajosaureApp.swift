@@ -18,6 +18,14 @@ struct TirajosaureApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    /// Force Light Mode
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                        windowScene.windows.forEach { window in
+                            window.overrideUserInterfaceStyle = .light
+                        }
+                    }
+                }
         }
     }
 }
