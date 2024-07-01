@@ -1,0 +1,152 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Email";
+"password" = "Senha";
+"first_name" = "Nome";
+"last_name" = "Sobrenome";
+"enter_your_password" = "Digite sua senha";
+"confirm_your_password" = "Confirme sua senha";
+"continue_button" = "Continuar";
+"logout_button" = "Sair";
+"reset_password_title" = "Redefinir senha";
+"reset_password_button" = "Redefinir";
+"password_reset_email_sent" = "Email de redefinição de senha enviado";
+
+// General Errors
+"network_error_message" = "Ocorreu um erro de rede. Por favor, tente novamente.";
+"unknown_error_message" = "Ocorreu um erro desconhecido.";
+
+// Validation Errors
+"validation_error_message" = "Verifique os campos de entrada para erros.";
+"parse_error_message" = "Erro do servidor: %@";
+"passwords_do_not_match" = "As senhas não coincidem.";
+"invalid_email" = "Digite um email válido.";
+"empty_password" = "Digite uma senha.";
+"first_name_missing" = "Digite um nome.";
+"last_name_missing" = "Digite um sobrenome.";
+"password_length_error" = "A senha deve ter pelo menos 8 caracteres.";
+"password_uppercase_error" = "A senha deve conter pelo menos uma letra maiúscula.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Falha ao solicitar redefinição de senha";
+"failed_to_decode_json_response" = "Falha ao decodificar resposta JSON";
+"unknown_error" = "Ocorreu um erro desconhecido";
+"default_message" = "Sem resposta";
+"empty_question_title" = "O título da pergunta não pode estar vazio";
+"insufficient_options" = "Uma pergunta deve ter pelo menos duas opções";
+"failed_to_save_question" = "Falha ao salvar a pergunta";
+"failed_to_update_question" = "Falha ao atualizar a pergunta";
+"failed_to_delete_question" = "Falha ao excluir a pergunta";
+"failed_to_fetch_questions" = "Falha ao buscar perguntas: %@";
+"failed_to_load_questions" = "Falha ao carregar perguntas";
+"failed_to_save_user_data" = "Falha ao salvar os dados do usuário";
+"failed_to_load_user_data" = "Falha ao carregar os dados do usuário";
+"failed_to_save_draw_result" = "Falha ao salvar o resultado do sorteio";
+"failed_to_load_draw_results" = "Falha ao carregar os resultados do sorteio";
+"invalid_question_id" = "ID de pergunta inválido";
+"network_data_missing" = "Ocorreu um erro de rede: Dados não puderam ser lidos porque estão faltando.";
+"network_error_description" = "Ocorreu um erro de rede: %@";
+"network_error_with_response" = "Ocorreu um erro de rede: %@: %@";
+"failed_to_fetch_events" = "Falha ao buscar eventos: %@";
+"user_id_not_found" = "ID do usuário não encontrado.";
+"event_title_empty" = "O título do evento está vazio.";
+"not_enough_valid_options" = "Não há opções válidas suficientes.";
+"not_enough_valid_event_options" = "Deve haver pelo menos tantos membros quanto equipes, e cada membro deve ter um nome.";
+"failed_to_save_event" = "Falha ao salvar o evento: %@";
+"failed_to_update_event" = "Falha ao atualizar o evento: %@";
+"failed_to_delete_event" = "Falha ao excluir o evento: %@";
+"failed_to_save_teams_draw" = "Falha ao salvar o sorteio de equipes: %@";
+"failed_to_fetch_teams_draw" = "Falha ao buscar o sorteio de equipes: %@";
+"failed_to_fetch_team_results" = "Falha ao buscar os resultados da equipe: %@";
+"invalid_teams_draw_id" = "ID de sorteio de equipes inválido.";
+"invalid_team_result_id" = "ID de resultado de equipe inválido.";
+"invalid_event_id" = "ID do evento inválido.";
+"invalid_user_id" = "ID do usuário inválido.";
+
+// Authentication Errors
+"authentication_error_message" = "Nome de usuário ou senha inválidos.";
+
+// Success Messages
+"successful_sign_in" = "Usuário %@ %@ conectado com sucesso.";
+"successful_sign_up" = "Usuário %@ %@ registrado com sucesso.";
+
+// Sign-In Screen
+"signin_title" = "Entrar";
+"no_account_prompt" = "Não tem uma conta?";
+"signup_here" = "Registre-se aqui";
+"forgot_password" = "Esqueceu a senha?";
+"signin_button" = "Entrar";
+
+// Sign-Up Screen
+"signup_title" = "Registrar";
+
+// HomeView
+"draw_tab" = "Sorteio";
+"teams_tab" = "Equipes";
+"settings_tab" = "Configurações";
+
+// Question
+"questions_title" = "Perguntas";
+"add_new_question" = "Adicionar uma nova pergunta";
+"edit_question" = "Editar pergunta";
+"question_title_placeholder" = "Título da pergunta";
+"answers_list_placeholder" = "Lista de respostas";
+"enter_question_title" = "Digite o título da pergunta";
+"add_answer" = "Adicionar uma resposta";
+"answer" = "Resposta";
+"draw" = "Sorteio";
+
+// History and Statistics
+"history_title" = "Histórico";
+"statistics_title" = "Estatísticas";
+"total_draw" = "Total de sorteios";
+"option_label" = "Opção";
+"count_label" = "Contagem";
+"draws_label" = "sorteios";
+"no_results_yet" = "Nenhum resultado ainda";
+
+//Empty QuestionList
+"empty_questions_title" = "Nenhuma pergunta disponível.";
+"empty_questions_message" = "Toque no botão abaixo para adicionar sua primeira pergunta.";
+
+//Team
+"default_team_name" = "Equipe";
+"launch_draw" = "Iniciar o sorteio";
+"history" = "Histórico";
+"loading" = "Carregando...";
+"no_draw_found" = "Nenhum sorteio encontrado";
+"no_draw_found_message" = "Faça um sorteio para ter um histórico";
+"draw_on" = "Sorteio em";
+
+//Event
+"event_name" = "Nome do evento";
+"event_parameters" = "Parâmetros do evento";
+"event_title_placeholder" = "Título do evento";
+"members_list_placeholder" = "Lista de membros";
+"add_event" = "Adicionar evento";
+"edit_event" = "Editar evento";
+"add_new_event" = "Adicionar um novo evento";
+"events" = "Eventos";
+"no_events_available" = "Nenhum evento disponível";
+"press_button_to_create_event" = "Pressione o botão abaixo para criar um novo evento.";
+"team_number" = "Equipe %d";
+"member" = "Membro";
+"members" = "Membros";
+"add_member" = "Adicionar membro";
+
+//Parameters
+"language" = "Idioma";
+"user_informations" = "Informações";
+"selected_language" = "Idioma selecionado";
+
+//ParameterList
+"equitable_distribution" = "Distribuição equitativa";
+"number_of_teams" = "Número de equipes: %d";
+"team_name" = "Nome da equipe %d";

@@ -1,0 +1,160 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "E-mail";
+"password" = "Wachtwoord";
+"first_name" = "Voornaam";
+"last_name" = "Achternaam";
+"enter_your_password" = "Voer uw wachtwoord in";
+"confirm_your_password" = "Bevestig uw wachtwoord";
+"continue_button" = "Doorgaan";
+"logout_button" = "Uitloggen";
+"reset_password_title" = "Wachtwoord resetten";
+"reset_password_button" = "Resetten";
+"password_reset_email_sent" = "E-mail voor wachtwoordreset verzonden";
+
+// General Errors
+"network_error_message" = "Er is een netwerkfout opgetreden. Probeer het opnieuw.";
+"unknown_error_message" = "Er is een onbekende fout opgetreden.";
+
+// Validation Errors
+"validation_error_message" = "Controleer de invoervelden op fouten.";
+"parse_error_message" = "Serverfout: %@";
+"passwords_do_not_match" = "Wachtwoorden komen niet overeen.";
+"invalid_email" = "Voer een geldig e-mailadres in.";
+"empty_password" = "Voer een wachtwoord in.";
+"first_name_missing" = "Voer een voornaam in.";
+"last_name_missing" = "Voer een achternaam in.";
+"password_length_error" = "Het wachtwoord moet minstens 8 tekens lang zijn.";
+"password_uppercase_error" = "Het wachtwoord moet minstens één hoofdletter bevatten.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Verzoek om wachtwoordreset mislukt";
+"failed_to_decode_json_response" = "Fout bij decoderen van JSON-reactie";
+"unknown_error" = "Er is een onbekende fout opgetreden";
+"default_message" = "Geen antwoordstring";
+"empty_question_title" = "De vraag kan geen lege titel hebben";
+"insufficient_options" = "Een vraag moet minstens twee opties hebben";
+"failed_to_save_question" = "Opslaan van vraag mislukt";
+"failed_to_update_question" = "Bijwerken van vraag mislukt";
+"failed_to_delete_question" = "Verwijderen van vraag mislukt";
+"failed_to_fetch_questions" = "Vragen ophalen mislukt: %@";
+"failed_to_load_questions" = "Vragen laden mislukt";
+"failed_to_save_user_data" = "Gebruikersgegevens opslaan mislukt";
+"failed_to_load_user_data" = "Gebruikersgegevens laden mislukt";
+"failed_to_save_draw_result" = "Trekking opslaan mislukt";
+"failed_to_load_draw_results" = "Trekkingresultaten laden mislukt";
+"invalid_question_id" = "Ongeldige vraag-ID";
+"network_data_missing" = "Er is een netwerkfout opgetreden: gegevens konden niet worden gelezen omdat ze ontbreken.";
+"network_error_description" = "Er is een netwerkfout opgetreden: %@";
+"network_error_with_response" = "Er is een netwerkfout opgetreden: %@: %@";
+"failed_to_fetch_events" = "Evenementen ophalen mislukt: %@";
+"user_id_not_found" = "Gebruikers-ID niet gevonden.";
+"event_title_empty" = "Evenementtitel is leeg.";
+"not_enough_valid_options" = "Niet genoeg geldige opties.";
+"not_enough_valid_event_options" = "Niet genoeg geldige opties.";
+"not_enough_valid_event_options" = "Er moeten minstens evenveel leden zijn als teams, en elk lid moet een naam hebben.";
+"failed_to_save_event" = "Evenement opslaan mislukt: %@";
+"failed_to_update_event" = "Evenement bijwerken mislukt: %@";
+"failed_to_delete_event" = "Evenement verwijderen mislukt: %@";
+"failed_to_fetch_events" = "Evenementen ophalen mislukt: %@";
+"user_id_not_found" = "Gebruikers-ID niet gevonden.";
+"event_title_empty" = "Evenementtitel is leeg.";
+"not_enough_valid_options" = "Niet genoeg geldige opties.";
+"failed_to_save_event" = "Evenement opslaan mislukt: %@";
+"failed_to_update_event" = "Evenement bijwerken mislukt: %@";
+"failed_to_delete_event" = "Evenement verwijderen mislukt: %@";
+"failed_to_save_teams_draw" = "Opslaan van teamt trekking mislukt: %@";
+"failed_to_fetch_teams_draw" = "Teamtrekking ophalen mislukt: %@";
+"failed_to_fetch_team_results" = "Teamresultaten ophalen mislukt: %@";
+"invalid_teams_draw_id" = "Ongeldige teams trekking-ID.";
+"invalid_team_result_id" = "Ongeldige teamresultaat-ID.";
+"invalid_event_id" = "Ongeldige evenement-ID.";
+"invalid_user_id" = "Ongeldige gebruikers-ID.";
+
+// Authentication Errors
+"authentication_error_message" = "Ongeldige gebruikersnaam of wachtwoord.";
+
+// Success Messages
+"successful_sign_in" = "Gebruiker %@ %@ succesvol ingelogd.";
+"successful_sign_up" = "Gebruiker %@ %@ succesvol geregistreerd.";
+
+// Sign-In Screen
+"signin_title" = "Inloggen";
+"no_account_prompt" = "Geen account?";
+"signup_here" = "Hier registreren";
+"forgot_password" = "Wachtwoord vergeten?";
+"signin_button" = "Inloggen";
+
+// Sign-Up Screen
+"signup_title" = "Registreren";
+
+// HomeView
+"draw_tab" = "Trekking";
+"teams_tab" = "Teams";
+"settings_tab" = "Instellingen";
+
+// Question
+"questions_title" = "Vragen";
+"add_new_question" = "Nieuwe vraag toevoegen";
+"edit_question" = "Vraag bewerken";
+"question_title_placeholder" = "Vraagtitel";
+"answers_list_placeholder" = "Antwoordenlijst";
+"enter_question_title" = "Voer de vraagtitel in";
+"add_answer" = "Antwoord toevoegen";
+"answer" = "Antwoord";
+"draw" = "Trekking";
+
+// History and Statistics
+"history_title" = "Geschiedenis";
+"statistics_title" = "Statistieken";
+"total_draw" = "Totale trekking";
+"option_label" = "Optie";
+"count_label" = "Aantal";
+"draws_label" = "trekkingen";
+"no_results_yet" = "Nog geen resultaten";
+
+//Empty QuestionList
+"empty_questions_title" = "Geen vragen beschikbaar.";
+"empty_questions_message" = "Tik op de knop hieronder om uw eerste vraag toe te voegen.";
+
+//Team
+"default_team_name" = "Team";
+"launch_draw" = "Trekking starten";
+"history" = "Geschiedenis";
+"loading" = "Laden...";
+"no_draw_found" = "Geen trekking gevonden";
+"no_draw_found_message" = "Voer een trekking uit om een historiek te krijgen";
+"draw_on" = "Trekking op";
+
+//Event
+"event_name" = "Evenementnaam";
+"event_parameters" = "Evenementparameters";
+"event_title_placeholder" = "Evenementtitel";
+"members_list_placeholder" = "Ledenlijst";
+"add_event" = "Evenement toevoegen";
+"edit_event" = "Evenement bewerken";
+"add_new_event" = "Nieuw evenement toevoegen";
+"events" = "Evenementen";
+"no_events_available" = "Geen evenementen beschikbaar";
+"press_button_to_create_event" = "Druk op de knop hieronder om een nieuw evenement te creëren.";
+"team_number" = "Team %d";
+"member" = "Lid";
+"members" = "Leden";
+"add_member" = "Lid toevoegen";
+
+//Parameters
+"language" = "Taal";
+"user_informations" = "Informatie";
+"selected_language" = "Geselecteerde taal";
+
+//ParameterList
+"equitable_distribution" = "Eerlijke verdeling";
+"number_of_teams" = "Aantal teams: %d";
+"team_name" = "Teamnaam %d";

@@ -1,0 +1,160 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Email";
+"password" = "Adgangskode";
+"first_name" = "Fornavn";
+"last_name" = "Efternavn";
+"enter_your_password" = "Indtast din adgangskode";
+"confirm_your_password" = "Bekræft din adgangskode";
+"continue_button" = "Fortsæt";
+"logout_button" = "Log ud";
+"reset_password_title" = "Nulstil adgangskode";
+"reset_password_button" = "Nulstil";
+"password_reset_email_sent" = "Email til nulstilling af adgangskode sendt";
+
+// General Errors
+"network_error_message" = "Der opstod en netværksfejl. Prøv igen.";
+"unknown_error_message" = "Der opstod en ukendt fejl.";
+
+// Validation Errors
+"validation_error_message" = "Kontroller inputfelterne for fejl.";
+"parse_error_message" = "Serverfejl: %@";
+"passwords_do_not_match" = "Adgangskoderne stemmer ikke overens.";
+"invalid_email" = "Indtast en gyldig email.";
+"empty_password" = "Indtast en adgangskode.";
+"first_name_missing" = "Indtast et fornavn.";
+"last_name_missing" = "Indtast et efternavn.";
+"password_length_error" = "Adgangskoden skal være mindst 8 tegn lang.";
+"password_uppercase_error" = "Adgangskoden skal indeholde mindst ét stort bogstav.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Kunne ikke anmode om nulstilling af adgangskode";
+"failed_to_decode_json_response" = "Kunne ikke dekode JSON-svar";
+"unknown_error" = "Der opstod en ukendt fejl";
+"default_message" = "Ingen svarstreng";
+"empty_question_title" = "Spørgsmålet kan ikke have en tom titel";
+"insufficient_options" = "Et spørgsmål skal have mindst to valgmuligheder";
+"failed_to_save_question" = "Kunne ikke gemme spørgsmål";
+"failed_to_update_question" = "Kunne ikke opdatere spørgsmål";
+"failed_to_delete_question" = "Kunne ikke slette spørgsmål";
+"failed_to_fetch_questions" = "Kunne ikke hente spørgsmål: %@";
+"failed_to_load_questions" = "Kunne ikke indlæse spørgsmål";
+"failed_to_save_user_data" = "Kunne ikke gemme brugerdata";
+"failed_to_load_user_data" = "Kunne ikke indlæse brugerdata";
+"failed_to_save_draw_result" = "Kunne ikke gemme lodtrækningsresultat";
+"failed_to_load_draw_results" = "Kunne ikke indlæse lodtrækningsresultater";
+"invalid_question_id" = "Ugyldigt spørgsmål-ID";
+"network_data_missing" = "Der opstod en netværksfejl: Data kunne ikke læses, fordi de mangler.";
+"network_error_description" = "Der opstod en netværksfejl: %@";
+"network_error_with_response" = "Der opstod en netværksfejl: %@: %@";
+"failed_to_fetch_events" = "Kunne ikke hente begivenheder: %@";
+"user_id_not_found" = "Bruger-ID ikke fundet.";
+"event_title_empty" = "Begivenhedstitlen er tom.";
+"not_enough_valid_options" = "Ikke nok gyldige muligheder.";
+"not_enough_valid_event_options" = "Ikke nok gyldige muligheder.";
+"not_enough_valid_event_options" = "Der skal være mindst lige så mange medlemmer som hold, og hvert medlem skal have et navn.";
+"failed_to_save_event" = "Kunne ikke gemme begivenhed: %@";
+"failed_to_update_event" = "Kunne ikke opdatere begivenhed: %@";
+"failed_to_delete_event" = "Kunne ikke slette begivenhed: %@";
+"failed_to_fetch_events" = "Kunne ikke hente begivenhed: %@";
+"user_id_not_found" = "Bruger-ID ikke fundet.";
+"event_title_empty" = "Begivenhedstitlen er tom.";
+"not_enough_valid_options" = "Ikke nok gyldige muligheder.";
+"failed_to_save_event" = "Kunne ikke gemme begivenhed: %@";
+"failed_to_update_event" = "Kunne ikke opdatere begivenhed: %@";
+"failed_to_delete_event" = "Kunne ikke slette begivenhed: %@";
+"failed_to_save_teams_draw" = "Kunne ikke gemme holdlodtrækning: %@";
+"failed_to_fetch_teams_draw" = "Kunne ikke hente holdlodtrækning: %@";
+"failed_to_fetch_team_results" = "Kunne ikke hente holdresultater: %@";
+"invalid_teams_draw_id" = "Ugyldigt holdlodtræknings-ID.";
+"invalid_team_result_id" = "Ugyldigt holdresultat-ID.";
+"invalid_event_id" = "Ugyldigt begivenheds-ID.";
+"invalid_user_id" = "Ugyldigt bruger-ID.";
+
+// Authentication Errors
+"authentication_error_message" = "Ugyldigt brugernavn eller adgangskode.";
+
+// Success Messages
+"successful_sign_in" = "Bruger %@ %@ logget ind med succes.";
+"successful_sign_up" = "Bruger %@ %@ registreret med succes.";
+
+// Sign-In Screen
+"signin_title" = "Log ind";
+"no_account_prompt" = "Har du ikke en konto?";
+"signup_here" = "Tilmeld dig her";
+"forgot_password" = "Glemt adgangskode?";
+"signin_button" = "Log ind";
+
+// Sign-Up Screen
+"signup_title" = "Tilmeld";
+
+// HomeView
+"draw_tab" = "Lodtrækning";
+"teams_tab" = "Hold";
+"settings_tab" = "Indstillinger";
+
+// Question
+"questions_title" = "Spørgsmål";
+"add_new_question" = "Tilføj et nyt spørgsmål";
+"edit_question" = "Rediger spørgsmål";
+"question_title_placeholder" = "Spørgsmålstitel";
+"answers_list_placeholder" = "Svarliste";
+"enter_question_title" = "Indtast spørgsmålstitlen";
+"add_answer" = "Tilføj et svar";
+"answer" = "Svar";
+"draw" = "Lodtrækning";
+
+// History and Statistics
+"history_title" = "Historie";
+"statistics_title" = "Statistikker";
+"total_draw" = "Total lodtrækning";
+"option_label" = "Valgmulighed";
+"count_label" = "Antal";
+"draws_label" = "lodtrækninger";
+"no_results_yet" = "Ingen resultater endnu";
+
+//Empty QuestionList
+"empty_questions_title" = "Ingen spørgsmål tilgængelige.";
+"empty_questions_message" = "Tryk på knappen nedenfor for at tilføje dit første spørgsmål.";
+
+//Team
+"default_team_name" = "Hold";
+"launch_draw" = "Start lodtrækningen";
+"history" = "Historie";
+"loading" = "Indlæser...";
+"no_draw_found" = "Ingen lodtrækning fundet";
+"no_draw_found_message" = "Foretag en lodtrækning for at få en historik";
+"draw_on" = "Lodtrækning den";
+
+//Event
+"event_name" = "Begivenhedsnavn";
+"event_parameters" = "Begivenhedsparametre";
+"event_title_placeholder" = "Begivenhedstitel";
+"members_list_placeholder" = "Medlemsliste";
+"add_event" = "Tilføj begivenhed";
+"edit_event" = "Rediger begivenhed";
+"add_new_event" = "Tilføj en ny begivenhed";
+"events" = "Begivenheder";
+"no_events_available" = "Ingen begivenheder tilgængelige";
+"press_button_to_create_event" = "Tryk på knappen nedenfor for at oprette en ny begivenhed.";
+"team_number" = "Hold %d";
+"member" = "Medlem";
+"members" = "Medlemmer";
+"add_member" = "Tilføj medlem";
+
+//Parameters
+"language" = "Sprog";
+"user_informations" = "Oplysninger";
+"selected_language" = "Valgt sprog";
+
+//ParameterList
+"equitable_distribution" = "Retfærdig fordeling";
+"number_of_teams" = "Antal hold: %d";
+"team_name" = "Holdnavn %d";

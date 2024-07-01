@@ -1,0 +1,152 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Correo electrónico";
+"password" = "Contraseña";
+"first_name" = "Nombre";
+"last_name" = "Apellido";
+"enter_your_password" = "Ingrese su contraseña";
+"confirm_your_password" = "Confirme su contraseña";
+"continue_button" = "Continuar";
+"logout_button" = "Cerrar sesión";
+"reset_password_title" = "Restablecer contraseña";
+"reset_password_button" = "Restablecer";
+"password_reset_email_sent" = "Correo electrónico de restablecimiento de contraseña enviado";
+
+// General Errors
+"network_error_message" = "Ocurrió un error de red. Por favor, inténtelo de nuevo.";
+"unknown_error_message" = "Ocurrió un error desconocido.";
+
+// Validation Errors
+"validation_error_message" = "Por favor, verifique los campos de entrada para errores.";
+"parse_error_message" = "Error del servidor: %@";
+"passwords_do_not_match" = "Las contraseñas no coinciden.";
+"invalid_email" = "Por favor, ingrese un correo electrónico válido.";
+"empty_password" = "Por favor, ingrese una contraseña.";
+"first_name_missing" = "Por favor, ingrese un nombre.";
+"last_name_missing" = "Por favor, ingrese un apellido.";
+"password_length_error" = "La contraseña debe tener al menos 8 caracteres.";
+"password_uppercase_error" = "La contraseña debe contener al menos una letra mayúscula.";
+
+// Error Messages
+"failed_to_request_password_reset" = "No se pudo solicitar el restablecimiento de la contraseña";
+"failed_to_decode_json_response" = "No se pudo decodificar la respuesta JSON";
+"unknown_error" = "Ocurrió un error desconocido";
+"default_message" = "Sin respuesta string";
+"empty_question_title" = "El título de la pregunta no puede estar vacío";
+"insufficient_options" = "Una pregunta debe tener al menos dos opciones";
+"failed_to_save_question" = "No se pudo guardar la pregunta";
+"failed_to_update_question" = "No se pudo actualizar la pregunta";
+"failed_to_delete_question" = "No se pudo eliminar la pregunta";
+"failed_to_fetch_questions" = "No se pudieron obtener las preguntas: %@";
+"failed_to_load_questions" = "No se pudieron cargar las preguntas";
+"failed_to_save_user_data" = "No se pudieron guardar los datos del usuario";
+"failed_to_load_user_data" = "No se pudieron cargar los datos del usuario";
+"failed_to_save_draw_result" = "No se pudo guardar el resultado del sorteo";
+"failed_to_load_draw_results" = "No se pudieron cargar los resultados del sorteo";
+"invalid_question_id" = "ID de pregunta inválido";
+"network_data_missing" = "Ocurrió un error de red: los datos no pudieron ser leídos porque faltan.";
+"network_error_description" = "Ocurrió un error de red: %@";
+"network_error_with_response" = "Ocurrió un error de red: %@: %@";
+"failed_to_fetch_events" = "No se pudieron obtener los eventos: %@";
+"user_id_not_found" = "ID de usuario no encontrado.";
+"event_title_empty" = "El título del evento está vacío.";
+"not_enough_valid_options" = "No hay suficientes opciones válidas.";
+"not_enough_valid_event_options" = "Debe haber al menos tantos miembros como equipos, y cada miembro debe tener un nombre.";
+"failed_to_save_event" = "No se pudo guardar el evento: %@";
+"failed_to_update_event" = "No se pudo actualizar el evento: %@";
+"failed_to_delete_event" = "No se pudo eliminar el evento: %@";
+"failed_to_save_teams_draw" = "No se pudo guardar el sorteo de equipos: %@";
+"failed_to_fetch_teams_draw" = "No se pudo obtener el sorteo de equipos: %@";
+"failed_to_fetch_team_results" = "No se pudieron obtener los resultados del equipo: %@";
+"invalid_teams_draw_id" = "ID de sorteo de equipos inválido.";
+"invalid_team_result_id" = "ID de resultado del equipo inválido.";
+"invalid_event_id" = "ID de evento inválido.";
+"invalid_user_id" = "ID de usuario inválido.";
+
+// Authentication Errors
+"authentication_error_message" = "Nombre de usuario o contraseña inválido.";
+
+// Success Messages
+"successful_sign_in" = "Usuario %@ %@ ha iniciado sesión con éxito.";
+"successful_sign_up" = "Usuario %@ %@ se ha registrado con éxito.";
+
+// Sign-In Screen
+"signin_title" = "Iniciar sesión";
+"no_account_prompt" = "¿No tienes una cuenta?";
+"signup_here" = "Regístrate aquí";
+"forgot_password" = "¿Olvidaste tu contraseña?";
+"signin_button" = "Iniciar sesión";
+
+// Sign-Up Screen
+"signup_title" = "Registrarse";
+
+// HomeView
+"draw_tab" = "Sorteo";
+"teams_tab" = "Equipos";
+"settings_tab" = "Configuración";
+
+// Question
+"questions_title" = "Preguntas";
+"add_new_question" = "Agregar una nueva pregunta";
+"edit_question" = "Editar pregunta";
+"question_title_placeholder" = "Título de la pregunta";
+"answers_list_placeholder" = "Lista de respuestas";
+"enter_question_title" = "Ingrese el título de la pregunta";
+"add_answer" = "Agregar una respuesta";
+"answer" = "Respuesta";
+"draw" = "Sorteo";
+
+// History and Statistics
+"history_title" = "Historial";
+"statistics_title" = "Estadísticas";
+"total_draw" = "Total de sorteos";
+"option_label" = "Opción";
+"count_label" = "Cantidad";
+"draws_label" = "sorteos";
+"no_results_yet" = "Aún no hay resultados";
+
+//Empty QuestionList
+"empty_questions_title" = "No hay preguntas disponibles.";
+"empty_questions_message" = "Toque el botón de abajo para agregar su primera pregunta.";
+
+//Team
+"default_team_name" = "Equipo";
+"launch_draw" = "Iniciar sorteo";
+"history" = "Historial";
+"loading" = "Cargando...";
+"no_draw_found" = "No se encontró sorteo";
+"no_draw_found_message" = "Realiza un sorteo para tener un historial";
+"draw_on" = "Sorteo en";
+
+//Event
+"event_name" = "Nombre del evento";
+"event_parameters" = "Parámetros del evento";
+"event_title_placeholder" = "Título del evento";
+"members_list_placeholder" = "Lista de miembros";
+"add_event" = "Agregar evento";
+"edit_event" = "Editar evento";
+"add_new_event" = "Agregar un nuevo evento";
+"events" = "Eventos";
+"no_events_available" = "No hay eventos disponibles";
+"press_button_to_create_event" = "Presione el botón de abajo para crear un nuevo evento.";
+"team_number" = "Equipo %d";
+"member" = "Miembro";
+"members" = "Miembros";
+"add_member" = "Agregar miembro";
+
+//Parameters
+"language" = "Idioma";
+"user_informations" = "Informaciones";
+"selected_language" = "Idioma seleccionado";
+
+//ParameterList
+"equitable_distribution" = "Distribución equitativa";
+"number_of_teams" = "Número de equipos: %d";
+"team_name" = "Nombre del equipo %d";

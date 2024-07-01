@@ -1,0 +1,159 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Електронна пошта";
+"password" = "Пароль";
+"first_name" = "Ім'я";
+"last_name" = "Прізвище";
+"enter_your_password" = "Введіть свій пароль";
+"confirm_your_password" = "Підтвердіть свій пароль";
+"continue_button" = "Продовжити";
+"logout_button" = "Вийти";
+"reset_password_title" = "Скидання пароля";
+"reset_password_button" = "Скинути";
+"password_reset_email_sent" = "Лист для скидання пароля надіслано";
+
+// General Errors
+"network_error_message" = "Сталася помилка мережі. Спробуйте ще раз.";
+"unknown_error_message" = "Сталася невідома помилка.";
+
+// Validation Errors
+"validation_error_message" = "Будь ласка, перевірте поля введення на наявність помилок.";
+"parse_error_message" = "Помилка сервера: %@";
+"passwords_do_not_match" = "Паролі не збігаються.";
+"invalid_email" = "Будь ласка, введіть дійсну електронну адресу.";
+"empty_password" = "Будь ласка, введіть пароль.";
+"first_name_missing" = "Будь ласка, введіть ім'я.";
+"last_name_missing" = "Будь ласка, введіть прізвище.";
+"password_length_error" = "Пароль повинен містити щонайменше 8 символів.";
+"password_uppercase_error" = "Пароль повинен містити щонайменше одну велику літеру.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Не вдалося запитати скидання пароля";
+"failed_to_decode_json_response" = "Не вдалося декодувати відповідь у форматі JSON";
+"unknown_error" = "Сталася невідома помилка";
+"default_message" = "Немає рядка відповіді";
+"empty_question_title" = "Заголовок питання не може бути порожнім";
+"insufficient_options" = "Питання повинно мати щонайменше два варіанти";
+"failed_to_save_question" = "Не вдалося зберегти питання";
+"failed_to_update_question" = "Не вдалося оновити питання";
+"failed_to_delete_question" = "Не вдалося видалити питання";
+"failed_to_fetch_questions" = "Не вдалося отримати питання: %@";
+"failed_to_load_questions" = "Не вдалося завантажити питання";
+"failed_to_save_user_data" = "Не вдалося зберегти дані користувача";
+"failed_to_load_user_data" = "Не вдалося завантажити дані користувача";
+"failed_to_save_draw_result" = "Не вдалося зберегти результат жеребкування";
+"failed_to_load_draw_results" = "Не вдалося завантажити результати жеребкування";
+"invalid_question_id" = "Недійсний ідентифікатор питання";
+"network_data_missing" = "Сталася помилка мережі: Дані не можуть бути прочитані, оскільки вони відсутні.";
+"network_error_description" = "Сталася помилка мережі: %@";
+"network_error_with_response" = "Сталася помилка мережі: %@: %@";
+"failed_to_fetch_events" = "Не вдалося отримати події: %@";
+"user_id_not_found" = "Ідентифікатор користувача не знайдено.";
+"event_title_empty" = "Назва події порожня.";
+"not_enough_valid_options" = "Недостатньо дійсних варіантів.";
+"not_enough_valid_event_options" = "Повинно бути щонайменше стільки ж учасників, скільки і команд, і кожен учасник повинен мати ім'я.";
+"failed_to_save_event" = "Не вдалося зберегти подію: %@";
+"failed_to_update_event" = "Не вдалося оновити подію: %@";
+"failed_to_delete_event" = "Не вдалося видалити подію: %@";
+"failed_to_fetch_events" = "Не вдалося отримати події: %@";
+"user_id_not_found" = "Ідентифікатор користувача не знайдено.";
+"event_title_empty" = "Назва події порожня.";
+"not_enough_valid_options" = "Недостатньо дійсних варіантів.";
+"failed_to_save_event" = "Не вдалося зберегти подію: %@";
+"failed_to_update_event" = "Не вдалося оновити подію: %@";
+"failed_to_delete_event" = "Не вдалося видалити подію: %@";
+"failed_to_save_teams_draw" = "Не вдалося зберегти жеребкування команд: %@";
+"failed_to_fetch_teams_draw" = "Не вдалося отримати жеребкування команд: %@";
+"failed_to_fetch_team_results" = "Не вдалося отримати результати команд: %@";
+"invalid_teams_draw_id" = "Недійсний ідентифікатор жеребкування команд.";
+"invalid_team_result_id" = "Недійсний ідентифікатор результату команди.";
+"invalid_event_id" = "Недійсний ідентифікатор події.";
+"invalid_user_id" = "Недійсний ідентифікатор користувача.";
+
+// Authentication Errors
+"authentication_error_message" = "Недійсне ім'я користувача або пароль.";
+
+// Success Messages
+"successful_sign_in" = "Користувач %@ %@ успішно увійшов.";
+"successful_sign_up" = "Користувач %@ %@ успішно зареєстрований.";
+
+// Sign-In Screen
+"signin_title" = "Увійти";
+"no_account_prompt" = "Немає облікового запису?";
+"signup_here" = "Зареєструватися тут";
+"forgot_password" = "Забули пароль?";
+"signin_button" = "Увійти";
+
+// Sign-Up Screen
+"signup_title" = "Реєстрація";
+
+// HomeView
+"draw_tab" = "Жеребкування";
+"teams_tab" = "Команди";
+"settings_tab" = "Налаштування";
+
+// Question
+"questions_title" = "Питання";
+"add_new_question" = "Додати нове питання";
+"edit_question" = "Редагувати питання";
+"question_title_placeholder" = "Заголовок питання";
+"answers_list_placeholder" = "Список відповідей";
+"enter_question_title" = "Введіть заголовок питання";
+"add_answer" = "Додати відповідь";
+"answer" = "Відповідь";
+"draw" = "Жеребкування";
+
+// History and Statistics
+"history_title" = "Історія";
+"statistics_title" = "Статистика";
+"total_draw" = "Загальне жеребкування";
+"option_label" = "Варіант";
+"count_label" = "Кількість";
+"draws_label" = "жеребкувань";
+"no_results_yet" = "Ще немає результатів";
+
+//Empty QuestionList
+"empty_questions_title" = "Немає доступних питань.";
+"empty_questions_message" = "Натисніть кнопку нижче, щоб додати своє перше питання.";
+
+//Team
+"default_team_name" = "Команда";
+"launch_draw" = "Запустити жеребкування";
+"history" = "Історія";
+"loading" = "Завантаження...";
+"no_draw_found" = "Жеребкування не знайдено";
+"no_draw_found_message" = "Проведіть жеребкування, щоб мати історію";
+"draw_on" = "Жеребкування на";
+
+//Event
+"event_name" = "Назва події";
+"event_parameters" = "Параметри події";
+"event_title_placeholder" = "Заголовок події";
+"members_list_placeholder" = "Список учасників";
+"add_event" = "Додати подію";
+"edit_event" = "Редагувати подію";
+"add_new_event" = "Додати нову подію";
+"events" = "Події";
+"no_events_available" = "Немає доступних подій";
+"press_button_to_create_event" = "Натисніть кнопку нижче, щоб створити нову подію.";
+"team_number" = "Команда %d";
+"member" = "Учасник";
+"members" = "Учасники";
+"add_member" = "Додати учасника";
+
+//Parameters
+"language" = "Мова";
+"user_informations" = "Інформація";
+"selected_language" = "Вибрана мова";
+
+//ParameterList
+"equitable_distribution" = "Справедливий розподіл";
+"number_of_teams" = "Кількість команд: %d";
+"team_name" = "Назва команди %d";

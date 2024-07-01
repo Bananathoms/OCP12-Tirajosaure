@@ -1,0 +1,159 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "E-post";
+"password" = "Passord";
+"first_name" = "Fornavn";
+"last_name" = "Etternavn";
+"enter_your_password" = "Skriv inn passordet ditt";
+"confirm_your_password" = "Bekreft passordet ditt";
+"continue_button" = "Fortsett";
+"logout_button" = "Logg ut";
+"reset_password_title" = "Tilbakestill passord";
+"reset_password_button" = "Tilbakestill";
+"password_reset_email_sent" = "E-post for tilbakestilling av passord er sendt";
+
+// General Errors
+"network_error_message" = "En nettverksfeil oppstod. Vennligst prøv igjen.";
+"unknown_error_message" = "En ukjent feil oppstod.";
+
+// Validation Errors
+"validation_error_message" = "Vennligst sjekk inndatafeltene for feil.";
+"parse_error_message" = "Serverfeil: %@";
+"passwords_do_not_match" = "Passordene stemmer ikke overens.";
+"invalid_email" = "Vennligst skriv inn en gyldig e-postadresse.";
+"empty_password" = "Vennligst skriv inn et passord.";
+"first_name_missing" = "Vennligst skriv inn et fornavn.";
+"last_name_missing" = "Vennligst skriv inn et etternavn.";
+"password_length_error" = "Passordet må være minst 8 tegn langt.";
+"password_uppercase_error" = "Passordet må inneholde minst en stor bokstav.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Kunne ikke be om tilbakestilling av passord";
+"failed_to_decode_json_response" = "Kunne ikke dekode JSON-svar";
+"unknown_error" = "En ukjent feil oppstod";
+"default_message" = "Ingen svarstreng";
+"empty_question_title" = "Spørsmålstittelen kan ikke være tom";
+"insufficient_options" = "Et spørsmål må ha minst to alternativer";
+"failed_to_save_question" = "Kunne ikke lagre spørsmålet";
+"failed_to_update_question" = "Kunne ikke oppdatere spørsmålet";
+"failed_to_delete_question" = "Kunne ikke slette spørsmålet";
+"failed_to_fetch_questions" = "Kunne ikke hente spørsmål: %@";
+"failed_to_load_questions" = "Kunne ikke laste spørsmål";
+"failed_to_save_user_data" = "Kunne ikke lagre brukerdata";
+"failed_to_load_user_data" = "Kunne ikke laste brukerdata";
+"failed_to_save_draw_result" = "Kunne ikke lagre trekkningsresultat";
+"failed_to_load_draw_results" = "Kunne ikke laste trekkningsresultater";
+"invalid_question_id" = "Ugyldig spørsmål-ID";
+"network_data_missing" = "En nettverksfeil oppstod: Data kunne ikke leses fordi de mangler.";
+"network_error_description" = "En nettverksfeil oppstod: %@";
+"network_error_with_response" = "En nettverksfeil oppstod: %@: %@";
+"failed_to_fetch_events" = "Kunne ikke hente hendelser: %@";
+"user_id_not_found" = "Bruker-ID ikke funnet.";
+"event_title_empty" = "Hendelsestittelen er tom.";
+"not_enough_valid_options" = "Ikke nok gyldige alternativer.";
+"not_enough_valid_event_options" = "Det må være minst like mange medlemmer som lag, og hvert medlem må ha et navn.";
+"failed_to_save_event" = "Kunne ikke lagre hendelsen: %@";
+"failed_to_update_event" = "Kunne ikke oppdatere hendelsen: %@";
+"failed_to_delete_event" = "Kunne ikke slette hendelsen: %@";
+"failed_to_fetch_events" = "Kunne ikke hente hendelser: %@";
+"user_id_not_found" = "Bruker-ID ikke funnet.";
+"event_title_empty" = "Hendelsestittelen er tom.";
+"not_enough_valid_options" = "Ikke nok gyldige alternativer.";
+"failed_to_save_event" = "Kunne ikke lagre hendelsen: %@";
+"failed_to_update_event" = "Kunne ikke oppdatere hendelsen: %@";
+"failed_to_delete_event" = "Kunne ikke slette hendelsen: %@";
+"failed_to_save_teams_draw" = "Kunne ikke lagre lagtrekningen: %@";
+"failed_to_fetch_teams_draw" = "Kunne ikke hente lagtrekningen: %@";
+"failed_to_fetch_team_results" = "Kunne ikke hente lagresultater: %@";
+"invalid_teams_draw_id" = "Ugyldig lagtreknings-ID.";
+"invalid_team_result_id" = "Ugyldig lagresultat-ID.";
+"invalid_event_id" = "Ugyldig hendelses-ID.";
+"invalid_user_id" = "Ugyldig bruker-ID.";
+
+// Authentication Errors
+"authentication_error_message" = "Ugyldig brukernavn eller passord.";
+
+// Success Messages
+"successful_sign_in" = "Bruker %@ %@ logget inn vellykket.";
+"successful_sign_up" = "Bruker %@ %@ registrerte seg vellykket.";
+
+// Sign-In Screen
+"signin_title" = "Logg inn";
+"no_account_prompt" = "Har du ikke en konto?";
+"signup_here" = "Registrer deg her";
+"forgot_password" = "Glemt passord?";
+"signin_button" = "Logg inn";
+
+// Sign-Up Screen
+"signup_title" = "Registrer deg";
+
+// HomeView
+"draw_tab" = "Trekning";
+"teams_tab" = "Lag";
+"settings_tab" = "Innstillinger";
+
+// Question
+"questions_title" = "Spørsmål";
+"add_new_question" = "Legg til et nytt spørsmål";
+"edit_question" = "Rediger spørsmål";
+"question_title_placeholder" = "Spørsmålstittel";
+"answers_list_placeholder" = "Svarliste";
+"enter_question_title" = "Skriv inn spørsmålstittelen";
+"add_answer" = "Legg til et svar";
+"answer" = "Svar";
+"draw" = "Trekning";
+
+// History and Statistics
+"history_title" = "Historie";
+"statistics_title" = "Statistikk";
+"total_draw" = "Total trekning";
+"option_label" = "Alternativ";
+"count_label" = "Antall";
+"draws_label" = "trekninger";
+"no_results_yet" = "Ingen resultater ennå";
+
+//Empty QuestionList
+"empty_questions_title" = "Ingen tilgjengelige spørsmål.";
+"empty_questions_message" = "Trykk på knappen nedenfor for å legge til ditt første spørsmål.";
+
+//Team
+"default_team_name" = "Lag";
+"launch_draw" = "Start trekning";
+"history" = "Historie";
+"loading" = "Laster...";
+"no_draw_found" = "Ingen trekning funnet";
+"no_draw_found_message" = "Gjennomfør en trekning for å få en historikk";
+"draw_on" = "Trekning på";
+
+//Event
+"event_name" = "Hendelsesnavn";
+"event_parameters" = "Hendelsesparametre";
+"event_title_placeholder" = "Hendelsestittel";
+"members_list_placeholder" = "Medlemsliste";
+"add_event" = "Legg til hendelse";
+"edit_event" = "Rediger hendelse";
+"add_new_event" = "Legg til en ny hendelse";
+"events" = "Hendelser";
+"no_events_available" = "Ingen tilgjengelige hendelser";
+"press_button_to_create_event" = "Trykk på knappen nedenfor for å opprette en ny hendelse.";
+"team_number" = "Lag %d";
+"member" = "Medlem";
+"members" = "Medlemmer";
+"add_member" = "Legg til medlem";
+
+//Parameters
+"language" = "Språk";
+"user_informations" = "Informasjon";
+"selected_language" = "Valgt språk";
+
+//ParameterList
+"equitable_distribution" = "Rettferdig fordeling";
+"number_of_teams" = "Antall lag: %d";
+"team_name" = "Lagnavn %d";

@@ -1,0 +1,156 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Email";
+"password" = "Lozinka";
+"first_name" = "Ime";
+"last_name" = "Prezime";
+"enter_your_password" = "Unesite svoju lozinku";
+"confirm_your_password" = "Potvrdite svoju lozinku";
+"continue_button" = "Nastavi";
+"logout_button" = "Odjavi se";
+"reset_password_title" = "Poništi lozinku";
+"reset_password_button" = "Poništi";
+"password_reset_email_sent" = "Email za poništavanje lozinke je poslan";
+
+// General Errors
+"network_error_message" = "Došlo je do mrežne pogreške. Molimo pokušajte ponovo.";
+"unknown_error_message" = "Došlo je do nepoznate pogreške.";
+
+// Validation Errors
+"validation_error_message" = "Molimo provjerite polja za unos za pogreške.";
+"parse_error_message" = "Pogreška poslužitelja: %@";
+"passwords_do_not_match" = "Lozinke se ne podudaraju.";
+"invalid_email" = "Molimo unesite važeći email.";
+"empty_password" = "Molimo unesite lozinku.";
+"first_name_missing" = "Molimo unesite ime.";
+"last_name_missing" = "Molimo unesite prezime.";
+"password_length_error" = "Lozinka mora imati najmanje 8 znakova.";
+"password_uppercase_error" = "Lozinka mora sadržavati barem jedno veliko slovo.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Zahtjev za poništavanje lozinke nije uspio";
+"failed_to_decode_json_response" = "Nije uspjelo dekodiranje JSON odgovora";
+"unknown_error" = "Došlo je do nepoznate pogreške";
+"default_message" = "Nema odgovora";
+"empty_question_title" = "Naslov pitanja ne može biti prazan";
+"insufficient_options" = "Pitanje mora imati najmanje dvije opcije";
+"failed_to_save_question" = "Nije uspjelo spremanje pitanja";
+"failed_to_update_question" = "Nije uspjelo ažuriranje pitanja";
+"failed_to_delete_question" = "Nije uspjelo brisanje pitanja";
+"failed_to_fetch_questions" = "Nije uspjelo dohvaćanje pitanja: %@";
+"failed_to_load_questions" = "Nije uspjelo učitavanje pitanja";
+"failed_to_save_user_data" = "Nije uspjelo spremanje korisničkih podataka";
+"failed_to_load_user_data" = "Nije uspjelo učitavanje korisničkih podataka";
+"failed_to_save_draw_result" = "Nije uspjelo spremanje rezultata izvlačenja";
+"failed_to_load_draw_results" = "Nije uspjelo učitavanje rezultata izvlačenja";
+"invalid_question_id" = "Nevažeći ID pitanja";
+"network_data_missing" = "Došlo je do mrežne pogreške: Podaci nisu mogli biti pročitani jer nedostaju.";
+"network_error_description" = "Došlo je do mrežne pogreške: %@";
+"network_error_with_response" = "Došlo je do mrežne pogreške: %@: %@";
+"failed_to_fetch_events" = "Nije uspjelo dohvaćanje događaja: %@";
+"user_id_not_found" = "ID korisnika nije pronađen.";
+"event_title_empty" = "Naslov događaja je prazan.";
+"not_enough_valid_options" = "Nema dovoljno važećih opcija.";
+"not_enough_valid_event_options" = "Nema dovoljno važećih opcija.";
+"not_enough_valid_event_options" = "Mora postojati barem onoliko članova koliko ima timova, i svaki član mora imati ime.";
+"failed_to_save_event" = "Nije uspjelo spremanje događaja: %@";
+"failed_to_update_event" = "Nije uspjelo ažuriranje događaja: %@";
+"failed_to_delete_event" = "Nije uspjelo brisanje događaja: %@";
+"failed_to_save_event" = "Nije uspjelo spremanje događaja: %@";
+"failed_to_update_event" = "Nije uspjelo ažuriranje događaja: %@";
+"failed_to_delete_event" = "Nije uspjelo brisanje događaja: %@";
+"failed_to_save_teams_draw" = "Nije uspjelo spremanje izvlačenja timova: %@";
+"failed_to_fetch_teams_draw" = "Nije uspjelo dohvaćanje izvlačenja timova: %@";
+"failed_to_fetch_team_results" = "Nije uspjelo dohvaćanje rezultata timova: %@";
+"invalid_teams_draw_id" = "Nevažeći ID izvlačenja timova";
+"invalid_team_result_id" = "Nevažeći ID rezultata tima";
+"invalid_event_id" = "Nevažeći ID događaja";
+"invalid_user_id" = "Nevažeći ID korisnika";
+
+// Authentication Errors
+"authentication_error_message" = "Nevažeće korisničko ime ili lozinka.";
+
+// Success Messages
+"successful_sign_in" = "Korisnik %@ %@ uspješno prijavljen.";
+"successful_sign_up" = "Korisnik %@ %@ uspješno registriran.";
+
+// Sign-In Screen
+"signin_title" = "Prijava";
+"no_account_prompt" = "Nemate račun?";
+"signup_here" = "Registrirajte se ovdje";
+"forgot_password" = "Zaboravili ste lozinku?";
+"signin_button" = "Prijava";
+
+// Sign-Up Screen
+"signup_title" = "Registracija";
+
+// HomeView
+"draw_tab" = "Izvlačenje";
+"teams_tab" = "Timovi";
+"settings_tab" = "Postavke";
+
+// Question
+"questions_title" = "Pitanja";
+"add_new_question" = "Dodaj novo pitanje";
+"edit_question" = "Uredi pitanje";
+"question_title_placeholder" = "Naslov pitanja";
+"answers_list_placeholder" = "Popis odgovora";
+"enter_question_title" = "Unesite naslov pitanja";
+"add_answer" = "Dodaj odgovor";
+"answer" = "Odgovor";
+"draw" = "Izvlačenje";
+
+// History and Statistics
+"history_title" = "Povijest";
+"statistics_title" = "Statistika";
+"total_draw" = "Ukupno izvlačenje";
+"option_label" = "Opcija";
+"count_label" = "Broj";
+"draws_label" = "izvlačenja";
+"no_results_yet" = "Još nema rezultata";
+
+//Empty QuestionList
+"empty_questions_title" = "Nema dostupnih pitanja.";
+"empty_questions_message" = "Dodirnite gumb ispod kako biste dodali svoje prvo pitanje.";
+
+//Team
+"default_team_name" = "Tim";
+"launch_draw" = "Pokreni izvlačenje";
+"history" = "Povijest";
+"loading" = "Učitavanje...";
+"no_draw_found" = "Nije pronađeno izvlačenje";
+"no_draw_found_message" = "Izvršite izvlačenje kako biste imali povijest";
+"draw_on" = "Izvlačenje";
+
+//Event
+"event_name" = "Naziv događaja";
+"event_parameters" = "Parametri događaja";
+"event_title_placeholder" = "Naslov događaja";
+"members_list_placeholder" = "Popis članova";
+"add_event" = "Dodaj događaj";
+"edit_event" = "Uredi događaj";
+"add_new_event" = "Dodaj novi događaj";
+"events" = "Događaji";
+"no_events_available" = "Nema dostupnih događaja";
+"press_button_to_create_event" = "Dodirnite gumb ispod kako biste stvorili novi događaj.";
+"team_number" = "Tim %d";
+"member" = "Član";
+"members" = "Članovi";
+"add_member" = "Dodaj člana";
+
+//Parameters
+"language" = "Jezik";
+"user_informations" = "Informacije";
+"selected_language" = "Odabrani jezik";
+
+//ParameterList
+"equitable_distribution" = "Pravedna raspodjela";
+"number_of_teams" = "Broj timova: %d";
+"team_name" = "Naziv tima %d";

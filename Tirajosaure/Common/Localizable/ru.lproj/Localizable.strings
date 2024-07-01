@@ -1,0 +1,152 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Электронная почта";
+"password" = "Пароль";
+"first_name" = "Имя";
+"last_name" = "Фамилия";
+"enter_your_password" = "Введите ваш пароль";
+"confirm_your_password" = "Подтвердите ваш пароль";
+"continue_button" = "Продолжить";
+"logout_button" = "Выйти";
+"reset_password_title" = "Сброс пароля";
+"reset_password_button" = "Сбросить";
+"password_reset_email_sent" = "Письмо для сброса пароля отправлено";
+
+// General Errors
+"network_error_message" = "Произошла ошибка сети. Пожалуйста, попробуйте еще раз.";
+"unknown_error_message" = "Произошла неизвестная ошибка.";
+
+// Validation Errors
+"validation_error_message" = "Пожалуйста, проверьте поля ввода на наличие ошибок.";
+"parse_error_message" = "Ошибка сервера: %@";
+"passwords_do_not_match" = "Пароли не совпадают.";
+"invalid_email" = "Пожалуйста, введите действительный адрес электронной почты.";
+"empty_password" = "Пожалуйста, введите пароль.";
+"first_name_missing" = "Пожалуйста, введите имя.";
+"last_name_missing" = "Пожалуйста, введите фамилию.";
+"password_length_error" = "Пароль должен быть не менее 8 символов.";
+"password_uppercase_error" = "Пароль должен содержать хотя бы одну заглавную букву.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Не удалось запросить сброс пароля";
+"failed_to_decode_json_response" = "Не удалось декодировать ответ JSON";
+"unknown_error" = "Произошла неизвестная ошибка";
+"default_message" = "Нет ответа";
+"empty_question_title" = "Заголовок вопроса не может быть пустым";
+"insufficient_options" = "У вопроса должно быть как минимум два варианта";
+"failed_to_save_question" = "Не удалось сохранить вопрос";
+"failed_to_update_question" = "Не удалось обновить вопрос";
+"failed_to_delete_question" = "Не удалось удалить вопрос";
+"failed_to_fetch_questions" = "Не удалось получить вопросы: %@";
+"failed_to_load_questions" = "Не удалось загрузить вопросы";
+"failed_to_save_user_data" = "Не удалось сохранить данные пользователя";
+"failed_to_load_user_data" = "Не удалось загрузить данные пользователя";
+"failed_to_save_draw_result" = "Не удалось сохранить результат жеребьевки";
+"failed_to_load_draw_results" = "Не удалось загрузить результаты жеребьевки";
+"invalid_question_id" = "Недействительный ID вопроса";
+"network_data_missing" = "Произошла ошибка сети: данные не могут быть прочитаны, так как они отсутствуют.";
+"network_error_description" = "Произошла ошибка сети: %@";
+"network_error_with_response" = "Произошла ошибка сети: %@: %@";
+"failed_to_fetch_events" = "Не удалось получить события: %@";
+"user_id_not_found" = "ID пользователя не найден.";
+"event_title_empty" = "Заголовок события пуст.";
+"not_enough_valid_options" = "Недостаточно действительных опций.";
+"not_enough_valid_event_options" = "Должно быть как минимум столько же участников, сколько и команд, и у каждого участника должно быть имя.";
+"failed_to_save_event" = "Не удалось сохранить событие: %@";
+"failed_to_update_event" = "Не удалось обновить событие: %@";
+"failed_to_delete_event" = "Не удалось удалить событие: %@";
+"failed_to_save_teams_draw" = "Не удалось сохранить жеребьевку команд: %@";
+"failed_to_fetch_teams_draw" = "Не удалось получить жеребьевку команд: %@";
+"failed_to_fetch_team_results" = "Не удалось получить результаты команды: %@";
+"invalid_teams_draw_id" = "Недействительный ID жеребьевки команд.";
+"invalid_team_result_id" = "Недействительный ID результата команды.";
+"invalid_event_id" = "Недействительный ID события.";
+"invalid_user_id" = "Недействительный ID пользователя.";
+
+// Authentication Errors
+"authentication_error_message" = "Неверное имя пользователя или пароль.";
+
+// Success Messages
+"successful_sign_in" = "Пользователь %@ %@ успешно вошел в систему.";
+"successful_sign_up" = "Пользователь %@ %@ успешно зарегистрирован.";
+
+// Sign-In Screen
+"signin_title" = "Войти";
+"no_account_prompt" = "Нет аккаунта?";
+"signup_here" = "Зарегистрируйтесь здесь";
+"forgot_password" = "Забыли пароль?";
+"signin_button" = "Войти";
+
+// Sign-Up Screen
+"signup_title" = "Регистрация";
+
+// HomeView
+"draw_tab" = "Жеребьевка";
+"teams_tab" = "Команды";
+"settings_tab" = "Настройки";
+
+// Question
+"questions_title" = "Вопросы";
+"add_new_question" = "Добавить новый вопрос";
+"edit_question" = "Редактировать вопрос";
+"question_title_placeholder" = "Заголовок вопроса";
+"answers_list_placeholder" = "Список ответов";
+"enter_question_title" = "Введите заголовок вопроса";
+"add_answer" = "Добавить ответ";
+"answer" = "Ответ";
+"draw" = "Жеребьевка";
+
+// History and Statistics
+"history_title" = "История";
+"statistics_title" = "Статистика";
+"total_draw" = "Всего жеребьевок";
+"option_label" = "Вариант";
+"count_label" = "Количество";
+"draws_label" = "жеребьевок";
+"no_results_yet" = "Пока нет результатов";
+
+//Empty QuestionList
+"empty_questions_title" = "Нет доступных вопросов.";
+"empty_questions_message" = "Нажмите на кнопку ниже, чтобы добавить свой первый вопрос.";
+
+//Team
+"default_team_name" = "Команда";
+"launch_draw" = "Начать жеребьевку";
+"history" = "История";
+"loading" = "Загрузка...";
+"no_draw_found" = "Жеребьевка не найдена";
+"no_draw_found_message" = "Сделайте жеребьевку, чтобы получить историю";
+"draw_on" = "Жеребьевка на";
+
+//Event
+"event_name" = "Название события";
+"event_parameters" = "Параметры события";
+"event_title_placeholder" = "Заголовок события";
+"members_list_placeholder" = "Список участников";
+"add_event" = "Добавить событие";
+"edit_event" = "Редактировать событие";
+"add_new_event" = "Добавить новое событие";
+"events" = "События";
+"no_events_available" = "Нет доступных событий";
+"press_button_to_create_event" = "Нажмите кнопку ниже, чтобы создать новое событие.";
+"team_number" = "Команда %d";
+"member" = "Участник";
+"members" = "Участники";
+"add_member" = "Добавить участника";
+
+//Parameters
+"language" = "Язык";
+"user_informations" = "Информация";
+"selected_language" = "Выбранный язык";
+
+//ParameterList
+"equitable_distribution" = "Равномерное распределение";
+"number_of_teams" = "Количество команд: %d";
+"team_name" = "Название команды %d";
