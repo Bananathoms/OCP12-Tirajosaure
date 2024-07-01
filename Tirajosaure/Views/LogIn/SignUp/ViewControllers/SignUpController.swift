@@ -9,11 +9,11 @@ import Foundation
 
 /// A controller class responsible for managing the user sign-up process.
 class SignUpController: ObservableObject {
-    @Published var email: String = "Test@Test.com"
-    @Published var firstName: String = "John"
-    @Published var lastName: String = "Doe"
-    @Published var password: String = "Azerty1234"
-    @Published var confirmPwd: String = "Azerty1234"
+    @Published var email: String = DefaultValues.emptyString
+    @Published var firstName: String = DefaultValues.emptyString
+    @Published var lastName: String = DefaultValues.emptyString
+    @Published var password: String = DefaultValues.emptyString
+    @Published var confirmPwd: String = DefaultValues.emptyString
     @Published var isLoading: Bool = false
     @Published var user: User?
 

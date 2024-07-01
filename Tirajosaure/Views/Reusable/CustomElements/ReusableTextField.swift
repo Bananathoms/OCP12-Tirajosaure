@@ -14,7 +14,7 @@ struct ReusableTextField: View {
     let fieldName: String
     
     var body: some View {
-        VStack{
+        VStack(spacing:0){
             HStack{
                 if let title = title {
                     Text("\(title)")

@@ -9,8 +9,8 @@ import Foundation
 
 /// A controller class responsible for managing the user sign-in process.
 class SignInController: ObservableObject {
-    @Published var email: String = "test@test.com"
-    @Published var password: String = "Azerty1234"
+    @Published var email: String = DefaultValues.emptyString
+    @Published var password: String = DefaultValues.emptyString
     @Published var isLoading: Bool = false
     @Published var user: User?
 
