@@ -57,6 +57,12 @@
             "value" : "%@"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -764,6 +770,7 @@
       }
     },
     "add_answer" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -1021,6 +1028,7 @@
       }
     },
     "add_event" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -1278,6 +1286,7 @@
       }
     },
     "add_member" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -1535,6 +1544,7 @@
       }
     },
     "add_new_event" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -1792,6 +1802,7 @@
       }
     },
     "add_new_question" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -2049,6 +2060,7 @@
       }
     },
     "answer" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -2306,6 +2318,7 @@
       }
     },
     "answers_list_placeholder" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -2563,7 +2576,7 @@
       }
     },
     "authentication_error_message" : {
-      "comment" : "Authentication Errors",
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -2821,6 +2834,7 @@
       }
     },
     "confirm_your_password" : {
+      "comment" : "Sign-In Screen",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -3078,6 +3092,7 @@
       }
     },
     "continue_button" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -3335,6 +3350,7 @@
       }
     },
     "count_label" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -3592,6 +3608,7 @@
       }
     },
     "default_message" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -4162,6 +4179,12 @@
             "value" : "Destination View"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destination View"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4412,6 +4435,12 @@
             "value" : "Detail View"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detail View"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4607,6 +4636,7 @@
       }
     },
     "draw" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -4864,6 +4894,7 @@
       }
     },
     "draw_on" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -5121,7 +5152,7 @@
       }
     },
     "draw_tab" : {
-      "comment" : "HomeView",
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -5379,6 +5410,7 @@
       }
     },
     "draws_label" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -5636,6 +5668,7 @@
       }
     },
     "edit_event" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -5893,6 +5926,7 @@
       }
     },
     "edit_question" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -6408,6 +6442,7 @@
       }
     },
     "empty_password" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -6665,6 +6700,7 @@
       }
     },
     "empty_question_title" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -6922,6 +6958,7 @@
       }
     },
     "empty_questions_message" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -7179,7 +7216,7 @@
       }
     },
     "empty_questions_title" : {
-      "comment" : "Empty QuestionList",
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -7437,6 +7474,7 @@
       }
     },
     "enter_question_title" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -7694,6 +7732,7 @@
       }
     },
     "enter_your_password" : {
+      "comment" : "Sign-In Screen",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -8467,6 +8506,7 @@
       }
     },
     "event_parameters" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -8724,6 +8764,7 @@
       }
     },
     "event_title_empty" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -8981,6 +9022,7 @@
       }
     },
     "event_title_placeholder" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -9238,6 +9280,7 @@
       }
     },
     "events" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -9495,6 +9538,7 @@
       }
     },
     "failed_to_decode_json_response" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -9752,6 +9796,7 @@
       }
     },
     "failed_to_delete_event" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -10009,6 +10054,7 @@
       }
     },
     "failed_to_delete_question" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -10266,6 +10312,7 @@
       }
     },
     "failed_to_fetch_events" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -10523,6 +10570,7 @@
       }
     },
     "failed_to_fetch_questions" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -10780,6 +10828,7 @@
       }
     },
     "failed_to_fetch_team_results" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -11037,6 +11086,7 @@
       }
     },
     "failed_to_fetch_teams_draw" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -11294,6 +11344,7 @@
       }
     },
     "failed_to_load_draw_results" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -11551,6 +11602,7 @@
       }
     },
     "failed_to_load_questions" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -11808,6 +11860,7 @@
       }
     },
     "failed_to_load_user_data" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -12323,6 +12376,7 @@
       }
     },
     "failed_to_save_draw_result" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -12580,6 +12634,7 @@
       }
     },
     "failed_to_save_event" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -12837,6 +12892,7 @@
       }
     },
     "failed_to_save_question" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -13094,6 +13150,7 @@
       }
     },
     "failed_to_save_teams_draw" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -13351,6 +13408,7 @@
       }
     },
     "failed_to_save_user_data" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -13608,6 +13666,7 @@
       }
     },
     "failed_to_update_event" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -13865,6 +13924,7 @@
       }
     },
     "failed_to_update_question" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -14122,6 +14182,7 @@
       }
     },
     "first_name" : {
+      "comment" : "General",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -14379,6 +14440,7 @@
       }
     },
     "first_name_missing" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -14636,6 +14698,7 @@
       }
     },
     "forgot_password" : {
+      "comment" : "Sign-In Screen",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -14893,6 +14956,7 @@
       }
     },
     "history" : {
+      "comment" : "History and Statistics",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -15408,6 +15472,7 @@
       }
     },
     "insufficient_options" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -15665,6 +15730,7 @@
       }
     },
     "invalid_email" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -15922,6 +15988,7 @@
       }
     },
     "invalid_event_id" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -16179,6 +16246,7 @@
       }
     },
     "invalid_question_id" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -16436,6 +16504,7 @@
       }
     },
     "invalid_team_result_id" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -16693,6 +16762,7 @@
       }
     },
     "invalid_teams_draw_id" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -16950,6 +17020,7 @@
       }
     },
     "invalid_user_id" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -17257,6 +17328,12 @@
           }
         },
         "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item %lld"
+          }
+        },
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Item %lld"
@@ -17715,6 +17792,7 @@
       }
     },
     "last_name" : {
+      "comment" : "General",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -17972,6 +18050,7 @@
       }
     },
     "last_name_missing" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -18229,6 +18308,7 @@
       }
     },
     "launch_draw" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -18486,6 +18566,7 @@
       }
     },
     "loading" : {
+      "comment" : "General",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -18743,6 +18824,7 @@
       }
     },
     "logout_button" : {
+      "comment" : "Settings",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -19000,6 +19082,7 @@
       }
     },
     "member" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -19257,6 +19340,7 @@
       }
     },
     "members" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -19514,6 +19598,7 @@
       }
     },
     "members_list_placeholder" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -19771,6 +19856,7 @@
       }
     },
     "network_data_missing" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -20028,6 +20114,7 @@
       }
     },
     "network_error_description" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -20285,7 +20372,7 @@
       }
     },
     "network_error_message" : {
-      "comment" : "General Errors",
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -20543,6 +20630,7 @@
       }
     },
     "network_error_with_response" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -20855,6 +20943,12 @@
             "value" : "No Items"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Items"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21050,6 +21144,7 @@
       }
     },
     "no_account_prompt" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -21307,6 +21402,7 @@
       }
     },
     "no_draw_found" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -21564,6 +21660,7 @@
       }
     },
     "no_draw_found_message" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -21821,6 +21918,7 @@
       }
     },
     "no_events_available" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -22078,6 +22176,7 @@
       }
     },
     "no_results_yet" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -22335,6 +22434,7 @@
       }
     },
     "not_enough_valid_event_options" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -22592,6 +22692,7 @@
       }
     },
     "not_enough_valid_options" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -22849,6 +22950,7 @@
       }
     },
     "number_of_teams" : {
+      "comment" : "Team",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -23106,6 +23208,7 @@
       }
     },
     "option_label" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -23363,6 +23466,7 @@
       }
     },
     "parse_error_message" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -23620,6 +23724,7 @@
       }
     },
     "password" : {
+      "comment" : "General",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -23877,6 +23982,7 @@
       }
     },
     "password_length_error" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -24134,6 +24240,7 @@
       }
     },
     "password_reset_email_sent" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -24391,6 +24498,7 @@
       }
     },
     "password_uppercase_error" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -24648,6 +24756,7 @@
       }
     },
     "passwords_do_not_match" : {
+      "comment" : "Validation Errors",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -24905,6 +25014,7 @@
       }
     },
     "press_button_to_create_event" : {
+      "comment" : "Event",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -25162,6 +25272,7 @@
       }
     },
     "question_title_placeholder" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -25677,6 +25788,7 @@
       }
     },
     "reset_password_button" : {
+      "comment" : "Sign-In Screen",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -25934,6 +26046,7 @@
       }
     },
     "reset_password_title" : {
+      "comment" : "Sign-In Screen",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -26191,6 +26304,7 @@
       }
     },
     "selected_language" : {
+      "comment" : "Settings",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -26448,6 +26562,7 @@
       }
     },
     "settings_tab" : {
+      "comment" : "Settings",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -26705,6 +26820,7 @@
       }
     },
     "signin_button" : {
+      "comment" : "Sign-In Screen",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -27220,6 +27336,7 @@
       }
     },
     "signup_here" : {
+      "comment" : "Sign-Up Screen",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -27735,6 +27852,7 @@
       }
     },
     "statistics_title" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -28250,6 +28368,7 @@
       }
     },
     "successful_sign_up" : {
+      "comment" : "Success Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -28507,6 +28626,7 @@
       }
     },
     "team_name" : {
+      "comment" : "Team",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -28764,6 +28884,7 @@
       }
     },
     "team_number" : {
+      "comment" : "Team",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -29021,6 +29142,7 @@
       }
     },
     "teams_tab" : {
+      "comment" : "Team",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -29278,6 +29400,7 @@
       }
     },
     "total_draw" : {
+      "comment" : "Question",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -29535,6 +29658,7 @@
       }
     },
     "unknown_error" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -29792,6 +29916,7 @@
       }
     },
     "unknown_error_message" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -30049,6 +30174,7 @@
       }
     },
     "user_id_not_found" : {
+      "comment" : "Error Messages",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
@@ -30306,6 +30432,7 @@
       }
     },
     "user_informations" : {
+      "comment" : "Settings",
       "extractionState" : "manual",
       "localizations" : {
         "be" : {
