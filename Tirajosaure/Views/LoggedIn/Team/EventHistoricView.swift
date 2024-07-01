@@ -56,7 +56,7 @@ struct EventHistoricView: View {
     
     private func drawsListView() -> some View {
         LazyVStack(spacing: 20) {
-            ForEach(controller.teamsDraws) { draw in
+            ForEach(controller.teamsDraws.sorted(by: { $0.date > $1.date })) { draw in
                 drawDisclosureGroup(draw: draw)
             }
         }

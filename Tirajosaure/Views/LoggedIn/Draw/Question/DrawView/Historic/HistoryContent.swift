@@ -19,7 +19,7 @@ struct HistoryContent: View {
                 }
                 .listRowBackground(Color.antiqueWhite)
             } else {
-                ForEach(drawViewController.drawResults) { result in
+                ForEach(drawViewController.drawResults.sorted(by: { $0.date > $1.date })) { result in
                     ResultCard(result: result)
                         .padding(.trailing)
                         .listRowInsets(EdgeInsets())

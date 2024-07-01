@@ -106,8 +106,8 @@ enum LocalizedString: String {
     case noEventsAvailable = "no_events_available"
     case pressButtonToCreateEvent = "press_button_to_create_event"
     case teamNumber = "team_number"
-    case member = "Member"
-    case members = "Members"
+    case member = "member"
+    case members = "members"
     case addMember = "add_member"
     
     // Parameters
