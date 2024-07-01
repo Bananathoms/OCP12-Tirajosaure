@@ -1,0 +1,156 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Email";
+"password" = "Κωδικός πρόσβασης";
+"first_name" = "Όνομα";
+"last_name" = "Επώνυμο";
+"enter_your_password" = "Εισαγάγετε τον κωδικό σας";
+"confirm_your_password" = "Επιβεβαιώστε τον κωδικό σας";
+"continue_button" = "Συνέχεια";
+"logout_button" = "Αποσύνδεση";
+"reset_password_title" = "Επαναφορά κωδικού πρόσβασης";
+"reset_password_button" = "Επαναφορά";
+"password_reset_email_sent" = "Το email επαναφοράς κωδικού πρόσβασης στάλθηκε";
+
+// General Errors
+"network_error_message" = "Παρουσιάστηκε σφάλμα δικτύου. Παρακαλώ δοκιμάστε ξανά.";
+"unknown_error_message" = "Παρουσιάστηκε άγνωστο σφάλμα.";
+
+// Validation Errors
+"validation_error_message" = "Παρακαλώ ελέγξτε τα πεδία εισαγωγής για σφάλματα.";
+"parse_error_message" = "Σφάλμα διακομιστή: %@";
+"passwords_do_not_match" = "Οι κωδικοί πρόσβασης δεν ταιριάζουν.";
+"invalid_email" = "Παρακαλώ εισάγετε έγκυρο email.";
+"empty_password" = "Παρακαλώ εισάγετε έναν κωδικό πρόσβασης.";
+"first_name_missing" = "Παρακαλώ εισάγετε ένα όνομα.";
+"last_name_missing" = "Παρακαλώ εισάγετε ένα επώνυμο.";
+"password_length_error" = "Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες.";
+"password_uppercase_error" = "Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Αποτυχία αίτησης επαναφοράς κωδικού πρόσβασης";
+"failed_to_decode_json_response" = "Αποτυχία αποκωδικοποίησης JSON απάντησης";
+"unknown_error" = "Παρουσιάστηκε άγνωστο σφάλμα";
+"default_message" = "Χωρίς απάντηση";
+"empty_question_title" = "Ο τίτλος της ερώτησης δεν μπορεί να είναι κενός";
+"insufficient_options" = "Η ερώτηση πρέπει να έχει τουλάχιστον δύο επιλογές";
+"failed_to_save_question" = "Αποτυχία αποθήκευσης ερώτησης";
+"failed_to_update_question" = "Αποτυχία ενημέρωσης ερώτησης";
+"failed_to_delete_question" = "Αποτυχία διαγραφής ερώτησης";
+"failed_to_fetch_questions" = "Αποτυχία λήψης ερωτήσεων: %@";
+"failed_to_load_questions" = "Αποτυχία φόρτωσης ερωτήσεων";
+"failed_to_save_user_data" = "Αποτυχία αποθήκευσης δεδομένων χρήστη";
+"failed_to_load_user_data" = "Αποτυχία φόρτωσης δεδομένων χρήστη";
+"failed_to_save_draw_result" = "Αποτυχία αποθήκευσης αποτελέσματος κλήρωσης";
+"failed_to_load_draw_results" = "Αποτυχία φόρτωσης αποτελεσμάτων κλήρωσης";
+"invalid_question_id" = "Μη έγκυρο αναγνωριστικό ερώτησης";
+"network_data_missing" = "Παρουσιάστηκε σφάλμα δικτύου: Τα δεδομένα δεν μπόρεσαν να διαβαστούν επειδή λείπουν.";
+"network_error_description" = "Παρουσιάστηκε σφάλμα δικτύου: %@";
+"network_error_with_response" = "Παρουσιάστηκε σφάλμα δικτύου: %@: %@";
+"failed_to_fetch_events" = "Αποτυχία λήψης γεγονότων: %@";
+"user_id_not_found" = "Το αναγνωριστικό χρήστη δεν βρέθηκε.";
+"event_title_empty" = "Ο τίτλος του γεγονότος είναι κενός.";
+"not_enough_valid_options" = "Δεν υπάρχουν αρκετές έγκυρες επιλογές.";
+"not_enough_valid_event_options" = "Δεν υπάρχουν αρκετές έγκυρες επιλογές.";
+"not_enough_valid_event_options" = "Πρέπει να υπάρχουν τουλάχιστον τόσα μέλη όσα και οι ομάδες, και κάθε μέλος πρέπει να έχει όνομα.";
+"failed_to_save_event" = "Αποτυχία αποθήκευσης γεγονότος: %@";
+"failed_to_update_event" = "Αποτυχία ενημέρωσης γεγονότος: %@";
+"failed_to_delete_event" = "Αποτυχία διαγραφής γεγονότος: %@";
+"failed_to_save_event" = "Αποτυχία αποθήκευσης γεγονότος: %@";
+"failed_to_update_event" = "Αποτυχία ενημέρωσης γεγονότος: %@";
+"failed_to_delete_event" = "Αποτυχία διαγραφής γεγονότος: %@";
+"failed_to_save_teams_draw" = "Αποτυχία αποθήκευσης κλήρωσης ομάδων: %@";
+"failed_to_fetch_teams_draw" = "Αποτυχία λήψης κλήρωσης ομάδων: %@";
+"failed_to_fetch_team_results" = "Αποτυχία λήψης αποτελεσμάτων ομάδων: %@";
+"invalid_teams_draw_id" = "Μη έγκυρο αναγνωριστικό κλήρωσης ομάδων";
+"invalid_team_result_id" = "Μη έγκυρο αναγνωριστικό αποτελέσματος ομάδας";
+"invalid_event_id" = "Μη έγκυρο αναγνωριστικό γεγονότος";
+"invalid_user_id" = "Μη έγκυρο αναγνωριστικό χρήστη";
+
+// Authentication Errors
+"authentication_error_message" = "Μη έγκυρο όνομα χρήστη ή κωδικός πρόσβασης.";
+
+// Success Messages
+"successful_sign_in" = "Ο χρήστης %@ %@ συνδέθηκε επιτυχώς.";
+"successful_sign_up" = "Ο χρήστης %@ %@ εγγράφηκε επιτυχώς.";
+
+// Sign-In Screen
+"signin_title" = "Σύνδεση";
+"no_account_prompt" = "Δεν έχετε λογαριασμό;";
+"signup_here" = "Εγγραφείτε εδώ";
+"forgot_password" = "Ξεχάσατε τον κωδικό σας;";
+"signin_button" = "Σύνδεση";
+
+// Sign-Up Screen
+"signup_title" = "Εγγραφή";
+
+// HomeView
+"draw_tab" = "Κλήρωση";
+"teams_tab" = "Ομάδες";
+"settings_tab" = "Ρυθμίσεις";
+
+// Question
+"questions_title" = "Ερωτήσεις";
+"add_new_question" = "Προσθήκη νέας ερώτησης";
+"edit_question" = "Επεξεργασία ερώτησης";
+"question_title_placeholder" = "Τίτλος ερώτησης";
+"answers_list_placeholder" = "Λίστα απαντήσεων";
+"enter_question_title" = "Εισάγετε τον τίτλο της ερώτησης";
+"add_answer" = "Προσθήκη απάντησης";
+"answer" = "Απάντηση";
+"draw" = "Κλήρωση";
+
+// History and Statistics
+"history_title" = "Ιστορικό";
+"statistics_title" = "Στατιστικά";
+"total_draw" = "Συνολικές κληρώσεις";
+"option_label" = "Επιλογή";
+"count_label" = "Αριθμός";
+"draws_label" = "κληρώσεις";
+"no_results_yet" = "Δεν υπάρχουν αποτελέσματα";
+
+//Empty QuestionList
+"empty_questions_title" = "Δεν υπάρχουν διαθέσιμες ερωτήσεις.";
+"empty_questions_message" = "Πατήστε το κουμπί παρακάτω για να προσθέσετε την πρώτη σας ερώτηση.";
+
+//Team
+"default_team_name" = "Ομάδα";
+"launch_draw" = "Έναρξη κλήρωσης";
+"history" = "Ιστορικό";
+"loading" = "Φόρτωση...";
+"no_draw_found" = "Δεν βρέθηκε κλήρωση";
+"no_draw_found_message" = "Κάντε μια κλήρωση για να έχετε ιστορικό";
+"draw_on" = "Κλήρωση στις";
+
+//Event
+"event_name" = "Όνομα εκδήλωσης";
+"event_parameters" = "Παράμετροι εκδήλωσης";
+"event_title_placeholder" = "Τίτλος εκδήλωσης";
+"members_list_placeholder" = "Λίστα μελών";
+"add_event" = "Προσθήκη εκδήλωσης";
+"edit_event" = "Επεξεργασία εκδήλωσης";
+"add_new_event" = "Προσθήκη νέας εκδήλωσης";
+"events" = "Εκδηλώσεις";
+"no_events_available" = "Δεν υπάρχουν διαθέσιμες εκδηλώσεις";
+"press_button_to_create_event" = "Πατήστε το κουμπί παρακάτω για να δημιουργήσετε μια νέα εκδήλωση.";
+"team_number" = "Ομάδα %d";
+"member" = "Μέλος";
+"members" = "Μέλη";
+"add_member" = "Προσθήκη μέλους";
+
+//Parameters
+"language" = "Γλώσσα";
+"user_informations" = "Πληροφορίες χρήστη";
+"selected_language" = "Επιλεγμένη γλώσσα";
+
+//ParameterList
+"equitable_distribution" = "Δίκαιη κατανομή";
+"number_of_teams" = "Αριθμός ομάδων: %d";
+"team_name" = "Όνομα ομάδας %d";

@@ -1,0 +1,153 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Էլ. փոստ";
+"password" = "Գաղտնաբառ";
+"first_name" = "Անուն";
+"last_name" = "Ազգանուն";
+"enter_your_password" = "Մուտքագրեք ձեր գաղտնաբառը";
+"confirm_your_password" = "Հաստատեք ձեր գաղտնաբառը";
+"continue_button" = "Շարունակել";
+"logout_button" = "Ելք";
+"reset_password_title" = "Վերականգնել գաղտնաբառը";
+"reset_password_button" = "Վերականգնել";
+"password_reset_email_sent" = "Գաղտնաբառի վերականգնման նամակ ուղարկված է";
+
+// General Errors
+"network_error_message" = "Ցանցային սխալ է տեղի ունեցել։ Խնդրում ենք փորձել կրկին։";
+"unknown_error_message" = "Անհայտ սխալ է տեղի ունեցել։";
+
+// Validation Errors
+"validation_error_message" = "Խնդրում ենք ստուգել մուտքագրած դաշտերը սխալների համար։";
+"parse_error_message" = "Սերվերի սխալ՝ %@";
+"passwords_do_not_match" = "Գաղտնաբառերը չեն համընկնում։";
+"invalid_email" = "Խնդրում ենք մուտքագրել վավեր էլ. փոստ։";
+"empty_password" = "Խնդրում ենք մուտքագրել գաղտնաբառ։";
+"first_name_missing" = "Խնդրում ենք մուտքագրել անուն։";
+"last_name_missing" = "Խնդրում ենք մուտքագրել ազգանուն։";
+"password_length_error" = "Գաղտնաբառը պետք է ունենա առնվազն 8 նիշ։";
+"password_uppercase_error" = "Գաղտնաբառը պետք է պարունակի առնվազն մեկ մեծատառ տառ։";
+
+// Error Messages
+"failed_to_request_password_reset" = "Գաղտնաբառի վերականգնումը ձախողվել է";
+"failed_to_decode_json_response" = "JSON պատասխանի վերծանումը ձախողվել է";
+"unknown_error" = "Անհայտ սխալ է տեղի ունեցել";
+"default_message" = "Պատասխանի տեքստ չկա";
+"empty_question_title" = "Հարցի վերնագիրը չպետք է դատարկ լինի";
+"insufficient_options" = "Հարցը պետք է ունենա առնվազն երկու տարբերակ";
+"failed_to_save_question" = "Հարցը պահպանելն անհաջող է";
+"failed_to_update_question" = "Հարցը թարմացնելը անհաջող է";
+"failed_to_delete_question" = "Հարցը ջնջելը անհաջող է";
+"failed_to_fetch_questions" = "Հարցերը բեռնելը ձախողվել է՝ %@";
+"failed_to_load_questions" = "Հարցերը բեռնելը ձախողվել է";
+"failed_to_save_user_data" = "Օգտագործողի տվյալների պահպանումը ձախողվել է";
+"failed_to_load_user_data" = "Օգտագործողի տվյալների բեռնումը ձախողվել է";
+"failed_to_save_draw_result" = "Վիճակահանության արդյունքի պահպանումը ձախողվել է";
+"failed_to_load_draw_results" = "Վիճակահանության արդյունքների բեռնումը ձախողվել է";
+"invalid_question_id" = "Անվավեր հարցի ID";
+"network_data_missing" = "Ցանցային սխալ է տեղի ունեցել՝ տվյալները չկարողացան կարդալ, քանի որ դրանք բացակայում են։";
+"network_error_description" = "Ցանցային սխալ է տեղի ունեցել՝ %@";
+"network_error_with_response" = "Ցանցային սխալ է տեղի ունեցել՝ %@: %@";
+"failed_to_fetch_events" = "Միջոցառումները բեռնելը ձախողվել է՝ %@";
+"user_id_not_found" = "Օգտագործողի ID չի գտնվել։";
+"event_title_empty" = "Միջոցառման վերնագիրը դատարկ է։";
+"not_enough_valid_options" = "Անվավեր տարբերակների բավարար քանակ չկա։";
+"not_enough_valid_event_options" = "Անվավեր տարբերակների բավարար քանակ չկա։ ";
+"not_enough_valid_event_options" = "Պետք է լինի առնվազն այնքան անդամ, որքան թիմեր, և յուրաքանչյուր անդամ պետք է ունենա անուն։";
+"failed_to_save_event" = "Միջոցառումը պահպանելն անհաջող է՝ %@";
+"failed_to_update_event" = "Միջոցառումը թարմացնելն անհաջող է՝ %@";
+"failed_to_delete_event" = "Միջոցառումը ջնջելը անհաջող է՝ %@";
+"failed_to_save_teams_draw" = "Թիմերի վիճակահանությունը պահպանելն անհաջող է՝ %@";
+"failed_to_fetch_teams_draw" = "Թիմերի վիճակահանությունը բեռնելը ձախողվել է՝ %@";
+"failed_to_fetch_team_results" = "Թիմի արդյունքները բեռնելը ձախողվել է՝ %@";
+"invalid_teams_draw_id" = "Անվավեր թիմերի վիճակահանության ID։";
+"invalid_team_result_id" = "Անվավեր թիմի արդյունքի ID։";
+"invalid_event_id" = "Անվավեր միջոցառման ID։";
+"invalid_user_id" = "Անվավեր օգտագործողի ID։";
+
+// Authentication Errors
+"authentication_error_message" = "Անվավեր օգտագործողի անուն կամ գաղտնաբառ։";
+
+// Success Messages
+"successful_sign_in" = "Օգտագործող %@ %@ հաջողությամբ մուտք գործեց։";
+"successful_sign_up" = "Օգտագործող %@ %@ հաջողությամբ գրանցվեց։";
+
+// Sign-In Screen
+"signin_title" = "Մուտք գործել";
+"no_account_prompt" = "Դեռ հաշիվ չունե՞ք";
+"signup_here" = "Գրանցվեք այստեղ";
+"forgot_password" = "Մոռացե՞լ եք գաղտնաբառը";
+"signin_button" = "Մուտք գործել";
+
+// Sign-Up Screen
+"signup_title" = "Գրանցվել";
+
+// HomeView
+"draw_tab" = "Վիճակահանություն";
+"teams_tab" = "Թիմեր";
+"settings_tab" = "Կարգավորումներ";
+
+// Question
+"questions_title" = "Հարցեր";
+"add_new_question" = "Ավելացնել նոր հարց";
+"edit_question" = "Խմբագրել հարցը";
+"question_title_placeholder" = "Հարցի վերնագիր";
+"answers_list_placeholder" = "Պատասխանների ցանկ";
+"enter_question_title" = "Մուտքագրեք հարցի վերնագիրը";
+"add_answer" = "Ավելացնել պատասխան";
+"answer" = "Պատասխան";
+"draw" = "Վիճակահանություն";
+
+// History and Statistics
+"history_title" = "Պատմություն";
+"statistics_title" = "Վիճակագրություն";
+"total_draw" = "Ընդհանուր վիճակահանություն";
+"option_label" = "Տարբերակ";
+"count_label" = "Հաշիվ";
+"draws_label" = "վիճակահանություն";
+"no_results_yet" = "Արդյունքներ դեռ չկան";
+
+//Empty QuestionList
+"empty_questions_title" = "Հարցեր չկան։";
+"empty_questions_message" = "Սեղմեք կոճակը ներքևում՝ ձեր առաջին հարցը ավելացնելու համար։";
+
+//Team
+"default_team_name" = "Թիմ";
+"launch_draw" = "Սկսել վիճակահանությունը";
+"history" = "Պատմություն";
+"loading" = "Բեռնում...";
+"no_draw_found" = "Վիճակահանություն չի գտնվել";
+"no_draw_found_message" = "Անեք վիճակահանություն՝ պատմություն ունենալու համար";
+"draw_on" = "Վիճակահանություն՝";
+
+//Event
+"event_name" = "Միջոցառման անվանում";
+"event_parameters" = "Միջոցառման պարամետրեր";
+"event_title_placeholder" = "Միջոցառման վերնագիր";
+"members_list_placeholder" = "Անդամների ցանկ";
+"add_event" = "Ավելացնել միջոցառում";
+"edit_event" = "Խմբագրել միջոցառումը";
+"add_new_event" = "Ավելացնել նոր միջոցառում";
+"events" = "Միջոցառումներ";
+"no_events_available" = "Միջոցառումներ չկան";
+"press_button_to_create_event" = "Սեղմեք կոճակը ներքևում՝ նոր միջոցառում ստեղծելու համար։";
+"team_number" = "Թիմ %d";
+"member" = "Անդամ";
+"members" = "Անդամներ";
+"add_member" = "Ավելացնել անդամ";
+
+//Parameters
+"language" = "Լեզու";
+"user_informations" = "Օգտագործողի տվյալներ";
+"selected_language" = "Ընտրված լեզու";
+
+//ParameterList
+"equitable_distribution" = "Հավասար բաշխում";
+"number_of_teams" = "Թիմերի քանակը՝ %d";
+"team_name" = "Թիմի անվանում %d";

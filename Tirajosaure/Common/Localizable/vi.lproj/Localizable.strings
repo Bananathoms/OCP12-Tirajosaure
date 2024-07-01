@@ -1,0 +1,156 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Email";
+"password" = "Mật khẩu";
+"first_name" = "Tên";
+"last_name" = "Họ";
+"enter_your_password" = "Nhập mật khẩu của bạn";
+"confirm_your_password" = "Xác nhận mật khẩu của bạn";
+"continue_button" = "Tiếp tục";
+"logout_button" = "Đăng xuất";
+"reset_password_title" = "Đặt lại mật khẩu";
+"reset_password_button" = "Đặt lại";
+"password_reset_email_sent" = "Email đặt lại mật khẩu đã được gửi";
+
+// General Errors
+"network_error_message" = "Đã xảy ra lỗi mạng. Vui lòng thử lại.";
+"unknown_error_message" = "Đã xảy ra lỗi không xác định.";
+
+// Validation Errors
+"validation_error_message" = "Vui lòng kiểm tra các trường nhập liệu để tìm lỗi.";
+"parse_error_message" = "Lỗi máy chủ: %@";
+"passwords_do_not_match" = "Mật khẩu không khớp.";
+"invalid_email" = "Vui lòng nhập email hợp lệ.";
+"empty_password" = "Vui lòng nhập mật khẩu.";
+"first_name_missing" = "Vui lòng nhập tên.";
+"last_name_missing" = "Vui lòng nhập họ.";
+"password_length_error" = "Mật khẩu phải dài ít nhất 8 ký tự.";
+"password_uppercase_error" = "Mật khẩu phải chứa ít nhất một chữ cái viết hoa.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Yêu cầu đặt lại mật khẩu không thành công";
+"failed_to_decode_json_response" = "Không thể giải mã phản hồi JSON";
+"unknown_error" = "Đã xảy ra lỗi không xác định";
+"default_message" = "Không có chuỗi phản hồi";
+"empty_question_title" = "Tiêu đề câu hỏi không thể để trống";
+"insufficient_options" = "Một câu hỏi phải có ít nhất hai tùy chọn";
+"failed_to_save_question" = "Không thể lưu câu hỏi";
+"failed_to_update_question" = "Không thể cập nhật câu hỏi";
+"failed_to_delete_question" = "Không thể xóa câu hỏi";
+"failed_to_fetch_questions" = "Không thể lấy câu hỏi: %@";
+"failed_to_load_questions" = "Không thể tải câu hỏi";
+"failed_to_save_user_data" = "Không thể lưu dữ liệu người dùng";
+"failed_to_load_user_data" = "Không thể tải dữ liệu người dùng";
+"failed_to_save_draw_result" = "Không thể lưu kết quả rút thăm";
+"failed_to_load_draw_results" = "Không thể tải kết quả rút thăm";
+"invalid_question_id" = "ID câu hỏi không hợp lệ";
+"network_data_missing" = "Đã xảy ra lỗi mạng: Không thể đọc dữ liệu vì thiếu.";
+"network_error_description" = "Đã xảy ra lỗi mạng: %@";
+"network_error_with_response" = "Đã xảy ra lỗi mạng: %@: %@";
+"failed_to_fetch_events" = "Không thể lấy sự kiện: %@";
+"user_id_not_found" = "Không tìm thấy ID người dùng.";
+"event_title_empty" = "Tiêu đề sự kiện trống.";
+"not_enough_valid_options" = "Không đủ tùy chọn hợp lệ.";
+"not_enough_valid_event_options" = "Không đủ tùy chọn hợp lệ.";
+"not_enough_valid_event_options" = "Phải có ít nhất nhiều thành viên như đội, và mỗi thành viên phải có tên.";
+"failed_to_save_event" = "Không thể lưu sự kiện: %@";
+"failed_to_update_event" = "Không thể cập nhật sự kiện: %@";
+"failed_to_delete_event" = "Không thể xóa sự kiện: %@";
+"failed_to_save_event" = "Không thể lưu sự kiện: %@";
+"failed_to_update_event" = "Không thể cập nhật sự kiện: %@";
+"failed_to_delete_event" = "Không thể xóa sự kiện: %@";
+"failed_to_save_teams_draw" = "Không thể lưu rút thăm đội: %@";
+"failed_to_fetch_teams_draw" = "Không thể lấy rút thăm đội: %@";
+"failed_to_fetch_team_results" = "Không thể lấy kết quả đội: %@";
+"invalid_teams_draw_id" = "ID rút thăm đội không hợp lệ.";
+"invalid_team_result_id" = "ID kết quả đội không hợp lệ.";
+"invalid_event_id" = "ID sự kiện không hợp lệ.";
+"invalid_user_id" = "ID người dùng không hợp lệ.";
+
+// Authentication Errors
+"authentication_error_message" = "Tên đăng nhập hoặc mật khẩu không hợp lệ.";
+
+// Success Messages
+"successful_sign_in" = "Người dùng %@ %@ đã đăng nhập thành công.";
+"successful_sign_up" = "Người dùng %@ %@ đã đăng ký thành công.";
+
+// Sign-In Screen
+"signin_title" = "Đăng nhập";
+"no_account_prompt" = "Không có tài khoản?";
+"signup_here" = "Đăng ký tại đây";
+"forgot_password" = "Quên mật khẩu?";
+"signin_button" = "Đăng nhập";
+
+// Sign-Up Screen
+"signup_title" = "Đăng ký";
+
+// HomeView
+"draw_tab" = "Rút thăm";
+"teams_tab" = "Đội";
+"settings_tab" = "Cài đặt";
+
+// Question
+"questions_title" = "Câu hỏi";
+"add_new_question" = "Thêm câu hỏi mới";
+"edit_question" = "Chỉnh sửa câu hỏi";
+"question_title_placeholder" = "Tiêu đề câu hỏi";
+"answers_list_placeholder" = "Danh sách câu trả lời";
+"enter_question_title" = "Nhập tiêu đề câu hỏi";
+"add_answer" = "Thêm câu trả lời";
+"answer" = "Câu trả lời";
+"draw" = "Rút thăm";
+
+// History and Statistics
+"history_title" = "Lịch sử";
+"statistics_title" = "Thống kê";
+"total_draw" = "Tổng rút thăm";
+"option_label" = "Tùy chọn";
+"count_label" = "Số lượng";
+"draws_label" = "rút thăm";
+"no_results_yet" = "Chưa có kết quả";
+
+//Empty QuestionList
+"empty_questions_title" = "Không có câu hỏi nào.";
+"empty_questions_message" = "Chạm vào nút bên dưới để thêm câu hỏi đầu tiên của bạn.";
+
+//Team
+"default_team_name" = "Đội";
+"launch_draw" = "Bắt đầu rút thăm";
+"history" = "Lịch sử";
+"loading" = "Đang tải...";
+"no_draw_found" = "Không tìm thấy rút thăm";
+"no_draw_found_message" = "Thực hiện rút thăm để có lịch sử";
+"draw_on" = "Rút thăm vào";
+
+//Event
+"event_name" = "Tên sự kiện";
+"event_parameters" = "Tham số sự kiện";
+"event_title_placeholder" = "Tiêu đề sự kiện";
+"members_list_placeholder" = "Danh sách thành viên";
+"add_event" = "Thêm sự kiện";
+"edit_event" = "Chỉnh sửa sự kiện";
+"add_new_event" = "Thêm sự kiện mới";
+"events" = "Sự kiện";
+"no_events_available" = "Không có sự kiện nào";
+"press_button_to_create_event" = "Nhấn vào nút bên dưới để tạo sự kiện mới.";
+"team_number" = "Đội %d";
+"member" = "Thành viên";
+"members" = "Thành viên";
+"add_member" = "Thêm thành viên";
+
+//Parameters
+"language" = "Ngôn ngữ";
+"user_informations" = "Thông tin người dùng";
+"selected_language" = "Ngôn ngữ đã chọn";
+
+//ParameterList
+"equitable_distribution" = "Phân phối công bằng";
+"number_of_teams" = "Số đội: %d";
+"team_name" = "Tên đội %d";

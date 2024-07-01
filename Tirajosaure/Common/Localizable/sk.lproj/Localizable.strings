@@ -1,0 +1,156 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Email";
+"password" = "Heslo";
+"first_name" = "Krstné meno";
+"last_name" = "Priezvisko";
+"enter_your_password" = "Zadajte svoje heslo";
+"confirm_your_password" = "Potvrďte svoje heslo";
+"continue_button" = "Pokračovať";
+"logout_button" = "Odhlásiť sa";
+"reset_password_title" = "Obnoviť heslo";
+"reset_password_button" = "Obnoviť";
+"password_reset_email_sent" = "Email na obnovenie hesla bol odoslaný";
+
+// General Errors
+"network_error_message" = "Vyskytla sa chyba siete. Skúste to znova.";
+"unknown_error_message" = "Vyskytla sa neznáma chyba.";
+
+// Validation Errors
+"validation_error_message" = "Skontrolujte, prosím, polia na chyby.";
+"parse_error_message" = "Chyba servera: %@";
+"passwords_do_not_match" = "Heslá sa nezhodujú.";
+"invalid_email" = "Zadajte platný email.";
+"empty_password" = "Zadajte heslo.";
+"first_name_missing" = "Zadajte krstné meno.";
+"last_name_missing" = "Zadajte priezvisko.";
+"password_length_error" = "Heslo musí mať aspoň 8 znakov.";
+"password_uppercase_error" = "Heslo musí obsahovať aspoň jedno veľké písmeno.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Nepodarilo sa požiadať o obnovenie hesla";
+"failed_to_decode_json_response" = "Nepodarilo sa dekódovať odpoveď JSON";
+"unknown_error" = "Vyskytla sa neznáma chyba";
+"default_message" = "Žiadna odpoveď";
+"empty_question_title" = "Názov otázky nemôže byť prázdny";
+"insufficient_options" = "Otázka musí mať aspoň dve možnosti";
+"failed_to_save_question" = "Nepodarilo sa uložiť otázku";
+"failed_to_update_question" = "Nepodarilo sa aktualizovať otázku";
+"failed_to_delete_question" = "Nepodarilo sa odstrániť otázku";
+"failed_to_fetch_questions" = "Nepodarilo sa načítať otázky: %@";
+"failed_to_load_questions" = "Nepodarilo sa načítať otázky";
+"failed_to_save_user_data" = "Nepodarilo sa uložiť údaje používateľa";
+"failed_to_load_user_data" = "Nepodarilo sa načítať údaje používateľa";
+"failed_to_save_draw_result" = "Nepodarilo sa uložiť výsledok žrebovania";
+"failed_to_load_draw_results" = "Nepodarilo sa načítať výsledky žrebovania";
+"invalid_question_id" = "Neplatné ID otázky";
+"network_data_missing" = "Vyskytla sa chyba siete: Dáta sa nedali prečítať, pretože chýbajú.";
+"network_error_description" = "Vyskytla sa chyba siete: %@";
+"network_error_with_response" = "Vyskytla sa chyba siete: %@: %@";
+"failed_to_fetch_events" = "Nepodarilo sa načítať udalosti: %@";
+"user_id_not_found" = "ID používateľa sa nenašlo.";
+"event_title_empty" = "Názov udalosti je prázdny.";
+"not_enough_valid_options" = "Nie je dostatok platných možností.";
+"not_enough_valid_event_options" = "Nie je dostatok platných možností.";
+"not_enough_valid_event_options" = "Musí byť aspoň toľko členov ako tímov a každý člen musí mať meno.";
+"failed_to_save_event" = "Nepodarilo sa uložiť udalosť: %@";
+"failed_to_update_event" = "Nepodarilo sa aktualizovať udalosť: %@";
+"failed_to_delete_event" = "Nepodarilo sa odstrániť udalosť: %@";
+"failed_to_save_event" = "Nepodarilo sa uložiť udalosť: %@";
+"failed_to_update_event" = "Nepodarilo sa aktualizovať udalosť: %@";
+"failed_to_delete_event" = "Nepodarilo sa odstrániť udalosť: %@";
+"failed_to_save_teams_draw" = "Nepodarilo sa uložiť žrebovanie tímov: %@";
+"failed_to_fetch_teams_draw" = "Nepodarilo sa načítať žrebovanie tímov: %@";
+"failed_to_fetch_team_results" = "Nepodarilo sa načítať výsledky tímov: %@";
+"invalid_teams_draw_id" = "Neplatné ID žrebovania tímov";
+"invalid_team_result_id" = "Neplatné ID výsledku tímu";
+"invalid_event_id" = "Neplatné ID udalosti";
+"invalid_user_id" = "Neplatné ID používateľa";
+
+// Authentication Errors
+"authentication_error_message" = "Neplatné používateľské meno alebo heslo.";
+
+// Success Messages
+"successful_sign_in" = "Používateľ %@ %@ sa úspešne prihlásil.";
+"successful_sign_up" = "Používateľ %@ %@ sa úspešne zaregistroval.";
+
+// Sign-In Screen
+"signin_title" = "Prihlásiť sa";
+"no_account_prompt" = "Nemáte účet?";
+"signup_here" = "Zaregistrujte sa tu";
+"forgot_password" = "Zabudli ste heslo?";
+"signin_button" = "Prihlásiť sa";
+
+// Sign-Up Screen
+"signup_title" = "Zaregistrujte sa";
+
+// HomeView
+"draw_tab" = "Žrebovanie";
+"teams_tab" = "Tímy";
+"settings_tab" = "Nastavenia";
+
+// Question
+"questions_title" = "Otázky";
+"add_new_question" = "Pridať novú otázku";
+"edit_question" = "Upraviť otázku";
+"question_title_placeholder" = "Názov otázky";
+"answers_list_placeholder" = "Zoznam odpovedí";
+"enter_question_title" = "Zadajte názov otázky";
+"add_answer" = "Pridať odpoveď";
+"answer" = "Odpoveď";
+"draw" = "Žrebovanie";
+
+// History and Statistics
+"history_title" = "História";
+"statistics_title" = "Štatistiky";
+"total_draw" = "Celkové žrebovanie";
+"option_label" = "Možnosť";
+"count_label" = "Počet";
+"draws_label" = "žrebovania";
+"no_results_yet" = "Zatiaľ žiadne výsledky";
+
+//Empty QuestionList
+"empty_questions_title" = "Žiadne dostupné otázky.";
+"empty_questions_message" = "Klepnite na tlačidlo nižšie a pridajte svoju prvú otázku.";
+
+//Team
+"default_team_name" = "Tím";
+"launch_draw" = "Spustiť žrebovanie";
+"history" = "História";
+"loading" = "Načítava sa...";
+"no_draw_found" = "Žiadne žrebovanie nebolo nájdené";
+"no_draw_found_message" = "Urobte žrebovanie, aby ste mali históriu";
+"draw_on" = "Žrebovať na";
+
+//Event
+"event_name" = "Názov udalosti";
+"event_parameters" = "Parametre udalosti";
+"event_title_placeholder" = "Názov udalosti";
+"members_list_placeholder" = "Zoznam členov";
+"add_event" = "Pridať udalosť";
+"edit_event" = "Upraviť udalosť";
+"add_new_event" = "Pridať novú udalosť";
+"events" = "Udalosti";
+"no_events_available" = "Žiadne dostupné udalosti";
+"press_button_to_create_event" = "Klepnite na tlačidlo nižšie a vytvorte novú udalosť.";
+"team_number" = "Tím %d";
+"member" = "Člen";
+"members" = "Členovia";
+"add_member" = "Pridať člena";
+
+//Parameters
+"language" = "Jazyk";
+"user_informations" = "Informácie o používateľovi";
+"selected_language" = "Vybraný jazyk";
+
+//ParameterList
+"equitable_distribution" = "Rovnomerné rozdelenie";
+"number_of_teams" = "Počet tímov: %d";
+"team_name" = "Názov tímu %d";

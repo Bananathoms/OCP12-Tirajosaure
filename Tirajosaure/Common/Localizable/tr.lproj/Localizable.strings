@@ -1,0 +1,156 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "E-posta";
+"password" = "Şifre";
+"first_name" = "Ad";
+"last_name" = "Soyad";
+"enter_your_password" = "Şifrenizi girin";
+"confirm_your_password" = "Şifrenizi onaylayın";
+"continue_button" = "Devam et";
+"logout_button" = "Çıkış yap";
+"reset_password_title" = "Şifreyi Sıfırla";
+"reset_password_button" = "Sıfırla";
+"password_reset_email_sent" = "Şifre sıfırlama e-postası gönderildi";
+
+// General Errors
+"network_error_message" = "Bir ağ hatası oluştu. Lütfen tekrar deneyin.";
+"unknown_error_message" = "Bilinmeyen bir hata oluştu.";
+
+// Validation Errors
+"validation_error_message" = "Lütfen hata olup olmadığını kontrol edin.";
+"parse_error_message" = "Sunucu Hatası: %@";
+"passwords_do_not_match" = "Şifreler uyuşmuyor.";
+"invalid_email" = "Lütfen geçerli bir e-posta girin.";
+"empty_password" = "Lütfen bir şifre girin.";
+"first_name_missing" = "Lütfen bir ad girin.";
+"last_name_missing" = "Lütfen bir soyad girin.";
+"password_length_error" = "Şifre en az 8 karakter uzunluğunda olmalıdır.";
+"password_uppercase_error" = "Şifre en az bir büyük harf içermelidir.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Şifre sıfırlama isteği başarısız oldu";
+"failed_to_decode_json_response" = "JSON yanıtı çözülemedi";
+"unknown_error" = "Bilinmeyen bir hata oluştu";
+"default_message" = "Yanıt yok";
+"empty_question_title" = "Soru başlığı boş olamaz";
+"insufficient_options" = "Bir sorunun en az iki seçeneği olmalıdır";
+"failed_to_save_question" = "Soru kaydedilemedi";
+"failed_to_update_question" = "Soru güncellenemedi";
+"failed_to_delete_question" = "Soru silinemedi";
+"failed_to_fetch_questions" = "Sorular alınamadı: %@";
+"failed_to_load_questions" = "Sorular yüklenemedi";
+"failed_to_save_user_data" = "Kullanıcı verileri kaydedilemedi";
+"failed_to_load_user_data" = "Kullanıcı verileri yüklenemedi";
+"failed_to_save_draw_result" = "Çekiliş sonucu kaydedilemedi";
+"failed_to_load_draw_results" = "Çekiliş sonuçları yüklenemedi";
+"invalid_question_id" = "Geçersiz Soru Kimliği";
+"network_data_missing" = "Bir ağ hatası oluştu: Veriler okunamadı çünkü eksik.";
+"network_error_description" = "Bir ağ hatası oluştu: %@";
+"network_error_with_response" = "Bir ağ hatası oluştu: %@: %@";
+"failed_to_fetch_events" = "Etkinlikler alınamadı: %@";
+"user_id_not_found" = "Kullanıcı Kimliği bulunamadı.";
+"event_title_empty" = "Etkinlik başlığı boş.";
+"not_enough_valid_options" = "Yeterli geçerli seçenek yok.";
+"not_enough_valid_event_options" = "Yeterli geçerli seçenek yok.";
+"not_enough_valid_event_options" = "Takım sayısı kadar üye olmalı ve her üyenin bir adı olmalı.";
+"failed_to_save_event" = "Etkinlik kaydedilemedi: %@";
+"failed_to_update_event" = "Etkinlik güncellenemedi: %@";
+"failed_to_delete_event" = "Etkinlik silinemedi: %@";
+"failed_to_save_event" = "Etkinlik kaydedilemedi: %@";
+"failed_to_update_event" = "Etkinlik güncellenemedi: %@";
+"failed_to_delete_event" = "Etkinlik silinemedi: %@";
+"failed_to_save_teams_draw" = "Takımların çekilişi kaydedilemedi: %@";
+"failed_to_fetch_teams_draw" = "Takımların çekilişi alınamadı: %@";
+"failed_to_fetch_team_results" = "Takım sonuçları alınamadı: %@";
+"invalid_teams_draw_id" = "Geçersiz Takım Çekilişi Kimliği";
+"invalid_team_result_id" = "Geçersiz Takım Sonucu Kimliği";
+"invalid_event_id" = "Geçersiz etkinlik kimliği";
+"invalid_user_id" = "Geçersiz kullanıcı kimliği";
+
+// Authentication Errors
+"authentication_error_message" = "Geçersiz kullanıcı adı veya şifre.";
+
+// Success Messages
+"successful_sign_in" = "Kullanıcı %@ %@ başarıyla giriş yaptı.";
+"successful_sign_up" = "Kullanıcı %@ %@ başarıyla kayıt oldu.";
+
+// Sign-In Screen
+"signin_title" = "Giriş Yap";
+"no_account_prompt" = "Hesabınız yok mu?";
+"signup_here" = "Buradan kayıt olun";
+"forgot_password" = "Şifrenizi mi unuttunuz?";
+"signin_button" = "Giriş Yap";
+
+// Sign-Up Screen
+"signup_title" = "Kayıt Ol";
+
+// HomeView
+"draw_tab" = "Çekiliş";
+"teams_tab" = "Takımlar";
+"settings_tab" = "Ayarlar";
+
+// Question
+"questions_title" = "Sorular";
+"add_new_question" = "Yeni bir Soru Ekle";
+"edit_question" = "Soruyu Düzenle";
+"question_title_placeholder" = "Soru Başlığı";
+"answers_list_placeholder" = "Cevap Listesi";
+"enter_question_title" = "Soru başlığını girin";
+"add_answer" = "Cevap Ekle";
+"answer" = "Cevap";
+"draw" = "Çekiliş";
+
+// History and Statistics
+"history_title" = "Geçmiş";
+"statistics_title" = "İstatistikler";
+"total_draw" = "Toplam çekiliş";
+"option_label" = "Seçenek";
+"count_label" = "Sayım";
+"draws_label" = "çekiliş";
+"no_results_yet" = "Henüz sonuç yok";
+
+//Empty QuestionList
+"empty_questions_title" = "Mevcut soru yok.";
+"empty_questions_message" = "İlk soruyu eklemek için aşağıdaki butona dokunun.";
+
+//Team
+"default_team_name" = "Takım";
+"launch_draw" = "Çekilişi Başlat";
+"history" = "Geçmiş";
+"loading" = "Yükleniyor...";
+"no_draw_found" = "Çekiliş bulunamadı";
+"no_draw_found_message" = "Bir çekiliş yapmak için tarihçeye sahip olmalısınız";
+"draw_on" = "Çekiliş günü";
+
+//Event
+"event_name" = "Etkinlik Adı";
+"event_parameters" = "Etkinlik Parametreleri";
+"event_title_placeholder" = "Etkinlik Başlığı";
+"members_list_placeholder" = "Üye Listesi";
+"add_event" = "Etkinlik Ekle";
+"edit_event" = "Etkinliği Düzenle";
+"add_new_event" = "Yeni Etkinlik Ekle";
+"events" = "Etkinlikler";
+"no_events_available" = "Mevcut etkinlik yok";
+"press_button_to_create_event" = "Yeni bir etkinlik oluşturmak için aşağıdaki butona dokunun.";
+"team_number" = "Takım %d";
+"member" = "Üye";
+"members" = "Üyeler";
+"add_member" = "Üye Ekle";
+
+//Parameters
+"language" = "Dil";
+"user_informations" = "Kullanıcı Bilgileri";
+"selected_language" = "Seçilen Dil";
+
+//ParameterList
+"equitable_distribution" = "Adil dağıtım";
+"number_of_teams" = "Takım sayısı: %d";
+"team_name" = "Takım adı %d";

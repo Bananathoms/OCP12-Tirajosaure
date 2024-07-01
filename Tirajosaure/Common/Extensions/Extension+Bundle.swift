@@ -23,6 +23,13 @@ extension Bundle {
         defer {
             object_setClass(Bundle.main, BundleEx.self)
         }
-        objc_setAssociatedObject(Bundle.main, &bundleKey, Bundle(path: Bundle.main.path(forResource: language, ofType: "lproj")!), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+
+        guard let path = Bundle.main.path(forResource: language, ofType: "lproj"),
+              let bundle = Bundle(path: path) else {
+            print("Error: Could not find bundle path for language: \(language)")
+            return
+        }
+
+        objc_setAssociatedObject(Bundle.main, &bundleKey, bundle, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 }

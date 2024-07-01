@@ -1,0 +1,160 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "ელფოსტა";
+"password" = "პაროლი";
+"first_name" = "სახელი";
+"last_name" = "გვარი";
+"enter_your_password" = "შეიყვანეთ თქვენი პაროლი";
+"confirm_your_password" = "დაადასტურეთ თქვენი პაროლი";
+"continue_button" = "გაგრძელება";
+"logout_button" = "გამოსვლა";
+"reset_password_title" = "პაროლის აღდგენა";
+"reset_password_button" = "აღდგენა";
+"password_reset_email_sent" = "პაროლის აღდგენის ელფოსტა გაგზავნილია";
+
+// General Errors
+"network_error_message" = "ქსელის შეცდომა მოხდა. გთხოვთ, სცადოთ ხელახლა.";
+"unknown_error_message" = "უცნობი შეცდომა მოხდა.";
+
+// Validation Errors
+"validation_error_message" = "გთხოვთ, შეამოწმოთ ველების შეცდომები.";
+"parse_error_message" = "სერვერის შეცდომა: %@";
+"passwords_do_not_match" = "პაროლები არ ემთხვევა.";
+"invalid_email" = "გთხოვთ, შეიყვანოთ სწორი ელფოსტა.";
+"empty_password" = "გთხოვთ, შეიყვანოთ პაროლი.";
+"first_name_missing" = "გთხოვთ, შეიყვანოთ სახელი.";
+"last_name_missing" = "გთხოვთ, შეიყვანოთ გვარი.";
+"password_length_error" = "პაროლი უნდა შედგებოდეს მინიმუმ 8 სიმბოლოსგან.";
+"password_uppercase_error" = "პაროლში უნდა იყოს მინიმუმ ერთი დიდი ასო.";
+
+// Error Messages
+"failed_to_request_password_reset" = "პაროლის აღდგენის მოთხოვნა ვერ მოხერხდა";
+"failed_to_decode_json_response" = "JSON პასუხის გაშიფვრა ვერ მოხერხდა";
+"unknown_error" = "უცნობი შეცდომა მოხდა";
+"default_message" = "პასუხი არ არის";
+"empty_question_title" = "კითხვის სათაური არ შეიძლება იყოს ცარიელი";
+"insufficient_options" = "კითხვას უნდა ჰქონდეს მინიმუმ ორი ვარიანტი";
+"failed_to_save_question" = "კითხვის შენახვა ვერ მოხერხდა";
+"failed_to_update_question" = "კითხვის განახლება ვერ მოხერხდა";
+"failed_to_delete_question" = "კითხვის წაშლა ვერ მოხერხდა";
+"failed_to_fetch_questions" = "კითხვის მიღება ვერ მოხერხდა: %@";
+"failed_to_load_questions" = "კითხვის ჩატვირთვა ვერ მოხერხდა";
+"failed_to_save_user_data" = "მომხმარებლის მონაცემების შენახვა ვერ მოხერხდა";
+"failed_to_load_user_data" = "მომხმარებლის მონაცემების ჩატვირთვა ვერ მოხერხდა";
+"failed_to_save_draw_result" = "გათამაშების შედეგის შენახვა ვერ მოხერხდა";
+"failed_to_load_draw_results" = "გათამაშების შედეგების ჩატვირთვა ვერ მოხერხდა";
+"invalid_question_id" = "არასწორი კითხვის ID";
+"network_data_missing" = "ქსელის შეცდომა მოხდა: მონაცემების წაკითხვა ვერ მოხერხდა, რადგან ისინი არ არის.";
+"network_error_description" = "ქსელის შეცდომა მოხდა: %@";
+"network_error_with_response" = "ქსელის შეცდომა მოხდა: %@: %@";
+"failed_to_fetch_events" = "ღონისძიებების მიღება ვერ მოხერხდა: %@";
+"user_id_not_found" = "მომხმარებლის ID ვერ მოიძებნა.";
+"event_title_empty" = "ღონისძიების სათაური ცარიელია.";
+"not_enough_valid_options" = "არასაკმარისი სწორი ვარიანტები.";
+"not_enough_valid_event_options" = "არასაკმარისი სწორი ვარიანტები. ";
+"not_enough_valid_event_options" = "მონაწილეების რაოდენობა უნდა იყოს მინიმუმ იმდენი, რამდენიც გუნდების რაოდენობა და ყველა მონაწილეს უნდა ჰქონდეს სახელი.";
+"failed_to_save_event" = "ღონისძიების შენახვა ვერ მოხერხდა: %@";
+"failed_to_update_event" = "ღონისძიების განახლება ვერ მოხერხდა: %@";
+"failed_to_delete_event" = "ღონისძიების წაშლა ვერ მოხერხდა: %@";
+"failed_to_fetch_events" = "ღონისძიებების მიღება ვერ მოხერხდა: %@";
+"user_id_not_found" = "მომხმარებლის ID ვერ მოიძებნა.";
+"event_title_empty" = "ღონისძიების სათაური ცარიელია.";
+"not_enough_valid_options" = "არასაკმარისი სწორი ვარიანტები.";
+"failed_to_save_event" = "ღონისძიების შენახვა ვერ მოხერხდა: %@";
+"failed_to_update_event" = "ღონისძიების განახლება ვერ მოხერხდა: %@";
+"failed_to_delete_event" = "ღონისძიების წაშლა ვერ მოხერხდა: %@";
+"failed_to_save_teams_draw" = "გუნდების გათამაშების შენახვა ვერ მოხერხდა: %@";
+"failed_to_fetch_teams_draw" = "გუნდების გათამაშების მიღება ვერ მოხერხდა: %@";
+"failed_to_fetch_team_results" = "გუნდების შედეგების მიღება ვერ მოხერხდა: %@";
+"invalid_teams_draw_id" = "არასწორი გუნდების გათამაშების ID.";
+"invalid_team_result_id" = "არასწორი გუნდის შედეგის ID.";
+"invalid_event_id" = "არასწორი ღონისძიების ID.";
+"invalid_user_id" = "არასწორი მომხმარებლის ID.";
+
+// Authentication Errors
+"authentication_error_message" = "არასწორი მომხმარებლის სახელი ან პაროლი.";
+
+// Success Messages
+"successful_sign_in" = "მომხმარებელი %@ %@ წარმატებით შესულია.";
+"successful_sign_up" = "მომხმარებელი %@ %@ წარმატებით დარეგისტრირდა.";
+
+// Sign-In Screen
+"signin_title" = "შესვლა";
+"no_account_prompt" = "არ გაქვთ ანგარიში?";
+"signup_here" = "დარეგისტრირდით აქ";
+"forgot_password" = "დაგავიწყდათ პაროლი?";
+"signin_button" = "შესვლა";
+
+// Sign-Up Screen
+"signup_title" = "რეგისტრაცია";
+
+// HomeView
+"draw_tab" = "გათამაშება";
+"teams_tab" = "გუნდები";
+"settings_tab" = "პარამეტრები";
+
+// Question
+"questions_title" = "კითხვები";
+"add_new_question" = "ახალი კითხვის დამატება";
+"edit_question" = "კითხვის რედაქტირება";
+"question_title_placeholder" = "კითხვის სათაური";
+"answers_list_placeholder" = "პასუხების სია";
+"enter_question_title" = "შეიყვანეთ კითხვის სათაური";
+"add_answer" = "პასუხის დამატება";
+"answer" = "პასუხი";
+"draw" = "გათამაშება";
+
+// History and Statistics
+"history_title" = "ისტორია";
+"statistics_title" = "სტატისტიკა";
+"total_draw" = "ჯამური გათამაშება";
+"option_label" = "ვარიანტი";
+"count_label" = "რაოდენობა";
+"draws_label" = "გათამაშებები";
+"no_results_yet" = "ჯერ არ არის შედეგები.";
+
+//Empty QuestionList
+"empty_questions_title" = "არ არის ხელმისაწვდომი კითხვები.";
+"empty_questions_message" = "დააჭირეთ ღილაკს ქვემოთ, რათა დაამატოთ თქვენი პირველი კითხვა.";
+
+//Team
+"default_team_name" = "გუნდი";
+"launch_draw" = "გათამაშების დაწყება";
+"history" = "ისტორია";
+"loading" = "ჩატვირთვა...";
+"no_draw_found" = "გათამაშება არ მოიძებნა";
+"no_draw_found_message" = "შექმენით გათამაშება, რომ ჰქონდეთ ისტორია";
+"draw_on" = "გათამაშება";
+
+//Event
+"event_name" = "ღონისძიების სახელი";
+"event_parameters" = "ღონისძიების პარამეტრები";
+"event_title_placeholder" = "ღონისძიების სათაური";
+"members_list_placeholder" = "მონაწილეების სია";
+"add_event" = "ღონისძიების დამატება";
+"edit_event" = "ღონისძიების რედაქტირება";
+"add_new_event" = "ახალი ღონისძიების დამატება";
+"events" = "ღონისძიებები";
+"no_events_available" = "არ არის ხელმისაწვდომი ღონისძიებები";
+"press_button_to_create_event" = "დააჭირეთ ღილაკს ქვემოთ, რათა შექმნათ ახალი ღონისძიება.";
+"team_number" = "გუნდი %d";
+"member" = "მონაწილე";
+"members" = "მონაწილეები";
+"add_member" = "მონაწილის დამატება";
+
+//Parameters
+"language" = "ენა";
+"user_informations" = "მომხმარებლის ინფორმაცია";
+"selected_language" = "არჩეული ენა";
+
+//ParameterList
+"equitable_distribution" = "სამართლიანი განაწილება";
+"number_of_teams" = "გუნდების რაოდენობა: %d";
+"team_name" = "გუნდის სახელი %d";

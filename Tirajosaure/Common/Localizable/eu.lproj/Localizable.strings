@@ -1,0 +1,153 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Posta elektronikoa";
+"password" = "Pasahitza";
+"first_name" = "Izena";
+"last_name" = "Abizena";
+"enter_your_password" = "Sartu zure pasahitza";
+"confirm_your_password" = "Berretsi zure pasahitza";
+"continue_button" = "Jarraitzea";
+"logout_button" = "Saioa itxi";
+"reset_password_title" = "Pasahitza berrezarri";
+"reset_password_button" = "Berrezarri";
+"password_reset_email_sent" = "Pasahitza berrezartzeko posta elektronikoa bidali da";
+
+// General Errors
+"network_error_message" = "Sareko errore bat gertatu da. Saiatu berriro mesedez.";
+"unknown_error_message" = "Errore ezezagun bat gertatu da.";
+
+// Validation Errors
+"validation_error_message" = "Mesedez, egiaztatu sarrerako eremuetan erroreak dauden.";
+"parse_error_message" = "Zerbitzariaren errorea: %@";
+"passwords_do_not_match" = "Pasahitzak ez datoz bat.";
+"invalid_email" = "Mesedez, sartu baliozko posta elektroniko bat.";
+"empty_password" = "Mesedez, sartu pasahitza.";
+"first_name_missing" = "Mesedez, sartu izena.";
+"last_name_missing" = "Mesedez, sartu abizena.";
+"password_length_error" = "Pasahitzak gutxienez 8 karaktere izan behar ditu.";
+"password_uppercase_error" = "Pasahitzak gutxienez maiuskula bat izan behar du.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Pasahitza berrezartzeko eskaera huts egin du";
+"failed_to_decode_json_response" = "JSON erantzuna deskodetzean huts egin du";
+"unknown_error" = "Errore ezezagun bat gertatu da";
+"default_message" = "Ez dago erantzun-mezurik";
+"empty_question_title" = "Galderaren izenburua hutsik egon ezin daiteke";
+"insufficient_options" = "Galdera batek gutxienez bi aukera izan behar ditu";
+"failed_to_save_question" = "Galdera gordetzean huts egin du";
+"failed_to_update_question" = "Galdera eguneratzean huts egin du";
+"failed_to_delete_question" = "Galdera ezabatzean huts egin du";
+"failed_to_fetch_questions" = "Galderak lortzean huts egin du: %@";
+"failed_to_load_questions" = "Galderak kargatzean huts egin du";
+"failed_to_save_user_data" = "Erabiltzailearen datuak gordetzean huts egin du";
+"failed_to_load_user_data" = "Erabiltzailearen datuak kargatzean huts egin du";
+"failed_to_save_draw_result" = "Zozketa emaitza gordetzean huts egin du";
+"failed_to_load_draw_results" = "Zozketa emaitzak kargatzean huts egin du";
+"invalid_question_id" = "Galdera ID baliogabea";
+"network_data_missing" = "Sareko errore bat gertatu da: Datuak ezin izan dira irakurri falta direlako.";
+"network_error_description" = "Sareko errore bat gertatu da: %@";
+"network_error_with_response" = "Sareko errore bat gertatu da: %@: %@";
+"failed_to_fetch_events" = "Gertaerak lortzean huts egin du: %@";
+"user_id_not_found" = "Erabiltzailearen ID-a aurkitu ez da.";
+"event_title_empty" = "Gertaeraren izenburua hutsik dago.";
+"not_enough_valid_options" = "Ez daude nahiko aukera baliogarririk.";
+"not_enough_valid_event_options" = "Ez dago aukera baliogarririk. ";
+"not_enough_valid_event_options" = "Taldeak baino gutxienez kide kopuru bera egon behar da, eta kide bakoitzak izen bat izan behar du.";
+"failed_to_save_event" = "Gertaera gordetzean huts egin du: %@";
+"failed_to_update_event" = "Gertaera eguneratzean huts egin du: %@";
+"failed_to_delete_event" = "Gertaera ezabatzean huts egin du: %@";
+"failed_to_save_teams_draw" = "Taldeen zozketa gordetzean huts egin du: %@";
+"failed_to_fetch_teams_draw" = "Taldeen zozketa lortzean huts egin du: %@";
+"failed_to_fetch_team_results" = "Taldeen emaitzak lortzean huts egin du: %@";
+"invalid_teams_draw_id" = "Taldeen Zozketa ID baliogabea.";
+"invalid_team_result_id" = "Taldearen Emaitza ID baliogabea.";
+"invalid_event_id" = "Gertaera ID baliogabea.";
+"invalid_user_id" = "Erabiltzaile ID baliogabea.";
+
+// Authentication Errors
+"authentication_error_message" = "Erabiltzaile-izena edo pasahitza baliogabea.";
+
+// Success Messages
+"successful_sign_in" = "Erabiltzailea %@ %@ arrakastaz saioa hasi du.";
+"successful_sign_up" = "Erabiltzailea %@ %@ arrakastaz erregistratu da.";
+
+// Sign-In Screen
+"signin_title" = "Saioa Hasi";
+"no_account_prompt" = "Ez duzu konturik?";
+"signup_here" = "Hemen erregistratu";
+"forgot_password" = "Pasahitza ahaztu duzu?";
+"signin_button" = "Saioa Hasi";
+
+// Sign-Up Screen
+"signup_title" = "Erregistratu";
+
+// HomeView
+"draw_tab" = "Zozketa";
+"teams_tab" = "Taldeak";
+"settings_tab" = "Ezarpenak";
+
+// Question
+"questions_title" = "Galderak";
+"add_new_question" = "Galdera berri bat gehitu";
+"edit_question" = "Galdera editatu";
+"question_title_placeholder" = "Galderaren izenburua";
+"answers_list_placeholder" = "Erantzunen zerrenda";
+"enter_question_title" = "Sartu galderaren izenburua";
+"add_answer" = "Erantzun bat gehitu";
+"answer" = "Erantzuna";
+"draw" = "Zozketa";
+
+// History and Statistics
+"history_title" = "Historia";
+"statistics_title" = "Estatistikak";
+"total_draw" = "Guztira zozketa";
+"option_label" = "Aukera";
+"count_label" = "Kopurua";
+"draws_label" = "zozketak";
+"no_results_yet" = "Oraindik ez dago emaitzarik";
+
+//Empty QuestionList
+"empty_questions_title" = "Ez daude galderarik eskuragarri.";
+"empty_questions_message" = "Sakatu beheko botoia zure lehen galdera gehitzeko.";
+
+//Team
+"default_team_name" = "Taldea";
+"launch_draw" = "Zozketa hasi";
+"history" = "Historia";
+"loading" = "Kargatzen...";
+"no_draw_found" = "Ez da aurkitu zozketarik";
+"no_draw_found_message" = "Historia izateko zozketa bat egin";
+"draw_on" = "Zozketa gainean";
+
+//Event
+"event_name" = "Gertaeraren izena";
+"event_parameters" = "Gertaeraren parametroak";
+"event_title_placeholder" = "Gertaeraren izenburua";
+"members_list_placeholder" = "Kideen zerrenda";
+"add_event" = "Gertaera gehitu";
+"edit_event" = "Gertaera editatu";
+"add_new_event" = "Gertaera berri bat gehitu";
+"events" = "Gertaerak";
+"no_events_available" = "Ez dago gertaerarik eskuragarri";
+"press_button_to_create_event" = "Sakatu beheko botoia gertaera berri bat sortzeko.";
+"team_number" = "Taldea %d";
+"member" = "Kidea";
+"members" = "Kideak";
+"add_member" = "Kidea gehitu";
+
+//Parameters
+"language" = "Hizkuntza";
+"user_informations" = "Erabiltzailearen informazioak";
+"selected_language" = "Hautatutako hizkuntza";
+
+//ParameterList
+"equitable_distribution" = "Berdintasunezko banaketa";
+"number_of_teams" = "Talde kopurua: %d";
+"team_name" = "Taldearen izena %d";

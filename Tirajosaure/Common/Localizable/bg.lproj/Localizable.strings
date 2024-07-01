@@ -1,0 +1,153 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Имейл";
+"password" = "Парола";
+"first_name" = "Име";
+"last_name" = "Фамилия";
+"enter_your_password" = "Въведете вашата парола";
+"confirm_your_password" = "Потвърдете вашата парола";
+"continue_button" = "Продължи";
+"logout_button" = "Изход";
+"reset_password_title" = "Възстановяване на парола";
+"reset_password_button" = "Възстанови";
+"password_reset_email_sent" = "Имейл за възстановяване на парола е изпратен";
+
+// General Errors
+"network_error_message" = "Възникна мрежова грешка. Моля, опитайте отново.";
+"unknown_error_message" = "Възникна неизвестна грешка.";
+
+// Validation Errors
+"validation_error_message" = "Моля, проверете полетата за грешки.";
+"parse_error_message" = "Грешка на сървъра: %@";
+"passwords_do_not_match" = "Паролите не съвпадат.";
+"invalid_email" = "Моля, въведете валиден имейл.";
+"empty_password" = "Моля, въведете парола.";
+"first_name_missing" = "Моля, въведете име.";
+"last_name_missing" = "Моля, въведете фамилия.";
+"password_length_error" = "Паролата трябва да бъде поне 8 знака.";
+"password_uppercase_error" = "Паролата трябва да съдържа поне една главна буква.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Неуспешно заявяване на възстановяване на парола";
+"failed_to_decode_json_response" = "Неуспешно декодиране на JSON отговор";
+"unknown_error" = "Възникна неизвестна грешка";
+"default_message" = "Няма отговор";
+"empty_question_title" = "Заглавието на въпроса не може да бъде празно";
+"insufficient_options" = "Въпросът трябва да има поне две опции";
+"failed_to_save_question" = "Неуспешно запазване на въпроса";
+"failed_to_update_question" = "Неуспешно актуализиране на въпроса";
+"failed_to_delete_question" = "Неуспешно изтриване на въпроса";
+"failed_to_fetch_questions" = "Неуспешно зареждане на въпросите: %@";
+"failed_to_load_questions" = "Неуспешно зареждане на въпросите";
+"failed_to_save_user_data" = "Неуспешно запазване на данните на потребителя";
+"failed_to_load_user_data" = "Неуспешно зареждане на данните на потребителя";
+"failed_to_save_draw_result" = "Неуспешно запазване на резултата от жребия";
+"failed_to_load_draw_results" = "Неуспешно зареждане на резултатите от жребия";
+"invalid_question_id" = "Невалиден ID на въпроса";
+"network_data_missing" = "Възникна мрежова грешка: Данните не могат да бъдат прочетени, защото липсват.";
+"network_error_description" = "Възникна мрежова грешка: %@";
+"network_error_with_response" = "Възникна мрежова грешка: %@: %@";
+"failed_to_fetch_events" = "Неуспешно зареждане на събитията: %@";
+"user_id_not_found" = "ID на потребителя не е намерен.";
+"event_title_empty" = "Заглавието на събитието е празно.";
+"not_enough_valid_options" = "Няма достатъчно валидни опции.";
+"not_enough_valid_event_options" = "Няма достатъчно валидни опции.";
+"not_enough_valid_event_options" = "Трябва да има поне толкова членове, колкото и отбори, и всеки член трябва да има име.";
+"failed_to_save_event" = "Неуспешно запазване на събитието: %@";
+"failed_to_update_event" = "Неуспешно актуализиране на събитието: %@";
+"failed_to_delete_event" = "Неуспешно изтриване на събитието: %@";
+"failed_to_save_teams_draw" = "Неуспешно запазване на жребия на отборите: %@";
+"failed_to_fetch_teams_draw" = "Неуспешно зареждане на жребия на отборите: %@";
+"failed_to_fetch_team_results" = "Неуспешно зареждане на резултатите на отборите: %@";
+"invalid_teams_draw_id" = "Невалиден ID на жребия на отборите.";
+"invalid_team_result_id" = "Невалиден ID на резултата на отбора.";
+"invalid_event_id" = "Невалиден ID на събитието.";
+"invalid_user_id" = "Невалиден ID на потребителя.";
+
+// Authentication Errors
+"authentication_error_message" = "Невалидно потребителско име или парола.";
+
+// Success Messages
+"successful_sign_in" = "Потребител %@ %@ успешно влезе.";
+"successful_sign_up" = "Потребител %@ %@ успешно се регистрира.";
+
+// Sign-In Screen
+"signin_title" = "Вход";
+"no_account_prompt" = "Нямате акаунт?";
+"signup_here" = "Регистрирайте се тук";
+"forgot_password" = "Забравена парола?";
+"signin_button" = "Вход";
+
+// Sign-Up Screen
+"signup_title" = "Регистрация";
+
+// HomeView
+"draw_tab" = "Жребий";
+"teams_tab" = "Отбори";
+"settings_tab" = "Настройки";
+
+// Question
+"questions_title" = "Въпроси";
+"add_new_question" = "Добавяне на нов въпрос";
+"edit_question" = "Редактиране на въпрос";
+"question_title_placeholder" = "Заглавие на въпроса";
+"answers_list_placeholder" = "Списък с отговори";
+"enter_question_title" = "Въведете заглавието на въпроса";
+"add_answer" = "Добавяне на отговор";
+"answer" = "Отговор";
+"draw" = "Жребий";
+
+// History and Statistics
+"history_title" = "История";
+"statistics_title" = "Статистика";
+"total_draw" = "Общо жребий";
+"option_label" = "Опция";
+"count_label" = "Брой";
+"draws_label" = "жребии";
+"no_results_yet" = "Все още няма резултати";
+
+//Empty QuestionList
+"empty_questions_title" = "Няма налични въпроси.";
+"empty_questions_message" = "Натиснете бутона по-долу, за да добавите първия си въпрос.";
+
+//Team
+"default_team_name" = "Отбор";
+"launch_draw" = "Стартиране на жребий";
+"history" = "История";
+"loading" = "Зареждане...";
+"no_draw_found" = "Не е намерен жребий";
+"no_draw_found_message" = "Направете жребий, за да имате история";
+"draw_on" = "Жребий на";
+
+//Event
+"event_name" = "Име на събитието";
+"event_parameters" = "Параметри на събитието";
+"event_title_placeholder" = "Заглавие на събитието";
+"members_list_placeholder" = "Списък с членове";
+"add_event" = "Добавяне на събитие";
+"edit_event" = "Редактиране на събитие";
+"add_new_event" = "Добавяне на ново събитие";
+"events" = "Събития";
+"no_events_available" = "Няма налични събития";
+"press_button_to_create_event" = "Натиснете бутона по-долу, за да създадете ново събитие.";
+"team_number" = "Отбор %d";
+"member" = "Член";
+"members" = "Членове";
+"add_member" = "Добавяне на член";
+
+//Parameters
+"language" = "Език";
+"user_informations" = "Информация за потребителя";
+"selected_language" = "Избран език";
+
+//ParameterList
+"equitable_distribution" = "Равнопоставено разпределение";
+"number_of_teams" = "Брой отбори: %d";
+"team_name" = "Име на отбора %d";

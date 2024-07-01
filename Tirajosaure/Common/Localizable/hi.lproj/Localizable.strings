@@ -1,0 +1,160 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "Email";
+"password" = "Password";
+"first_name" = "First Name";
+"last_name" = "Last Name";
+"enter_your_password" = "Enter your password";
+"confirm_your_password" = "Confirm your password";
+"continue_button" = "Continue";
+"logout_button" = "Logout";
+"reset_password_title" = "Reset Password";
+"reset_password_button" = "Reset";
+"password_reset_email_sent" = "Password reset email sent";
+
+// General Errors
+"network_error_message" = "A network error occurred. Please try again.";
+"unknown_error_message" = "An unknown error occurred.";
+
+// Validation Errors
+"validation_error_message" = "Please check the input fields for errors.";
+"parse_error_message" = "Server Error: %@";
+"passwords_do_not_match" = "Passwords do not match.";
+"invalid_email" = "Please enter a valid email.";
+"empty_password" = "Please enter a password.";
+"first_name_missing" = "Please enter a first name.";
+"last_name_missing" = "Please enter a last name.";
+"password_length_error" = "Password must be at least 8 characters long.";
+"password_uppercase_error" = "Password must contain at least one uppercase letter.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Failed to request password reset";
+"failed_to_decode_json_response" = "Failed to decode JSON response";
+"unknown_error" = "An unknown error occurred";
+"default_message" = "No response string";
+"empty_question_title" = "The question title cannot be empty";
+"insufficient_options" = "A question must have at least two options";
+"failed_to_save_question" = "Failed to save question";
+"failed_to_update_question" = "Failed to update question";
+"failed_to_delete_question" = "Failed to delete question";
+"failed_to_fetch_questions" = "Failed to fetch questions : %@";
+"failed_to_load_questions" = "Failed to load questions";
+"failed_to_save_user_data" = "Failed to save user data";
+"failed_to_load_user_data" = "Failed to load user data";
+"failed_to_save_draw_result" = "Failed to save draw result";
+"failed_to_load_draw_results" = "Failed to load draw results";
+"invalid_question_id" = "Invalid Question ID";
+"network_data_missing" = "A network error occurred: Data could not be read because it is missing.";
+"network_error_description" = "A network error occurred: %@";
+"network_error_with_response" = "A network error occurred: %@: %@";
+"failed_to_fetch_events" = "Failed to fetch events: %@";
+"user_id_not_found" = "User ID not found.";
+"event_title_empty" = "Event title is empty.";
+"not_enough_valid_options" = "Not enough valid options.";
+"not_enough_valid_event_options" = "Not enough valid options. ";
+"not_enough_valid_event_options" = "There must be at least as many members as teams, and each member must have a name.";
+"failed_to_save_event" = "Failed to save event: %@";
+"failed_to_update_event" = "Failed to update event: %@";
+"failed_to_delete_event" = "Failed to delete event: %@";
+"failed_to_fetch_events" = "Failes to fetch event : %@";
+"user_id_not_found" = "User ID not found.";
+"event_title_empty" = "Event title is empty.";
+"not_enough_valid_options" = "Not enough valid options.";
+"failed_to_save_event" = "Failed to save event : %@";
+"failed_to_update_event" = "Failed to update event : %@";
+"failed_to_delete_event" = "Failed to delete event: %@";
+"failed_to_save_teams_draw" = "Failed to save teams draw: %@";
+"failed_to_fetch_teams_draw" = "Failed to fetch teams draw: %@";
+"failed_to_fetch_team_results" = "Failed to fetch team results: %@";
+"invalid_teams_draw_id" = "Invalid TeamsDraw ID.";
+"invalid_team_result_id" = "Invalid TeamResult ID.";
+"invalid_event_id" = "Invalid event ID.";
+"invalid_user_id" = "Invalid user ID.";
+
+// Authentication Errors
+"authentication_error_message" = "Invalid username or password.";
+
+// Success Messages
+"successful_sign_in" = "User %@ %@ successfully signed in.";
+"successful_sign_up" = "User %@ %@ successfully registered.";
+
+// Sign-In Screen
+"signin_title" = "Sign In";
+"no_account_prompt" = "Don't have an account?";
+"signup_here" = "Sign up here";
+"forgot_password" = "Forgot Password?";
+"signin_button" = "Sign In";
+
+// Sign-Up Screen
+"signup_title" = "Sign Up";
+
+// HomeView
+"draw_tab" = "Draw";
+"teams_tab" = "Teams";
+"settings_tab" = "Settings";
+
+// Question
+"questions_title" = "Questions";
+"add_new_question" = "Add a New Question";
+"edit_question" = "Edit question";
+"question_title_placeholder" = "Question Title";
+"answers_list_placeholder" = "Answer List";
+"enter_question_title" = "Enter the question title";
+"add_answer" = "Add an Answer";
+"answer" = "Answer";
+"draw" = "Draw";
+
+// History and Statistics
+"history_title" = "History";
+"statistics_title" = "Statistics";
+"total_draw" = "Total draw";
+"option_label" = "Option";
+"count_label" = "Count";
+"draws_label" = "draws";
+"no_results_yet" = "No results yet";
+
+//Empty QuestionList
+"empty_questions_title" = "No questions available.";
+"empty_questions_message" = "Tap the button below to add your first question.";
+
+//Team
+"default_team_name" = "Team";
+"launch_draw" = "Launch the draw";
+"history" = "History";
+"loading" = "Loading...";
+"no_draw_found" = "No draw found";
+"no_draw_found_message" = "Make a draw to have an historic";
+"draw_on" = "Draw on";
+
+//Event
+"event_name" = "Event Name";
+"event_parameters" = "Event Parameters";
+"event_title_placeholder" = "Event Title";
+"members_list_placeholder" = "Members List";
+"add_event" = "Add Event";
+"edit_event" = "Edit Event";
+"add_new_event" = "Add a New Event";
+"events" = "Events";
+"no_events_available" = "No Events Available";
+"press_button_to_create_event" = "Press the button below to create a new event.";
+"team_number" = "Team %d";
+"member" = "Member";
+"members" = "Members";
+"add_member" = "Add Member";
+
+//Parameters
+"language" = "Language";
+"user_informations" = "Informations";
+"selected_language" = "Selected Language";
+
+//ParameterList
+"equitable_distribution" = "Equitable distribution";
+"number_of_teams" = "Number of teams: %d";
+"team_name" = "Team name %d";

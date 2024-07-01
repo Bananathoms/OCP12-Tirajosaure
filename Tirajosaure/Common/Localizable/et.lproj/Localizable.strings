@@ -1,0 +1,153 @@
+/*
+  Localizable.strings
+  Tirajosaure
+
+  Created by Thomas Carlier on 07/06/2024.
+  
+*/
+
+// General
+"email" = "E-post";
+"password" = "Parool";
+"first_name" = "Eesnimi";
+"last_name" = "Perekonnanimi";
+"enter_your_password" = "Sisestage oma parool";
+"confirm_your_password" = "Kinnitage oma parool";
+"continue_button" = "Jätka";
+"logout_button" = "Logi välja";
+"reset_password_title" = "Lähtesta parool";
+"reset_password_button" = "Lähtesta";
+"password_reset_email_sent" = "Parooli lähtestamise e-post saadetud";
+
+// General Errors
+"network_error_message" = "Toimus võrgu viga. Palun proovige uuesti.";
+"unknown_error_message" = "Toimus tundmatu viga.";
+
+// Validation Errors
+"validation_error_message" = "Palun kontrollige sisestatud välju vigade osas.";
+"parse_error_message" = "Serveri viga: %@";
+"passwords_do_not_match" = "Paroolid ei ühti.";
+"invalid_email" = "Palun sisestage kehtiv e-posti aadress.";
+"empty_password" = "Palun sisestage parool.";
+"first_name_missing" = "Palun sisestage eesnimi.";
+"last_name_missing" = "Palun sisestage perekonnanimi.";
+"password_length_error" = "Parool peab olema vähemalt 8 tähemärki pikk.";
+"password_uppercase_error" = "Parool peab sisaldama vähemalt ühte suurtähte.";
+
+// Error Messages
+"failed_to_request_password_reset" = "Parooli lähtestamise taotlus ebaõnnestus";
+"failed_to_decode_json_response" = "JSON-vastuse dekodeerimine ebaõnnestus";
+"unknown_error" = "Toimus tundmatu viga";
+"default_message" = "Vastuseta string puudub";
+"empty_question_title" = "Küsimuse pealkiri ei tohi olla tühi";
+"insufficient_options" = "Küsimus peab sisaldama vähemalt kahte valikut";
+"failed_to_save_question" = "Küsimuse salvestamine ebaõnnestus";
+"failed_to_update_question" = "Küsimuse uuendamine ebaõnnestus";
+"failed_to_delete_question" = "Küsimuse kustutamine ebaõnnestus";
+"failed_to_fetch_questions" = "Küsimuste toomine ebaõnnestus: %@";
+"failed_to_load_questions" = "Küsimuste laadimine ebaõnnestus";
+"failed_to_save_user_data" = "Kasutaja andmete salvestamine ebaõnnestus";
+"failed_to_load_user_data" = "Kasutaja andmete laadimine ebaõnnestus";
+"failed_to_save_draw_result" = "Loosimise tulemuse salvestamine ebaõnnestus";
+"failed_to_load_draw_results" = "Loosimise tulemuste laadimine ebaõnnestus";
+"invalid_question_id" = "Kehtetu küsimuse ID";
+"network_data_missing" = "Toimus võrgu viga: andmeid ei saanud lugeda, kuna need puuduvad.";
+"network_error_description" = "Toimus võrgu viga: %@";
+"network_error_with_response" = "Toimus võrgu viga: %@: %@";
+"failed_to_fetch_events" = "Sündmuste toomine ebaõnnestus: %@";
+"user_id_not_found" = "Kasutaja ID-d ei leitud.";
+"event_title_empty" = "Sündmuse pealkiri on tühi.";
+"not_enough_valid_options" = "Pole piisavalt kehtivaid valikuid.";
+"not_enough_valid_event_options" = "Pole piisavalt kehtivaid valikuid.";
+"not_enough_valid_event_options" = "Peab olema vähemalt sama palju liikmeid kui meeskondi ja igal liikmel peab olema nimi.";
+"failed_to_save_event" = "Sündmuse salvestamine ebaõnnestus: %@";
+"failed_to_update_event" = "Sündmuse uuendamine ebaõnnestus: %@";
+"failed_to_delete_event" = "Sündmuse kustutamine ebaõnnestus: %@";
+"failed_to_save_teams_draw" = "Meeskondade loosimise salvestamine ebaõnnestus: %@";
+"failed_to_fetch_teams_draw" = "Meeskondade loosimise toomine ebaõnnestus: %@";
+"failed_to_fetch_team_results" = "Meeskondade tulemuste toomine ebaõnnestus: %@";
+"invalid_teams_draw_id" = "Kehtetu meeskondade loosimise ID.";
+"invalid_team_result_id" = "Kehtetu meeskonna tulemuse ID.";
+"invalid_event_id" = "Kehtetu sündmuse ID.";
+"invalid_user_id" = "Kehtetu kasutaja ID.";
+
+// Authentication Errors
+"authentication_error_message" = "Vale kasutajanimi või parool.";
+
+// Success Messages
+"successful_sign_in" = "Kasutaja %@ %@ logis edukalt sisse.";
+"successful_sign_up" = "Kasutaja %@ %@ registreerus edukalt.";
+
+// Sign-In Screen
+"signin_title" = "Logi sisse";
+"no_account_prompt" = "Kas teil pole kontot?";
+"signup_here" = "Registreeru siin";
+"forgot_password" = "Unustasid parooli?";
+"signin_button" = "Logi sisse";
+
+// Sign-Up Screen
+"signup_title" = "Registreeru";
+
+// HomeView
+"draw_tab" = "Loosimine";
+"teams_tab" = "Meeskonnad";
+"settings_tab" = "Seaded";
+
+// Question
+"questions_title" = "Küsimused";
+"add_new_question" = "Lisa uus küsimus";
+"edit_question" = "Muuda küsimust";
+"question_title_placeholder" = "Küsimuse pealkiri";
+"answers_list_placeholder" = "Vastuste loend";
+"enter_question_title" = "Sisestage küsimuse pealkiri";
+"add_answer" = "Lisa vastus";
+"answer" = "Vastus";
+"draw" = "Loosimine";
+
+// History and Statistics
+"history_title" = "Ajalugu";
+"statistics_title" = "Statistika";
+"total_draw" = "Kogu loosimine";
+"option_label" = "Valik";
+"count_label" = "Kogus";
+"draws_label" = "loosimised";
+"no_results_yet" = "Tulemusi veel pole";
+
+//Empty QuestionList
+"empty_questions_title" = "Küsimusi pole saadaval.";
+"empty_questions_message" = "Puudutage allolevat nuppu, et lisada oma esimene küsimus.";
+
+//Team
+"default_team_name" = "Meeskond";
+"launch_draw" = "Käivita loosimine";
+"history" = "Ajalugu";
+"loading" = "Laadimine...";
+"no_draw_found" = "Loosimist ei leitud";
+"no_draw_found_message" = "Ajaloo jaoks tehke loosimine";
+"draw_on" = "Loosimine sisse";
+
+//Event
+"event_name" = "Sündmuse nimi";
+"event_parameters" = "Sündmuse parameetrid";
+"event_title_placeholder" = "Sündmuse pealkiri";
+"members_list_placeholder" = "Liikmete loend";
+"add_event" = "Lisa sündmus";
+"edit_event" = "Muuda sündmust";
+"add_new_event" = "Lisa uus sündmus";
+"events" = "Sündmused";
+"no_events_available" = "Sündmusi pole saadaval";
+"press_button_to_create_event" = "Looge uus sündmus, vajutades allolevat nuppu.";
+"team_number" = "Meeskond %d";
+"member" = "Liige";
+"members" = "Liikmed";
+"add_member" = "Lisa liige";
+
+//Parameters
+"language" = "Keel";
+"user_informations" = "Kasutajateave";
+"selected_language" = "Valitud keel";
+
+//ParameterList
+"equitable_distribution" = "Õiglane jaotus";
+"number_of_teams" = "Meeskondade arv: %d";
+"team_name" = "Meeskonna nimi %d";
