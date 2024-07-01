@@ -13,42 +13,25 @@ struct AddEventView: View {
     @StateObject private var optionsController = OptionsController()
     @State private var isLoading = false
     @State private var errorMessage: String?
-
+    
     var body: some View {
         NavigationStack {
             VStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text(LocalizedString.eventName.localized)
-                            .font(.headline)
-                            .padding(.leading, 20)
-
+                ScrollView{
+                    VStack {
                         ReusableTextField(
                             hint: $eventController.newEventTitle,
                             icon: IconNames.pencil.rawValue,
-                            title: nil,
-                            fieldName: LocalizedString.eventName.localized
+                            title:  LocalizedString.eventTitlePlaceholder.localized,
+                            fieldName: LocalizedString.eventTitlePlaceholder.localized
                         )
-
-                        Text(LocalizedString.eventParameters.localized)
-                            .font(.headline)
-                            .padding(.leading, 20)
-
-                        ParametersList(controller: eventController.parametersController)
-                            .frame(height: CGFloat(140.0 + Double(eventController.parametersController.numberOfTeams) * 44.0))
-
-                        VStack(alignment: .leading) {
-                            Text(LocalizedString.memberList.localized)
-                                .font(.headline)
-                                .padding(.leading, 20)
-
-                            OptionsListView(controller: optionsController)
-                                .frame(height: CGFloat(optionsController.options.count) * 44.0 + 50.0)
-                        }
+                        
+                        ParametersList(title: LocalizedString.eventParameters.localized, controller: eventController.parametersController)
+                        
+                        OptionsListView(title: LocalizedString.membersListPlaceholder.localized, addElement: LocalizedString.addMember.localized, element: LocalizedString.member.localized, controller: optionsController)
                     }
-                    .padding(.bottom, 20)
-                }
-
+                }.padding(.top)
+ 
                 TextButton(
                     text: LocalizedString.addEvent.localized,
                     isLoading: isLoading,
@@ -86,7 +69,7 @@ struct AddEventView: View {
 
 struct AddEventView_Previews: PreviewProvider {
     @StateObject static var controller = EventController()
-
+    
     static var previews: some View {
         AddEventView(eventController: controller)
             .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)

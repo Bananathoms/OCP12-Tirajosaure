@@ -26,7 +26,6 @@ class ParametersListController: ObservableObject {
     }
     
     func updateTeamNames() {
-        let defaultTeamName = LocalizedString.defaultTeamName.localized
         if teamNames.count < numberOfTeams {
             for i in teamNames.count..<numberOfTeams {
                 teamNames.append(String(format: LocalizedString.teamNumber.localized, i + 1))
@@ -39,5 +38,11 @@ class ParametersListController: ObservableObject {
     func updateTeamName(at index: Int, with newName: String) {
         guard index >= 0 && index < teamNames.count else { return }
         teamNames[index] = newName
+    }
+    
+    func calculateListHeight() -> CGFloat {
+        let baseHeight: CGFloat = 160.0
+        let rowHeight: CGFloat = 44.0
+        return baseHeight + (rowHeight * CGFloat(numberOfTeams))
     }
 }

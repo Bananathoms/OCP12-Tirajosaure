@@ -19,9 +19,9 @@ struct EventHistoricView: View {
                 ScrollView {
                     VStack {
                         if controller.isLoading {
-                            loadingView()
+                            LoadingStateView()
                         } else if controller.teamsDraws.isEmpty {
-                            emptyView()
+                            EmptyStateView(title: LocalizedString.noDrawFound.localized, message: LocalizedString.noDrawFoundMessage.localized)
                         } else {
                             drawsListView()
                         }
@@ -45,11 +45,6 @@ struct EventHistoricView: View {
                 controller.loadHistoricData(for: event)
             }
         }
-    }
-    
-    private func loadingView() -> some View {
-        ProgressView(LocalizedString.loading.localized)
-            .padding()
     }
     
     private func emptyView() -> some View {

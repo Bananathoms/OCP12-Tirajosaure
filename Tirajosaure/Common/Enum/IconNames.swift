@@ -23,6 +23,9 @@ enum IconNames: String {
     case chartBar = "chart.bar"
     case listBullet = "list.bullet"
     case clockFill = "clock.fill"
+    case personneFill = "person.fill"
+    case enveloppeFill = "envelope.fill"
+    case chevronDown = "chevron.down"
 
     var image: Image {
         return Image(self.rawValue)

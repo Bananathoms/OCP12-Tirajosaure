@@ -67,8 +67,9 @@ enum LocalizedString: String {
     case editQuestion = "edit_question"
     case questionTitlePlaceholder = "question_title_placeholder"
     case enterQuestionTitle = "enter_question_title"
-    case addElement = "add_element"
-    case elements = "elements"
+    case answersListPlaceholder = "answers_list_placeholder"
+    case addAnswer = "add_answer"
+    case answer = "answer"
     case draw = "draw"
     
     // History and Statistics
@@ -90,24 +91,32 @@ enum LocalizedString: String {
     case history = "history"
     case loading = "loading"
     case noDrawFound = "no_draw_found"
+    case noDrawFoundMessage = "no_draw_found_message"
     case drawOn = "draw_on"
     
-    // AddEvent
+    // Event
     case eventName = "event_name"
     case eventParameters = "event_parameters"
-    case memberList = "member_list"
+    case eventTitlePlaceholder = "event_title_placeholder"
+    case membersListPlaceholder = "members_list_placeholder"
     case addEvent = "add_event"
-    
-    // EditEvent
     case editEvent = "edit_event"
-    
-    // TeamView
-    case createNewEvent = "create_new_event"
+    case addNewEvent = "add_new_event"
     case events = "events"
     case noEventsAvailable = "no_events_available"
     case pressButtonToCreateEvent = "press_button_to_create_event"
     case teamNumber = "team_number"
+    case member = "Member"
+    case members = "Members"
+    case addMember = "add_member"
     
-    // Members
-    case members = "members"
+    // Parameters
+    case selectLanguage = "select_language"
+    case language = "language"
+    case userInformations = "user_informations"
+    
+    // ParameterList
+    case equitableDistribution = "equitable_distribution"
+    case numberOfTeams = "number_of_teams"
+    case teamName = "team_name"
 }

@@ -189,5 +189,9 @@ class UserService: ObservableObject {
     /// Clears the user data from UserDefaults.
     func clearUserDefaults() {
         userDefaults.removeObject(forKey: userKey)
+        let preferredLanguage = Locale.preferredLanguages.first?.prefix(2) ?? "en"
+        userDefaults.set(String(preferredLanguage), forKey: "selectedLanguage")
+        Bundle.setLanguage(String(preferredLanguage))
+        NotificationCenter.default.post(name: NSNotification.Name("LanguageChanged"), object: nil)
     }
 }

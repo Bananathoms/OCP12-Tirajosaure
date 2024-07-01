@@ -58,22 +58,25 @@
 "user_id_not_found" = "User ID not found.";
 "event_title_empty" = "Event title is empty.";
 "not_enough_valid_options" = "Not enough valid options.";
+"not_enough_valid_event_options" = "Not enough valid options. ";
+"not_enough_valid_event_options" = "There must be at least as many members as teams, and each member must have a name.";
 "failed_to_save_event" = "Failed to save event: %@";
 "failed_to_update_event" = "Failed to update event: %@";
 "failed_to_delete_event" = "Failed to delete event: %@";
-"failed_to_fetch_events" = "Échec de la récupération des événements : %@";
-"user_id_not_found" = "ID utilisateur non trouvé.";
-"event_title_empty" = "Le titre de l'événement est vide.";
-"not_enough_valid_options" = "Pas assez d'options valides.";
-"failed_to_save_event" = "Échec de l'enregistrement de l'événement : %@";
-"failed_to_update_event" = "Échec de la mise à jour de l'événement : %@";
-"failed_to_delete_event" = "Échec de la suppression de l'événement : %@";
+"failed_to_fetch_events" = "Failes to fetch event : %@";
+"user_id_not_found" = "User ID not found.";
+"event_title_empty" = "Event title is empty.";
+"not_enough_valid_options" = "Not enough valid options.";
+"failed_to_save_event" = "Failed to save event : %@";
+"failed_to_update_event" = "Failed to update event : %@";
+"failed_to_delete_event" = "Failed to delete event: %@";
 "failed_to_save_teams_draw" = "Failed to save teams draw: %@";
 "failed_to_fetch_teams_draw" = "Failed to fetch teams draw: %@";
 "failed_to_fetch_team_results" = "Failed to fetch team results: %@";
 "invalid_teams_draw_id" = "Invalid TeamsDraw ID.";
 "invalid_team_result_id" = "Invalid TeamResult ID.";
 "invalid_event_id" = "Invalid event ID.";
+"invalid_user_id" = "Invalid user ID.";
 
 // Authentication Errors
 "authentication_error_message" = "Invalid username or password.";
@@ -99,12 +102,13 @@
 
 // Question
 "questions_title" = "Questions";
-"add_new_question" = "Add a new question";
+"add_new_question" = "Add a New Question";
 "edit_question" = "Edit question";
 "question_title_placeholder" = "Question Title";
+"answers_list_placeholder" = "Answer List";
 "enter_question_title" = "Enter the question title";
-"add_element" = "Add an element";
-"elements" = "Elements";
+"add_answer" = "Add an Answer";
+"answer" = "Answer";
 "draw" = "Draw";
 
 // History and Statistics
@@ -126,24 +130,31 @@
 "history" = "History";
 "loading" = "Loading...";
 "no_draw_found" = "No draw found";
+"no_draw_found_message" = "Make a draw to have an historic";
 "draw_on" = "Draw on";
 
-//Add Event
+//Event
 "event_name" = "Event Name";
 "event_parameters" = "Event Parameters";
-"member_list" = "Member List";
+"event_title_placeholder" = "Event Title";
+"members_list_placeholder" = "Members List";
 "add_event" = "Add Event";
-
-//Event Edit
 "edit_event" = "Edit Event";
-
-//TeamView
-"create_new_event" = "Create a New Event";
+"add_new_event" = "Add a New Event";
 "events" = "Events";
 "no_events_available" = "No Events Available";
 "press_button_to_create_event" = "Press the button below to create a new event.";
 "team_number" = "Team %d";
+"member" = "Member";
+"members" = "Members";
+"add_member" = "Add Member";
 
-//Members
-"members" = "members";
+//Parameters
+"language" = "Language";
+"user_informations" = "Informations";
+"selected_language" = "Selected Language";
 
+//ParameterList
+"equitable_distribution" = "Equitable distribution";
+"number_of_teams" = "Number of teams: %d";
+"team_name" = "Team name %d";

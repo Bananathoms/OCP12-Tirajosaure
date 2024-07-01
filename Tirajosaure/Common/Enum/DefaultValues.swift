@@ -14,4 +14,8 @@ enum DefaultValues {
     static let user = "user"
     static let currentUser = "currentUser"
     static let objectId = "objectId"
+    static let languageChanged = "LanguageChanged"
+    static let defaultLastName = "Doe"
+    static let defaultFirstName = "John"
+    static let defaultEmail = "john.doe@example.com"
 }

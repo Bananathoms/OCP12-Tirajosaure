@@ -18,9 +18,10 @@ struct EventItem<Destination: View>: View {
                 Text(event.title)
                     .font(.headline)
                     .foregroundColor(.oxfordBlue)
-                Text("\(event.members.count) \(LocalizedString.members.localized)")
+                Text("\(event.members.count) \(event.members.count == 1 ? LocalizedString.member.localized : LocalizedString.members.localized)")
                     .font(.subheadline)
                     .foregroundColor(.gray)
+               
             }
             .padding()
             .background(Color.antiqueWhite)

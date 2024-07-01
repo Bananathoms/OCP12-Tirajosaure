@@ -14,9 +14,12 @@ struct AddQuestionView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ReusableTextField(hint: $questionController.newQuestionTitle, icon: IconNames.pencil.rawValue, title: LocalizedString.questionTitlePlaceholder.rawValue.localized, fieldName: LocalizedString.enterQuestionTitle.rawValue.localized)
+                ScrollView {
+                    ReusableTextField(hint: $questionController.newQuestionTitle, icon: IconNames.pencil.rawValue, title: LocalizedString.questionTitlePlaceholder.localized, fieldName: LocalizedString.enterQuestionTitle.localized)
+                    OptionsListView(title: LocalizedString.answersListPlaceholder.localized, addElement: LocalizedString.addAnswer.localized, element: LocalizedString.answer.localized, controller: questionController.optionsController)
+                }
                 
-                OptionsListView(controller: questionController.optionsController)
+                Spacer()
                 
                 TextButton(
                     text: LocalizedString.addNewQuestion.rawValue.localized,
@@ -30,9 +33,6 @@ struct AddQuestionView: View {
                     buttonColor: .antiqueWhite,
                     textColor: .oxfordBlue
                 )
-                .padding()
-                
-                Spacer()
             }
             .padding(.top)
             .background(Color.skyBlue)

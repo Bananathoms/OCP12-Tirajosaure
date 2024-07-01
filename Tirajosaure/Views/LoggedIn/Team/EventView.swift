@@ -16,37 +16,7 @@ struct EventView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if eventController.isLoading {
-                    Spacer()
-                    ProgressView(LocalizedString.loading.localized)
-                    Spacer()
-                } else {
-                    if eventController.events.isEmpty {
-                        emptyStateView
-                    } else {
-                        eventListView
-                    }
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        MixpanelEvent.deleteEventButtonClicked.trackEvent()
-                        navigateToAdd.toggle()
-                    }) {
-                        AddButton(
-                            text: LocalizedString.createNewEvent.localized,
-                            image: IconNames.plusCircleFill.systemImage,
-                            buttonColor: .antiqueWhite,
-                            textColor: .oxfordBlue,
-                            width: 300,
-                            height: 50
-                        )
-                        .padding()
-                    }
-                    .navigationDestination(isPresented: $navigateToAdd) {
-                        AddEventView(eventController: eventController)
-                    }
-                }
+                eventController.isLoading ? AnyView(LoadingStateView()) : AnyView(eventListStateView)
             }
             .frame(maxWidth: .infinity)
             .background(Color.skyBlue)
@@ -78,50 +48,51 @@ struct EventView: View {
     }
 
     private var emptyStateView: some View {
-        VStack {
-            Text(LocalizedString.noEventsAvailable.localized)
-                .font(.customFont(.nunitoBold, size: 20))
-                .foregroundColor(.gray)
-                .padding(.top, 40)
-            Text(LocalizedString.pressButtonToCreateEvent.localized)
-                .font(.customFont(.nunitoRegular, size: 16))
-                .foregroundColor(.gray)
-                .multilineTextAlignment(.center)
-                .padding([.leading, .trailing], 20)
-                .padding(.top, 10)
-            Spacer()
-        }
+        EmptyStateView(
+            title: LocalizedString.noEventsAvailable.localized,
+            message: LocalizedString.pressButtonToCreateEvent.localized
+        )
+    }
+    
+    private var eventListStateView: some View {
+        ReusableListStateView(
+            data: eventController.events,
+            emptyView: emptyStateView,
+            contentView: eventListView,
+            buttonText: LocalizedString.addNewEvent.localized,
+            buttonImage: IconNames.plusCircleFill.systemImage,
+            buttonColor: .antiqueWhite,
+            textColor: .oxfordBlue,
+            destinationView: AddEventView(eventController: eventController),
+            navigateToAdd: $navigateToAdd,
+            buttonAction: {
+                MixpanelEvent.deleteEventButtonClicked.trackEvent()
+            }
+        )
     }
 
     private var eventListView: some View {
-        List {
-            ForEach(eventController.events) { event in
-                let detailView = EventDetailView(
-                    event: event,
-                    eventController: eventController,
-                    teamDistributionController: TeamDistributionController(),
-                    parametersController: ParametersListController(numberOfTeams: event.teams.count, teamNames: event.teams),
-                    optionsController: {
-                        let controller = OptionsController()
-                        controller.options = event.members
-                        return controller
-                    }()
-                )
-                
-                EventItem(event: event, destination: { detailView })
-                    .padding(.trailing)
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(Color.antiqueWhite)
-            }
-            .onDelete { indexSet in
-                eventController.removeEvent(at: indexSet)
-            }
-            .onMove { source, destination in
-                eventController.moveEvent(from: source, to: destination)
-            }
-        }
-        .environment(\.editMode, .constant(isEditing ? .active : .inactive))
-        .scrollContentBackground(.hidden)
+        ReusableListView(
+            data: eventController.events,
+            content: { event in
+                EventItem(event: event, destination: {
+                    EventDetailView(
+                        event: event,
+                        eventController: eventController,
+                        teamDistributionController: TeamDistributionController(),
+                        parametersController: ParametersListController(numberOfTeams: event.teams.count, teamNames: event.teams),
+                        optionsController: {
+                            let controller = OptionsController()
+                            controller.options = event.members
+                            return controller
+                        }()
+                    )
+                })
+            },
+            onDelete: eventController.removeEvent,
+            onMove: eventController.moveEvent,
+            isEditing: isEditing
+        )
     }
 }
 

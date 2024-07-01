@@ -41,6 +41,7 @@ enum ErrorMessage: String {
     case userIDNotFound = "user_id_not_found"
     case eventTitleEmpty = "event_title_empty"
     case notEnoughValidOptions = "not_enough_valid_options"
+    case notEnoughValidEventOptions = "not_enough_valid_event_options"
     case failedToSaveEvent = "failed_to_save_event"
     case failedToUpdateEvent = "failed_to_update_event"
     case failedToDeleteEvent = "failed_to_delete_event"
@@ -50,6 +51,7 @@ enum ErrorMessage: String {
     case invalidTeamsDrawID = "invalid_teams_draw_id"
     case invalidTeamResultID = "invalid_team_result_id"
     case invalidEventID = "invalid_event_id"
+    case invalidUserID = "invalid_user_id"
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

@@ -16,7 +16,7 @@ struct StatisticsListView: View {
         let statistics = statisticsController.getStatistics(for: options, in: drawResults)
         
         Group {
-            StatisticsResultCard(statistics: OptionStatistics(option: LocalizedString.totalDraw.localized, count: drawResults.count, percentage: Double(drawResults.count)))
+            StatisticsResultCard(statistics: OptionStatistics(option: LocalizedString.totalDraw.localized, count: drawResults.count, percentage: 100))
                 .padding(.trailing)
                 .listRowInsets(EdgeInsets())
                 .listRowBackground(Color.antiqueWhite)

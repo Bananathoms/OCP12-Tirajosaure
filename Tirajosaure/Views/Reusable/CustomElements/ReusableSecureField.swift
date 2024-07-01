@@ -20,8 +20,8 @@ struct ReusableSecureField: View {
                 Text("\(title)")
                     .font(.customFont(.nunitoRegular, size: 16))
                     .foregroundColor(.oxfordBlue)
-                    .padding(.leading, 30)
-                    .padding(.bottom, 5)
+                    .padding(.leading, 40)
+                    .padding(.bottom, 10)
                     .frame(alignment: .topLeading)
                 
                 Spacer()

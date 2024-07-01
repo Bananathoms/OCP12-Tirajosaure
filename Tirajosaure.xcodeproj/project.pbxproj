@@ -114,6 +114,13 @@
 		E9551EF12C307546001E0F7A /* TeamsDrawServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551EF02C307546001E0F7A /* TeamsDrawServiceTests.swift */; };
 		E9551EF32C307B52001E0F7A /* TeamDistributionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551EF22C307B52001E0F7A /* TeamDistributionModelTests.swift */; };
 		E9551EF52C307BC6001E0F7A /* SortedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551EF42C307BC6001E0F7A /* SortedModelTests.swift */; };
+		E9551F322C3254DF001E0F7A /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551F312C3254DF001E0F7A /* AppLanguage.swift */; };
+		E9551F342C325593001E0F7A /* Extension+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551F332C325593001E0F7A /* Extension+Bundle.swift */; };
+		E9551F362C32571D001E0F7A /* LanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551F352C32571D001E0F7A /* LanguageController.swift */; };
+		E9551F3C2C325839001E0F7A /* ReusableListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551F3B2C325839001E0F7A /* ReusableListView.swift */; };
+		E9551F402C325857001E0F7A /* ReusableListStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551F3D2C325857001E0F7A /* ReusableListStateView.swift */; };
+		E9551F412C325857001E0F7A /* LoadingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551F3E2C325857001E0F7A /* LoadingStateView.swift */; };
+		E9551F422C325857001E0F7A /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9551F3F2C325857001E0F7A /* EmptyStateView.swift */; };
 		E9B03C422C2E4A8900AFA4BA /* TeamCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C412C2E4A8900AFA4BA /* TeamCard.swift */; };
 		E9B03C442C2E4B3200AFA4BA /* MemberCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C432C2E4B3200AFA4BA /* MemberCard.swift */; };
 		E9B03C462C2F03F200AFA4BA /* TeamsDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B03C452C2F03F200AFA4BA /* TeamsDraw.swift */; };
@@ -249,6 +256,13 @@
 		E9551EF02C307546001E0F7A /* TeamsDrawServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDrawServiceTests.swift; sourceTree = "<group>"; };
 		E9551EF22C307B52001E0F7A /* TeamDistributionModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDistributionModelTests.swift; sourceTree = "<group>"; };
 		E9551EF42C307BC6001E0F7A /* SortedModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedModelTests.swift; sourceTree = "<group>"; };
+		E9551F312C3254DF001E0F7A /* AppLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		E9551F332C325593001E0F7A /* Extension+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Bundle.swift"; sourceTree = "<group>"; };
+		E9551F352C32571D001E0F7A /* LanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageController.swift; sourceTree = "<group>"; };
+		E9551F3B2C325839001E0F7A /* ReusableListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableListView.swift; sourceTree = "<group>"; };
+		E9551F3D2C325857001E0F7A /* ReusableListStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableListStateView.swift; sourceTree = "<group>"; };
+		E9551F3E2C325857001E0F7A /* LoadingStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingStateView.swift; sourceTree = "<group>"; };
+		E9551F3F2C325857001E0F7A /* EmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		E9B03C412C2E4A8900AFA4BA /* TeamCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCard.swift; sourceTree = "<group>"; };
 		E9B03C432C2E4B3200AFA4BA /* MemberCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCard.swift; sourceTree = "<group>"; };
 		E9B03C452C2F03F200AFA4BA /* TeamsDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDraw.swift; sourceTree = "<group>"; };
@@ -366,6 +380,7 @@
 		DE6736892C0FF199001BEB56 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				E9551F312C3254DF001E0F7A /* AppLanguage.swift */,
 				DE67368A2C0FF1DD001BEB56 /* ConnexionState.swift */,
 				DE6077EC2C1C9A5800AA2A0A /* DefaultValues.swift */,
 				DE6077EA2C1C990300AA2A0A /* UserDefaultsKeys.swift */,
@@ -397,6 +412,7 @@
 		DE67368D2C0FF27D001BEB56 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E9551F332C325593001E0F7A /* Extension+Bundle.swift */,
 				DE67368E2C0FF291001BEB56 /* Extension+Font.swift */,
 				DE2EEF732C12A93F002E4E60 /* Extension+Date.swift */,
 				E9148EB82C27624A00AC49B4 /* Extension+Collection.swift */,
@@ -538,7 +554,6 @@
 				E909D63C2C28D2A5004FC1C3 /* ViewController */,
 				E909D63D2C28D2A5004FC1C3 /* StatisticsChartView.swift */,
 				E909D63E2C28D2A5004FC1C3 /* StatisticsListView.swift */,
-				E909D63F2C28D2A5004FC1C3 /* StatisticsResultCard.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -595,6 +610,7 @@
 		E909D64E2C28D2A5004FC1C3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E9551F352C32571D001E0F7A /* LanguageController.swift */,
 				E909D64D2C28D2A5004FC1C3 /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -732,18 +748,10 @@
 		E909D6752C28D2A5004FC1C3 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
-				E909D6682C28D2A5004FC1C3 /* OptionList */,
-				E909D66C2C28D2A5004FC1C3 /* ParametersList */,
-				E909D66D2C28D2A5004FC1C3 /* AddButton.swift */,
-				E9B03C412C2E4A8900AFA4BA /* TeamCard.swift */,
-				E9B03C432C2E4B3200AFA4BA /* MemberCard.swift */,
-				E909D66E2C28D2A5004FC1C3 /* CustomHeader.swift */,
-				E909D66F2C28D2A5004FC1C3 /* CustomTabBar.swift */,
-				E909D6702C28D2A5004FC1C3 /* EventItem.swift */,
-				E909D6712C28D2A5004FC1C3 /* QuestionItem.swift */,
-				E909D6722C28D2A5004FC1C3 /* ReusableSecureField.swift */,
-				E909D6732C28D2A5004FC1C3 /* ReusableTextField.swift */,
-				E909D6742C28D2A5004FC1C3 /* TextButton.swift */,
+				E9551F3A2C3257A4001E0F7A /* States */,
+				E9551F392C32579A001E0F7A /* Lists */,
+				E9551F382C325792001E0F7A /* CustomElements */,
+				E9551F372C32578C001E0F7A /* Card */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -766,6 +774,51 @@
 				E909D6772C28D2A5004FC1C3 /* Splash */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E9551F372C32578C001E0F7A /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				E909D63F2C28D2A5004FC1C3 /* StatisticsResultCard.swift */,
+				E9B03C432C2E4B3200AFA4BA /* MemberCard.swift */,
+				E9B03C412C2E4A8900AFA4BA /* TeamCard.swift */,
+				E909D6702C28D2A5004FC1C3 /* EventItem.swift */,
+				E909D6712C28D2A5004FC1C3 /* QuestionItem.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		E9551F382C325792001E0F7A /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				E909D6742C28D2A5004FC1C3 /* TextButton.swift */,
+				E909D6732C28D2A5004FC1C3 /* ReusableTextField.swift */,
+				E909D6722C28D2A5004FC1C3 /* ReusableSecureField.swift */,
+				E909D66F2C28D2A5004FC1C3 /* CustomTabBar.swift */,
+				E909D66E2C28D2A5004FC1C3 /* CustomHeader.swift */,
+				E909D66D2C28D2A5004FC1C3 /* AddButton.swift */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		E9551F392C32579A001E0F7A /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				E9551F3B2C325839001E0F7A /* ReusableListView.swift */,
+				E909D66C2C28D2A5004FC1C3 /* ParametersList */,
+				E909D6682C28D2A5004FC1C3 /* OptionList */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		E9551F3A2C3257A4001E0F7A /* States */ = {
+			isa = PBXGroup;
+			children = (
+				E9551F3F2C325857001E0F7A /* EmptyStateView.swift */,
+				E9551F3E2C325857001E0F7A /* LoadingStateView.swift */,
+				E9551F3D2C325857001E0F7A /* ReusableListStateView.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -941,6 +994,7 @@
 				DE6077EB2C1C990300AA2A0A /* UserDefaultsKeys.swift in Sources */,
 				DECEFFCC2C0CCC5000A9B894 /* ParseConfig.swift in Sources */,
 				E9148EB52C2761D800AC49B4 /* QuestionService.swift in Sources */,
+				E9551F342C325593001E0F7A /* Extension+Bundle.swift in Sources */,
 				DE6736862C0FF06A001BEB56 /* User.swift in Sources */,
 				E909D6862C28D2A5004FC1C3 /* QuestionDetailView.swift in Sources */,
 				E909D69F2C28D2A5004FC1C3 /* ReusableSecureField.swift in Sources */,
@@ -960,6 +1014,7 @@
 				DE6736842C0FF035001BEB56 /* ApiService.swift in Sources */,
 				DE6077F82C1CA5DC00AA2A0A /* PreviewData.swift in Sources */,
 				E909D69C2C28D2A5004FC1C3 /* CustomTabBar.swift in Sources */,
+				E9551F3C2C325839001E0F7A /* ReusableListView.swift in Sources */,
 				E909D6892C28D2A5004FC1C3 /* SettingsView.swift in Sources */,
 				E909D6AA2C2BA661004FC1C3 /* TeamDistributionController.swift in Sources */,
 				DE6077E42C1BB2B500AA2A0A /* Extension+LocalizedString.swift in Sources */,
@@ -968,12 +1023,14 @@
 				E909D68F2C28D2A5004FC1C3 /* HomeView.swift in Sources */,
 				E9148E9F2C27606600AC49B4 /* StatisticsModel.swift in Sources */,
 				DE2EEF742C12A93F002E4E60 /* Extension+Date.swift in Sources */,
+				E9551F322C3254DF001E0F7A /* AppLanguage.swift in Sources */,
 				E9B03C502C2F794C00AFA4BA /* EventHistoricController.swift in Sources */,
 				DE2EEF6B2C120F3C002E4E60 /* Extension+Notification.swift in Sources */,
 				E909D6972C28D2A5004FC1C3 /* OptionList.swift in Sources */,
 				E909D6822C28D2A5004FC1C3 /* DrawViewController.swift in Sources */,
 				E9B03C4A2C2F176D00AFA4BA /* EventHistoricView.swift in Sources */,
 				E9148EA92C27610D00AC49B4 /* CodingKeys.swift in Sources */,
+				E9551F412C325857001E0F7A /* LoadingStateView.swift in Sources */,
 				E909D69E2C28D2A5004FC1C3 /* QuestionItem.swift in Sources */,
 				E909D6962C28D2A5004FC1C3 /* OptionController.swift in Sources */,
 				E909D6792C28D2A5004FC1C3 /* UserController.swift in Sources */,
@@ -989,6 +1046,7 @@
 				E909D6902C28D2A5004FC1C3 /* PasswordResetController.swift in Sources */,
 				E909D6882C28D2A5004FC1C3 /* QuestionView.swift in Sources */,
 				E9148E952C275FDC00AC49B4 /* Question.swift in Sources */,
+				E9551F402C325857001E0F7A /* ReusableListStateView.swift in Sources */,
 				DE6077DC2C1BABC000AA2A0A /* CustomFont.swift in Sources */,
 				E9148EA52C2760CC00AC49B4 /* Format.swift in Sources */,
 				DE6736952C0FF316001BEB56 /* Extension+String.swift in Sources */,
@@ -1004,10 +1062,12 @@
 				E909D6832C28D2A5004FC1C3 /* DrawView.swift in Sources */,
 				E909D6912C28D2A5004FC1C3 /* PasswordResetView.swift in Sources */,
 				DE67368B2C0FF1DD001BEB56 /* ConnexionState.swift in Sources */,
+				E9551F422C325857001E0F7A /* EmptyStateView.swift in Sources */,
 				E9148EA32C2760B600AC49B4 /* QueryKey.swift in Sources */,
 				E909D6812C28D2A5004FC1C3 /* StatisticsResultCard.swift in Sources */,
 				E9B03C462C2F03F200AFA4BA /* TeamsDraw.swift in Sources */,
 				E909D67C2C28D2A5004FC1C3 /* HistoryContent.swift in Sources */,
+				E9551F362C32571D001E0F7A /* LanguageController.swift in Sources */,
 				E9B03C422C2E4A8900AFA4BA /* TeamCard.swift in Sources */,
 				E9148E9B2C27603F00AC49B4 /* ParseResponse.swift in Sources */,
 				E909D6802C28D2A5004FC1C3 /* StatisticsListView.swift in Sources */,

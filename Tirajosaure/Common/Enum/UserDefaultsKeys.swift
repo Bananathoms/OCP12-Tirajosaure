@@ -10,6 +10,9 @@ import Foundation
 enum UserDefaultsKeys: String {
     case hasLaunchedBefore
     case drawResults = "DrawResults"
+    case email = "email"
+    case lastName = "lastName"
+    case firstName = "firstName"
 
     var key: String {
         return self.rawValue

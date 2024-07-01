@@ -17,14 +17,14 @@ struct ReusableTextField: View {
         VStack{
             HStack{
                 if let title = title {
-                        Text("\(title)")
-                            .font(.customFont(.nunitoRegular, size: 16))
-                            .foregroundColor(.oxfordBlue)
-                            .padding(.leading, 30)
-                            .padding(.bottom, 5)
-                            .frame(alignment: .topLeading)
-                        Spacer()
-                    }
+                    Text("\(title)")
+                        .font(.customFont(.nunitoRegular, size: 16))
+                        .foregroundColor(.oxfordBlue)
+                        .padding(.leading, 40)
+                        .padding(.bottom, 10)
+                        .frame(alignment: .topLeading)
+                    Spacer()
+                }
             }
             HStack{
                 if let iconUnwraped = icon {
@@ -54,15 +54,15 @@ struct ReusableTextField_Previews: PreviewProvider {
             title: PreviewData.TextFieldData.email.title,
             fieldName: PreviewData.TextFieldData.email.fieldName
         )
-            .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
-            .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
+        .previewDevice(PreviewDevices.iPhone14Pro.previewDevice)
+        .previewDisplayName(PreviewDevices.iPhone14Pro.displayName)
         ReusableTextField(
             hint: PreviewData.TextFieldData.email.hint,
             icon: PreviewData.TextFieldData.email.icon,
             title: PreviewData.TextFieldData.email.title,
             fieldName: PreviewData.TextFieldData.email.fieldName
         )
-            .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
-            .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
+        .previewDevice(PreviewDevices.iPhoneSE.previewDevice)
+        .previewDisplayName(PreviewDevices.iPhoneSE.displayName)
     }
 }

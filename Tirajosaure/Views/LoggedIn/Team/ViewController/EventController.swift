@@ -62,8 +62,8 @@ class EventController: ObservableObject {
         }
         
         let validOptions = optionsController.options.filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
-        guard validOptions.count >= 2 else {
-            SnackBarService.current.error(ErrorMessage.notEnoughValidOptions.localized)
+        guard validOptions.count >= parametersController.numberOfTeams else {
+            SnackBarService.current.error(ErrorMessage.notEnoughValidEventOptions.localized)
             return false
         }
         

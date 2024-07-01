@@ -14,52 +14,35 @@ struct EventEditView: View {
     @StateObject private var parametersController: ParametersListController
     @StateObject private var optionsController: OptionsController
     @Environment(\.presentationMode) var presentationMode
-
+    
     init(event: Binding<Event>, eventController: EventController) {
         self._event = event
         self.eventController = eventController
-
+        
         let paramsController = ParametersListController(numberOfTeams: event.wrappedValue.teams.count, teamNames: event.wrappedValue.teams)
         let optsController = OptionsController()
         optsController.options = event.wrappedValue.members
-
+        
         _parametersController = StateObject(wrappedValue: paramsController)
         _optionsController = StateObject(wrappedValue: optsController)
     }
-
+    
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text(LocalizedString.eventName.localized)
-                            .font(.headline)
-                            .padding(.leading, 20)
-
+                    VStack {
                         ReusableTextField(
                             hint: $event.title,
                             icon: nil,
-                            title: nil,
+                            title: LocalizedString.eventName.localized,
                             fieldName: LocalizedString.eventName.localized
                         )
-
-                        Text(LocalizedString.eventParameters.localized)
-                            .font(.headline)
-                            .padding(.leading, 20)
-
-                        ParametersList(controller: parametersController)
-                            .frame(height: CGFloat(140.0 + Double(parametersController.numberOfTeams) * 44.0))
-
-                        VStack(alignment: .leading) {
-                            Text(LocalizedString.memberList.localized)
-                                .font(.headline)
-                                .padding(.leading, 20)
-
-                            OptionsListView(controller: optionsController)
-                                .frame(height: CGFloat(optionsController.options.count) * 44.0 + 50.0)
-                        }
+                        
+                        ParametersList(title: LocalizedString.eventParameters.localized, controller: parametersController)
+                        
+                        OptionsListView(title: LocalizedString.membersListPlaceholder.localized, addElement: LocalizedString.addMember.localized, element: LocalizedString.member.localized, controller: optionsController)
                     }
-                    .padding(.bottom, 20)
                 }
                 .onAppear {
                     MixpanelEvent.editEventButtonClicked.trackEvent()
@@ -82,14 +65,14 @@ struct EventEditView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
-
+    
     private func loadEventDetails() {
         parametersController.equitableDistribution = event.equitableDistribution
         parametersController.numberOfTeams = event.teams.count
         parametersController.teamNames = event.teams
         optionsController.options = event.members
     }
-
+    
     private func saveChanges() {
         event.equitableDistribution = parametersController.equitableDistribution
         event.teams = parametersController.teamNames
@@ -113,7 +96,7 @@ struct EventEditView_Previews: PreviewProvider {
         teams: ["Équipe 1", "Équipe 2"],
         members: ["Membre 1", "Membre 2"]
     )
-
+    
     static var previews: some View {
         EventEditView(event: $event, eventController: EventController())
     }

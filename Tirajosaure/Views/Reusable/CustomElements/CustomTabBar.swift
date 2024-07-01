@@ -32,7 +32,8 @@ struct CustomTabBar: View {
                             Text(tabItems[index].title)
                                 .font(.caption)
                         }
-                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
                         .foregroundColor(selectedIndex == index ? selectedColor : unselectedColor)
                     }
                     Spacer()

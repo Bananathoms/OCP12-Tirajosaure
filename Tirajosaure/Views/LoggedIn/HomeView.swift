@@ -9,12 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var userController = UserController()
+    @ObservedObject var languageController = LanguageController.shared
     @State private var selectedIndex = 0
 
-    let tabItems = [
-        TabItem(title: LocalizedString.drawTab.rawValue.localized, iconName: IconNames.pencilCircle.rawValue),
-        TabItem(title: LocalizedString.teamsTab.rawValue.localized, iconName: IconNames.person3.rawValue),
-        TabItem(title: LocalizedString.settingsTab.rawValue.localized, iconName: IconNames.gearshape.rawValue)
+    @State private var tabItems: [TabItem] = [
+        TabItem(title: LocalizedString.drawTab.localized, iconName: IconNames.pencilCircle.rawValue),
+        TabItem(title: LocalizedString.teamsTab.localized, iconName: IconNames.person3.rawValue),
+        TabItem(title: LocalizedString.settingsTab.localized, iconName: IconNames.gearshape.rawValue)
     ]
 
     var body: some View {
@@ -46,6 +47,17 @@ struct HomeView: View {
         }
         .background(Color.skyBlue)
         .edgesIgnoringSafeArea([.bottom])
+        .onChange(of: languageController.currentLanguage) { _ in
+            updateTabItems()
+        }
+    }
+    
+    private func updateTabItems() {
+        tabItems = [
+            TabItem(title: LocalizedString.drawTab.localized, iconName: IconNames.pencilCircle.rawValue),
+            TabItem(title: LocalizedString.teamsTab.localized, iconName: IconNames.person3.rawValue),
+            TabItem(title: LocalizedString.settingsTab.localized, iconName: IconNames.gearshape.rawValue)
+        ]
     }
 }
 

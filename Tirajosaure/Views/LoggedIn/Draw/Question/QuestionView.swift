@@ -16,33 +16,7 @@ struct QuestionView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if questionController.isLoading {
-                    Spacer()
-                    ProgressView(LocalizedString.loading.localized)
-                    Spacer()
-                } else {
-                    if questionController.questions.isEmpty {
-                        emptyStateView
-                    } else {
-                        questionListView
-                    }
-                    Button(action: {
-                        navigateToAdd.toggle()
-                    }) {
-                        AddButton(
-                            text: LocalizedString.addNewQuestion.rawValue.localized,
-                            image: IconNames.plusCircleFill.systemImage,
-                            buttonColor: .antiqueWhite,
-                            textColor: .oxfordBlue,
-                            width: 300,
-                            height: 50
-                        )
-                        .padding()
-                    }
-                    .navigationDestination(isPresented: $navigateToAdd) {
-                        AddQuestionView(questionController: questionController)
-                    }
-                }
+                questionController.isLoading ? AnyView(LoadingStateView()) : AnyView(questionListStateView)
             }
             .frame(maxWidth: .infinity)
             .background(Color.skyBlue)
@@ -53,16 +27,18 @@ struct QuestionView: View {
                         .padding(.vertical)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        withAnimation {
-                            isEditing.toggle()
+                    if !questionController.questions.isEmpty {
+                        Button(action: {
+                            withAnimation {
+                                isEditing.toggle()
+                            }
+                        }) {
+                            Image(systemName: isEditing ? IconNames.checkmarkCircleFill.rawValue : IconNames.pencilCircleFill.rawValue)
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .padding(.top)
+                                .foregroundColor(.oxfordBlue)
                         }
-                    }) {
-                        Image(systemName: isEditing ? IconNames.checkmarkCircleFill.rawValue : IconNames.pencilCircleFill.rawValue)
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .padding(.top)
-                            .foregroundColor(.oxfordBlue)
                     }
                 }
             }
@@ -74,40 +50,44 @@ struct QuestionView: View {
     }
     
     private var emptyStateView: some View {
-        VStack {
-            Text(LocalizedString.emptyQuestionsTitle.rawValue.localized)
-                .font(.customFont(.nunitoBold, size: 20))
-                .foregroundColor(.gray)
-                .padding(.top, 40)
-            Text(LocalizedString.emptyQuestionsMessage.rawValue.localized)
-                .font(.customFont(.nunitoRegular, size: 16))
-                .foregroundColor(.gray)
-                .multilineTextAlignment(.center)
-                .padding([.leading, .trailing], 20)
-                .padding(.top, 10)
-            Spacer()
-        }
+        EmptyStateView(
+            title: LocalizedString.emptyQuestionsTitle.rawValue.localized,
+            message: LocalizedString.emptyQuestionsMessage.rawValue.localized
+        )
     }
     
+    private var questionListStateView: some View {
+        ReusableListStateView(
+            data: questionController.questions,
+            emptyView: emptyStateView,
+            contentView: questionListView,
+            buttonText: LocalizedString.addNewQuestion.rawValue.localized,
+            buttonImage: IconNames.plusCircleFill.systemImage,
+            buttonColor: .antiqueWhite,
+            textColor: .oxfordBlue,
+            destinationView: AddQuestionView(questionController: questionController),
+            navigateToAdd: $navigateToAdd,
+            buttonAction: {
+                MixpanelEvent.deleteQuestionButtonClicked.trackEvent()
+            }
+        )
+    }
+
     private var questionListView: some View {
-        List {
-            ForEach(questionController.questions) { question in
+        ReusableListView(
+            data: questionController.questions,
+            content: { question in
                 QuestionItem(
                     question: question,
                     destination: {
                         QuestionDetailView(question: question, questionController: questionController)
                     }
                 )
-                .padding(.trailing)
-                .listRowInsets(EdgeInsets())
-                .listRowBackground(Color.antiqueWhite)
-            }
-            .onDelete(perform: questionController.removeQuestion)
-            .onMove(perform: questionController.moveQuestion)
-        }
-//        .contentMargins(.top, 24)
-        .environment(\.editMode, .constant(isEditing ? .active : .inactive))
-        .scrollContentBackground(.hidden)
+            },
+            onDelete: questionController.removeQuestion,
+            onMove: questionController.moveQuestion,
+            isEditing: isEditing
+        )
     }
 }
 

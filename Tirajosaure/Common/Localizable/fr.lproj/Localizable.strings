@@ -16,65 +16,74 @@
 "logout_button" = "Déconnexion";
 "reset_password_title" = "Réinitialiser le mot de passe";
 "reset_password_button" = "Réinitialiser";
-"password_reset_email_sent" = "Un email de reinitialisation à été envoyé";
+"password_reset_email_sent" = "Email de réinitialisation du mot de passe envoyé";
 
-// Erreurs générales
+// General Errors
 "network_error_message" = "Une erreur réseau s'est produite. Veuillez réessayer.";
 "unknown_error_message" = "Une erreur inconnue s'est produite.";
 
-// Erreurs de validation
+// Validation Errors
 "validation_error_message" = "Veuillez vérifier les champs de saisie pour les erreurs.";
-"parse_error_message" = "Erreur serveur : %@";
+"parse_error_message" = "Erreur du serveur : %@";
 "passwords_do_not_match" = "Les mots de passe ne correspondent pas.";
-"invalid_email" = "Veuillez entrer un e-mail valide.";
+"invalid_email" = "Veuillez entrer un email valide.";
 "empty_password" = "Veuillez entrer un mot de passe.";
 "first_name_missing" = "Veuillez entrer un prénom.";
 "last_name_missing" = "Veuillez entrer un nom.";
-"password_length_error" = "Le mot de passe doit comporter au moins 8 caractères.";
+"password_length_error" = "Le mot de passe doit contenir au moins 8 caractères.";
 "password_uppercase_error" = "Le mot de passe doit contenir au moins une lettre majuscule.";
 
-// Message d'erreur
+// Error Messages
 "failed_to_request_password_reset" = "Échec de la demande de réinitialisation du mot de passe";
 "failed_to_decode_json_response" = "Échec du décodage de la réponse JSON";
-"unknown_error" = "Une erreur inconnue est survenue";
-"default_message" = "Aucune chaîne de réponse";
+"unknown_error" = "Une erreur inconnue s'est produite";
+"default_message" = "Aucune réponse string";
 "empty_question_title" = "Le titre de la question ne peut pas être vide";
 "insufficient_options" = "Une question doit avoir au moins deux options";
 "failed_to_save_question" = "Échec de l'enregistrement de la question";
 "failed_to_update_question" = "Échec de la mise à jour de la question";
 "failed_to_delete_question" = "Échec de la suppression de la question";
-"failed_to_load_questions" = "Échec du chargement des questions";
 "failed_to_fetch_questions" = "Échec de la récupération des questions : %@";
+"failed_to_load_questions" = "Échec du chargement des questions";
 "failed_to_save_user_data" = "Échec de l'enregistrement des données utilisateur";
 "failed_to_load_user_data" = "Échec du chargement des données utilisateur";
 "failed_to_save_draw_result" = "Échec de l'enregistrement du résultat du tirage";
 "failed_to_load_draw_results" = "Échec du chargement des résultats du tirage";
-"invalid_question_id" = "ID de la question invalide";
-"network_data_missing" = "Une erreur réseau s'est produite : Les données n’ont pas pu être lues car elles sont introuvables.";
+"invalid_question_id" = "ID de question invalide";
+"network_data_missing" = "Une erreur réseau s'est produite : les données n'ont pas pu être lues car elles manquent.";
 "network_error_description" = "Une erreur réseau s'est produite : %@";
 "network_error_with_response" = "Une erreur réseau s'est produite : %@ : %@";
-"failed_to_save_teams_draw" = "Échec de l'enregistrement du tirage des équipes: %@";
-"failed_to_fetch_teams_draw" = "Échec de la récupération du tirage des équipes: %@";
-"failed_to_fetch_team_results" = "Échec de la récupération des résultats de l'équipe: %@";
-"invalid_teams_draw_id" = "ID TeamsDraw invalide";
-"invalid_team_result_id" = "ID TeamResult invalide";
-"invalid_event_id" = "ID de l'événement invalide";
+"failed_to_fetch_events" = "Échec de la récupération des événements : %@";
+"user_id_not_found" = "ID utilisateur non trouvé.";
+"event_title_empty" = "Le titre de l'événement est vide.";
+"not_enough_valid_options" = "Pas assez d'options valides.";
+"not_enough_valid_event_options" = "Il doit y avoir au moins autant de membres que d'équipes, et chaque membre doit avoir un nom.";
+"failed_to_save_event" = "Échec de l'enregistrement de l'événement : %@";
+"failed_to_update_event" = "Échec de la mise à jour de l'événement : %@";
+"failed_to_delete_event" = "Échec de la suppression de l'événement : %@";
+"failed_to_save_teams_draw" = "Échec de l'enregistrement du tirage des équipes : %@";
+"failed_to_fetch_teams_draw" = "Échec de la récupération du tirage des équipes : %@";
+"failed_to_fetch_team_results" = "Échec de la récupération des résultats d'équipe : %@";
+"invalid_teams_draw_id" = "ID de tirage des équipes invalide.";
+"invalid_team_result_id" = "ID de résultat d'équipe invalide.";
+"invalid_event_id" = "ID d'événement invalide.";
+"invalid_user_id" = "ID utilisateur invalide.";
 
-// Erreurs d'authentification
+// Authentication Errors
 "authentication_error_message" = "Nom d'utilisateur ou mot de passe invalide.";
 
-// Messages de succès
+// Success Messages
 "successful_sign_in" = "Utilisateur %@ %@ connecté avec succès.";
-"successful_sign_up" = "Utilisateur %@ %@ enregistré avec succès.";
+"successful_sign_up" = "Utilisateur %@ %@ inscrit avec succès.";
 
-// Écran de connexion
+// Sign-In Screen
 "signin_title" = "Connexion";
 "no_account_prompt" = "Vous n'avez pas de compte ?";
 "signup_here" = "Inscrivez-vous ici";
 "forgot_password" = "Mot de passe oublié ?";
 "signin_button" = "Se connecter";
 
-// Écran d'inscription
+// Sign-Up Screen
 "signup_title" = "Inscription";
 
 // HomeView
@@ -85,50 +94,58 @@
 // Question
 "questions_title" = "Questions";
 "add_new_question" = "Ajouter une nouvelle question";
-"edit_question" = "Modifier une question";
+"edit_question" = "Modifier la question";
 "question_title_placeholder" = "Titre de la question";
+"answers_list_placeholder" = "Liste des réponses";
 "enter_question_title" = "Entrez le titre de la question";
-"add_element" = "Ajouter un élément";
-"elements" = "Éléments";
+"add_answer" = "Ajouter une réponse";
+"answer" = "Réponse";
 "draw" = "Tirage";
 
-// Historique et Statistiques
+// History and Statistics
 "history_title" = "Historique";
 "statistics_title" = "Statistiques";
-"total_draw" = "Total";
+"total_draw" = "Total des tirages";
 "option_label" = "Option";
-"count_label" = "Compte";
+"count_label" = "Nombre";
 "draws_label" = "tirages";
 "no_results_yet" = "Aucun résultat pour le moment";
 
-//Liste de question vide
+//Empty QuestionList
 "empty_questions_title" = "Aucune question disponible.";
 "empty_questions_message" = "Appuyez sur le bouton ci-dessous pour ajouter votre première question.";
 
-//Equipe
+//Team
 "default_team_name" = "Équipe";
 "launch_draw" = "Lancer le tirage";
 "history" = "Historique";
 "loading" = "Chargement...";
 "no_draw_found" = "Aucun tirage trouvé";
-"draw_on" = "Tirage du";
+"no_draw_found_message" = "Faites un tirage pour avoir un historique";
+"draw_on" = "Tirage le";
 
-//Ajout d'événement
-"event_name" = "Nom de l'évènement";
-"event_parameters" = "Paramètre de l'évènement";
-"member_list" = "Liste des membres";
-"add_event" = "Ajouter l'événement";
-
-//Edition d'événement
-"edit_event" = "Modifier un évènement";
-
-//TeamVIew
-"create_new_event" = "Créer un nouvel événement";
+//Event
+"event_name" = "Nom de l'événement";
+"event_parameters" = "Paramètres de l'événement";
+"event_title_placeholder" = "Titre de l'événement";
+"members_list_placeholder" = "Liste des membres";
+"add_event" = "Ajouter un événement";
+"edit_event" = "Modifier l'événement";
+"add_new_event" = "Ajouter un nouvel événement";
 "events" = "Événements";
 "no_events_available" = "Aucun événement disponible";
 "press_button_to_create_event" = "Appuyez sur le bouton ci-dessous pour créer un nouvel événement.";
 "team_number" = "Équipe %d";
+"member" = "Membre";
+"members" = "Membres";
+"add_member" = "Ajouter un membre";
 
-//Membres
-"members" = "membres";
+//Parameters
+"language" = "Langue";
+"user_informations" = "Informations";
+"selected_language" = "Langue sélectionnée";
 
+//ParameterList
+"equitable_distribution" = "Répartition équitable";
+"number_of_teams" = "Nombre d'équipes : %d";
+"team_name" = "Nom de l'équipe %d";

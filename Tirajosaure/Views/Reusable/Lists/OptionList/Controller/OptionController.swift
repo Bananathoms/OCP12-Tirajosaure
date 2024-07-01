@@ -31,4 +31,11 @@ class OptionsController: ObservableObject {
     func moveOption(from source: IndexSet, to destination: Int) {
         self.options.move(fromOffsets: source, toOffset: destination)
     }
+    
+    /// Calculates the height of the list based on the number of options.
+    func calculateListHeight() -> CGFloat {
+        let baseHeight: CGFloat = 100.0
+        let rowHeight: CGFloat = 44.0 
+        return baseHeight + (rowHeight * CGFloat(options.count))
+    }
 }

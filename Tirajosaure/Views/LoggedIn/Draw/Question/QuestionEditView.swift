@@ -21,7 +21,7 @@ struct QuestionEditView: View {
                     fieldName: LocalizedString.enterQuestionTitle.rawValue.localized
                 )
                 
-                OptionsListView(controller: optionsController)
+                OptionsListView(title: LocalizedString.answersListPlaceholder.localized, addElement: LocalizedString.addAnswer.localized, element: LocalizedString.answer.localized, controller: optionsController)
                 
                 Spacer()
             }
