@@ -79,6 +79,7 @@ class UserService: ObservableObject {
             switch result {
             case .success(let user):
                 self.setUser(newUser: user)
+                self.saveUserData(user: user)
                 completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))
@@ -104,6 +105,7 @@ class UserService: ObservableObject {
             switch result {
             case .success(let user):
                 self.setUser(newUser: user)
+                self.saveUserData(user: user) 
                 completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))
@@ -168,6 +170,10 @@ class UserService: ObservableObject {
         do {
             let data = try JSONEncoder().encode(user)
             userDefaults.set(data, forKey: userKey)
+            userDefaults.set(user.firstName, forKey: UserDefaultsKeys.firstName.key)
+            userDefaults.set(user.lastName, forKey: UserDefaultsKeys.lastName.key)
+            userDefaults.set(user.email, forKey: UserDefaultsKeys.email.key)
+            userDefaults.synchronize()
         } catch {
             SnackBarService.current.error("\(ErrorMessage.failedToSaveUserData.rawValue): \(error.localizedDescription)")
         }

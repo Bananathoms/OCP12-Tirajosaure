@@ -85,6 +85,7 @@ struct SettingsView: View {
             }
             .padding(.top)
             .background(Color.skyBlue)
+            .onAppear(perform: loadUserDefaults)
             .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name(DefaultValues.languageChanged))) { _ in
                 self.selectedLanguage = languageController.getCurrentLanguage()
             }
@@ -131,6 +132,18 @@ struct SettingsView: View {
             return language.displayName
         }
         return LocalizedString.selectLanguage.localized
+    }
+    
+    private func loadUserDefaults() {
+        if let firstName = UserDefaults.standard.string(forKey: UserDefaultsKeys.firstName.key) {
+            userFirstName = firstName
+        }
+        if let lastName = UserDefaults.standard.string(forKey: UserDefaultsKeys.lastName.key) {
+            userLastName = lastName
+        }
+        if let email = UserDefaults.standard.string(forKey: UserDefaultsKeys.email.key) {
+            userEmail = email
+        }
     }
 }
 
