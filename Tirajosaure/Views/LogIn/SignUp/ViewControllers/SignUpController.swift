@@ -19,10 +19,36 @@ class SignUpController: ObservableObject {
 
     /// Initiates the sign-up process with the provided details.
     func signUp() {
+        guard !firstName.isEmpty else {
+            SnackBarService.current.error(LocalizedString.firstNameMissing.localized)
+            return
+        }
+        
+        guard !lastName.isEmpty else {
+            SnackBarService.current.error(LocalizedString.lastNameMissing.localized)
+            return
+        }
+        
+        guard email.isValidEmail else {
+            SnackBarService.current.error(LocalizedString.invalidEmail.localized)
+            return
+        }
+        
         guard password == confirmPwd else {
             SnackBarService.current.error(LocalizedString.passwordsDoNotMatch.localized)
             return
         }
+        
+        guard password.count >= 8 else {
+            SnackBarService.current.error(LocalizedString.passwordLengthError.localized)
+            return
+        }
+        
+        guard password.hasUppercase() else {
+            SnackBarService.current.error(LocalizedString.passwordUppercaseError.localized)
+            return
+        }
+        
         isLoading = true
         UserService.current.signUp(email: email, firstName: firstName, lastName: lastName, password: password) { [weak self] result in
             guard let self = self else { return }
