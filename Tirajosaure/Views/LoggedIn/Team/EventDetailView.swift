@@ -45,7 +45,7 @@ struct EventDetailView: View {
                         text: LocalizedString.launchDraw.localized,
                         isLoading: teamDistributionController.isLoading,
                         onClick: {
-                            MixpanelEvent.launchDrawButtonClicked.trackEvent()
+                            MixpanelEvent.launchTeamDrawButtonClicked.trackEvent()
                             startDistribution()
                         },
                         buttonColor: .antiqueWhite,
