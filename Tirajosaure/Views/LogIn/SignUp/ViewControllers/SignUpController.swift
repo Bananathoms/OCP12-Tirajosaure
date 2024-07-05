@@ -73,8 +73,6 @@ class SignUpController: ObservableObject {
             switch result {
             case .success(let user):
                 self.user = user
-                let firstName = user.firstName ?? DefaultValues.emptyString
-                let lastName = user.lastName ?? DefaultValues.emptyString
                 UserService.current.setUser(newUser: user)
             case .failure(let error):
                 SnackBarService.current.error(error.localizedDescription)
