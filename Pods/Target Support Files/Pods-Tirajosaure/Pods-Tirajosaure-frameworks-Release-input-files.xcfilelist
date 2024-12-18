@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-Tirajosaure/Pods-Tirajosaure-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Mixpanel-swift/Mixpanel.framework
+${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework
+${BUILT_PRODUCTS_DIR}/ParseSwift/ParseSwift.framework
+${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework
